@@ -10,7 +10,7 @@ class System
 
         $this->domain = $this->getServer('HTTP_HOST');
 
-        $this->system = $this->dirExists('domain/'.$this->domain);
+        $this->system = $this->dirExists('system/'.$this->domain);
 
     }
     private function getServer($name = false) {
@@ -36,13 +36,13 @@ class System
 
             }else{
 
-                return 'domain/default';
+                return 'system/default';
 
             }
 
         }else{
 
-            return 'domain/default';
+            return 'system/default';
 
         }
 
