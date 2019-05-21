@@ -40,4 +40,25 @@ class App
         }
 
     }
+    public function dirExists($path = false) {
+
+        if($path) {
+
+            if(is_dir($path)) {
+
+                return true;
+
+            }else{
+
+                return false;
+
+            }
+
+        }else{
+
+            return false;
+
+        }
+
+    }
 }
