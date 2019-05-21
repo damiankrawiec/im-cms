@@ -5,7 +5,7 @@ require_once 'php/class/App.php';
 
 $app = new App();
 
-$appData = array(
-    'domain' => $app->getUrl('HTTP_HOST')
-);
+$appData = array();
+
+$appData['domain'] = $app->getServer('HTTP_HOST');
 
