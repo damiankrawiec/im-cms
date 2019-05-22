@@ -48,9 +48,21 @@ class System
 
     }
 
+    public function getHead() {
+
+        echo '<link rel="stylesheet" href="'.$this->system.'/css/main.css">';
+
+    }
+
     public function getContent() {
 
         require_once $this->system.'/content.php';
+
+    }
+
+    public function getBody() {
+
+        echo '<script src="'.$this->system.'/css/main.css">';
 
     }
 }
