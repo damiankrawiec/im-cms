@@ -3,8 +3,12 @@ require_once 'app/composer/vendor/autoload.php'; // Autoload files using Compose
 
 require_once 'config/setting.php';
 
-require_once 'php/class/Setting.php';
+require_once 'php/class/language.class.php';
 
-require_once 'php/class/System.php';
+require_once 'config/setting.class.php';
 
-$system = new System();
+require_once 'php/class/database.class.php';
+
+require_once 'php/class/system.class.php';
+
+$system = new system();

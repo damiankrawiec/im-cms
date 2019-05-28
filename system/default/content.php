@@ -1,2 +1,3 @@
-<?php
-echo 'default content';
+<div class="container-fluid">
+domyślny content
+</div>
