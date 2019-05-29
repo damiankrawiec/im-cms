@@ -1,3 +1,8 @@
 <div class="container-fluid">
-domyślny content
+<?php
+
+$db->prepare('select * from im_label where label_id = ?');
+$db->run('select:all', array(1));
+
+?>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class System extends Database
+class System extends Setting
 {
     public $domain;
 
@@ -23,10 +23,6 @@ class System extends Database
             var_dump('Require system structure fault in: '.$this->domain);
 
             exit();
-
-        }else{
-
-            parent::__construct();
 
         }
 
@@ -142,6 +138,12 @@ class System extends Database
 
     }
 
+    public function systemName() {
+
+        return $this->system;
+
+    }
+
     public function getHead() {
 
         if($this->checkSystemStructure) {
@@ -152,7 +154,7 @@ class System extends Database
 
     }
 
-    public function getContent() {
+    public function getContent($db) {
 
         if($this->checkSystemStructure) {
 

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <?php $system->getContent(); ?>
+    <?php $system->getContent($db); ?>
 
     <?php require_once 'section/body.php'; ?>
 
