@@ -4,11 +4,15 @@
 class Database extends systemSetting
 {
 
+    private $sql;
+
     private $pdo;
 
     private $prepare;
 
     public function __construct() {
+
+        $this->sql = false;
 
         $this->pdo = false;
 
@@ -36,111 +40,153 @@ class Database extends systemSetting
 
     }
 
-//    private function execute($parameter = false) {
-//
-//        $this->pdo->query("SET NAMES 'utf8'");
-//
-//        if($this->prepare) {
-//
-//            if($parameter and is_array($parameter)) {
-//
-//                $execute = $this->prepare->execute($parameter);
-//
-//            }else{
-//
-//                $execute = $this->prepare->execute();
-//
-//            }
-//
-//            if($execute) {
-//
-//                if($lastInsertId = $this->pdo->lastInsertId()) {
-//
-//                    return $lastInsertId;
-//
-//                }else{
-//
-//                    return true;
-//
-//                }
-//
-//            }else{
-//
-//                echo '[ERROR]: execute()';
-//
-//                //Usunac w srodowisku produkcyjnym
-//                var_dump($this->prepare);
-//                //--
-//
-//                return false;
-//
-//            }
-//
-//        }else{
-//
-//            echo '[ERROR]: execute()';
-//
-//            return false;
-//        }
-//
-//    }
+    private function bindType($type) {
+
+        $typeReturn = false;
+
+        switch ($type) {
+
+            case 'int':
+                $typeReturn = PDO::PARAM_INT;
+                break;
+
+            default:
+                var_dump('Wrong binding type: '.$type);
+                exit();
+                break;
+
+        }
+
+        return $typeReturn;
+
+    }
 
     public function prepare($sql = false) {
 
         if($sql and $this->pdo) {
 
-            $this->prepare = $this->pdo->prepare($sql);
+            $this->sql = $sql;
+
+            $this->prepare = $this->pdo->prepare($this->sql);
 
         }
 
     }
 
-    public function run() {
+
+    /**
+     * @param bool $parameter
+     *
+     * Parametr bedacy tablica ktora w petli przyjmuje "bindy" do zapytania SQL
+     * liczba parametrow do zbindowania w zapytaniu select (:) musi się rownac wielkosci tablicy (count())
+     * Pozycje w tablicy $parameter:
+     * 1. odniesienie do zmiennej w zapytaniu sql (name)
+     * 2. wartosc (value)
+     * 3. typ zmiennej (type)
+     */
+    public function run($parameter = false, $display = false) {
 
         if($this->prepare) {
 
-            $this->prepare->execute();
-
             $this->pdo->query("SET NAMES 'utf8'");
 
+            $execute = false;
+
+            if($parameter and is_array($parameter) and count($parameter) > 0) {
+
+                if(substr_count($this->sql, ':') == count($parameter)) {
+
+                    foreach ($parameter as $p) {
+
+                        $execute = $this->prepare->bindValue($p['name'], $p['value'], $this->bindType($p['type']));
+
+                    }
+
+                }else{
+
+                    var_dump('SQL query variable unmatch: '.$this->sql);
+
+                    exit();
+
+                }
+
+            }else{
+
+                $execute = $this->prepare->execute();
+
+            }
+
+            if ($execute) {
+
+                if ($display) {
+
+                    if (stristr($display, 'select:')) {
+
+                        $displayType = explode(':', $display);
+
+                        $displayReturn = false;
+
+                        switch ($displayType[1]) {
+
+                            case 'array-one':
+                                $displayReturn = $this->prepare->fetch();
+                                break;
+
+                            case 'array-all':
+                                $displayReturn = $this->prepare->fetchAll();
+                                break;
+
+                            case 'object-one':
+                                $displayReturn = $this->prepare->fetchObject();
+                                break;
+
+                            default:
+                                $displayReturn = $this->prepare->fetchAll();
+                                break;
+
+                        }
+
+                        return $displayReturn;
+
+                    }else{
+
+                        var_dump('wrong delimiter in select run()');
+
+                        exit();
+
+                    }
+
+                } else{
+
+                    $executeReturn = false;
+
+                    if($this->pdo->lastInsertId()) {
+
+                        $executeReturn = $this->pdo->lastInsertId();
+
+                    }else{
+
+                        $executeReturn = true;
+
+
+                    }
+
+                    return $executeReturn;
+
+                }
+
+            } else {
+
+                //Usunac w srodowisku produkcyjnym
+
+                var_dump('error execute() in run()');
+
+                var_dump($this->prepare);
+
+                exit();
+            }
+
         }
-
-
-
-//        if ($execute) {
-//
-//            if ($type) {
-//
-//                if (stristr($type, 'select:')) {
-//
-//                    $type = explode(':', $type);
-//
-//                    switch ($type[1]) {
-//
-//                        case 'all':
-//                            return $this->prepare->fetchAll();
-//                            break;
-//
-//                        case 'object':
-//                            return $this->prepare->fetchObject();
-//                            break;
-//
-//                        default:
-//                            return $this->prepare->fetchAll();
-//                            break;
-//
-//                    }
-//
-//                }
-//
-//            } else return $execute;
-//
-//        } else {
-//
-//            echo '[ERROR]: run()';
-//
-//            exit();
-//        }
 
     }
 
