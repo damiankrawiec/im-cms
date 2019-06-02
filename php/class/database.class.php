@@ -3,11 +3,16 @@
 
 class Database extends systemSetting
 {
+
     private $pdo;
 
     private $prepare;
 
     public function __construct() {
+
+        $this->pdo = false;
+
+        $this->prepare = false;
 
         $this->connect();
 
@@ -23,8 +28,7 @@ class Database extends systemSetting
                 $this->password
             );
 
-        }
-        catch(PDOException $err){
+        }catch(PDOException $err){
 
             $err->getMessage();
 
@@ -32,58 +36,58 @@ class Database extends systemSetting
 
     }
 
-    private function execute($parameter = false) {
-
-        $this->pdo->query("SET NAMES 'utf8'");
-
-        if($this->prepare) {
-
-            if($parameter and is_array($parameter)) {
-echo 'ok';
-                $execute = $this->prepare->execute($parameter);
-
-            }else{
-
-                $execute = $this->prepare->execute();
-
-            }
-
-            if($execute) {
-
-                if($lastInsertId = $this->pdo->lastInsertId()) {
-
-                    return $lastInsertId;
-
-                }else{
-
-                    return true;
-
-                }
-
-            }else{
-
-                echo '[ERROR]: execute()';
-
-                //Usunac w srodowisku produkcyjnym
-                var_dump($this->prepare);
-                //--
-
-                return false;
-
-            }
-
-        }else{
-
-            echo '[ERROR]: execute()';
-
-            return false;
-        }
-
-    }
+//    private function execute($parameter = false) {
+//
+//        $this->pdo->query("SET NAMES 'utf8'");
+//
+//        if($this->prepare) {
+//
+//            if($parameter and is_array($parameter)) {
+//
+//                $execute = $this->prepare->execute($parameter);
+//
+//            }else{
+//
+//                $execute = $this->prepare->execute();
+//
+//            }
+//
+//            if($execute) {
+//
+//                if($lastInsertId = $this->pdo->lastInsertId()) {
+//
+//                    return $lastInsertId;
+//
+//                }else{
+//
+//                    return true;
+//
+//                }
+//
+//            }else{
+//
+//                echo '[ERROR]: execute()';
+//
+//                //Usunac w srodowisku produkcyjnym
+//                var_dump($this->prepare);
+//                //--
+//
+//                return false;
+//
+//            }
+//
+//        }else{
+//
+//            echo '[ERROR]: execute()';
+//
+//            return false;
+//        }
+//
+//    }
 
     public function prepare($sql = false) {
 
-        if($this->pdo and $sql) {
+        if($sql and $this->pdo) {
 
             $this->prepare = $this->pdo->prepare($sql);
 
@@ -91,52 +95,52 @@ echo 'ok';
 
     }
 
-    public function run($type = false, $parameter = false) {
+    public function run() {
 
-        if($parameter and is_array($parameter)) {
+        if($this->prepare) {
 
-            $execute = $this->execute($parameter);
+            $this->prepare->execute();
 
-        }else{
-
-            $execute = $this->execute();
+            $this->pdo->query("SET NAMES 'utf8'");
 
         }
 
-        if ($execute) {
 
-            if ($type) {
 
-                if (stristr($type, 'select:')) {
-
-                    $type = explode(':', $type);
-
-                    switch ($type[1]) {
-
-                        case 'all':
-                            return $this->prepare->fetchAll();
-                            break;
-
-                        case 'object':
-                            return $this->prepare->fetchObject();
-                            break;
-
-                        default:
-                            return $this->prepare->fetchAll();
-                            break;
-
-                    }
-
-                }
-
-            } else return $execute;
-
-        } else {
-
-            echo '[ERROR]: run()';
-
-            exit();
-        }
+//        if ($execute) {
+//
+//            if ($type) {
+//
+//                if (stristr($type, 'select:')) {
+//
+//                    $type = explode(':', $type);
+//
+//                    switch ($type[1]) {
+//
+//                        case 'all':
+//                            return $this->prepare->fetchAll();
+//                            break;
+//
+//                        case 'object':
+//                            return $this->prepare->fetchObject();
+//                            break;
+//
+//                        default:
+//                            return $this->prepare->fetchAll();
+//                            break;
+//
+//                    }
+//
+//                }
+//
+//            } else return $execute;
+//
+//        } else {
+//
+//            echo '[ERROR]: run()';
+//
+//            exit();
+//        }
 
     }
 

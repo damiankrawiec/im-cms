@@ -154,9 +154,9 @@ class System extends Setting
 
     }
 
-    public function getContent($db) {
+    public function getContent($db = false) {
 
-        if($this->checkSystemStructure) {
+        if($this->checkSystemStructure and $db) {
 
             require_once $this->system . '/content.php';
 

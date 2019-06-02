@@ -8,5 +8,7 @@
       "name": "author's name",
       "email": "email@example.com"
     }
-  ]
+  ],
+  "require": {
+  }
 }

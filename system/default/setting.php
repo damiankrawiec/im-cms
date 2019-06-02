@@ -4,10 +4,10 @@
 class systemSetting
 {
 
-    protected $dsn = "mysql:host=localhost;database=im-cms;port=3306";
+    protected $dsn = "mysql:host=localhost;dbname=default;port=3306";
 
-    protected $user = 'im-cms';
+    protected $user = 'default';
 
-    protected $password = 'yyt8d7XLy9kF4Cn4';
+    protected $password = 'pKy9kwDST8lWeiwo';
 
 }
