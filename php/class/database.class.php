@@ -61,7 +61,7 @@ class Database extends systemSetting
 
     }
 
-    public function prepare($sql = false) {
+    private function prepare($sql = false) {
 
         if($sql and $this->pdo) {
 
@@ -84,7 +84,7 @@ class Database extends systemSetting
      * 2. wartosc (value)
      * 3. typ zmiennej (type)
      */
-    public function run($parameter = false, $display = false) {
+    private function run($parameter = false, $display = false) {
 
         if($this->prepare) {
 
@@ -98,65 +98,60 @@ class Database extends systemSetting
 
                     foreach ($parameter as $p) {
 
-                        $execute = $this->prepare->bindValue($p['name'], $p['value'], $this->bindType($p['type']));
+                        $this->prepare->bindValue($p['name'], $p['value'], $this->bindType($p['type']));
 
                     }
 
                 }else{
 
-                    var_dump('SQL query variable unmatch: '.$this->sql);
+                    var_dump('SQL query variables do not match: '.$this->sql);
 
                     exit();
 
                 }
 
-            }else{
-
-                $execute = $this->prepare->execute();
-
             }
+
+            $execute = $this->prepare->execute();
 
             if ($execute) {
 
+                //select query
                 if ($display) {
-
-                    if (stristr($display, 'select:')) {
-
-                        $displayType = explode(':', $display);
 
                         $displayReturn = false;
 
-                        switch ($displayType[1]) {
+                        //When return many records (more than 1), then return 2D array
+                        //When return one record, then return object with his properties
+                        switch ($display) {
 
-                            case 'array-one':
-                                $displayReturn = $this->prepare->fetch();
+                            case 'all':
+                                $arrayRow = $this->prepare->fetchAll();
+                                if(count($arrayRow) > 0) {
+
+                                    $displayReturn = $arrayRow;
+
+                                }else{
+
+                                    $displayReturn = false;
+
+                                }
                                 break;
 
-                            case 'array-all':
-                                $displayReturn = $this->prepare->fetchAll();
-                                break;
-
-                            case 'object-one':
+                            case 'one':
                                 $displayReturn = $this->prepare->fetchObject();
                                 break;
 
-                            default:
-                                $displayReturn = $this->prepare->fetchAll();
-                                break;
 
                         }
 
+                        //Return "false" when count of row is 0
                         return $displayReturn;
 
-                    }else{
 
-                        var_dump('wrong delimiter in select run()');
 
-                        exit();
-
-                    }
-
-                } else{
+                //insert, update, delete query
+                }else{
 
                     $executeReturn = false;
 
@@ -177,14 +172,30 @@ class Database extends systemSetting
 
             } else {
 
-                //Usunac w srodowisku produkcyjnym
+                //Remove in "production environment"
 
                 var_dump('error execute() in run()');
 
-                var_dump($this->prepare);
+                var_dump($this->sql);
 
                 exit();
             }
+
+        }
+
+    }
+
+    public function sql($sql = false) {
+
+        if($sql) {
+
+            $this->prepare($sql['query']);
+
+            return $this->run($sql['parameter'], $sql['display']);
+
+        }else{
+
+            var_dump('wrong array sql parameter');
 
         }
 
