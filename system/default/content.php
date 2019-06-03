@@ -1,15 +1,18 @@
 <div class="container-fluid">
 <?php
 
-$sql = array(
-    'query' => 'select * from im_object where object_id > :id',
-    'parameter' => array(
-            array('name' => ':id', 'value' => 1, 'type' => 'int')
-    ),
-    'display' => 'all'
+$sql = 'select * from im_object where object_id > :id and object_id < :id2';
+
+$db->prepare($sql);
+
+$parameter = array(
+    array('name' => ':id', 'value' => 1, 'type' => 'int'),
+    array('name' => ':id2', 'value' => 3, 'type' => 'int')
 );
 
-$record = $db->sql($sql);
+$db->bind($parameter);
+
+$record = $db->run('all');
 
 var_dump($record);
 

@@ -42,12 +42,22 @@ class Database extends systemSetting
 
     private function bindType($type) {
 
-        $typeReturn = false;
-
         switch ($type) {
 
             case 'int':
                 $typeReturn = PDO::PARAM_INT;
+                break;
+
+            case 'string':
+                $typeReturn = PDO::PARAM_STR;
+                break;
+
+            case 'number':
+                $typeReturn = PDO::PARAM_STR;
+                break;
+
+            case 'bool':
+                $typeReturn = PDO::PARAM_BOOL;
                 break;
 
             default:
@@ -61,9 +71,11 @@ class Database extends systemSetting
 
     }
 
-    private function prepare($sql = false) {
+    public function prepare($sql = false) {
 
         if($sql and $this->pdo) {
+
+            $this->pdo->query("set names 'utf8'");
 
             $this->sql = $sql;
 
@@ -73,44 +85,40 @@ class Database extends systemSetting
 
     }
 
+    public function bind($parameter = false) {
 
-    /**
-     * @param bool $parameter
-     *
-     * Parametr bedacy tablica ktora w petli przyjmuje "bindy" do zapytania SQL
-     * liczba parametrow do zbindowania w zapytaniu select (:) musi się rownac wielkosci tablicy (count())
-     * Pozycje w tablicy $parameter:
-     * 1. odniesienie do zmiennej w zapytaniu sql (name)
-     * 2. wartosc (value)
-     * 3. typ zmiennej (type)
-     */
-    private function run($parameter = false, $display = false) {
+        if($parameter and is_array($parameter) and count($parameter) > 0) {
 
-        if($this->prepare) {
+            if(substr_count($this->sql, ':') == count($parameter)) {
 
-            $this->pdo->query("SET NAMES 'utf8'");
+                foreach ($parameter as $p) {
 
-            $execute = false;
-
-            if($parameter and is_array($parameter) and count($parameter) > 0) {
-
-                if(substr_count($this->sql, ':') == count($parameter)) {
-
-                    foreach ($parameter as $p) {
-
-                        $this->prepare->bindValue($p['name'], $p['value'], $this->bindType($p['type']));
-
-                    }
-
-                }else{
-
-                    var_dump('SQL query variables do not match: '.$this->sql);
-
-                    exit();
+                    $this->prepare->bindValue($p['name'], $p['value'], $this->bindType($p['type']));
 
                 }
 
+            }else{
+
+                var_dump('SQL query variables do not match: '.$this->sql);
+
+                exit();
+
             }
+
+        }else{
+
+            var_dump('Bind parameter must exists: '.$this->sql);
+
+            exit();
+
+        }
+
+    }
+
+    //display: all (array), one (object)
+    public function run($display = false) {
+
+        if($this->prepare) {
 
             $execute = $this->prepare->execute();
 
@@ -119,83 +127,68 @@ class Database extends systemSetting
                 //select query
                 if ($display) {
 
-                        $displayReturn = false;
+                    $displayReturn = false;
 
-                        //When return many records (more than 1), then return 2D array
-                        //When return one record, then return object with his properties
-                        switch ($display) {
+                    //When return many records (more than 1), then return 2D array
+                    //When return one record, then return object with his properties
+                    switch ($display) {
 
-                            case 'all':
-                                $arrayRow = $this->prepare->fetchAll();
-                                if(count($arrayRow) > 0) {
+                        case 'all':
+                            $arrayRow = $this->prepare->fetchAll();
+                            if(count($arrayRow) > 0) {
 
-                                    $displayReturn = $arrayRow;
+                                $displayReturn = $arrayRow;
 
-                                }else{
+                            }else{
 
-                                    $displayReturn = false;
+                                $displayReturn = false;
 
-                                }
-                                break;
+                            }
+                            break;
 
-                            case 'one':
-                                $displayReturn = $this->prepare->fetchObject();
-                                break;
+                        case 'one':
+                            $displayReturn = $this->prepare->fetchObject();
+                            break;
 
 
-                        }
+                    }
 
-                        //Return "false" when count of row is 0
-                        return $displayReturn;
+                    //Return "false" when count of row is 0
+                    return $displayReturn;
 
 
 
                 //insert, update, delete query
                 }else{
 
-                    $executeReturn = false;
-
                     if($this->pdo->lastInsertId()) {
 
-                        $executeReturn = $this->pdo->lastInsertId();
+                        return $this->pdo->lastInsertId();
 
                     }else{
 
-                        $executeReturn = true;
-
+                        return true;
 
                     }
 
-                    return $executeReturn;
-
                 }
 
-            } else {
+            }else{
 
                 //Remove in "production environment"
 
-                var_dump('error execute() in run()');
+                var_dump('Error execute() in run()');
 
                 var_dump($this->sql);
 
                 exit();
             }
 
-        }
-
-    }
-
-    public function sql($sql = false) {
-
-        if($sql) {
-
-            $this->prepare($sql['query']);
-
-            return $this->run($sql['parameter'], $sql['display']);
-
         }else{
 
-            var_dump('wrong array sql parameter');
+            var_dump('Prepare statement is not defined');
+
+            exit();
 
         }
 

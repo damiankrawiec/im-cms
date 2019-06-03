@@ -19,9 +19,3 @@ require_once $system->systemName().'/setting.php';
 require_once 'php/class/database.class.php';
 
 $db = new Database();
-
-$sql = array(
-    'query' => false,
-    'parameter' => false,
-    'display' => false
-);
