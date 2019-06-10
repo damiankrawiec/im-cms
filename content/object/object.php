@@ -11,5 +11,3 @@ $parameter = array(
 $db->bind($parameter);
 
 $record = $db->run('all');
-
-var_dump($record);
