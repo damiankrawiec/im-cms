@@ -174,10 +174,10 @@ class System extends Setting
 
                 foreach ($file as $f) {
 
-                    if ($f == '.' or $f == '..')
+                    if ($f == '.' or $f == '..' or $f == '.htaccess')
                         continue;
 
-                    echo '<script src="' . $this->system . '/js/' . $f . '">';
+                    echo '<script src="' . $this->system . '/js/' . $f . '"></script>';
 
                 }
 
