@@ -9,7 +9,7 @@ $objectContent = new ObjectContent($db);
 <?php
 
     $parameter = array(
-        array('name' => ':id', 'value' => $initSection->id, 'type' => 'int')
+        array('name' => ':id', 'value' => $section->id, 'type' => 'int')
     );
 
 $objectContent->getObject($parameter);

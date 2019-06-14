@@ -22,4 +22,4 @@ $db = new Database();
 //Grab get variables
 require_once 'php/script/get.php';
 
-$system->setUrl($url);
+$section = $system->initSection($url, $db);
