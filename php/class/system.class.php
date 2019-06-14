@@ -8,6 +8,8 @@ class System extends Setting
 
     private $checkSystemStructure;
 
+    private $url;
+
     public function __construct() {
 
         $this->domain = $this->getServer('HTTP_HOST');
@@ -138,6 +140,30 @@ class System extends Setting
 
     }
 
+    private function initSection($db) {
+
+        $sql = 'select section_id as id
+        from im_section
+        where url = :url';
+
+        $db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':url', 'value' => $this->url, 'type' => 'string')
+        );
+
+        $db->bind($parameter);
+
+        return $db->run('one');
+
+    }
+
+    public function setUrl($url) {
+
+        $this->url = $url;
+
+    }
+
     public function systemName() {
 
         return $this->system;
@@ -156,9 +182,15 @@ class System extends Setting
 
     public function getContent($db = false) {
 
-        if($this->checkSystemStructure and $db) {
+        if($db) {
 
-            require_once $this->system . '/content.php';
+            $initSection = $this->initSection($db);
+
+            if ($this->checkSystemStructure and $initSection) {
+
+                require_once $this->system . '/content.php';
+
+            }
 
         }
 

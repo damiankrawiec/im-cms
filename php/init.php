@@ -13,9 +13,13 @@ require_once 'php/class/system.class.php';
 $system = new System();
 
 //Go on (no stop)
-
 require_once $system->systemName().'/setting.php';
 
 require_once 'php/class/database.class.php';
 
 $db = new Database();
+
+//Grab get variables
+require_once 'php/script/get.php';
+
+$system->setUrl($url);
