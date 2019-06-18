@@ -5,6 +5,12 @@ class ObjectContent extends systemSetting
 
     private $db;
 
+    public function __construct($db) {
+
+        $this->db = $db;
+
+    }
+
     private function getParameterFromArray($parameterArray) {
 
         $parameterArrayOut = array();
@@ -35,12 +41,6 @@ class ObjectContent extends systemSetting
 
     }
 
-    public function __construct($db) {
-
-        $this->db = $db;
-
-    }
-
     public function getObject($parameter = false) {
 
         $isParameter = false;
@@ -53,9 +53,9 @@ class ObjectContent extends systemSetting
 
         }
 
-        $sql = 'select o.name, o.date_create as date';
+        $sql = 'select o.name, o.date_create as date, o.type_id as type';
 
-        //Field from joining tables
+        //Field/column from joining tables
 //        if($isParameter) {
 //
 //
@@ -92,12 +92,82 @@ class ObjectContent extends systemSetting
 
         }
 
+        $sql .= ' order by position';
+
         $this->db->prepare($sql);
 
         if($isParameter)
             $this->db->bind($parameter);
 
         return $this->db->run('all');
+
+    }
+
+    public function getPropertyFromType($type) {
+
+        $sql = 'select property_id as id from im_type_property where type_id = :type';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':type', 'value' => $type, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        $properties = $this->db->run('all');
+
+        $propertiesArray = array();
+        foreach($properties as $p) {
+
+            array_push($propertiesArray, $p['id']);
+
+        }
+
+        $propertiesArray = array_unique($propertiesArray);
+
+        $propertiesString = implode(',', $propertiesArray);
+
+        $sql = 'select system_name from im_property where property_id in(:property)';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':property', 'value' => $propertiesString, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
+    public function displayProperty($property) {
+
+        foreach ($property as $p) {
+
+            $path = 'content/object/field/'.$p['system_name'].'.php';
+
+            if(is_file($path))
+                require $path;
+
+        }
+
+    }
+
+    public function getTypeClass($type) {
+
+        $sql = 'select class from im_type where type_id = :type';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':type', 'value' => $type, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('one');
 
     }
 

@@ -13,20 +13,54 @@ $objectContent = new ObjectContent($db);
         array('name' => ':label', 'value' => 'news', 'type' => 'string')
     );
 
-    $object = $objectContent->getObject($parameter);
+    $objectNews = $objectContent->getObject($parameter);
 
-    var_dump($object);
+    foreach($objectNews as $o) {
 
-    echo '---';
+        $class = $objectContent->getTypeClass($o['type'])->class;
+
+        if($class != '')
+            $class = 'class="'.$class.'"';
+
+        echo '<div'.$class.'>';
+
+            echo $o['name'].'<br>';
+
+            $property = $objectContent->getPropertyFromType($o['type']);
+
+            $objectContent->displayProperty($property);
+
+        echo '</div>';
+
+    }
+
+    echo '<br>---<br>';
 
     $parameter = array(
         array('name' => ':section', 'value' => $this->getSection()->id, 'type' => 'int'),
         array('name' => ':label', 'value' => 'company-skill', 'type' => 'string')
     );
 
-    $object = $objectContent->getObject($parameter);
+    $objectCompanySkill = $objectContent->getObject($parameter);
 
-    var_dump($object);
+    foreach($objectCompanySkill as $o) {
+
+        $class = $objectContent->getTypeClass($o['type'])->class;
+
+        if($class != '')
+            $class = ' class="'.$class.'"';
+
+        echo '<div'.$class.'>';
+
+            echo $o['name'].'<br>';
+
+            $property = $objectContent->getPropertyFromType($o['type']);
+
+            $objectContent->displayProperty($property);
+
+        echo '</div>';
+
+    }
 
 ?>
 </div>
