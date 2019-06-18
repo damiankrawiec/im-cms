@@ -168,7 +168,7 @@ create trigger im_type_update_date_modify
 
 -- record
 
-insert into im_type values (null, 'Aktualność', '', '', null, null);
+insert into im_type values (null, 'Aktualność', 'col-xs', '', null, null);
 
 -- TYPE END --
 
@@ -220,6 +220,7 @@ create table im_object (
     label_id int not null,
     section_id int default 0,-- direction to section, 0 - not direction (this in not foreign key)
     name varchar(128) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
     position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
@@ -249,11 +250,13 @@ create trigger im_object_update_date_modify
 
 -- record
 
-insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie głównej', 1, 'on', '', null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność pierwsza na stronie głównej', 'Treść tej aktualności', 1, 'on', '', null, null);
 
-insert into im_object values (null, 1, 2, 0, 'Atrybut firmy na stronie głównej', 2, 'on', '', null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', 'Treść tej aktualności', 2, 'on', '', null, null);
 
-insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', 3, 'on', '', null, null);
+insert into im_object values (null, 1, 2, 0, 'Atrybut firmy na stronie głównej', 'Treść atrybutu', 1, 'on', '', null, null);
+
+insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', 'Treść kolejnej aktualności', 3, 'on', '', null, null);
 
 -- OBJECT END --
 
@@ -276,7 +279,9 @@ insert into im_section_object values (null, 1, 1);
 
 insert into im_section_object values (null, 1, 2);
 
-insert into im_section_object values (null, 2, 3);
+insert into im_section_object values (null, 1, 3);
+
+insert into im_section_object values (null, 2, 4);
 
 -- SECTION-OBJECT END -
 
@@ -296,5 +301,6 @@ create table im_type_property (
 -- record
 
 insert into im_type_property values (null, 1, 1);
+insert into im_type_property values (null, 1, 2);
 
 -- TYPE-PROPERTY END --

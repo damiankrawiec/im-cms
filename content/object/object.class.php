@@ -41,7 +41,7 @@ class ObjectContent extends systemSetting
 
     }
 
-    public function getObject($parameter = false) {
+    private function getObject($parameter = false) {
 
         $isParameter = false;
         if($parameter and is_array($parameter) and count($parameter) > 0) {
@@ -53,9 +53,10 @@ class ObjectContent extends systemSetting
 
         }
 
-        $sql = 'select o.name, o.date_create as date, o.type_id as type';
+        //Name of aliases need to be the same as system_name of property fixed to type of object
+        $sql = 'select o.name as name, o.date_create as date, o.type_id as type, o.content as text';
 
-        //Field/column from joining tables
+        //Field from joining tables
 //        if($isParameter) {
 //
 //
@@ -103,7 +104,7 @@ class ObjectContent extends systemSetting
 
     }
 
-    public function getPropertyFromType($type) {
+    private function getPropertyFromType($type) {
 
         $sql = 'select property_id as id from im_type_property where type_id = :type';
 
@@ -128,34 +129,40 @@ class ObjectContent extends systemSetting
 
         $propertiesString = implode(',', $propertiesArray);
 
-        $sql = 'select system_name from im_property where property_id in(:property)';
+        $sql = 'select system_name from im_property where property_id in('.$propertiesString.')';
 
         $this->db->prepare($sql);
 
-        $parameter = array(
-            array('name' => ':property', 'value' => $propertiesString, 'type' => 'string')
-        );
-
-        $this->db->bind($parameter);
+//        $parameter = array(
+//            array('name' => ':property', 'value' => $propertiesString, 'type' => 'int')
+//        );
+//
+//        $this->db->bind($parameter);
 
         return $this->db->run('all');
 
     }
 
-    public function displayProperty($property) {
+    private function displayProperty($property, $data) {
 
         foreach ($property as $p) {
 
             $path = 'content/object/field/'.$p['system_name'].'.php';
 
-            if(is_file($path))
-                require $path;
+            if(is_file($path)) {
+
+                $dataDisplay = $data[$p['system_name'] ];
+
+                if(isset($dataDisplay))
+                    require $path;
+
+            }
 
         }
 
     }
 
-    public function getTypeClass($type) {
+    private function getTypeClass($type) {
 
         $sql = 'select class from im_type where type_id = :type';
 
@@ -168,6 +175,53 @@ class ObjectContent extends systemSetting
         $this->db->bind($parameter);
 
         return $this->db->run('one');
+
+    }
+
+    public function display($section = false, $label = false) {
+
+        if($section) {
+
+            $parameter = array(
+                array('name' => ':section', 'value' => $section, 'type' => 'int'),
+                array('name' => ':label', 'value' => $label, 'type' => 'string')
+            );
+
+            $objectRecord = $this->getObject($parameter);
+
+            if($objectRecord) {
+
+                echo '<div class="' . $label . '">';
+
+                echo '<div class="row">';
+
+                foreach ($objectRecord as $or) {
+
+                    $classAdd = $this->getTypeClass($or['type'])->class;
+
+                    $class = 'object';
+                    if ($classAdd != '')
+                        $class .= ' ' . $classAdd;
+
+                    echo '<div class="' . $class . '">';
+
+                    echo $or['name'] . '<br>';
+
+                    $property = $this->getPropertyFromType($or['type']);
+
+                    $this->displayProperty($property, $or);
+
+                    echo '</div>';
+
+                }
+
+                echo '</div>';
+
+                echo '</div>';
+
+            }
+
+        }
 
     }
 
