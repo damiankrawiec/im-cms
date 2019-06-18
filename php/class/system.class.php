@@ -142,7 +142,7 @@ class System extends Setting
 
     }
 
-    public function initSection($url, $db) {
+    public function setSection($url, $db) {
 
         $sql = 'select section_id as id, name
                 from im_section
@@ -157,6 +157,10 @@ class System extends Setting
         $db->bind($parameter);
 
         $this->section = $db->run('one');
+
+    }
+
+    public function getSection() {
 
         return $this->section;
 
@@ -183,8 +187,6 @@ class System extends Setting
         if($db) {
 
             if ($this->checkSystemStructure and $this->section) {
-
-                $section = $this->section;
 
                 require_once $this->system . '/content.php';
 

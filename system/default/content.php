@@ -9,10 +9,24 @@ $objectContent = new ObjectContent($db);
 <?php
 
     $parameter = array(
-        array('name' => ':id', 'value' => $section->id, 'type' => 'int')
+        array('name' => ':section', 'value' => $this->getSection()->id, 'type' => 'int'),
+        array('name' => ':label', 'value' => 'news', 'type' => 'string')
     );
 
-$objectContent->getObject($parameter);
+    $object = $objectContent->getObject($parameter);
+
+    var_dump($object);
+
+    echo '---';
+
+    $parameter = array(
+        array('name' => ':section', 'value' => $this->getSection()->id, 'type' => 'int'),
+        array('name' => ':label', 'value' => 'company-skill', 'type' => 'string')
+    );
+
+    $object = $objectContent->getObject($parameter);
+
+    var_dump($object);
 
 ?>
 </div>

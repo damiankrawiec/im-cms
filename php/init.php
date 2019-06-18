@@ -19,7 +19,7 @@ require_once 'php/class/database.class.php';
 
 $db = new Database();
 
-//Grab get variables
+//Grab all "get" variables
 require_once 'php/script/get.php';
 
-$section = $system->initSection($url, $db);
+$system->setSection($url, $db);
