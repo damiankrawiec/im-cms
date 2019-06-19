@@ -54,7 +54,7 @@ class ObjectContent extends systemSetting
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.name as name, o.date_create as date, o.type_id as type, o.content as text';
+        $sql = 'select o.name as name, o.date as date, o.type_id as type, o.content as text';
 
         //Field from joining tables
 //        if($isParameter) {
@@ -93,6 +93,10 @@ class ObjectContent extends systemSetting
 
         }
 
+        $sql .= $this->whereOrAnd($sql);
+
+        $sql .= ' status like "on"';
+
         $sql .= ' order by position';
 
         $this->db->prepare($sql);
@@ -106,7 +110,7 @@ class ObjectContent extends systemSetting
 
     private function getPropertyFromType($type) {
 
-        $sql = 'select property_id as id from im_type_property where type_id = :type';
+        $sql = 'select property_id as id from im_type_property where type_id = :type order by position';
 
         $this->db->prepare($sql);
 
@@ -118,28 +122,24 @@ class ObjectContent extends systemSetting
 
         $properties = $this->db->run('all');
 
-        $propertiesArray = array();
-        foreach($properties as $p) {
-
-            array_push($propertiesArray, $p['id']);
-
-        }
-
-        $propertiesArray = array_unique($propertiesArray);
-
-        $propertiesString = implode(',', $propertiesArray);
-
-        $sql = 'select system_name from im_property where property_id in('.$propertiesString.')';
+        $sql = 'select system_name from im_property where property_id = :property';
 
         $this->db->prepare($sql);
 
-//        $parameter = array(
-//            array('name' => ':property', 'value' => $propertiesString, 'type' => 'int')
-//        );
-//
-//        $this->db->bind($parameter);
+        $propertiesArray = array();
+        foreach($properties as $p) {
 
-        return $this->db->run('all');
+            $parameter = array(
+                array('name' => ':property', 'value' => $p['id'], 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+            array_push($propertiesArray, $this->db->run('one')->system_name);
+
+        }
+
+        return $propertiesArray;
 
     }
 
@@ -147,11 +147,11 @@ class ObjectContent extends systemSetting
 
         foreach ($property as $p) {
 
-            $path = 'content/object/field/'.$p['system_name'].'.php';
+            $path = 'content/object/field/'.$p.'.php';
 
             if(is_file($path)) {
 
-                $dataDisplay = $data[$p['system_name'] ];
+                $dataDisplay = $data[$p];
 
                 if(isset($dataDisplay))
                     require $path;
@@ -204,8 +204,6 @@ class ObjectContent extends systemSetting
                         $class .= ' ' . $classAdd;
 
                     echo '<div class="' . $class . '">';
-
-                    echo $or['name'] . '<br>';
 
                     $property = $this->getPropertyFromType($or['type']);
 

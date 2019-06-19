@@ -1,2 +1,2 @@
 <?php
-echo $dataDisplay;
+echo '<em>'.$dataDisplay.'</em>';
