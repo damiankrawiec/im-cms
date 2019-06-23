@@ -20,6 +20,10 @@ drop table if exists im_section_object;
 
 drop table if exists im_type_property;
 
+drop table if exists im_image;
+
+drop table if exists im_object_image;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -46,13 +50,21 @@ drop trigger if exists im_property_insert_date_modify;
 
 drop trigger if exists im_property_update_date_modify;
 
+drop trigger if exists im_object_insert_date;
+
 drop trigger if exists im_object_insert_date_create;
 
 drop trigger if exists im_object_insert_date_modify;
 
 drop trigger if exists im_object_update_date_modify;
 
--- end prepare --
+drop trigger if exists im_image_insert_date_create;
+
+drop trigger if exists im_image_insert_date_modify;
+
+drop trigger if exists im_image_update_date_modify;
+
+-- end prepare database --
 
 set names utf8;
 
@@ -323,3 +335,70 @@ insert into im_type_property values (null, 2, 1, 1);
 insert into im_type_property values (null, 2, 3, 2);
 
 -- TYPE-PROPERTY END --
+
+-- IMAGE START --
+
+-- table
+
+create table im_image (
+    image_id int not null auto_increment,
+    name varchar(64) collate utf8_polish_ci default '',
+    content varchar(128) collate utf8_polish_ci default '',
+    url varchar(128) collate utf8_polish_ci default '',
+    status varchar(3) default 'on',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (image_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_image_insert_date_create
+    before insert on im_image
+    for each row
+    set new.date_create = now();
+
+create trigger im_image_insert_date_modify
+    before insert on im_image
+    for each row
+    set new.date_modify = now();
+
+create trigger im_image_update_date_modify
+    before update on im_image
+    for each row
+    set new.date_modify = now();
+
+-- record
+
+insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on', '', null, null);
+
+insert into im_image values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
+
+insert into im_image values (null, 'Winter tree', '', '3.jpg', 'on', '', null, null);
+
+-- IMAGE END --
+
+-- OBJECT-IMAGE START --
+
+-- connecting images with object (m:n relationship), table
+
+create table im_object_image (
+    object_image_id int not null auto_increment,
+    object_id int not null,
+    image_id int not null,
+    position int default 0,
+    primary key (object_image_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (image_id) references im_image(image_id)
+) engine = InnoDB;
+
+-- record
+
+insert into im_object_image values (null, 1, 1, 1);
+insert into im_object_image values (null, 1, 2, 2);
+
+insert into im_object_image values (null, 4, 2, 1);
+insert into im_object_image values (null, 4, 3, 2);
+
+-- OBJECT-IMAGE END --
