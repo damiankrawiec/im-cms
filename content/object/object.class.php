@@ -3,9 +3,13 @@
 class ObjectContent extends systemSetting
 {
 
+    private $systemName;
+
     private $db;
 
-    public function __construct($db) {
+    public function __construct($systemName, $db) {
+
+        $this->systemName = $systemName;
 
         $this->db = $db;
 
@@ -54,7 +58,7 @@ class ObjectContent extends systemSetting
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.name as name, o.date as date, o.type_id as type, o.content as text';
+        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text';
 
         //Field from joining tables
 //        if($isParameter) {
@@ -153,12 +157,36 @@ class ObjectContent extends systemSetting
 
                 $dataDisplay = $data[$p];
 
-                if(isset($dataDisplay))
+                if(isset($dataDisplay)) {
+
                     require $path;
+
+                }
 
             }
 
         }
+
+    }
+
+    private function checkDataDisplay($dataDisplay, $type) {
+
+        $check = false;
+        if(isset($dataDisplay) and $dataDisplay and $dataDisplay != '') {
+
+            if($type == 'string')
+                $check = true;
+
+            if($type == 'array') {
+
+                if(is_array($dataDisplay) and count($dataDisplay) > 0)
+                    $check = true;
+
+            }
+
+        }
+
+        return $check;
 
     }
 
@@ -175,6 +203,27 @@ class ObjectContent extends systemSetting
         $this->db->bind($parameter);
 
         return $this->db->run('one');
+
+    }
+
+    private function getObjectImage($objectId) {
+
+        $sql = 'select i.name as name, i.content as content, i.url as url
+                from im_image i
+                join im_object_image oi on (oi.image_id = i.image_id)
+                where oi.object_id = :object
+                and i.status like "on"
+                order by oi.position';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $objectId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
 
     }
 
@@ -207,7 +256,14 @@ class ObjectContent extends systemSetting
 
                     $property = $this->getPropertyFromType($or['type']);
 
-                    $this->displayProperty($property, $or);
+                    $displayPropertyData = $or;
+                    if(in_array('image', $property)) {
+
+                        $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                    }
+
+                    $this->displayProperty($property, $displayPropertyData);
 
                     echo '</div>';
 

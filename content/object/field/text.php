@@ -1,2 +1,7 @@
 <?php
-echo '<p>'.$dataDisplay.'</p>';
+
+if($this->checkDataDisplay($dataDisplay, 'string')) {
+
+    echo '<p>' . $dataDisplay . '</p>';
+
+}

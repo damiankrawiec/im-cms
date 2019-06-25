@@ -180,7 +180,7 @@ create trigger im_type_update_date_modify
 
 -- record
 
-insert into im_type values (null, 'Aktualność', 'col-xs', '', null, null);
+insert into im_type values (null, 'Aktualność', 'col-xs-12', '', null, null);
 insert into im_type values (null, 'Zaleta', 'col-xs-6', '', null, null);
 
 -- TYPE END --
@@ -221,6 +221,7 @@ create trigger im_property_update_date_modify
 insert into im_property values (null, 'Nazwa', 'name', '', null, null);
 insert into im_property values (null, 'Tekst', 'text', '', null, null);
 insert into im_property values (null, 'Data', 'date', '', null, null);
+insert into im_property values (null, 'Zdjęcia', 'image', '', null, null);
 
 -- PROPERTY END --
 
@@ -330,6 +331,7 @@ create table im_type_property (
 insert into im_type_property values (null, 1, 1, 2);
 insert into im_type_property values (null, 1, 2, 3);
 insert into im_type_property values (null, 1, 3, 1);
+insert into im_type_property values (null, 1, 4, 4);
 
 insert into im_type_property values (null, 2, 1, 1);
 insert into im_type_property values (null, 2, 3, 2);
@@ -375,7 +377,7 @@ insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on',
 
 insert into im_image values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
 
-insert into im_image values (null, 'Winter tree', '', '3.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null);
 
 -- IMAGE END --
 
