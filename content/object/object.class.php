@@ -99,9 +99,9 @@ class ObjectContent extends systemSetting
 
         $sql .= $this->whereOrAnd($sql);
 
-        $sql .= ' status like "on"';
+        $sql .= ' o.status like "on"';
 
-        $sql .= ' order by position';
+        $sql .= ' order by so.position';
 
         $this->db->prepare($sql);
 
@@ -114,7 +114,7 @@ class ObjectContent extends systemSetting
 
     private function getPropertyFromType($type) {
 
-        $sql = 'select property_id as id from im_type_property where type_id = :type order by position';
+        $sql = 'select property_id as id, class from im_type_property where type_id = :type order by position';
 
         $this->db->prepare($sql);
 
@@ -139,7 +139,7 @@ class ObjectContent extends systemSetting
 
             $this->db->bind($parameter);
 
-            array_push($propertiesArray, $this->db->run('one')->system_name);
+            array_push($propertiesArray, array('name' => $this->db->run('one')->system_name, 'class' => $p['class']));
 
         }
 
@@ -149,23 +149,35 @@ class ObjectContent extends systemSetting
 
     private function displayProperty($property, $data) {
 
+        echo '<div class="row">';
+
         foreach ($property as $p) {
 
-            $path = 'content/object/field/'.$p.'.php';
+            $path = 'content/object/field/'.$p['name'].'.php';
 
             if(is_file($path)) {
 
-                $dataDisplay = $data[$p];
+                if(isset($data[$p['name']])) {
 
-                if(isset($dataDisplay)) {
+                    $dataDisplay = $data[$p['name']];
 
-                    require $path;
+                    if (isset($dataDisplay)) {
+
+                        echo '<div class="' . $p['class'] . '">';
+
+                        require $path;
+
+                        echo '</div>';
+
+                    }
 
                 }
 
             }
 
         }
+
+        echo '</div>';
 
     }
 
@@ -240,7 +252,7 @@ class ObjectContent extends systemSetting
 
             if($objectRecord) {
 
-                echo '<div class="' . $label . '">';
+                //echo '<div class="' . $label . '">';
 
                 echo '<div class="row">';
 
@@ -257,9 +269,16 @@ class ObjectContent extends systemSetting
                     $property = $this->getPropertyFromType($or['type']);
 
                     $displayPropertyData = $or;
-                    if(in_array('image', $property)) {
 
-                        $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+                    foreach ($property as $p) {
+
+                        if ($p['name'] == 'image') {
+
+                            $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                            break;
+
+                        }
 
                     }
 
@@ -271,7 +290,7 @@ class ObjectContent extends systemSetting
 
                 echo '</div>';
 
-                echo '</div>';
+                //echo '</div>';
 
             }
 

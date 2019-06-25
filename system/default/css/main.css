@@ -2,4 +2,12 @@ body {
   margin: 0;
   padding: 0;
 }
+.object {
+  padding: 10px;
+  background: #ddd;
+  border: 1px solid #fff;
+}
+.object img {
+  width: 100%;
+}
 /*# sourceMappingURL=main.css.map */

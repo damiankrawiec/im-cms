@@ -20,6 +20,18 @@ if(isset($_GET['url'])) {
 
     $db->bind($parameter);
 
-    $url = $db->run('one')->url;
+    $urlObject = $db->run('one');
+
+    if($urlObject) {
+
+        $url = $urlObject->url;
+
+    }else{
+
+        var_dump('No section defined');
+
+        exit();
+
+    }
 
 }

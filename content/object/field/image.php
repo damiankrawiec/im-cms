@@ -21,7 +21,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         foreach ($dataDisplay as $img) {
 
             echo '<div class="carousel-item' . $active . '">
-                      <img class="d-block w-100" src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
+                      <img class="d-block" src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                       <div class="carousel-caption d-none d-md-block">
                         <h5>'.$img['name'].'</h5>
                         '.($img['content'] != '' ? '<p>'.$img['content'].'</p>' : '').'

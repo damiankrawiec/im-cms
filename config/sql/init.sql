@@ -102,11 +102,6 @@ create trigger im_section_update_date_modify
     for each row
     set new.date_modify = now();
 
--- record
-
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Kontakt', 'kontakt', 2, 'on', '', null, null);
-
 -- SECTION END --
 
 -- LABEL START --
@@ -139,11 +134,6 @@ create trigger im_label_update_date_modify
     before update on im_label
     for each row
     set new.date_modify = now();
-
--- record
-
-insert into im_label values (null, 'Aktualności', 'news', '', null, null);
-insert into im_label values (null, 'Zalety firmy', 'company-skill', '', null, null);
 
 -- LABEL END --
 
@@ -178,11 +168,6 @@ create trigger im_type_update_date_modify
     for each row
     set new.date_modify = now();
 
--- record
-
-insert into im_type values (null, 'Aktualność', 'col-xs-12', '', null, null);
-insert into im_type values (null, 'Zaleta', 'col-xs-6', '', null, null);
-
 -- TYPE END --
 
 -- PROPERTIES START --
@@ -216,13 +201,6 @@ create trigger im_property_update_date_modify
     for each row
     set new.date_modify = now();
 
--- record
-
-insert into im_property values (null, 'Nazwa', 'name', '', null, null);
-insert into im_property values (null, 'Tekst', 'text', '', null, null);
-insert into im_property values (null, 'Data', 'date', '', null, null);
-insert into im_property values (null, 'Zdjęcia', 'image', '', null, null);
-
 -- PROPERTY END --
 
 -- OBJECT START --
@@ -236,7 +214,6 @@ create table im_object (
     section_id int default 0,-- direction to section, 0 - not direction (this in not foreign key)
     name varchar(128) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
-    position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date date ,-- date to display
@@ -269,18 +246,6 @@ create trigger im_object_update_date_modify
     for each row
     set new.date_modify = now();
 
--- record
-
-insert into im_object values (null, 1, 1, 0, 'Aktualność pierwsza na stronie głównej', 'Treść tej aktualności', 1, 'on', '', null, null, null);
-
-insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', 'Treść tej aktualności', 2, 'on', '', null, null, null);
-
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej', 'Treść atrybutu', 1, 'on', '', null, null, null);
-
-insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', 'Treść kolejnej aktualności', 3, 'on', '', null, null, null);
-
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (drugi) lub kontakt (pierwszy)', 'Treść atrybutu drugiego', 2, 'on', '', null, null, null);
-
 -- OBJECT END --
 
 -- SECTION-OBJECT START --
@@ -291,24 +256,11 @@ create table im_section_object (
     section_object_id int not null auto_increment,
     section_id int not null,
     object_id int not null,
+    position int default 0,
     primary key (section_object_id),
     foreign key (section_id) references im_section(section_id),
     foreign key (object_id) references im_object(object_id)
 ) engine = InnoDB;
-
--- record
-
-insert into im_section_object values (null, 1, 1);
-
-insert into im_section_object values (null, 1, 2);
-
-insert into im_section_object values (null, 1, 3);
-
-insert into im_section_object values (null, 2, 4);
-
-insert into im_section_object values (null, 1, 5);
-
-insert into im_section_object values (null, 2, 5);
 
 -- SECTION-OBJECT END -
 
@@ -320,21 +272,12 @@ create table im_type_property (
     type_property_id int not null auto_increment,
     type_id int not null,
     property_id int not null,
+    class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
     position int default 0,
     primary key (type_property_id),
     foreign key (type_id) references im_type(type_id),
     foreign key (property_id) references im_property(property_id)
 ) engine = InnoDB;
-
--- record
-
-insert into im_type_property values (null, 1, 1, 2);
-insert into im_type_property values (null, 1, 2, 3);
-insert into im_type_property values (null, 1, 3, 1);
-insert into im_type_property values (null, 1, 4, 4);
-
-insert into im_type_property values (null, 2, 1, 1);
-insert into im_type_property values (null, 2, 3, 2);
 
 -- TYPE-PROPERTY END --
 
@@ -371,14 +314,6 @@ create trigger im_image_update_date_modify
     for each row
     set new.date_modify = now();
 
--- record
-
-insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on', '', null, null);
-
-insert into im_image values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
-
-insert into im_image values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null);
-
 -- IMAGE END --
 
 -- OBJECT-IMAGE START --
@@ -394,13 +329,5 @@ create table im_object_image (
     foreign key (object_id) references im_object(object_id),
     foreign key (image_id) references im_image(image_id)
 ) engine = InnoDB;
-
--- record
-
-insert into im_object_image values (null, 1, 1, 1);
-insert into im_object_image values (null, 1, 2, 2);
-
-insert into im_object_image values (null, 4, 2, 1);
-insert into im_object_image values (null, 4, 3, 2);
 
 -- OBJECT-IMAGE END --

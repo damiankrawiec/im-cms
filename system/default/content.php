@@ -9,15 +9,17 @@ $sectionId = $this->getSection()->id;
 
 ?>
 
-<div class="container">
+<div class="container-fluid">
 <?php
 
     $objectContent->display($sectionId, 'news');
 
 ?>
 </div>
-
-<div class="container-fluid">
+<br>
+<hr>
+<br>
+<div class="container">
 <?php
 
     $objectContent->display($sectionId, 'company-skill');
