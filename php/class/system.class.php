@@ -8,7 +8,11 @@ class System extends Setting
 
     private $checkSystemStructure;
 
-    private $section;
+    private $section;//id from database
+
+    private $currentSection;//url
+
+    private $startSection;//url
 
     public function __construct() {
 
@@ -144,6 +148,8 @@ class System extends Setting
 
     public function setSection($url, $db) {
 
+        $this->currentSection = $url;
+
         $sql = 'select section_id as id, name
                 from im_section
                 where url = :url';
@@ -157,6 +163,12 @@ class System extends Setting
         $db->bind($parameter);
 
         $this->section = $db->run('one');
+
+    }
+
+    public function setStartSection($section) {
+
+        $this->startSection = $section;
 
     }
 

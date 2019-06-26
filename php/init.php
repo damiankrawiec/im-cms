@@ -20,6 +20,11 @@ require_once 'php/class/database.class.php';
 $db = new Database();
 
 //Grab all "get" variables
+require_once 'php/script/startSection.php';
+
+//Grab all "get" variables
 require_once 'php/script/get.php';
 
 $system->setSection($url, $db);
+
+$system->setStartSection($s_startSection);

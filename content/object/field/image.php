@@ -5,8 +5,9 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
     echo '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">';
 
         $active = ' class="active"';
+        $countRowDataDisplay = count($dataDisplay);
         echo '<ol class="carousel-indicators">';
-        foreach ($dataDisplay as $i => $slide) {
+        for ($i = 0; $i < $countRowDataDisplay; $i++) {
 
             echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"'.$active.'></li>';
 

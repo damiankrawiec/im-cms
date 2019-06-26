@@ -77,3 +77,7 @@ insert into im_object_image values (null, 1, 2, 2);
 
 insert into im_object_image values (null, 4, 2, 1);
 insert into im_object_image values (null, 4, 3, 2);
+
+insert into im_slider values (null, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 1, 'on', '', null, null);
+insert into im_slider values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 2, 'on', '', null, null);
+insert into im_slider values (null, 'Third slider', '', 'slider-3.jpg', '', 3, 'on', '', null, null);

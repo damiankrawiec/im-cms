@@ -1,14 +1,33 @@
 <?php
-//init require element on the content
+//init require element on the content in section (object)
 require_once 'content/object/object.class.php';
 
-$objectContent = new ObjectContent($this->systemName(), $db);
+$systemName = $this->systemName();
 
 //Identity of current section
 $sectionId = $this->getSection()->id;
 
-?>
+$objectContent = new ObjectContent($systemName, $db);
 
+//init slider when start section
+if($this->currentSection == $this->startSection) {
+
+    require_once 'content/slider/slider.class.php';
+
+    $sliderContent = new SliderContent($systemName, $db);
+
+    echo '<div class="container-fluid">';
+
+        $sliderContent->display();
+
+    echo '</div>';
+
+}
+
+?>
+<br>
+<hr>
+<br>
 <div class="container-fluid">
 <?php
 
@@ -26,3 +45,6 @@ $sectionId = $this->getSection()->id;
 
 ?>
 </div>
+<br>
+<hr>
+<br>
