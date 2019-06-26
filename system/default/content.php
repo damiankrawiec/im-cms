@@ -16,7 +16,7 @@ if($this->currentSection == $this->startSection) {
 
     $sliderContent = new SliderContent($systemName, $db);
 
-    echo '<div class="container-fluid">';
+    echo '<div class="container">';
 
         $sliderContent->display();
 

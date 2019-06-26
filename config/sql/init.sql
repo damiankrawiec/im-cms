@@ -26,6 +26,8 @@ drop table if exists im_object_image;
 
 drop table if exists im_slider;
 
+drop table if exists im_slider_setting;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -376,3 +378,18 @@ create trigger im_slider_update_date_modify
     set new.date_modify = now();
 
 -- SLIDER END --
+
+-- SLIDER SETTING START --
+
+-- table
+
+create table im_slider_setting (
+    slider_setting_id int not null auto_increment,
+    name varchar(64) collate utf8_polish_ci default '',
+    system_name varchar(64) collate utf8_polish_ci default '',
+    content varchar(128) collate utf8_polish_ci default '',
+    description text collate utf8_polish_ci default '',-- description, management
+    primary key (slider_setting_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- SLIDER SETTING END --

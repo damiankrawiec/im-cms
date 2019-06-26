@@ -15,6 +15,17 @@ class SliderContent {
 
     }
 
+    private function sliderSetting() {
+
+        $sql = 'select system_name, content
+                from im_slider_setting';
+
+        $this->db->prepare($sql);
+
+        return $this->db->run('all');
+
+    }
+
     public function display() {
 
         $sql = 'select name, content, url, link
@@ -53,6 +64,14 @@ class SliderContent {
                 echo '</ul>
                 </div>    
             </div>';
+
+            $sliderSetting = $this->sliderSetting();
+
+            if($sliderSetting) {
+
+                echo '<div id="slider-setting" class="im-hide">'.json_encode($sliderSetting).'</div>';
+
+            }
 
         }
 
