@@ -9,22 +9,16 @@ $sectionId = $this->getSection()->id;
 
 $objectContent = new ObjectContent($systemName, $db);
 
-//init slider when start section
-if($this->currentSection == $this->startSection) {
+?>
 
-    require_once 'content/slider/slider.class.php';
+<div class="container-fluid">
+<?php
 
-    $sliderContent = new SliderContent($systemName, $db);
-
-    echo '<div class="container">';
-
-        $sliderContent->display();
-
-    echo '</div>';
-
-}
+    $objectContent->display($sectionId, 'slider');
 
 ?>
+</div>
+
 <br>
 <hr>
 <br>

@@ -6,11 +6,19 @@ class ObjectContent {
 
     private $db;
 
+    private $label;
+
+    private $objectCounter;
+
     public function __construct($systemName, $db) {
 
         $this->systemName = $systemName;
 
         $this->db = $db;
+
+        $this->label = 'label';
+
+        $this->objectCounter = 0;
 
     }
 
@@ -162,7 +170,11 @@ class ObjectContent {
 
                     if (isset($dataDisplay)) {
 
-                        echo '<div class="' . $p['class'] . '">';
+                        $class = '';
+                        if($p['class'] != '')
+                            $class= ' class="' . $p['class'] . '"';
+
+                        echo '<div'.$class.'>';
 
                         require $path;
 
@@ -180,6 +192,7 @@ class ObjectContent {
 
     }
 
+    //Do not remove! Check data in in field files
     private function checkDataDisplay($dataDisplay, $type) {
 
         $check = false;
@@ -240,7 +253,7 @@ class ObjectContent {
 
     public function display($section = false, $label = false) {
 
-        if($section) {
+        if($section and $label) {
 
             $parameter = array(
                 array('name' => ':section', 'value' => $section, 'type' => 'int'),
@@ -251,7 +264,7 @@ class ObjectContent {
 
             if($objectRecord) {
 
-                //echo '<div class="' . $label . '">';
+                echo '<div class="' . $label . '">';
 
                 echo '<div class="row">';
 
@@ -281,15 +294,19 @@ class ObjectContent {
 
                     }
 
+                    $this->label = $label;
+
                     $this->displayProperty($property, $displayPropertyData);
 
                     echo '</div>';
+
+                    $this->objectCounter++;
 
                 }
 
                 echo '</div>';
 
-                //echo '</div>';
+                echo '</div>';
 
             }
 

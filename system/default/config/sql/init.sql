@@ -7,11 +7,13 @@ insert into im_section values (null, 0, 'Kontakt', 'kontakt', 2, 'on', '', null,
 
 insert into im_label values (null, 'Aktualności', 'news', '', null, null);
 insert into im_label values (null, 'Zalety firmy', 'company-skill', '', null, null);
+insert into im_label values (null, 'Banner', 'slider', '', null, null);
 
 -- record, object type
 
 insert into im_type values (null, 'Aktualność', 'col-12 col-sm-6', '', null, null);
 insert into im_type values (null, 'Zaleta', 'col-12 col-md-4', '', null, null);
+insert into im_type values (null, 'Banner', 'col-12', '', null, null);
 
 -- record, property of type of object
 
@@ -34,6 +36,8 @@ insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej
 
 insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (trzeci) lub kontakt (drugi)', 'Treść atrybutu drugiego', 'on', '', null, null, null);
 
+insert into im_object values (null, 3, 3, 0, 'Slider', '', 'on', '', null, null, null);
+
 -- record, object image
 
 insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on', '', null, null);
@@ -41,6 +45,12 @@ insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on',
 insert into im_image values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
 
 insert into im_image values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null);
+
+insert into im_image values (null, 'First slider', 'Content of first slider', 'slider-1.jpg', 'on', '', null, null);
+
+insert into im_image values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', 'on', '', null, null);
+
+insert into im_image values (null, 'Third slider', '', 'slider-3.jpg', 'on', '', null, null);
 
 -- record, connect object with section
 
@@ -60,6 +70,8 @@ insert into im_section_object values (null, 1, 6, 5);
 
 insert into im_section_object values (null, 2, 6, 3);
 
+insert into im_section_object values (null, 1, 7, 1);
+
 -- record, set property in type
 
 insert into im_type_property values (null, 1, 1, 'col-12 col-sm-6', 2);
@@ -70,6 +82,8 @@ insert into im_type_property values (null, 1, 4, 'col-12 col-lg-6', 4);
 insert into im_type_property values (null, 2, 1, 'col-12', 1);
 insert into im_type_property values (null, 2, 3, 'col-12', 2);
 
+insert into im_type_property values (null, 3, 4, 'col-12', 1);
+
 -- record, connect images with object
 
 insert into im_object_image values (null, 1, 1, 1);
@@ -78,12 +92,6 @@ insert into im_object_image values (null, 1, 2, 2);
 insert into im_object_image values (null, 4, 2, 1);
 insert into im_object_image values (null, 4, 3, 2);
 
-insert into im_slider values (null, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 1, 'on', '', null, null);
-insert into im_slider values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 2, 'on', '', null, null);
-insert into im_slider values (null, 'Third slider', '', 'slider-3.jpg', '', 3, 'on', '', null, null);
-
-insert into im_slider_setting values (null, 'List position', 'listPosition', 'right', '');
-insert into im_slider_setting values (null, 'Effect', 'transitionEffect', 'sliding', '');
-insert into im_slider_setting values (null, 'Element list display', 'displayList', 'true', '');
-insert into im_slider_setting values (null, 'Arrows display', 'displayControls', 'false', '');
-insert into im_slider_setting values (null, 'Time on one image', 'intervalDuration', 'false', '');
+insert into im_object_image values (null, 7, 4, 1);
+insert into im_object_image values (null, 7, 5, 2);
+insert into im_object_image values (null, 7, 6, 3);

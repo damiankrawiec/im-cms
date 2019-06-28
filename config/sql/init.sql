@@ -24,10 +24,6 @@ drop table if exists im_image;
 
 drop table if exists im_object_image;
 
-drop table if exists im_slider;
-
-drop table if exists im_slider_setting;
-
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -67,12 +63,6 @@ drop trigger if exists im_image_insert_date_create;
 drop trigger if exists im_image_insert_date_modify;
 
 drop trigger if exists im_image_update_date_modify;
-
-drop trigger if exists im_slider_insert_date_create;
-
-drop trigger if exists im_slider_insert_date_modify;
-
-drop trigger if exists im_slider_update_date_modify;
 
 -- end prepare database --
 
@@ -341,55 +331,3 @@ create table im_object_image (
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --
-
--- SLIDER START --
-
--- table
-
-create table im_slider (
-    slider_id int not null auto_increment,
-    name varchar(64) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
-    url varchar(128) collate utf8_polish_ci default '',
-    link varchar(128) collate utf8_polish_ci default '',
-    position int default 0,
-    status varchar(3) default 'on',
-    description text collate utf8_polish_ci default '',-- description, management
-    date_create datetime,-- create time
-    date_modify datetime,-- last modification time
-    primary key (slider_id)
-) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
-
--- trigger
-
-create trigger im_slider_insert_date_create
-    before insert on im_slider
-    for each row
-    set new.date_create = now();
-
-create trigger im_slider_insert_date_modify
-    before insert on im_slider
-    for each row
-    set new.date_modify = now();
-
-create trigger im_slider_update_date_modify
-    before update on im_slider
-    for each row
-    set new.date_modify = now();
-
--- SLIDER END --
-
--- SLIDER SETTING START --
-
--- table
-
-create table im_slider_setting (
-    slider_setting_id int not null auto_increment,
-    name varchar(64) collate utf8_polish_ci default '',
-    system_name varchar(64) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
-    description text collate utf8_polish_ci default '',-- description, management
-    primary key (slider_setting_id)
-) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
-
--- SLIDER SETTING END --

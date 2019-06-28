@@ -2,14 +2,14 @@
 
 if($this->checkDataDisplay($dataDisplay, 'array')) {
 
-    echo '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">';
+    echo '<div id="'.$this->label.'-'.$this->objectCounter.'" class="carousel slide" data-ride="carousel">';
 
         $active = ' class="active"';
         $countRowDataDisplay = count($dataDisplay);
         echo '<ol class="carousel-indicators">';
         for ($i = 0; $i < $countRowDataDisplay; $i++) {
 
-            echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"'.$active.'></li>';
+            echo '<li data-target="#'.$this->label.'-'.$this->objectCounter.'" data-slide-to="'.$i.'"'.$active.'></li>';
 
             $active = '';
 
@@ -35,11 +35,11 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
         echo '</div>';
 
-        echo '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        echo '<a class="carousel-control-prev" href="#'.$this->label.'-'.$this->objectCounter.'" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#'.$this->label.'-'.$this->objectCounter.'" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
         </a>';
