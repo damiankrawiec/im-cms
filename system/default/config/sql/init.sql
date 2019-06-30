@@ -40,17 +40,17 @@ insert into im_object values (null, 3, 3, 0, 'Slider', '', 'on', '', null, null,
 
 -- record, object image
 
-insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Moon', 'What are you doing?', '1.jpg', '', 'on', '', null, null);
 
-insert into im_image values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Winter tree', '', '2.jpg', '', 'on', '', null, null);
 
-insert into im_image values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Cactuars', '', '3.jpg', '', 'on', '', null, null);
 
-insert into im_image values (null, 'First slider', 'Content of first slider', 'slider-1.jpg', 'on', '', null, null);
+insert into im_image values (null, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 'on', '', null, null);
 
-insert into im_image values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', '', null, null);
 
-insert into im_image values (null, 'Third slider', '', 'slider-3.jpg', 'on', '', null, null);
+insert into im_image values (null, 'Third slider', '', 'slider-3.jpg', '', 'on', '', null, null);
 
 -- record, connect object with section
 

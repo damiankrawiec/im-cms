@@ -21,4 +21,7 @@ ul.pgwSlider,
 .object img {
   width: 100%;
 }
+.object .carousel i {
+  font-size: 40px;
+}
 /*# sourceMappingURL=main.css.map */

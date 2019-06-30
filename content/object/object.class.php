@@ -232,7 +232,7 @@ class ObjectContent {
 
     private function getObjectImage($objectId) {
 
-        $sql = 'select i.name as name, i.content as content, i.url as url
+        $sql = 'select i.name as name, i.content as content, i.url as url, i.link as link
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object
