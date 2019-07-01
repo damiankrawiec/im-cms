@@ -95,3 +95,12 @@ insert into im_object_image values (null, 4, 3, 2);
 insert into im_object_image values (null, 7, 4, 1);
 insert into im_object_image values (null, 7, 5, 2);
 insert into im_object_image values (null, 7, 6, 3);
+
+insert into im_category values (null, 1, 'Newest news', '', '', null, null);
+insert into im_category values (null, 2, 'Only two attributes', '', '', null, null);
+insert into im_category values (null, 2, 'Only third attribute', '', '', null, null);
+
+insert into im_object_category values (null, 1, 1);
+insert into im_object_category values (null, 3, 2);
+insert into im_object_category values (null, 5, 2);
+insert into im_object_category values (null, 6, 3);

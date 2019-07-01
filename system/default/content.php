@@ -25,7 +25,10 @@ $objectContent = new ObjectContent($systemName, $db);
 <div class="container-fluid">
 <?php
 
-    $objectContent->display($sectionId, 'news');
+    $label = 'news';
+    $objectContent->displayCategory($label);
+
+    $objectContent->display($sectionId, $label);
 
 ?>
 </div>
@@ -35,7 +38,10 @@ $objectContent = new ObjectContent($systemName, $db);
 <div class="container">
 <?php
 
-    $objectContent->display($sectionId, 'company-skill');
+    $label = 'company-skill';
+    $objectContent->displayCategory($label);
+
+    $objectContent->display($sectionId, $label);
 
 ?>
 </div>

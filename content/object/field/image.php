@@ -48,10 +48,10 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         echo '</div>';
 
         echo '<a class="carousel-control-prev" href="#'.$this->label.'-'.$this->objectCounter.'" role="button" data-slide="prev">
-                <i class="fal fa-chevron-square-left"></i>
+                <i class="fal fa-chevron-circle-left"></i>
               </a>
               <a class="carousel-control-next" href="#'.$this->label.'-'.$this->objectCounter.'" role="button" data-slide="next">
-                <i class="fal fa-chevron-square-right"></i>
+                <i class="fal fa-chevron-circle-right"></i>
               </a>';
 
     echo '</div>';

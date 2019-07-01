@@ -24,6 +24,10 @@ drop table if exists im_image;
 
 drop table if exists im_object_image;
 
+drop table if exists im_category;
+
+drop table if exists im_label_category;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -63,6 +67,12 @@ drop trigger if exists im_image_insert_date_create;
 drop trigger if exists im_image_insert_date_modify;
 
 drop trigger if exists im_image_update_date_modify;
+
+drop trigger if exists im_category_insert_date_create;
+
+drop trigger if exists im_category_insert_date_modify;
+
+drop trigger if exists im_category_update_date_modify;
 
 -- end prepare database --
 
@@ -329,6 +339,56 @@ create table im_object_image (
     primary key (object_image_id),
     foreign key (object_id) references im_object(object_id),
     foreign key (image_id) references im_image(image_id)
+) engine = InnoDB;
+
+-- OBJECT-IMAGE END --
+
+-- CATEGORY START --
+
+-- categorize object in one label, table
+
+create table im_category (
+    category_id int not null auto_increment,
+    label_id int not null,
+    name varchar(64) collate utf8_polish_ci default '',
+    content varchar(128) collate utf8_polish_ci default '',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (category_id),
+    foreign key (label_id) references im_label(label_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_category_insert_date_create
+    before insert on im_category
+    for each row
+    set new.date_create = now();
+
+create trigger im_category_insert_date_modify
+    before insert on im_category
+    for each row
+    set new.date_modify = now();
+
+create trigger im_category_update_date_modify
+    before update on im_category
+    for each row
+    set new.date_modify = now();
+
+-- CATEGORY END --
+
+-- OBJECT-IMAGE START --
+
+-- categorized label, objects connected to label (m:n relationship), table
+
+create table im_object_category (
+    object_category_id int not null auto_increment,
+    object_id int not null,
+    category_id int not null,
+    primary key (object_category_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (category_id) references im_category(category_id)
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --

@@ -251,6 +251,25 @@ class ObjectContent {
 
     }
 
+    private function getCategoryLabel($label) {
+
+        $sql = 'select c.name as name
+                from im_category c
+                join im_label l on (l.label_id = c.label_id)
+                where l.system_name = :label';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':label', 'value' => $label, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
     public function display($section = false, $label = false) {
 
         if($section and $label) {
@@ -303,6 +322,44 @@ class ObjectContent {
                     $this->objectCounter++;
 
                 }
+
+                echo '</div>';
+
+                echo '</div>';
+
+            }
+
+        }
+
+    }
+
+    public function displayCategory($label = false) {
+
+        if($label) {
+
+            $category = $this->getCategoryLabel($label);
+
+            if($category) {
+
+                echo '<div class="row">';
+
+                echo '<div class="col-12">';
+
+                echo '<div class="form-group">';
+
+                echo '<select class="form-control">';
+
+                    echo '<option>Show all</option>';
+
+                    foreach ($category as $c) {
+
+                        echo '<option>' . $c['name'] . '</option>';
+
+                    }
+
+                echo '</select>';
+
+                echo '</div>';
 
                 echo '</div>';
 
