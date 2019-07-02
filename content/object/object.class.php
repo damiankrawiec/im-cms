@@ -10,6 +10,8 @@ class ObjectContent {
 
     private $objectCounter;
 
+    private $path;
+
     public function __construct($systemName, $db) {
 
         $this->systemName = $systemName;
@@ -19,6 +21,8 @@ class ObjectContent {
         $this->label = 'label';
 
         $this->objectCounter = 0;
+
+        $this->path = '';
 
     }
 
@@ -168,7 +172,7 @@ class ObjectContent {
 
         foreach ($property as $p) {
 
-            $path = 'content/object/field/'.$p['name'].'.php';
+            $path = $this->path.'content/object/field/'.$p['name'].'.php';
 
             if(is_file($path)) {
 
@@ -303,6 +307,15 @@ class ObjectContent {
 
         return implode(',', $objectCategoryArray);
 
+    }
+
+    public function setPath($addPath = false) {
+
+        if($addPath) {
+
+            $this->path = $addPath.$this->path;
+
+        }
     }
 
     public function display($section = false, $label = false, $category = false) {

@@ -16,7 +16,13 @@ function getFilteredObject($label = false, $categoryId = false){
             }
         }).done(function ($data) {
 
-            console.log($data);
+            var $currentLabel = $('.' + $label);
+
+            var $parentLabel = $currentLabel.parent();
+
+            $currentLabel.remove();
+
+            $parentLabel.append($data);
 
         });
 
