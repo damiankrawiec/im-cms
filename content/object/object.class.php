@@ -52,7 +52,7 @@ class ObjectContent {
 
     }
 
-    private function getObject($parameter = false) {
+    private function getObject($parameter = false, $filter = false) {
 
         $isParameter = false;
         if($parameter and is_array($parameter) and count($parameter) > 0) {
@@ -107,6 +107,14 @@ class ObjectContent {
         $sql .= $this->whereOrAnd($sql);
 
         $sql .= ' o.status like "on"';
+
+        if($filter) {
+
+            $sql .= $this->whereOrAnd($sql);
+
+            $sql .= ' o.object_id in ('.$filter.')';
+
+        }
 
         $sql .= ' order by so.position';
 
@@ -253,7 +261,7 @@ class ObjectContent {
 
     private function getCategoryLabel($label) {
 
-        $sql = 'select c.name as name
+        $sql = 'select c.category_id as id, c.name as name
                 from im_category c
                 join im_label l on (l.label_id = c.label_id)
                 where l.system_name = :label';
@@ -270,16 +278,47 @@ class ObjectContent {
 
     }
 
-    public function display($section = false, $label = false) {
+    private function getCategoryObject($category) {
+
+        $sql = 'select object_id as id
+                from im_object_category
+                where category_id = :category';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':category', 'value' => $category, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        $objectCategory = $this->db->run('all');
+
+        $objectCategoryArray = array();
+        foreach ($objectCategory as $oc) {
+
+            array_push($objectCategoryArray, $oc['id']);
+
+        }
+
+        return implode(',', $objectCategoryArray);
+
+    }
+
+    public function display($section = false, $label = false, $category = false) {
 
         if($section and $label) {
+
+            $filter = false;
+            if($category)
+                $filter = $this->getCategoryObject($category);
 
             $parameter = array(
                 array('name' => ':section', 'value' => $section, 'type' => 'int'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
             );
 
-            $objectRecord = $this->getObject($parameter);
+            $objectRecord = $this->getObject($parameter, $filter);
 
             if($objectRecord) {
 
@@ -343,25 +382,25 @@ class ObjectContent {
 
                 echo '<div class="row">';
 
-                echo '<div class="col-12">';
+                    echo '<div class="col-12">';
 
-                echo '<div class="form-group">';
+                        echo '<div class="form-group">';
 
-                echo '<select class="form-control">';
+                        echo '<select class="form-control object-category" id="'.$label.'">';
 
-                    echo '<option>Show all</option>';
+                            echo '<option value="0">Show all</option>';
 
-                    foreach ($category as $c) {
+                            foreach ($category as $c) {
 
-                        echo '<option>' . $c['name'] . '</option>';
+                                echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
 
-                    }
+                            }
 
-                echo '</select>';
+                        echo '</select>';
 
-                echo '</div>';
+                        echo '</div>';
 
-                echo '</div>';
+                    echo '</div>';
 
                 echo '</div>';
 

@@ -2,12 +2,14 @@
 
 //Set all get variables
 
+$url = false;
+
 if(isset($_GET['url'])) {
 
-    $url = $_GET['url'];
+    $g_url = $_GET['url'];
 
 }else{
 
-    $url = $s_startSection;
+    $g_url = $s_startSection;
 
 }

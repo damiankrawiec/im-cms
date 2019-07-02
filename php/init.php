@@ -12,19 +12,24 @@ require_once 'php/class/system.class.php';
 
 $system = new System();
 
+$systemName = $system->systemName();
+
 //Go on (no stop)
-require_once $system->systemName().'/setting.php';
+require_once $systemName.'/setting.php';
 
 require_once 'php/class/database.class.php';
 
 $db = new Database();
 
-//Grab all "get" variables
+//Get start section in system (no current section)
 require_once 'php/script/startSection.php';
 
 //Grab all "get" variables
 require_once 'php/script/get.php';
 
-$system->setSection($url, $db);
+//Grab all "post" variables
+require_once 'php/script/post.php';
+
+$system->setSection($g_url, $db);
 
 $system->setStartSection($s_startSection);
