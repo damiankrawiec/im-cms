@@ -309,6 +309,7 @@ class ObjectContent {
 
         if($section and $label) {
 
+            //If isset filter add where in() to sql query
             $filter = false;
             if($category)
                 $filter = $this->getCategoryObject($category);
