@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 require_once 'app/composer/vendor/autoload.php'; // Autoload files using Composer autoload
 
 //layout debug, warning, error
@@ -12,10 +15,8 @@ require_once 'php/class/system.class.php';
 
 $system = new System();
 
-$systemName = $system->systemName();
-
 //Go on (no stop)
-require_once $systemName.'/setting.php';
+require_once $system->systemName().'/setting.php';
 
 require_once 'php/class/database.class.php';
 

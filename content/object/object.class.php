@@ -309,6 +309,16 @@ class ObjectContent {
 
     }
 
+    public function initGallery() {
+
+        echo '<script>
+            $(function(){
+                $(\'a[data-rel^=lightcase]\').lightcase();
+            });
+        </script>';
+
+    }
+
     public function setPath($addPath = false) {
 
         if($addPath) {
@@ -406,7 +416,11 @@ class ObjectContent {
 
                             foreach ($category as $c) {
 
-                                echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
+                                $selected = '';
+                                if(isset($_SESSION[$label]) and $_SESSION[$label] == $c['id'])
+                                    $selected = ' selected';
+
+                                echo '<option value="'.$c['id'].'"'.$selected.'>' . $c['name'] . '</option>';
 
                             }
 

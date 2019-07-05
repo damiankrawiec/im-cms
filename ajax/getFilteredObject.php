@@ -21,13 +21,15 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
 
     $objectContent->setPath('../');
 
-    //Init gallery effect after the end of ajax data
-    echo '<script>
-        $(function(){
-            $(\'a[data-rel^=lightcase]\').lightcase();
-        })
-    </script>';
+    $objectContentExit = $objectContent->display($p_section, $p_label, $p_category);
 
-    exit($objectContent->display($p_section, $p_label, $p_category));
+    //Init gallery effect after the end of ajax data
+    $objectContent->initGallery();
+
+    session_start();
+
+    $_SESSION[$p_label] = $p_category;
+
+    exit($objectContentExit);
 
 }

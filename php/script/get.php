@@ -2,7 +2,7 @@
 
 //Set all get variables
 
-$url = false;
+$g_url = false;
 
 if(isset($_GET['url'])) {
 

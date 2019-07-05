@@ -24,5 +24,3 @@ if(isset($_POST['category'])) {
     $p_category = $_POST['category'];
 
 }
-
-unset($_POST);
