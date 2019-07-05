@@ -1,4 +1,5 @@
 <?php
+//layout content
 //init require element on the content in section (object)
 require_once 'content/object/object.class.php';
 
