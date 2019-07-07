@@ -36,4 +36,7 @@ $system->setSection($g_url, $db);
 $system->setStartSection($s_startSection);
 
 //All settings from database for system (like logo, system name, etc.)
-$setting = $system->setting($db);
+$system->setting($db);
+
+//Get setting in array
+$setting = $system->getSetting();

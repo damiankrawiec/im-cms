@@ -2,17 +2,19 @@
 
 class System extends Setting
 {
-    public $domain;
+    public $domain;//server name (without path)
 
-    private $system;
+    private $system;//system/[name]
 
-    private $checkSystemStructure;
+    private $checkSystemStructure;//bool
 
     private $section;//id from database
 
     private $currentSection;//url
 
     private $startSection;//url
+
+    private $setting;//array
 
     public function __construct() {
 
@@ -23,6 +25,8 @@ class System extends Setting
         $this->system = $this->pathSystem('system/'.$this->domain);
 
         $this->checkSystemStructure = true;
+
+        $this->setting = array();
 
         $this->scanSystemStructure();
 
@@ -155,7 +159,7 @@ class System extends Setting
 
         }
 
-        return $settingArray;
+        $this->setting = $settingArray;
 
     }
 
@@ -207,7 +211,7 @@ class System extends Setting
 
     }
 
-    public function getContent($setting = false, $db = false) {
+    public function getContent($db = false) {
 
         if($db) {
 
@@ -255,13 +259,15 @@ class System extends Setting
 
         if($setting) {
 
-            return $this->settingArray($setting);
-
-        }else{
-
-            return false;
+            $this->settingArray($setting);
 
         }
+
+    }
+
+    public function getSetting() {
+
+        return $this->setting;
 
     }
 }
