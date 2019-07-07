@@ -13,6 +13,12 @@ function getFilteredObject($label = false, $categoryId = false){
                 section: $sectionId,
                 label: $label,
                 category: $categoryId
+            },
+            beforeSend: function(){
+                $('.process').show();
+            },
+            complete: function(){
+                $('.process').fadeOut('slow');
             }
         }).done(function ($data) {
 

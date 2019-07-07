@@ -104,3 +104,6 @@ insert into im_object_category values (null, 1, 1);
 insert into im_object_category values (null, 3, 2);
 insert into im_object_category values (null, 5, 2);
 insert into im_object_category values (null, 6, 3);
+
+insert into im_setting values (null, 'System name', 'name', 'IM-CMS Engine', '', null, null);
+insert into im_setting values (null, 'Logo', 'logo', 'logo.png', '', null, null);

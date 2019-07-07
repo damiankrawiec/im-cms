@@ -10,7 +10,9 @@
 </head>
 <body>
 
-    <?php $system->getContent($db); ?>
+    <?php $system->getContent($setting, $db); ?>
+
+    <?php require_once 'section/process.php'; ?>
 
     <?php require_once 'section/body.php'; ?>
 

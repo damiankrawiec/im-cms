@@ -7,6 +7,14 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 
 ?>
 
+<div class="container">
+    <?php
+
+        require_once $this->system.'/content/logo.php';
+
+    ?>
+</div>
+
 <div class="container-fluid">
 <?php
 

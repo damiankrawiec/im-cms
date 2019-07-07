@@ -30,6 +30,8 @@ drop table if exists im_label_category;
 
 drop table if exists im_object_category;
 
+drop table if exists im_setting;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -75,6 +77,12 @@ drop trigger if exists im_category_insert_date_create;
 drop trigger if exists im_category_insert_date_modify;
 
 drop trigger if exists im_category_update_date_modify;
+
+drop trigger if exists im_setting_insert_date_create;
+
+drop trigger if exists im_setting_insert_date_modify;
+
+drop trigger if exists im_setting_update_date_modify;
 
 -- end prepare database --
 
@@ -396,3 +404,37 @@ create table im_object_category (
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --
+
+-- SECTION START --
+
+-- table
+
+create table im_setting (
+    setting_id int not null auto_increment,
+    name varchar(128) collate utf8_polish_ci default '',
+    system_name varchar(128) collate utf8_polish_ci default '',
+    content varchar(128) collate utf8_polish_ci default '',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (setting_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_setting_insert_date_create
+    before insert on im_setting
+    for each row
+    set new.date_create = now();
+
+create trigger im_setting_insert_date_modify
+    before insert on im_setting
+    for each row
+    set new.date_modify = now();
+
+create trigger im_setting_update_date_modify
+    before update on im_setting
+    for each row
+    set new.date_modify = now();
+
+-- SECTION END --

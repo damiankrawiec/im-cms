@@ -6,6 +6,18 @@ body {
 .im-hide {
   display: none;
 }
+.im-logo {
+  text-align: center;
+  padding: 5px;
+}
+.process {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  color: #fff;
+  display: none;
+}
 .object {
   padding: 10px;
   background: #ddd;

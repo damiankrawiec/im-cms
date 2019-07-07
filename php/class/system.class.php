@@ -146,6 +146,19 @@ class System extends Setting
 
     }
 
+    private function settingArray($setting) {
+
+        $settingArray = array();
+        foreach ($setting as $s) {
+
+            $settingArray[$s['system_name']] = $s['content'];
+
+        }
+
+        return $settingArray;
+
+    }
+
     public function setSection($url, $db) {
 
         $this->currentSection = $url;
@@ -157,7 +170,7 @@ class System extends Setting
         $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':url', 'value' => $url, 'type' => 'string')
+            array('name' => ':url', 'value' => $this->currentSection, 'type' => 'string')
         );
 
         $db->bind($parameter);
@@ -194,7 +207,7 @@ class System extends Setting
 
     }
 
-    public function getContent($db = false) {
+    public function getContent($setting = false, $db = false) {
 
         if($db) {
 
@@ -226,6 +239,27 @@ class System extends Setting
                 }
 
             }
+
+        }
+
+    }
+
+    public function setting($db) {
+
+        $sql = 'select system_name as system_name, content, name
+                from im_setting';
+
+        $db->prepare($sql);
+
+        $setting = $db->run('all');
+
+        if($setting) {
+
+            return $this->settingArray($setting);
+
+        }else{
+
+            return false;
 
         }
 
