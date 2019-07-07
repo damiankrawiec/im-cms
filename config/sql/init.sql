@@ -28,6 +28,8 @@ drop table if exists im_category;
 
 drop table if exists im_label_category;
 
+drop table if exists im_object_category;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -352,6 +354,8 @@ create table im_category (
     label_id int not null,
     name varchar(64) collate utf8_polish_ci default '',
     content varchar(128) collate utf8_polish_ci default '',
+    position int default 0,
+    status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time

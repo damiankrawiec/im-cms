@@ -268,7 +268,10 @@ class ObjectContent {
         $sql = 'select c.category_id as id, c.name as name
                 from im_category c
                 join im_label l on (l.label_id = c.label_id)
-                where l.system_name = :label';
+                where l.system_name = :label
+                and c.status like "on"
+                order by c.position
+                ';
 
         $this->db->prepare($sql);
 
