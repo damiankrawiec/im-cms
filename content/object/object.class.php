@@ -399,7 +399,7 @@ class ObjectContent {
 
     }
 
-    public function displayCategory($label = false) {
+    public function displayCategory($label = false, $selectedCurrent) {
 
         if($label) {
 
@@ -420,7 +420,7 @@ class ObjectContent {
                             foreach ($category as $c) {
 
                                 $selected = '';
-                                if(isset($_SESSION[$label]) and $_SESSION[$label] == $c['id'])
+                                if($selectedCurrent and $selectedCurrent == $c['id'])
                                     $selected = ' selected';
 
                                 echo '<option value="'.$c['id'].'"'.$selected.'>' . $c['name'] . '</option>';

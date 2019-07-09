@@ -6,10 +6,6 @@ body {
 .im-hide {
   display: none;
 }
-.im-logo {
-  text-align: center;
-  padding: 5px;
-}
 .process {
   position: fixed;
   top: 0;
@@ -20,7 +16,7 @@ body {
 }
 .object {
   padding: 10px;
-  background: #ddd;
+  background-color: #ddd;
   border: 1px solid #fff;
 }
 .object img {
@@ -28,5 +24,13 @@ body {
 }
 .object .carousel i {
   font-size: 40px;
+}
+.logo {
+  text-align: center;
+  padding: 5px;
+}
+.footer {
+  background-color: #333;
+  min-height: 300px;
 }
 /*# sourceMappingURL=main.css.map */

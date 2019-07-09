@@ -1,5 +1,9 @@
 <?php
 //layout content (body structure)
+
+//Grab all session variables (e.g. to filtered)
+$sessionArray = $session->getSession();
+
 //init require element on the content in section (object)
 require_once 'content/object/object.class.php';
 
@@ -29,13 +33,9 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 <div class="container-fluid">
 <?php
 
-    $objectContent->displayCategory('news');
+    $objectContent->displayCategory('news', $sessionArray['news']);
 
-    $category = false;
-    if(isset($_SESSION['news']))
-        $category = $_SESSION['news'];
-
-    $objectContent->display($this->getSection()->id, 'news', $category);
+    $objectContent->display($this->getSection()->id, 'news', $sessionArray['news']);
 
 ?>
 </div>
@@ -45,16 +45,19 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 <div class="container">
 <?php
 
-    $objectContent->displayCategory('company-skill');
+    $objectContent->displayCategory('company-skill', $sessionArray['company-skill']);
 
-    $category = false;
-    if(isset($_SESSION['company-skill']))
-        $category = $_SESSION['company-skill'];
-
-    $objectContent->display($this->getSection()->id, 'company-skill', $category);
+    $objectContent->display($this->getSection()->id, 'company-skill', $sessionArray['company-skill']);
 
 ?>
 </div>
 <br>
 <hr>
 <br>
+<div class="container-fluid">
+    <?php
+
+        require_once $this->system.'/content/footer.php';
+
+    ?>
+</div>

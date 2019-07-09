@@ -12,12 +12,16 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
 
     require_once '../php/class/database.class.php';
 
-    $db = new Database();
-
     //init require element on the content in section (object)
     require_once '../content/object/object.class.php';
 
+    require_once '../php/class/session.class.php';
+
+    $db = new Database();
+
     $objectContent = new ObjectContent($p_systemName, $db);
+
+    $session = new Session();
 
     $objectContent->setPath('../');
 
@@ -26,9 +30,7 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
     //Init gallery effect after the end of ajax data
     $objectContent->initGallery();
 
-    session_start();
-
-    $_SESSION[$p_label] = $p_category;
+    $session->setSession($p_label, $p_category);
 
     exit($objectContentExit);
 
