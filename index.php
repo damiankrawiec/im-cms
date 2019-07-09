@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <?php $system->getContent($db, $session); ?>
+    <?php $system->getContent($db, $sessionVariables); ?>
 
     <?php require_once 'section/process.php'; ?>
 

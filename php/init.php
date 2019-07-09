@@ -11,6 +11,8 @@ require_once 'php/class/system.class.php';
 
 require_once 'php/class/session.class.php';
 
+require_once 'php/class/language.class.php';
+
 //There is no "domain system", switch on "default", when default is not exists then stop app
 
 $system = new System();
@@ -21,6 +23,10 @@ require_once $system->systemName().'/setting.php';
 require_once 'php/class/database.class.php';
 
 $db = new Database();
+
+$session = new Session();
+
+$sessionVariables = $session->getSession();
 
 //Get start section in system (no current section)
 require_once 'php/script/startSection.php';
@@ -43,3 +49,16 @@ $system->setting($db);
 
 //Get setting in array
 $setting = $system->getSetting();
+
+//Init language
+$language = new Language();
+
+if($sessionVariables['language']) {
+
+    $languageDefault = $sessionVariables['language'];
+
+}else{
+
+    $languageDefault = $language->default($db);
+
+}

@@ -1,9 +1,5 @@
 <?php
 //layout content (body structure)
-
-//Grab all session variables (e.g. to filtered), all variables must set in label array
-$sessionArray = $session->getSession();
-
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
@@ -34,10 +30,10 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 <?php
 
     //show category select in this label of objects
-    $objectContent->displayCategory('news', $sessionArray['news']);
+    $objectContent->displayCategory('news', $session['news']);
 
     //show objects in section of label and filtered by session variable
-    $objectContent->display($this->getSection()->id, 'news', $sessionArray['news']);
+    $objectContent->display($this->getSection()->id, 'news', $session['news']);
 
 ?>
 </div>
@@ -47,9 +43,9 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 <div class="container">
 <?php
 
-    $objectContent->displayCategory('company-skill', $sessionArray['company-skill']);
+    $objectContent->displayCategory('company-skill', $session['company-skill']);
 
-    $objectContent->display($this->getSection()->id, 'company-skill', $sessionArray['company-skill']);
+    $objectContent->display($this->getSection()->id, 'company-skill', $session['company-skill']);
 
 ?>
 </div>
