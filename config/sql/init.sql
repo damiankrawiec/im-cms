@@ -32,6 +32,10 @@ drop table if exists im_object_category;
 
 drop table if exists im_setting;
 
+drop table if exists im_language;
+
+drop table if exists im_translation_system;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -83,6 +87,18 @@ drop trigger if exists im_setting_insert_date_create;
 drop trigger if exists im_setting_insert_date_modify;
 
 drop trigger if exists im_setting_update_date_modify;
+
+drop trigger if exists im_language_insert_date_create;
+
+drop trigger if exists im_language_insert_date_modify;
+
+drop trigger if exists im_language_update_date_modify;
+
+drop trigger if exists im_translation_system_insert_date_create;
+
+drop trigger if exists im_translation_system_insert_date_modify;
+
+drop trigger if exists im_translation_system_update_date_modify;
 
 -- end prepare database --
 
@@ -390,7 +406,7 @@ create trigger im_category_update_date_modify
 
 -- CATEGORY END --
 
--- OBJECT-IMAGE START --
+-- OBJECT-CATEGORY START --
 
 -- categorized label, objects connected to label (m:n relationship), table
 
@@ -403,9 +419,9 @@ create table im_object_category (
     foreign key (category_id) references im_category(category_id)
 ) engine = InnoDB;
 
--- OBJECT-IMAGE END --
+-- OBJECT-CATEGORY END --
 
--- SECTION START --
+-- SETTING START --
 
 -- table
 
@@ -437,4 +453,77 @@ create trigger im_setting_update_date_modify
     for each row
     set new.date_modify = now();
 
--- SECTION END --
+-- SETTING END --
+
+-- LANGUAGE (DEFINITION) START --
+
+-- table
+
+create table im_language (
+    language_id int not null auto_increment,
+    name varchar(128) collate utf8_polish_ci default '',
+    system_name varchar(4) collate utf8_polish_ci default '',
+    url varchar(128) collate utf8_polish_ci default '',-- flag of language
+    position int default 0,
+    status_default varchar(3) default 'off',
+    status varchar(3) default 'on',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (language_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_language_insert_date_create
+    before insert on im_language
+    for each row
+    set new.date_create = now();
+
+create trigger im_language_insert_date_modify
+    before insert on im_language
+    for each row
+    set new.date_modify = now();
+
+create trigger im_language_update_date_modify
+    before update on im_language
+    for each row
+    set new.date_modify = now();
+
+-- LANGUAGE END --
+
+-- LANGUAGE (DEFINITION) START --
+
+-- translations in code each system, table
+
+create table im_translation_system (
+    im_translation_system_id int not null auto_increment,
+    language_id int not null,
+    name varchar(128) collate utf8_polish_ci default '',-- name to human
+    system_name varchar(32) collate utf8_polish_ci default '',-- var name in code
+    content varchar(128) collate utf8_polish_ci default '',-- translation
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (im_translation_system_id),
+    foreign key (language_id) references im_language(language_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_translation_system_insert_date_create
+    before insert on im_translation_system
+    for each row
+    set new.date_create = now();
+
+create trigger im_translation_system_insert_date_modify
+    before insert on im_translation_system
+    for each row
+    set new.date_modify = now();
+
+create trigger im_translation_system_update_date_modify
+    before update on im_translation_system
+    for each row
+    set new.date_modify = now();
+
+-- LANGUAGE END --
