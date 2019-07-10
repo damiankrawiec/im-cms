@@ -36,6 +36,8 @@ drop table if exists im_language;
 
 drop table if exists im_translation_system;
 
+drop table if exists im_translation;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -99,6 +101,12 @@ drop trigger if exists im_translation_system_insert_date_create;
 drop trigger if exists im_translation_system_insert_date_modify;
 
 drop trigger if exists im_translation_system_update_date_modify;
+
+drop trigger if exists im_translation_insert_date_create;
+
+drop trigger if exists im_translation_insert_date_modify;
+
+drop trigger if exists im_translation_update_date_modify;
 
 -- end prepare database --
 
@@ -492,12 +500,12 @@ create trigger im_language_update_date_modify
 
 -- LANGUAGE END --
 
--- LANGUAGE (DEFINITION) START --
+-- TRANSLATION SYSTEM START --
 
 -- translations in code each system, table
 
 create table im_translation_system (
-    im_translation_system_id int not null auto_increment,
+    translation_system_id int not null auto_increment,
     language_id int not null,
     name varchar(128) collate utf8_polish_ci default '',-- name to human
     system_name varchar(32) collate utf8_polish_ci default '',-- var name in code
@@ -505,7 +513,7 @@ create table im_translation_system (
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
-    primary key (im_translation_system_id),
+    primary key (translation_system_id),
     foreign key (language_id) references im_language(language_id)
 ) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
 
@@ -526,4 +534,42 @@ create trigger im_translation_system_update_date_modify
     for each row
     set new.date_modify = now();
 
--- LANGUAGE END --
+-- TRANSLATION SYSTEM END --
+
+-- TRANSLATION SYSTEM START --
+
+-- translations everything from database, [table, column, id] - identify field to translate, table
+
+create table im_translation (
+    translation_id int not null auto_increment,
+    language_id int not null,
+    name varchar(128) collate utf8_polish_ci default '',-- name to human
+    target_table varchar(32) collate utf8_polish_ci default '',-- name of table (string)
+    target_column varchar(32) collate utf8_polish_ci default '',-- name of column in table (string)
+    target_record int not null,-- record in table (int)
+    content varchar(128) collate utf8_polish_ci default '',-- translation
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (translation_id),
+    foreign key (language_id) references im_language(language_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_translation_insert_date_create
+    before insert on im_translation
+    for each row
+    set new.date_create = now();
+
+create trigger im_translation_insert_date_modify
+    before insert on im_translation
+    for each row
+    set new.date_modify = now();
+
+create trigger im_translation_update_date_modify
+    before update on im_translation
+    for each row
+    set new.date_modify = now();
+
+-- TRANSLATION SYSTEM END --

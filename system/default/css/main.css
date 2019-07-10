@@ -12,9 +12,9 @@ body {
 .process {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   padding: 10px;
-  color: #fff;
+  color: #ddd;
   display: none;
 }
 .im-logo {

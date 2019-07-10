@@ -113,3 +113,6 @@ insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'of
 
 insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż wszystko', '', null, null);
 insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
+
+insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
+insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
