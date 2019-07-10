@@ -211,7 +211,7 @@ class System extends Setting
 
     }
 
-    public function getContent($db = false, $session) {
+    public function getContent($db = false) {
 
         if($db) {
 

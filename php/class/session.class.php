@@ -55,7 +55,11 @@ class Session
 
         if($name) {
 
-            if($value > 0) {
+            if(is_int($value) and $value > 0) {
+
+                $_SESSION[$name] = $value;
+
+            }else if(is_string($value)){
 
                 $_SESSION[$name] = $value;
 
@@ -64,9 +68,6 @@ class Session
                 unset($_SESSION[$name]);
 
             }
-
-
-
 
         }
 

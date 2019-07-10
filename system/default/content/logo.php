@@ -1,4 +1,4 @@
-<div class="logo">
+<div class="im-logo">
     <div class="row">
         <div class="col-12">
             <?php

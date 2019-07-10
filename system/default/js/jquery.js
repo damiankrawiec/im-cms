@@ -3,11 +3,15 @@ $(function(){
     //Filter object by category in label box of each section
     $('.object-category').change(function(){
 
-        var $label = $(this).attr('id');
+        //label, categoryId
+        getFilteredObject($(this).attr('id'), $(this).val());
 
-        var $categoryId = $(this).val();
+    });
 
-        getFilteredObject($label, $categoryId);
+    $('#change-language li').click(function(){
+
+        //system name of selected language
+        setLanguage($(this).attr('id'));
 
     });
 

@@ -6,6 +6,9 @@ body {
 .im-hide {
   display: none;
 }
+.im-active img {
+  background-color: #333;
+}
 .process {
   position: fixed;
   top: 0;
@@ -13,6 +16,21 @@ body {
   padding: 10px;
   color: #fff;
   display: none;
+}
+.im-logo {
+  text-align: center;
+  padding: 5px;
+}
+.im-footer {
+  background-color: #333;
+  min-height: 300px;
+}
+.im-language ul {
+  float: right;
+}
+.im-language ul li {
+  list-style-type: none;
+  display: inline;
 }
 .object {
   padding: 10px;
@@ -24,13 +42,5 @@ body {
 }
 .object .carousel i {
   font-size: 40px;
-}
-.logo {
-  text-align: center;
-  padding: 5px;
-}
-.footer {
-  background-color: #333;
-  min-height: 300px;
 }
 /*# sourceMappingURL=main.css.map */

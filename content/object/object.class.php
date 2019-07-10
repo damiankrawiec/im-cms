@@ -399,7 +399,7 @@ class ObjectContent {
 
     }
 
-    public function displayCategory($label = false, $selectedCurrent) {
+    public function displayCategory($label = false, $selectedCurrent, $translation) {
 
         if($label) {
 
@@ -415,7 +415,7 @@ class ObjectContent {
 
                         echo '<select class="form-control object-category" id="'.$label.'">';
 
-                            echo '<option value="0">Show all</option>';
+                            echo '<option value="0">'.$translation['show-all'].'</option>';
 
                             foreach ($category as $c) {
 
