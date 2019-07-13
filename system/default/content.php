@@ -16,12 +16,16 @@ $language = new Language();
 
 $language->default($db, $sessionVariables['language']);
 
-$translationSystem = $language->translation_system($db);
+$translationSystem = $language->translationSystem($db);
+
+$translation = $language->translation($db);
 
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
 $objectContent = new ObjectContent($this->systemName(), $db);
+
+$objectContent->setTranslation($translationSystem, $translation);
 
 ?>
 
@@ -56,7 +60,7 @@ $objectContent = new ObjectContent($this->systemName(), $db);
 <?php
 
     //show category select in this label of objects
-    $objectContent->displayCategory('news', $sessionVariables['news'], $translationSystem);
+    $objectContent->displayCategory('news', $sessionVariables['news']);
 
     //show objects in section of label and filtered by session variable
     $objectContent->display($this->getSection()->id, 'news', $sessionVariables['news']);

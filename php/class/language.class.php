@@ -4,24 +4,43 @@
 class Language
 {
 
-    private $languageDefault;
+    private $languageCurrent;
 
     public function __construct(){
 
-        $this->languageDefault = false;
+        $this->languageCurrent = false;
 
     }
-    private function getTranslation($db) {
+    private function getTranslationSystem($db) {
 
         $sql = 'select ts.system_name, ts.content
                 from im_translation_system ts
                 join im_language l on(l.language_id = ts.language_id)
-                where l.system_name = :languageDefault';
+                where l.system_name = :languageCurrent';
 
         $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':languageDefault', 'value' => $this->languageDefault, 'type' => 'string')
+            array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
+        );
+
+        $db->bind($parameter);
+
+        return $db->run('all');
+
+    }
+
+    private function getTranslation($db) {
+
+        $sql = 'select t.target_table as target_table, t.target_column as target_column, t.target_record, t.content as content
+                from im_translation t
+                join im_language l on(l.language_id = t.language_id)
+                where l.system_name = :languageCurrent';
+
+        $db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
         );
 
         $db->bind($parameter);
@@ -34,7 +53,7 @@ class Language
 
         if($session) {
 
-            $this->languageDefault = $session;
+            $this->languageCurrent = $session;
 
         }else{
 
@@ -45,11 +64,11 @@ class Language
 
             $db->prepare($sql);
 
-            $languageDefault = $db->run('one');
+            $languageCurrent = $db->run('one');
 
-            if ($languageDefault) {
+            if ($languageCurrent) {
 
-                $this->languageDefault = $languageDefault->system_name;
+                $this->languageCurrent = $languageCurrent->system_name;
 
             } else {
 
@@ -78,7 +97,7 @@ class Language
         foreach ($language as $l) {
 
             $active = '';
-            if($l['system_name'] == $this->languageDefault)
+            if($l['system_name'] == $this->languageCurrent)
                 $active = ' class="im-active"';
 
             echo '<li id="'.$l['system_name'].'"><a href="#" title="'.$l['name'].'"'.$active.'><img src="'.$systemName.'/public/'.$l['url'].'" alt="'.$l['name'].'"></a></li>';
@@ -89,17 +108,37 @@ class Language
 
     }
 
-    public function translation_system($db) {
+    public function translationSystem($db) {
+
+        $translationSystem = $this->getTranslationSystem($db);
+
+        $translationSystemArray = array();
+
+        if ($translationSystem) {
+
+            foreach ($translationSystem as $ts) {
+
+                $translationSystemArray[$ts['system_name']] = $ts['content'];
+
+            }
+
+        }
+
+        return $translationSystemArray;
+
+    }
+
+    public function translation($db) {
 
         $translation = $this->getTranslation($db);
 
         $translationArray = array();
 
-        if($translation) {
+        if ($translation) {
 
             foreach ($translation as $t) {
 
-                $translationArray[$t['system_name']] = $t['content'];
+                $translationArray[$t['target_table'] . '-' . $t['target_column'] . '-' . $t['target_record']] = $t['content'];
 
             }
 

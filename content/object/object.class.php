@@ -12,6 +12,10 @@ class ObjectContent {
 
     private $path;
 
+    private $translationSystem;
+
+    private $translation;
+
     public function __construct($systemName, $db) {
 
         $this->systemName = $systemName;
@@ -23,6 +27,10 @@ class ObjectContent {
         $this->objectCounter = 0;
 
         $this->path = '';
+
+        $this->translationSystem = false;
+
+        $this->translation = false;
 
     }
 
@@ -176,11 +184,15 @@ class ObjectContent {
 
             if(is_file($path)) {
 
+                $data = $this->makeTranslation($data);
+
                 if(isset($data[$p['name']])) {
 
                     $dataDisplay = $data[$p['name']];
 
                     if (isset($dataDisplay)) {
+
+                        //if(isset($this->translation['im_object-name-']))
 
                         $class = '';
                         if($p['class'] != '')
@@ -201,6 +213,28 @@ class ObjectContent {
         }
 
         echo '</div>';
+
+    }
+
+    private function makeTranslation($data) {
+
+        if(is_array($data) and count($data) > 0) {
+
+            foreach ($data as $i => $d) {
+
+                if(is_array($d)) {
+
+
+
+                }else if(is_string($d)) {
+
+                    if(isset($this->translation[]))
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -244,7 +278,7 @@ class ObjectContent {
 
     private function getObjectImage($objectId) {
 
-        $sql = 'select i.name as name, i.content as content, i.url as url, i.link as link
+        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.link as link
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object
@@ -399,7 +433,7 @@ class ObjectContent {
 
     }
 
-    public function displayCategory($label = false, $selectedCurrent, $translation) {
+    public function displayCategory($label = false, $selectedCurrent) {
 
         if($label) {
 
@@ -415,7 +449,7 @@ class ObjectContent {
 
                         echo '<select class="form-control object-category" id="'.$label.'">';
 
-                            echo '<option value="0">'.$translation['show-all'].'</option>';
+                            echo '<option value="0">'.$this->translationSystem['show-all'].'</option>';
 
                             foreach ($category as $c) {
 
@@ -438,6 +472,15 @@ class ObjectContent {
             }
 
         }
+
+    }
+
+    public function setTranslation($translationSystem, $translation) {
+
+        if($translationSystem)
+            $this->translationSystem = $translationSystem;
+
+        $this->translation = $translation;
 
     }
 
