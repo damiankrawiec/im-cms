@@ -116,3 +116,4 @@ insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all
 
 insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
+insert into im_translation values (null, 2,  'In english', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);

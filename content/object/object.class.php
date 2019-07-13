@@ -192,8 +192,6 @@ class ObjectContent {
 
                     if (isset($dataDisplay)) {
 
-                        //if(isset($this->translation['im_object-name-']))
-
                         $class = '';
                         if($p['class'] != '')
                             $class= ' class="' . $p['class'] . '"';
@@ -224,15 +222,32 @@ class ObjectContent {
 
                 if(is_array($d)) {
 
+                    foreach ($d as $ii => $dr) {
 
+                        foreach($dr as $iii => $drr) {
+
+                            if(isset($this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']])) {
+
+                                $data[$i][$ii][$iii] = $this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']];
+
+                            }
+
+                        }
+                    }
 
                 }else if(is_string($d)) {
 
-                    if(isset($this->translation[]))
+                    if(isset($this->translation['im_object-'.$i.'-'.$data['id']])) {
+
+                        $data[$i] = $this->translation['im_object-'.$i.'-'.$data['id']];
+
+                    }
 
                 }
 
             }
+
+            return $data;
 
         }
 
