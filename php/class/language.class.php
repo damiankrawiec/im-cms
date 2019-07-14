@@ -4,56 +4,109 @@
 class Language
 {
 
+    private $db;
+
     private $languageCurrent;
 
-    public function __construct(){
+    protected $translationSystem;
 
-        $this->languageCurrent = false;
+    protected $translation;
+
+    protected function __construct($db, $languageCurrent){
+
+        $this->db = $db;
+
+        $this->default($languageCurrent);
+
+        $this->translationSystem();
+
+        $this->translation();
 
     }
-    private function getTranslationSystem($db) {
+
+    private function translationSystem() {
+
+        $translationSystem = $this->getTranslationSystem();
+
+        $translationSystemArray = array();
+
+        if ($translationSystem) {
+
+            foreach ($translationSystem as $ts) {
+
+                $translationSystemArray[$ts['system_name']] = $ts['content'];
+
+            }
+
+        }
+
+        $this->translationSystem = $translationSystemArray;
+
+    }
+
+    private function translation() {
+
+        $translation = $this->getTranslation();
+
+        $translationArray = array();
+
+        if ($translation) {
+
+            foreach ($translation as $t) {
+
+                $translationArray[$t['target_table'] . '-' . $t['target_column'] . '-' . $t['target_record']] = $t['content'];
+
+            }
+
+        }
+
+        $this->translation = $translationArray;
+
+    }
+
+    private function getTranslationSystem() {
 
         $sql = 'select ts.system_name, ts.content
                 from im_translation_system ts
                 join im_language l on(l.language_id = ts.language_id)
                 where l.system_name = :languageCurrent';
 
-        $db->prepare($sql);
+        $this->db->prepare($sql);
 
         $parameter = array(
             array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
         );
 
-        $db->bind($parameter);
+        $this->db->bind($parameter);
 
-        return $db->run('all');
+        return $this->db->run('all');
 
     }
 
-    private function getTranslation($db) {
+    private function getTranslation() {
 
         $sql = 'select t.target_table as target_table, t.target_column as target_column, t.target_record, t.content as content
                 from im_translation t
                 join im_language l on(l.language_id = t.language_id)
                 where l.system_name = :languageCurrent';
 
-        $db->prepare($sql);
+        $this->db->prepare($sql);
 
         $parameter = array(
             array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
         );
 
-        $db->bind($parameter);
+        $this->db->bind($parameter);
 
-        return $db->run('all');
+        return $this->db->run('all');
 
     }
 
-    public function default($db, $session) {
+    private function default($languageCurrent) {
 
-        if($session) {
+        if($languageCurrent) {
 
-            $this->languageCurrent = $session;
+            $this->languageCurrent = $languageCurrent;
 
         }else{
 
@@ -62,9 +115,9 @@ class Language
                 where status like "on"
                 and status_default like "on"';
 
-            $db->prepare($sql);
+            $this->db->prepare($sql);
 
-            $languageCurrent = $db->run('one');
+            $languageCurrent = $this->db->run('one');
 
             if ($languageCurrent) {
 
@@ -81,16 +134,56 @@ class Language
         }
 
     }
-    public function display($db, $systemName) {
+
+    protected function makeTranslation($data) {
+
+        if(is_array($data) and count($data) > 0) {
+
+            foreach ($data as $i => $d) {
+
+                if(is_array($d)) {
+
+                    foreach ($d as $ii => $dr) {
+
+                        foreach($dr as $iii => $drr) {
+
+                            if(isset($this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']])) {
+
+                                $data[$i][$ii][$iii] = $this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']];
+
+                            }
+
+                        }
+                    }
+
+                }else if(is_string($d)) {
+
+                    if(isset($this->translation['im_object-'.$i.'-'.$data['id']])) {
+
+                        $data[$i] = $this->translation['im_object-'.$i.'-'.$data['id']];
+
+                    }
+
+                }
+
+            }
+
+            return $data;
+
+        }
+
+    }
+
+    public function displayLanguage($systemName) {
 
         $sql = 'select name, system_name, url
                 from im_language
                 where status like "on"
                 order by position';
 
-        $db->prepare($sql);
+        $this->db->prepare($sql);
 
-        $language = $db->run('all');
+        $language = $this->db->run('all');
 
         echo '<ul id="change-language">';
 
@@ -105,46 +198,6 @@ class Language
         }
 
         echo '</ul>';
-
-    }
-
-    public function translationSystem($db) {
-
-        $translationSystem = $this->getTranslationSystem($db);
-
-        $translationSystemArray = array();
-
-        if ($translationSystem) {
-
-            foreach ($translationSystem as $ts) {
-
-                $translationSystemArray[$ts['system_name']] = $ts['content'];
-
-            }
-
-        }
-
-        return $translationSystemArray;
-
-    }
-
-    public function translation($db) {
-
-        $translation = $this->getTranslation($db);
-
-        $translationArray = array();
-
-        if ($translation) {
-
-            foreach ($translation as $t) {
-
-                $translationArray[$t['target_table'] . '-' . $t['target_column'] . '-' . $t['target_record']] = $t['content'];
-
-            }
-
-        }
-
-        return $translationArray;
 
     }
 

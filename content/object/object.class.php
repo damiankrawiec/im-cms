@@ -1,10 +1,10 @@
 <?php
 
-class ObjectContent {
-
-    private $systemName;
+class ObjectContent extends Language {
 
     private $db;
+
+    private $systemName;
 
     private $label;
 
@@ -12,25 +12,19 @@ class ObjectContent {
 
     private $path;
 
-    private $translationSystem;
+    public function __construct($systemName, $db, $languageCurrent) {
 
-    private $translation;
-
-    public function __construct($systemName, $db) {
-
-        $this->systemName = $systemName;
+        parent::__construct($db, $languageCurrent);
 
         $this->db = $db;
+
+        $this->systemName = $systemName;
 
         $this->label = 'label';
 
         $this->objectCounter = 0;
 
         $this->path = '';
-
-        $this->translationSystem = false;
-
-        $this->translation = false;
 
     }
 
@@ -211,45 +205,6 @@ class ObjectContent {
         }
 
         echo '</div>';
-
-    }
-
-    private function makeTranslation($data) {
-
-        if(is_array($data) and count($data) > 0) {
-
-            foreach ($data as $i => $d) {
-
-                if(is_array($d)) {
-
-                    foreach ($d as $ii => $dr) {
-
-                        foreach($dr as $iii => $drr) {
-
-                            if(isset($this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']])) {
-
-                                $data[$i][$ii][$iii] = $this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']];
-
-                            }
-
-                        }
-                    }
-
-                }else if(is_string($d)) {
-
-                    if(isset($this->translation['im_object-'.$i.'-'.$data['id']])) {
-
-                        $data[$i] = $this->translation['im_object-'.$i.'-'.$data['id']];
-
-                    }
-
-                }
-
-            }
-
-            return $data;
-
-        }
 
     }
 
@@ -487,15 +442,6 @@ class ObjectContent {
             }
 
         }
-
-    }
-
-    public function setTranslation($translationSystem, $translation) {
-
-        if($translationSystem)
-            $this->translationSystem = $translationSystem;
-
-        $this->translation = $translation;
 
     }
 

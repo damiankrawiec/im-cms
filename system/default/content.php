@@ -4,35 +4,20 @@ require_once 'php/class/session.class.php';
 
 require_once 'php/class/language.class.php';
 
-$session = new Session();
+//init require element on the content in section (object), rest part of section are include
+require_once 'content/object/object.class.php';
 
 //Labeled all "session" variables
 require_once 'php/script/session.php';
 
-$sessionVariables = $session->getSession();
-
-//Init language
-$language = new Language();
-
-$language->default($db, $sessionVariables['language']);
-
-$translationSystem = $language->translationSystem($db);
-
-$translation = $language->translation($db);
-
-//init require element on the content in section (object), rest part of section are include
-require_once 'content/object/object.class.php';
-
-$objectContent = new ObjectContent($this->systemName(), $db);
-
-$objectContent->setTranslation($translationSystem, $translation);
+$objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['language']);
 
 ?>
 
 <div class="container-fluid">
     <?php
 
-    require_once $this->system.'/content/language.php';
+        require_once $this->system.'/content/language.php';
 
     ?>
 </div>
@@ -73,7 +58,7 @@ $objectContent->setTranslation($translationSystem, $translation);
 <div class="container">
 <?php
 
-    $objectContent->displayCategory('company-skill', $sessionVariables['company-skill'], $translationSystem);
+    $objectContent->displayCategory('company-skill', $sessionVariables['company-skill']);
 
     $objectContent->display($this->getSection()->id, 'company-skill', $sessionVariables['company-skill']);
 

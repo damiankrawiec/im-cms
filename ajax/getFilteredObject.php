@@ -12,6 +12,8 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
 
     require_once '../php/class/database.class.php';
 
+    require_once '../php/class/language.class.php';
+
     //init require element on the content in section (object)
     require_once '../content/object/object.class.php';
 
@@ -19,19 +21,18 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
 
     $db = new Database();
 
-    $objectContent = new ObjectContent($p_systemName, $db);
+    //Labeled all "session" variables
+    require_once '../php/script/session.php';
 
-    $session = new Session();
+    $objectContent = new ObjectContent($p_systemName, $db, $sessionVariables['language']);
 
     $objectContent->setPath('../');
-
-    $objectContentExit = $objectContent->display($p_section, $p_label, $p_category);
 
     //Init gallery effect after the end of ajax data
     $objectContent->initGallery();
 
     $session->setSession($p_label, $p_category);
 
-    exit($objectContentExit);
+    exit($objectContent->display($p_section, $p_label, $p_category));
 
 }
