@@ -22,7 +22,11 @@ drop table if exists im_type_property;
 
 drop table if exists im_image;
 
+drop table if exists im_file;
+
 drop table if exists im_object_image;
+
+drop table if exists im_object_file;
 
 drop table if exists im_category;
 
@@ -77,6 +81,12 @@ drop trigger if exists im_image_insert_date_create;
 drop trigger if exists im_image_insert_date_modify;
 
 drop trigger if exists im_image_update_date_modify;
+
+drop trigger if exists im_file_insert_date_create;
+
+drop trigger if exists im_file_insert_date_modify;
+
+drop trigger if exists im_file_update_date_modify;
 
 drop trigger if exists im_category_insert_date_create;
 
@@ -363,6 +373,41 @@ create trigger im_image_update_date_modify
 
 -- IMAGE END --
 
+-- FILE START --
+
+-- table
+
+create table im_file (
+    file_id int not null auto_increment,
+    name varchar(64) collate utf8_polish_ci default '',
+    content varchar(128) collate utf8_polish_ci default '',
+    url varchar(128) collate utf8_polish_ci default '',
+    status varchar(3) default 'on',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (file_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_file_insert_date_create
+    before insert on im_file
+    for each row
+    set new.date_create = now();
+
+create trigger im_file_insert_date_modify
+    before insert on im_file
+    for each row
+    set new.date_modify = now();
+
+create trigger im_file_update_date_modify
+    before update on im_file
+    for each row
+    set new.date_modify = now();
+
+-- FILE END --
+
 -- OBJECT-IMAGE START --
 
 -- connecting images with object (m:n relationship), table
@@ -378,6 +423,22 @@ create table im_object_image (
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --
+
+-- OBJECT-FILE START --
+
+-- connecting files with object (m:n relationship), table
+
+create table im_object_file (
+    object_file_id int not null auto_increment,
+    object_id int not null,
+    file_id int not null,
+    position int default 0,
+    primary key (object_file_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (file_id) references im_file(file_id)
+) engine = InnoDB;
+
+-- OBJECT-FILE END --
 
 -- CATEGORY START --
 

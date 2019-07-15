@@ -54,7 +54,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function getObject($parameter = false, $filter = false) {
+    private function getObject($parameter = false) {
 
         $isParameter = false;
         if($parameter and is_array($parameter) and count($parameter) > 0) {
@@ -67,7 +67,7 @@ class ObjectContent extends Language {
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text';
+        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text, o.link as link';
 
         //Field from joining tables
 //        if($isParameter) {
@@ -109,14 +109,6 @@ class ObjectContent extends Language {
         $sql .= $this->whereOrAnd($sql);
 
         $sql .= ' o.status like "on"';
-
-        if($filter) {
-
-            $sql .= $this->whereOrAnd($sql);
-
-            $sql .= ' o.object_id in ('.$filter.')';
-
-        }
 
         $sql .= ' order by so.position';
 
@@ -266,6 +258,27 @@ class ObjectContent extends Language {
 
     }
 
+    private function getObjectFile($objectId) {
+
+        $sql = 'select f.file_id as id, f.name as name, f.content as content, f.url as url
+                from im_file f
+                join im_object_file obf on (obf.file_id = f.file_id)
+                where obf.object_id = :object
+                and f.status like "on"
+                order by obf.position';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $objectId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
     private function getCategoryLabel($label) {
 
         $sql = 'select c.category_id as id, c.name as name
@@ -365,7 +378,10 @@ class ObjectContent extends Language {
 
                             $displayPropertyData['image'] = $this->getObjectImage($or['id']);
 
-                            break;
+                        }
+                        if ($p['name'] == 'file') {
+
+                            $displayPropertyData['file'] = $this->getObjectFile($or['id']);
 
                         }
 
