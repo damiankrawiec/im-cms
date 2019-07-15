@@ -7,7 +7,9 @@ require_once 'php/class/language.class.php';
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-//Labeled all "session" variables
+$session = new Session();
+
+//Labeled all "session" variables and get session variables in array
 require_once 'php/script/session.php';
 
 $objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['language']);

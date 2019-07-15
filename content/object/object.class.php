@@ -2,21 +2,17 @@
 
 class ObjectContent extends Language {
 
-    private $db;
-
-    private $systemName;
-
     private $label;
 
     private $objectCounter;
 
     private $path;
 
+    protected $systemName;
+
     public function __construct($systemName, $db, $languageCurrent) {
 
         parent::__construct($db, $languageCurrent);
-
-        $this->db = $db;
 
         $this->systemName = $systemName;
 

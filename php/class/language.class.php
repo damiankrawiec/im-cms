@@ -4,9 +4,9 @@
 class Language
 {
 
-    private $db;
-
     private $languageCurrent;
+
+    protected $db;
 
     protected $translationSystem;
 
@@ -174,7 +174,7 @@ class Language
 
     }
 
-    public function displayLanguage($systemName) {
+    public function displayLanguage() {
 
         $sql = 'select name, system_name, url
                 from im_language
@@ -193,7 +193,7 @@ class Language
             if($l['system_name'] == $this->languageCurrent)
                 $active = ' class="im-active"';
 
-            echo '<li id="'.$l['system_name'].'"><a href="#" title="'.$l['name'].'"'.$active.'><img src="'.$systemName.'/public/'.$l['url'].'" alt="'.$l['name'].'"></a></li>';
+            echo '<li id="'.$l['system_name'].'"><a href="#" title="'.$l['name'].'"'.$active.'><img src="'.$this->systemName.'/public/'.$l['url'].'" alt="'.$l['name'].'"></a></li>';
 
         }
 

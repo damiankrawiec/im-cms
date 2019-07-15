@@ -1,7 +1,5 @@
 <?php
 
-$session = new Session();
-
 //Label of all session variables in system
 $sessionLabel = array('news', 'company-skill', 'language');
 

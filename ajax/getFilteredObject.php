@@ -21,7 +21,9 @@ if($p_systemName and $p_section and $p_label and isset($p_category)) {
 
     $db = new Database();
 
-    //Labeled all "session" variables
+    $session = new Session();
+
+    //Labeled all "session" variables and get session variables in array
     require_once '../php/script/session.php';
 
     $objectContent = new ObjectContent($p_systemName, $db, $sessionVariables['language']);
