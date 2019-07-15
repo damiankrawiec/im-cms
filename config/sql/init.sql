@@ -258,6 +258,7 @@ create table im_object (
     section_id int default 0,-- direction to section, 0 - not direction (this in not foreign key)
     name varchar(128) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
+    link varchar(128) collate utf8_polish_ci default '',-- direction url inner or outer
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date date ,-- date to display
@@ -317,6 +318,7 @@ create table im_type_property (
     type_id int not null,
     property_id int not null,
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
+    class_field varchar(128) collate utf8_polish_ci default '',-- class of object fields
     position int default 0,
     primary key (type_property_id),
     foreign key (type_id) references im_type(type_id),

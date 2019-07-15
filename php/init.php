@@ -9,6 +9,8 @@ require_once 'config/setting.class.php';
 
 require_once 'php/class/system.class.php';
 
+require_once 'php/class/session.class.php';
+
 //There is no "domain system", switch on "default", when default is not exists then stop app
 
 $system = new System();
@@ -38,3 +40,8 @@ $system->setting($db);
 
 //Get setting in array
 $setting = $system->getSetting();
+
+$session = new Session();
+
+//Labeled all "session" variables and get session variables in array
+require_once 'php/script/session.php';

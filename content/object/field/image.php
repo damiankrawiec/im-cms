@@ -33,7 +33,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
             echo '<div class="carousel-item' . $active . '">
                     <a href="'.$this->systemName.'/public/'.$href.'" title="'.$img['name'].'" data-rel="lightcase:collection-'.$this->objectCounter.'">
-                      <img class="d-block" src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
+                      <img'.$classField.' src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
                       <div class="carousel-caption d-none d-md-block">
                         <h5>'.$img['name'].'</h5>

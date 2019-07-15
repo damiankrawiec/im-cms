@@ -131,7 +131,7 @@ class ObjectContent extends Language {
 
     private function getPropertyFromType($type) {
 
-        $sql = 'select property_id as id, class from im_type_property where type_id = :type order by position';
+        $sql = 'select property_id as id, class, class_field from im_type_property where type_id = :type order by position';
 
         $this->db->prepare($sql);
 
@@ -156,7 +156,7 @@ class ObjectContent extends Language {
 
             $this->db->bind($parameter);
 
-            array_push($propertiesArray, array('name' => $this->db->run('one')->system_name, 'class' => $p['class']));
+            array_push($propertiesArray, array('name' => $this->db->run('one')->system_name, 'class' => $p['class'], 'class_field' => $p['class_field']));
 
         }
 
@@ -182,9 +182,12 @@ class ObjectContent extends Language {
 
                     if (isset($dataDisplay)) {
 
-                        $class = '';
+                        $class = $classField = '';
                         if($p['class'] != '')
-                            $class= ' class="' . $p['class'] . '"';
+                            $class = ' class="' . $p['class'] . '"';
+
+                        if($p['class_field'] != '')
+                            $classField = ' class="' . $p['class_field'] . '"';
 
                         echo '<div'.$class.'>';
 
@@ -285,40 +288,34 @@ class ObjectContent extends Language {
 
     }
 
-    private function getCategoryObject($category) {
+    private function getCategoryObject($object) {
 
-        $sql = 'select object_id as id
+        $sql = 'select category_id as id
                 from im_object_category
-                where category_id = :category';
+                where object_id = :object';
 
         $this->db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':category', 'value' => $category, 'type' => 'int')
+            array('name' => ':object', 'value' => $object, 'type' => 'int')
         );
 
         $this->db->bind($parameter);
 
-        $objectCategory = $this->db->run('all');
+        $category = $this->db->run('all');
 
-        $objectCategoryArray = array();
-        foreach ($objectCategory as $oc) {
+        if($category) {
 
-            array_push($objectCategoryArray, $oc['id']);
+            $categoryArray = array();
+            foreach ($category as $c) {
 
-        }
+                array_push($categoryArray, $c['id']);
 
-        return implode(',', $objectCategoryArray);
+            }
 
-    }
+            return implode(' ', $categoryArray).' ';
 
-    public function initGallery() {
-
-        echo '<script>
-            $(function(){
-                $(\'a[data-rel^=lightcase]\').lightcase();
-            });
-        </script>';
+        }else return '';
 
     }
 
@@ -331,21 +328,16 @@ class ObjectContent extends Language {
         }
     }
 
-    public function display($section = false, $label = false, $category = false) {
+    public function display($section = false, $label = false) {
 
         if($section and $label) {
-
-            //If isset filter add where in() to sql query
-            $filter = false;
-            if($category)
-                $filter = $this->getCategoryObject($category);
 
             $parameter = array(
                 array('name' => ':section', 'value' => $section, 'type' => 'int'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
             );
 
-            $objectRecord = $this->getObject($parameter, $filter);
+            $objectRecord = $this->getObject($parameter);
 
             if($objectRecord) {
 
@@ -361,7 +353,7 @@ class ObjectContent extends Language {
                     if ($classAdd != '')
                         $class .= ' ' . $classAdd;
 
-                    echo '<div class="' . $class . '">';
+                    echo '<div class="'.$this->getCategoryObject($or['id']).'' . $class . '">';
 
                     $property = $this->getPropertyFromType($or['type']);
 
@@ -399,7 +391,7 @@ class ObjectContent extends Language {
 
     }
 
-    public function displayCategory($label = false, $selectedCurrent) {
+    public function displayCategory($label = false) {
 
         if($label) {
 
@@ -419,11 +411,7 @@ class ObjectContent extends Language {
 
                             foreach ($category as $c) {
 
-                                $selected = '';
-                                if($selectedCurrent and $selectedCurrent == $c['id'])
-                                    $selected = ' selected';
-
-                                echo '<option value="'.$c['id'].'"'.$selected.'>' . $c['name'] . '</option>';
+                                echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
 
                             }
 

@@ -2,6 +2,6 @@
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
-    echo '<p>' . $dataDisplay . '</p>';
+    echo '<div'.$classField.'>' . $dataDisplay . '</div>';
 
 }

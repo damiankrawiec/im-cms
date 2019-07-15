@@ -4,7 +4,7 @@ $(function(){
     $('.object-category').change(function(){
 
         //label, categoryId
-        getFilteredObject($(this).attr('id'), $(this).val());
+        filterObject($(this).attr('id'), $(this).val());
 
     });
 
@@ -14,6 +14,8 @@ $(function(){
         setLanguage($(this).attr('id'));
 
     });
+
+    filterObjectStart();
 
     //At the end init gallery effect
     $('a[data-rel^=lightcase]').lightcase();

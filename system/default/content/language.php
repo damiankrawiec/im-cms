@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <?php
-                $objectContent->displayLanguage();
+                $object->displayLanguage();
             ?>
         </div>
     </div>

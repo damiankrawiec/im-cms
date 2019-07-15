@@ -211,9 +211,9 @@ class System extends Setting
 
     }
 
-    public function getContent($db = false) {
+    public function getContent($db = false, $session = false) {
 
-        if($db) {
+        if($db and $session) {
 
             if ($this->checkSystemStructure and $this->section) {
 

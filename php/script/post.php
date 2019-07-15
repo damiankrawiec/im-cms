@@ -1,7 +1,7 @@
 <?php
 
 //Set all post variables
-$p_systemName = $p_section = $p_label = $p_language = false;
+$p_systemName = $p_section = $p_label = $p_language = $p_category = false;
 
 if(isset($_POST['systemName']))
     $p_systemName = $_POST['systemName'];

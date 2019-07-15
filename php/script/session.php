@@ -5,4 +5,4 @@ $sessionLabel = array('news', 'company-skill', 'language');
 
 $session->setSessionLabel($sessionLabel);
 
-$sessionVariables = $session->getSession();
+$sessionVariable = $session->getSession();

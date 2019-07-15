@@ -1,18 +1,12 @@
 <?php
 
-require_once 'php/class/session.class.php';
-
+//class language is parent to every element in section content
 require_once 'php/class/language.class.php';
 
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$session = new Session();
-
-//Labeled all "session" variables and get session variables in array
-require_once 'php/script/session.php';
-
-$objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['language']);
+$object = new ObjectContent($this->systemName(), $db, $session['language']);
 
 ?>
 
@@ -35,7 +29,7 @@ $objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['
 <div class="container-fluid">
 <?php
 
-    $objectContent->display($this->getSection()->id, 'slider');
+    $object->display($this->getSection()->id, 'slider');
 
 ?>
 </div>
@@ -47,10 +41,10 @@ $objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['
 <?php
 
     //show category select in this label of objects
-    $objectContent->displayCategory('news', $sessionVariables['news']);
+    $object->displayCategory('news');
 
     //show objects in section of label and filtered by session variable
-    $objectContent->display($this->getSection()->id, 'news', $sessionVariables['news']);
+    $object->display($this->getSection()->id, 'news');
 
 ?>
 </div>
@@ -60,9 +54,9 @@ $objectContent = new ObjectContent($this->systemName(), $db, $sessionVariables['
 <div class="container">
 <?php
 
-    $objectContent->displayCategory('company-skill', $sessionVariables['company-skill']);
+    $object->displayCategory('company-skill');
 
-    $objectContent->display($this->getSection()->id, 'company-skill', $sessionVariables['company-skill']);
+    $object->display($this->getSection()->id, 'company-skill');
 
 ?>
 </div>
