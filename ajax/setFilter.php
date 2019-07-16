@@ -2,7 +2,6 @@
 require_once '../php/script/post.php';
 if($p_label and isset($p_category)) {
 
-    //It is the same, but...
     if($p_category == 0)
         $p_category = false;
 

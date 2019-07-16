@@ -279,6 +279,19 @@ class ObjectContent extends Language {
 
     }
 
+    private function getMenu() {
+
+        $sql = 'select section_id as id, name, url
+                from im_section
+                where status like "on"
+                order by position';
+
+        $this->db->prepare($sql);
+
+        return $this->db->run('all');
+
+    }
+
     private function getCategoryLabel($label) {
 
         $sql = 'select c.category_id as id, c.name as name
@@ -382,6 +395,11 @@ class ObjectContent extends Language {
                         if ($p['name'] == 'file') {
 
                             $displayPropertyData['file'] = $this->getObjectFile($or['id']);
+
+                        }
+                        if ($p['name'] == 'section') {
+
+                            $displayPropertyData['section'] = $this->getMenu();
 
                         }
 

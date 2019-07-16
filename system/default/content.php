@@ -27,6 +27,18 @@ $object = new ObjectContent($this->systemName(), $db, $session['language']);
 </div>
 
 <div class="container-fluid">
+    <?php
+
+    $object->display($this->getSection()->id, 'menu');
+
+    ?>
+</div>
+
+<br>
+<hr>
+<br>
+
+<div class="container-fluid">
 <?php
 
     $object->display($this->getSection()->id, 'slider');
