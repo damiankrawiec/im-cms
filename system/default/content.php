@@ -21,12 +21,14 @@ $object = new ObjectContent($this->systemName(), $db, $session['language']);
 
     <?php $object->display($this->getSection()->id, 'menu'); ?>
 
-    <?php $object->display($this->getSection()->id, 'menu', 'parent'); ?>
+    <?php $object->display($this->getSection()->id, 'submenu', 'parent'); ?>
 
 </div>
 
 <div class="container-fluid">
+
     <?php $object->display($this->getSection()->id, 'slider'); ?>
+
 </div>
 
 <div class="container-fluid">

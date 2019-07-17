@@ -11,6 +11,7 @@ insert into im_label values (null, 'Aktualności', 'news', '', null, null);
 insert into im_label values (null, 'Zalety firmy', 'company-skill', '', null, null);
 insert into im_label values (null, 'Slider', 'slider', '', null, null);
 insert into im_label values (null, 'Menu', 'menu', '', null, null);
+insert into im_label values (null, 'Submenu', 'submenu', '', null, null);
 
 -- record, object type
 
@@ -18,6 +19,7 @@ insert into im_type values (null, 'Aktualność', 'col-12 col-sm-6', '', null, n
 insert into im_type values (null, 'Zaleta', 'col-12 col-md-4', '', null, null);
 insert into im_type values (null, 'Slider', 'col-12', '', null, null);
 insert into im_type values (null, 'Menu', 'col-12', '', null, null);
+insert into im_type values (null, 'Submenu', 'col-12', '', null, null);
 
 -- record, property of type of object
 
@@ -39,6 +41,7 @@ insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej
 insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (trzeci) lub kontakt (drugi)', 'Treść atrybutu drugiego', '', 'on', '', null, null, null);
 insert into im_object values (null, 3, 3, 0, 'Slider', '', '', 'on', '', null, null, null);
 insert into im_object values (null, 4, 4, 0, 'Menu', '', '', 'on', '', null, null, null);
+insert into im_object values (null, 5, 5, 0, 'Submenu', '', '', 'on', '', null, null, null);
 
 -- record, object image
 
@@ -67,7 +70,8 @@ insert into im_section_object values (null, 1, 6, 5);
 insert into im_section_object values (null, 2, 6, 3);
 insert into im_section_object values (null, 1, 7, 6);
 insert into im_section_object values (null, 1, 8, 7);
-insert into im_section_object values (null, 2, 8, 4);
+insert into im_section_object values (null, 2, 8, 8);
+insert into im_section_object values (null, 2, 9, 4);
 
 -- record, set property in type
 
@@ -84,6 +88,8 @@ insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
 insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
 
 insert into im_type_property values (null, 4, 7, 'col-12', 'nav nav-pills', 1);
+
+insert into im_type_property values (null, 5, 7, 'col-12', 'nav flex-column', 1);
 
 -- record, connect images with object
 
