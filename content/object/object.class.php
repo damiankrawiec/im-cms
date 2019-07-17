@@ -156,7 +156,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function displayProperty($property, $data) {
+    private function displayProperty($property, $data, $section) {
 
         echo '<div class="row">';
 
@@ -279,11 +279,12 @@ class ObjectContent extends Language {
 
     }
 
-    private function getMenu() {
+    private function getSection() {
 
         $sql = 'select section_id as id, name, url
                 from im_section
                 where status like "on"
+                and parent = 0
                 order by position';
 
         $this->db->prepare($sql);
@@ -399,7 +400,7 @@ class ObjectContent extends Language {
                         }
                         if ($p['name'] == 'section') {
 
-                            $displayPropertyData['section'] = $this->getMenu();
+                            $displayPropertyData['section'] = $this->getSection();
 
                         }
 
@@ -407,7 +408,7 @@ class ObjectContent extends Language {
 
                     $this->label = $label;
 
-                    $this->displayProperty($property, $displayPropertyData);
+                    $this->displayProperty($property, $displayPropertyData, $section);
 
                     echo '</div>';
 

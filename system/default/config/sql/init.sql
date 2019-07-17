@@ -81,7 +81,7 @@ insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
 
 insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
 
-insert into im_type_property values (null, 4, 7, 'col-12', 'navbar navbar-expand-lg navbar-light bg-light', 1);
+insert into im_type_property values (null, 4, 7, 'col-12', 'nav nav-pills', 1);
 
 -- record, connect images with object
 
