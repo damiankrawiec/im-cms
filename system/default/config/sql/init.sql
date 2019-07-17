@@ -81,7 +81,7 @@ insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
 
 insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
 
-insert into im_type_property values (null, 4, 7, 'col-12', '', 1);
+insert into im_type_property values (null, 4, 7, 'col-12', 'navbar navbar-expand-lg navbar-light bg-light', 1);
 
 -- record, connect images with object
 
@@ -120,6 +120,8 @@ insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż w
 insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
 insert into im_translation_system values (null, 1,  'More', 'more', 'Więcej...', '', null, null);
 insert into im_translation_system values (null, 2,  'More', 'more', 'More...', '', null, null);
+insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
+insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
 
 insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);

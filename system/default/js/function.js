@@ -1,31 +1,6 @@
 function filterObject($label, $category) {
 
-    $.ajax({
-        method: "POST",
-        url: "ajax/setFilter.php",
-        data: {
-            label: $label,
-            category: $category
-        },
-        beforeSend: function(){
-            $('.process').show();
-        },
-        complete: function(){
-            $('.process').fadeOut('slow');
-        }
-    }).done(function () {
-
-        if($category > 0) {
-
-            filterObjectDisplay($label, $category);
-
-        }else{
-
-            $('.' + $label + ' .object').show();
-
-        }
-
-    });
+    setFilter($label, $category);
 
 }
 function filterObjectStart() {
@@ -57,6 +32,12 @@ function filterObjectDisplay($label, $category) {
     $('.' + $label + ' .object').hide();
 
     $('.' + $label + ' .object.' + $category).show();
+
+    if($('.' + $label + ' .object:visible').length == 0) {
+
+        $('.' + $label + ' .no-data').show();
+
+    }
 
 }
 

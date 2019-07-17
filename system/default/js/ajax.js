@@ -4,7 +4,7 @@ function setLanguage($language = false){
 
         $.ajax({
             method: "POST",
-            url: "ajax/changeLanguage.php",
+            url: "ajax/setLanguage.php",
             data: {
                 language: $language
             },
@@ -13,10 +13,42 @@ function setLanguage($language = false){
             }
         }).done(function () {
 
-            window.location.reload(true);
+            document.location.reload(true);
 
         });
 
     }
+
+}
+function setFilter($label, $category) {
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/setFilter.php",
+        data: {
+            label: $label,
+            category: $category
+        },
+        beforeSend: function(){
+            $('.process').show();
+        },
+        complete: function(){
+            $('.process').fadeOut('slow');
+        }
+    }).done(function () {
+
+        $('.' + $label + ' .no-data').hide();
+
+        if($category > 0) {
+
+            filterObjectDisplay($label, $category);
+
+        }else{
+
+            $('.' + $label + ' .object').show();
+
+        }
+
+    });
 
 }

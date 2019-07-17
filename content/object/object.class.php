@@ -415,6 +415,8 @@ class ObjectContent extends Language {
 
                 }
 
+                echo '<div class="im-hide col-12 no-data"><i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'].'</div>';
+
                 echo '</div>';
 
                 echo '</div>';
