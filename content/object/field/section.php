@@ -18,4 +18,8 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
     }
     echo '</ul>';
 
+}else{
+
+    echo '<i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'];
+
 }

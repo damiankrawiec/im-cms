@@ -9,76 +9,38 @@ require_once 'content/object/object.class.php';
 $object = new ObjectContent($this->systemName(), $db, $session['language']);
 
 ?>
-
 <div class="container-fluid">
-    <?php
 
-        require_once $this->system.'/content/language.php';
+    <?php require_once $this->system.'/content/language.php'; ?>
 
-    ?>
-</div>
+    <?php require_once $this->system.'/content/logo.php'; ?>
 
-<div class="container">
-    <?php
-
-        require_once $this->system.'/content/logo.php';
-
-    ?>
 </div>
 
 <div class="container-fluid">
-    <?php
 
-    $object->display($this->getSection()->id, 'menu');
+    <?php $object->display($this->getSection()->id, 'menu'); ?>
 
-    ?>
+    <?php $object->display($this->getSection()->id, 'menu', 'parent'); ?>
+
 </div>
 
-<br>
-<hr>
-<br>
-
 <div class="container-fluid">
-<?php
-
-    $object->display($this->getSection()->id, 'slider');
-
-?>
+    <?php $object->display($this->getSection()->id, 'slider'); ?>
 </div>
 
-<br>
-<hr>
-<br>
 <div class="container-fluid">
-<?php
-
-    //show category select in this label of objects
-    $object->displayCategory('news');
-
-    //show objects in section of label and filtered by session variable
-    $object->display($this->getSection()->id, 'news');
-
-?>
+    <?php $object->display($this->getSection()->id, 'news', 'category'); ?>
 </div>
 <br>
 <hr>
 <br>
 <div class="container">
-<?php
-
-    $object->displayCategory('company-skill');
-
-    $object->display($this->getSection()->id, 'company-skill');
-
-?>
+    <?php $object->display($this->getSection()->id, 'company-skill', 'category'); ?>
 </div>
 <br>
 <hr>
 <br>
 <div class="container-fluid">
-    <?php
-
-        require_once $this->system.'/content/footer.php';
-
-    ?>
+    <?php require_once $this->system.'/content/footer.php'; ?>
 </div>

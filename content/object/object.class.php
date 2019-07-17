@@ -279,13 +279,23 @@ class ObjectContent extends Language {
 
     }
 
-    private function getSection() {
+    private function getSection($parent) {
 
         $sql = 'select section_id as id, name, url
                 from im_section
                 where status like "on"
-                and parent = 0
-                order by position';
+                and';
+                if($parent) {
+
+                    $sql .= ' parent = '.$parent;
+
+                }else{
+
+                    $sql .= ' parent = 0';
+
+                }
+
+                $sql .= ' order by position';
 
         $this->db->prepare($sql);
 
@@ -355,7 +365,7 @@ class ObjectContent extends Language {
         }
     }
 
-    public function display($section = false, $label = false) {
+    public function display($section = false, $label = false, $option = false) {
 
         if($section and $label) {
 
@@ -368,57 +378,74 @@ class ObjectContent extends Language {
 
             if($objectRecord) {
 
-                echo '<div class="' . $label . '">';
+                if($option and stristr($option, 'category')) {
 
-                echo '<div class="row">';
-
-                foreach ($objectRecord as $or) {
-
-                    $classAdd = $this->getTypeClass($or['type'])->class;
-
-                    $class = 'object';
-                    if ($classAdd != '')
-                        $class .= ' ' . $classAdd;
-
-                    echo '<div class="'.$this->getCategoryObject($or['id']).'' . $class . '">';
-
-                    $property = $this->getPropertyFromType($or['type']);
-
-                    $displayPropertyData = $or;
-
-                    foreach ($property as $p) {
-
-                        if ($p['name'] == 'image') {
-
-                            $displayPropertyData['image'] = $this->getObjectImage($or['id']);
-
-                        }
-                        if ($p['name'] == 'file') {
-
-                            $displayPropertyData['file'] = $this->getObjectFile($or['id']);
-
-                        }
-                        if ($p['name'] == 'section') {
-
-                            $displayPropertyData['section'] = $this->getSection();
-
-                        }
-
-                    }
-
-                    $this->label = $label;
-
-                    $this->displayProperty($property, $displayPropertyData, $section);
-
-                    echo '</div>';
-
-                    $this->objectCounter++;
+                    //show category select in this label of objects
+                    $this->displayCategory($label);
 
                 }
 
-                echo '<div class="im-hide col-12 no-data"><i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'].'</div>';
+                echo '<div class="' . $label . '">';
 
-                echo '</div>';
+                    echo '<div class="row">';
+
+                        foreach ($objectRecord as $or) {
+
+                            $classAdd = $this->getTypeClass($or['type'])->class;
+
+                            $class = 'object';
+                            if ($classAdd != '')
+                                $class .= ' ' . $classAdd;
+
+                            echo '<div class="'.$this->getCategoryObject($or['id']).'' . $class . '">';
+
+                            $property = $this->getPropertyFromType($or['type']);
+
+                            $displayPropertyData = $or;
+
+                            foreach ($property as $p) {
+
+                                if ($p['name'] == 'image') {
+
+                                    $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                                }
+                                if ($p['name'] == 'file') {
+
+                                    $displayPropertyData['file'] = $this->getObjectFile($or['id']);
+
+                                }
+                                if ($p['name'] == 'section') {
+
+                                    if($option and stristr($option, 'parent')) {
+
+                                        $sectionParent = $section;
+
+                                    }else{
+
+                                        $sectionParent = false;
+
+                                    }
+
+                                    $displayPropertyData['section'] = $this->getSection($sectionParent);
+
+                                }
+
+                            }
+
+                            $this->label = $label;
+
+                            $this->displayProperty($property, $displayPropertyData, $section);
+
+                            echo '</div>';
+
+                            $this->objectCounter++;
+
+                        }
+
+                        echo '<div class="im-hide col-12 no-data"><i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'].'</div>';
+
+                    echo '</div>';
 
                 echo '</div>';
 

@@ -2,6 +2,8 @@
 
 insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 1, 'on', '', null, null);
 insert into im_section values (null, 0, 'Kontakt', 'kontakt', 2, 'on', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', 1, 'on', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', 2, 'on', '', null, null);
 
 -- record, object label
 
