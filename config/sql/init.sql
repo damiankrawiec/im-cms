@@ -42,6 +42,8 @@ drop table if exists im_translation_system;
 
 drop table if exists im_translation;
 
+drop table if exists im_section_label;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -336,6 +338,20 @@ create table im_type_property (
 ) engine = InnoDB;
 
 -- TYPE-PROPERTY END --
+
+-- SECTION-LABEL START --
+
+-- not to connect, only for adding special class for section label
+
+create table im_section_label (
+    section_label_id int not null auto_increment,
+    section int not null,
+    label varchar(128) collate utf8_polish_ci default '',
+    class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
+    primary key (section_label_id)
+) engine = InnoDB;
+
+-- SECTION-LABEL END --
 
 -- IMAGE START --
 

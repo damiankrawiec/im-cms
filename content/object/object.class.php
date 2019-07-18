@@ -8,6 +8,8 @@ class ObjectContent extends Language {
 
     private $path;
 
+    private $row;//check if starting object has class and class is "col"
+
     protected $systemName;
 
     public function __construct($systemName, $db, $languageCurrent) {
@@ -21,6 +23,8 @@ class ObjectContent extends Language {
         $this->objectCounter = 0;
 
         $this->path = '';
+
+        $this->row = false;
 
     }
 
@@ -70,11 +74,7 @@ class ObjectContent extends Language {
         $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text, o.link as link';
 
         //Field from joining tables
-//        if($isParameter) {
-//
-//
-//
-//        }
+        //if($isParameter) {}
 
         $sql .= ' from im_object o';
 
@@ -356,6 +356,60 @@ class ObjectContent extends Language {
 
     }
 
+    private function getClassLabel($section) {
+
+        $sql = 'select class
+                from im_section_label
+                where section = :section
+                and label = :label
+                ';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':section', 'value' => $section, 'type' => 'int'),
+            array('name' => ':label', 'value' => $this->label, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $classLabel = $this->db->run('one');
+
+        if($classLabel) {
+
+            return $classLabel;
+
+        }else{
+
+            $parameter = array(
+                array('name' => ':section', 'value' => 0, 'type' => 'int'),
+                array('name' => ':label', 'value' => $this->label, 'type' => 'string')
+            );
+
+            $this->db->bind($parameter);
+
+            $classLabelAll = $this->db->run('one');
+
+            if($classLabelAll) {
+
+                return $classLabelAll;
+
+            }else return false;
+
+        }
+
+    }
+
+    private function checkDisplayOption($option, $type = '') {
+
+        if($option and $type != '') {
+
+            return stristr($option, $type);
+
+        }else return false;
+
+    }
+
     public function setPath($addPath = false) {
 
         if($addPath) {
@@ -369,6 +423,8 @@ class ObjectContent extends Language {
 
         if($section and $label) {
 
+            $this->label = $label;
+
             $parameter = array(
                 array('name' => ':section', 'value' => $section, 'type' => 'int'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
@@ -378,16 +434,29 @@ class ObjectContent extends Language {
 
             if($objectRecord) {
 
-                if($option and stristr($option, 'category')) {
+                $classLabelDisplay = '';
 
-                    //show category select in this label of objects
-                    $this->displayCategory($label);
+                $classLabel = $this->getClassLabel($section);
+
+                if($classLabel) {
+
+                    $classLabelDisplay = $classLabel->class.' ';
+
+                    if(stristr($classLabel->class, 'col') and $this->checkDisplayOption($option, 'begin')) {
+
+                        echo '<div class="row">';
+
+                        $this->row = true;
+
+                    }
 
                 }
 
-                echo '<div class="' . $label . '">';
+                echo '<div class="'.$classLabelDisplay.$label.'">';
 
                     echo '<div class="row">';
+
+                        $this->displayCategory();
 
                         foreach ($objectRecord as $or) {
 
@@ -433,8 +502,6 @@ class ObjectContent extends Language {
 
                             }
 
-                            $this->label = $label;
-
                             $this->displayProperty($property, $displayPropertyData, $section);
 
                             echo '</div>';
@@ -449,39 +516,43 @@ class ObjectContent extends Language {
 
                 echo '</div>';
 
+                if($this->checkDisplayOption($option, 'end') and $this->row) {
+
+                    echo '</div>';
+
+                    $this->row = false;
+
+                }
+
             }
 
         }
 
     }
 
-    public function displayCategory($label = false) {
+    public function displayCategory() {
 
-        if($label) {
+        if($this->label) {
 
-            $category = $this->getCategoryLabel($label);
+            $category = $this->getCategoryLabel($this->label);
 
             if($category) {
 
-                echo '<div class="row">';
+                echo '<div class="col-12">';
 
-                    echo '<div class="col-12">';
+                    echo '<div class="form-group">';
 
-                        echo '<div class="form-group">';
+                    echo '<select class="form-control object-category" id="'.$this->label.'">';
 
-                        echo '<select class="form-control object-category" id="'.$label.'">';
+                        echo '<option value="0">'.$this->translationSystem['show-all'].'</option>';
 
-                            echo '<option value="0">'.$this->translationSystem['show-all'].'</option>';
+                        foreach ($category as $c) {
 
-                            foreach ($category as $c) {
+                            echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
 
-                                echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
+                        }
 
-                            }
-
-                        echo '</select>';
-
-                        echo '</div>';
+                    echo '</select>';
 
                     echo '</div>';
 

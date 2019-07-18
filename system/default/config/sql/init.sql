@@ -15,8 +15,8 @@ insert into im_label values (null, 'Submenu', 'submenu', '', null, null);
 
 -- record, object type
 
-insert into im_type values (null, 'Aktualność', 'col-12 col-sm-6', '', null, null);
-insert into im_type values (null, 'Zaleta', 'col-12 col-md-4', '', null, null);
+insert into im_type values (null, 'Aktualność', 'col-12', '', null, null);
+insert into im_type values (null, 'Zaleta', 'col-12', '', null, null);
 insert into im_type values (null, 'Slider', 'col-12', '', null, null);
 insert into im_type values (null, 'Menu', 'col-12', '', null, null);
 insert into im_type values (null, 'Submenu', 'col-12', '', null, null);
@@ -30,6 +30,24 @@ insert into im_property values (null, 'Zdjęcie', 'image', '', null, null);
 insert into im_property values (null, 'Link', 'link', '', null, null);
 insert into im_property values (null, 'Plik', 'file', '', null, null);
 insert into im_property values (null, 'Menu', 'section', '', null, null);
+
+-- record, set property in type
+
+insert into im_type_property values (null, 1, 1, 'col-12 col-sm-6', 'text-right h2', 2);
+insert into im_type_property values (null, 1, 2, 'col-12 col-lg-6', '', 3);
+insert into im_type_property values (null, 1, 3, 'col-12 col-sm-6', '', 1);
+insert into im_type_property values (null, 1, 4, 'col-12 col-lg-6', '', 4);
+insert into im_type_property values (null, 1, 5, 'col-12 text-center p-1', 'btn btn-secondary', 6);
+insert into im_type_property values (null, 1, 6, 'col-12', 'list-group', 5);
+
+insert into im_type_property values (null, 2, 1, 'col-12', '', 1);
+insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
+
+insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
+
+insert into im_type_property values (null, 4, 7, 'col-12', 'nav nav-pills', 1);
+
+insert into im_type_property values (null, 5, 7, 'col-12', 'nav flex-column', 1);
 
 -- record, object
 
@@ -70,26 +88,16 @@ insert into im_section_object values (null, 1, 6, 5);
 insert into im_section_object values (null, 2, 6, 3);
 insert into im_section_object values (null, 1, 7, 6);
 insert into im_section_object values (null, 1, 8, 7);
-insert into im_section_object values (null, 2, 8, 8);
-insert into im_section_object values (null, 2, 9, 4);
+insert into im_section_object values (null, 2, 7, 4);
+insert into im_section_object values (null, 2, 9, 5);
+insert into im_section_object values (null, 2, 8, 6);
 
--- record, set property in type
+-- record, label class in section
 
-insert into im_type_property values (null, 1, 1, 'col-12 col-sm-6', 'text-right h2', 2);
-insert into im_type_property values (null, 1, 2, 'col-12 col-lg-6', '', 3);
-insert into im_type_property values (null, 1, 3, 'col-12 col-sm-6', '', 1);
-insert into im_type_property values (null, 1, 4, 'col-12 col-lg-6', '', 4);
-insert into im_type_property values (null, 1, 5, 'col-12 text-center p-1', 'btn btn-secondary', 6);
-insert into im_type_property values (null, 1, 6, 'col-12', 'list-group', 5);
-
-insert into im_type_property values (null, 2, 1, 'col-12', '', 1);
-insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
-
-insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
-
-insert into im_type_property values (null, 4, 7, 'col-12', 'nav nav-pills', 1);
-
-insert into im_type_property values (null, 5, 7, 'col-12', 'nav flex-column', 1);
+insert into im_section_label values (null, 2, 'slider', 'col-10');
+insert into im_section_label values (null, 2, 'submenu', 'col-2');
+insert into im_section_label values (null, 0, 'news', 'col-6');
+insert into im_section_label values (null, 0, 'company-skill', 'col-6');
 
 -- record, connect images with object
 

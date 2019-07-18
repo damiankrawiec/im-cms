@@ -21,28 +21,18 @@ $object = new ObjectContent($this->systemName(), $db, $session['language']);
 
     <?php $object->display($this->getSection()->id, 'menu'); ?>
 
-    <?php $object->display($this->getSection()->id, 'submenu', 'parent'); ?>
+    <?php $object->display($this->getSection()->id, 'submenu', 'parent, begin'); ?>
+
+    <?php $object->display($this->getSection()->id, 'slider', 'end'); ?>
+
+    <?php $object->display($this->getSection()->id, 'news', 'begin'); ?>
+
+    <?php $object->display($this->getSection()->id, 'company-skill', 'end'); ?>
 
 </div>
 
 <div class="container-fluid">
 
-    <?php $object->display($this->getSection()->id, 'slider'); ?>
-
-</div>
-
-<div class="container-fluid">
-    <?php $object->display($this->getSection()->id, 'news', 'category'); ?>
-</div>
-<br>
-<hr>
-<br>
-<div class="container">
-    <?php $object->display($this->getSection()->id, 'company-skill', 'category'); ?>
-</div>
-<br>
-<hr>
-<br>
-<div class="container-fluid">
     <?php require_once $this->system.'/content/footer.php'; ?>
+
 </div>
