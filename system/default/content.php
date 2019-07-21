@@ -1,8 +1,5 @@
 <?php
 
-//class language is parent to every element in section content
-require_once 'php/class/language.class.php';
-
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 

@@ -15,18 +15,27 @@ body {
 .im-hide {
   display: none;
 }
+#auth-header {
+  font-size: 22px;
+}
 .half-window {
   position: absolute;
-  width: 50%;
+  width: 60%;
   top: 25%;
-  left: 25%;
-  background-color: #fff;
-  min-height: 50%;
+  left: 20%;
+  height: 480px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
   -webkit-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
   box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
+  background: #fff url(../graphic/auth.png) right 0 no-repeat;
+}
+@media (max-width: 1400px) {
+  .half-window {
+    width: 80%;
+    left: 10%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -12,7 +12,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             if($m['id'] == $section)
                 $active = ' active';
 
-            echo '<a href="'.$m['url'].'" title="'.$m['name'].'" class="nav-link'.$active.'"><i class="fal fa-caret-right"></i> '.$m['name'].'</a>';
+            echo '<a href="'.$m['url'].'" title="'.$m['name'].'" class="nav-link'.$active.'">'.$this->ico_empty_triangle_right.' '.$m['name'].'</a>';
 
         echo '</li>';
     }

@@ -2,6 +2,6 @@
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
-    echo '<div'.$classField.'><i class="fal fa-calendar-alt"></i> ' . $dataDisplay . '</div>';
+    echo '<div'.$classField.'>'.$this->ico_light_calendar.' ' . $dataDisplay . '</div>';
 
 }

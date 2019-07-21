@@ -1,7 +1,6 @@
 <?php
 
-
-class Language
+class Language extends Icon
 {
 
     private $languageCurrent;

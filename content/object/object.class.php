@@ -1,5 +1,11 @@
 <?php
 
+//class language is parent to every element in section content
+require_once 'php/class/icon.class.php';
+
+//class language is parent to every element in section content
+require_once 'php/class/language.class.php';
+
 class ObjectContent extends Language {
 
     private $label;
