@@ -15,8 +15,13 @@ body {
 .im-hide {
   display: none;
 }
-#auth-header {
-  font-size: 22px;
+.process {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  color: #ddd;
+  display: none;
 }
 .window-back {
   padding: 100px 10px 0;
@@ -54,6 +59,11 @@ body {
   background-color: #fff;
   height: 100%;
   padding: 40px;
+  text-align: center;
+}
+.window-back .login-left #auth-header {
+  font-size: 26px;
+  margin: 22px 0 20px;
 }
 @media (max-width: 992px) {
   .login-left {
