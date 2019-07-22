@@ -1,13 +1,26 @@
 #auth-header{
   font-size: 22px;
 }
-.half-window{
-  position: absolute;
-  width: 60%;
-  top:25%;
-  left: 20%;
-  height: 480px;
-  .border-radius(30px);
-  .box-shadow();
-  background: @white url(../graphic/auth.png) right 0 no-repeat;
+.window-back{
+  padding: 100px 10px 0;
+  > div{
+    margin: 0;
+    padding: 0;
+  }
+  #login-right{
+    .box-shadow();
+    .border-right-radius(30px);
+    overflow: hidden;
+    z-index: -1;
+    img{
+      height: 100%;
+    }
+  }
+  .login-left{
+    .box-shadow();
+    .border-left-radius(30px);
+    background-color: @white;
+    height: 100%;
+    padding: 40px;
+  }
 }
