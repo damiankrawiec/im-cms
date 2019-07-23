@@ -58,12 +58,12 @@ body {
   border-bottom-left-radius: 30px;
   background-color: #fff;
   height: 100%;
-  padding: 40px;
+  padding: 30px;
   text-align: center;
 }
 .window-back .login-left #auth-header {
   font-size: 26px;
-  margin: 22px 0 20px;
+  margin-bottom: 20px;
 }
 @media (max-width: 992px) {
   .login-left {

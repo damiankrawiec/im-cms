@@ -50,10 +50,10 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         if(count($dataDisplay) > 1) {
 
             echo '<a class="carousel-control-prev" href="#' . $this->label . '-' . $this->objectCounter . '" role="button" data-slide="prev">
-                    '.$this->ico_circle_left.'
+                    '.$this->icon['arrow']['image-left'].'
                   </a>
                   <a class="carousel-control-next" href="#' . $this->label . '-' . $this->objectCounter . '" role="button" data-slide="next">
-                     '.$this->ico_circle_right.'
+                     '.$this->icon['arrow']['image-right'].'
                   </a>';
 
         }

@@ -1,2 +1,2 @@
 <?php
-header('Location: auth.php');
+header('Location: auth');

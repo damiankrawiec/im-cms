@@ -12,7 +12,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             if($m['id'] == $section)
                 $active = ' active';
 
-            echo '<a href="'.$m['url'].'" title="'.$m['name'].'" class="nav-link'.$active.'">'.$this->ico_empty_triangle_right.' '.$m['name'].'</a>';
+            echo '<a href="'.$m['url'].'" title="'.$m['name'].'" class="nav-link'.$active.'">'.$this->icon['triangle']['link-right'].' '.$m['name'].'</a>';
 
         echo '</li>';
     }
@@ -20,6 +20,6 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
 }else{
 
-    echo '<i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'];
+    echo $this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'];
 
 }
