@@ -44,6 +44,8 @@ drop table if exists im_translation;
 
 drop table if exists im_section_label;
 
+drop table if exists im_admin;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -652,3 +654,20 @@ create trigger im_translation_update_date_modify
     set new.date_modify = now();
 
 -- TRANSLATION SYSTEM END --
+
+-- LABEL START --
+
+-- to separate object in one section, table
+
+create table im_admin (
+    admin_id int not null auto_increment,
+    name varchar(128) collate utf8_polish_ci default '',
+    email varchar(64) not null collate utf8_polish_ci,
+    password varchar(128) not null collate utf8_polish_ci,
+    url varchar(128) collate utf8_polish_ci default '',-- picture of admin
+    token varchar(128) collate utf8_polish_ci default '',-- onetime stamp - current session
+    description text collate utf8_polish_ci default '',-- description, management
+    primary key (admin_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- LABEL END --
