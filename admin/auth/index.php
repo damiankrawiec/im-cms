@@ -1,7 +1,9 @@
 <?php
+$hashPage = true;
 $sectionPath = '../../';
 $sectionPathAdmin = '../';
 require_once '../php/init.php';
+require_once 'validation/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -23,15 +25,14 @@ require_once '../php/init.php';
             <div class="col-12 col-lg-8">
                 <div class="login-left">
                     <div><?php echo $icon['security']['header']; ?></div>
-                <div id="auth-header"><?php echo $translation['authorization']['singular']; ?></div>
-                    <form class="auth">
+                    <div id="auth-header"><?php echo $translation['authorization']['singular']; ?></div>
+                    <form method="post" class="auth">
                         <div class="form-group">
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><?php echo $icon['email']['at'] ?></div>
                                 </div>
-                                <input type="text" class="form-control validation :email" id="inlineFormInputGroup" placeholder="<?php echo $translation['email']['imperatives']; ?>">
-                                <span class="im-hide"><?php echo $icon['warning']['triangle']; ?></span>
+                                <input type="text" class="form-control validation :email" id="inlineFormInputGroup" placeholder="<?php echo $translation['email']['imperatives']; ?>" name="email">
                             </div>
                         </div>
                         <div class="form-group">
@@ -39,12 +40,12 @@ require_once '../php/init.php';
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><?php echo $icon['security']['password']; ?></div>
                                 </div>
-                                <input type="text" class="form-control validation :password" id="inlineFormInputGroup" placeholder="<?php echo $translation['password']['imperatives']; ?>">
-                                <span class="im-hide"><?php echo $icon['warning']['triangle']; ?></span>
+                                <input type="password" class="form-control validation :password" id="inlineFormInputGroup" placeholder="<?php echo $translation['password']['imperatives']; ?>">
                             </div>
                         </div>
+                        <input type="hidden" name="password">
                     </form>
-                    <button class="btn btn-dark submit" id="auth"><?php echo $translation['login']['imperatives']; ?> <?php echo $icon['login']['standard'] ?></button>
+                    <button class="btn btn-dark submit validation-run" id="auth"><?php echo $translation['login']['imperatives']; ?> <?php echo $icon['login']['standard'] ?></button>
                 </div>
             </div>
             <div class="d-none d-lg-block d-xl-block col-lg-4" id="login-right">
@@ -61,6 +62,8 @@ require_once '../php/init.php';
 <?php require_once $sectionPath.'section/body.php'; ?>
 
 <?php require_once $sectionPathAdmin.'layout/js/js.php'; ?>
+
+<?php require_once $sectionPathAdmin.'section/variable.php'; ?>
 
 </body>
 </html>

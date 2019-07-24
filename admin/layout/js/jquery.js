@@ -2,34 +2,36 @@ $(function(){
 
     $('.submit').click(function(){
 
-        var $thisForm = '.' + $(this).attr('id');
+        $targetForm = '.' + $(this).attr('id');
+        if($(this).attr('class').indexOf('validation-run') > -1) {
 
-        var $submit = true;
-        $($thisForm + ' .validation').each(function(){
+            if(validation($targetForm)){
 
-            if($(this).attr('class').indexOf(':') > -1){
+                $($targetForm).submit();
 
-                var $classValidation = $(this).attr('class');
+            }else{
 
-                $typeValidation = $classValidation.split(':');
-
-                if(!validation($typeValidation[1], $(this).val())){
-
-                    $(this).next().show();
-
-                    $submit = false;
-
-                }
-
-                if($submit){
-
-                    $($thisForm).submit();
-
-                }
+                $($targetForm).append('<p class="text-danger">' + $('#validation-error').val() + '</p>');
 
             }
 
-        });
+        }else{
+
+            $($targetForm).submit();
+
+        }
+
+    });
+
+    $('input[type="password"]').keyup(function(){
+
+        $('input[name="password"]').val(sha1($(this).val()));
+
+    });
+
+    $('.btn').click(function(){
+
+        processButton($(this));
 
     });
 

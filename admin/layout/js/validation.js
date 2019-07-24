@@ -1,30 +1,23 @@
-function validation($type = false, $string = '') {
+function email($string = '') {
 
-    if($type && $string != ''){
+    var $check = true;
 
-        if($type === 'email'){
+    if($string == '')
+        $check = false;
 
-            if($string.indexOf('@') > -1){
+    if($string.indexOf('@') == -1)
+        $check = false;
 
-                return true;
+    return $check;
 
-            }
+}
+function password($string = '') {
 
-        }
-        else if($type === 'password'){
+    var $check = true;
 
-            return true;
+    if($string == '')
+        $check = false;
 
-        }else{
-
-            return false;
-
-        }
-
-    }else{
-
-        return false;
-
-    }
+    return $check;
 
 }
