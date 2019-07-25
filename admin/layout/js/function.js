@@ -37,12 +37,12 @@ function validation($form){
 }
 function processButton($this){
 
-    $this.next().remove();
+    $this.children('i').remove();
 
-    $this.after($('#process-button').html());
+    $this.append($('#process-button').html());
 
     setTimeout(function () {
-        $this.next().fadeOut();
+        $this.children('i').fadeOut();
     }, 500);
 
 }

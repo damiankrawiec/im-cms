@@ -29,7 +29,7 @@ $(function(){
 
     });
 
-    $('.btn').click(function(){
+    $('.submit').click(function(){
 
         processButton($(this));
 

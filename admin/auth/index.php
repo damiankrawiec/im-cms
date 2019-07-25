@@ -45,7 +45,7 @@ require_once 'validation/init.php';
                         </div>
                         <input type="hidden" name="password">
                     </form>
-                    <button class="btn btn-dark submit validation-run" id="auth"><?php echo $translation['login']['imperatives']; ?> <?php echo $icon['login']['standard'] ?></button>
+                    <button class="btn btn-secondary submit validation-run" id="auth"><?php echo $translation['login']['imperatives']; ?></button>
                 </div>
             </div>
             <div class="d-none d-lg-block d-xl-block col-lg-4" id="login-right">
