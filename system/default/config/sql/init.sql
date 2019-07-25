@@ -144,5 +144,3 @@ insert into im_translation values (null, 2,  'Second news', 'im_object', 'name',
 insert into im_translation values (null, 2,  'In english image', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);
 insert into im_translation values (null, 2,  'In english file', 'im_file', 'name', 1, 'Moon in english', '', null, null);
 insert into im_translation values (null, 2,  'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
-
-insert into im_admin values (null, 'Damian Krawiec',  'm@internet.media.pl', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'dk.png', '', '');

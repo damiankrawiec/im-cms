@@ -1,9 +1,14 @@
 <?php
+
+//If set login variables than check data
+require_once '../php/script/post.php';
+require_once 'validation/init.php';
+//---
+
 $hashPage = true;
 $sectionPath = '../../';
 $sectionPathAdmin = '../';
 require_once '../php/init.php';
-require_once 'validation/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
