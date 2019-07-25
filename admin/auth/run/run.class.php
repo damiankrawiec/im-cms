@@ -40,7 +40,7 @@ class Run extends Session
 
     private function stamp() {
 
-        file_put_contents('stamp/'.$this->hashEmail.'txt', $this->hashClient);
+        file_put_contents('stamp/'.$this->hashEmail.'.txt', $this->hashClient);
 
     }
 
