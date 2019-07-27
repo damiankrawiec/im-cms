@@ -11,7 +11,7 @@ $(function(){
 
             }else{
 
-                $($targetForm).append('<p class="text-danger">' + $('#validation-error').val() + '</p>');
+                $($targetForm).append($('#validation-error').html());
 
             }
 

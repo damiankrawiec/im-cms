@@ -2,6 +2,11 @@
 
 //If set login variables than check data
 require_once '../php/script/post.php';
+
+require_once '../php/class/addition.class.php';
+
+$addition = new Addition();
+
 require_once 'validation/init.php';
 //---
 

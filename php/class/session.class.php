@@ -6,30 +6,6 @@ class Session
 
     public $sessionLabel;
 
-    protected function init() {
-
-        session_regenerate_id();
-
-//        ini_set('session.use_cookies', true);
-//
-//        ini_set('session.use_only_cookies', true);
-//
-//        ini_set('session.trans_sid', false);
-//
-//        ini_set('session.cookie_httponly', true);
-//
-//        ini_set('session.entropy_file', true);
-//
-//        ini_set('session.entropy_length', true);
-
-    }
-
-    protected function sessionId() {
-
-        return session_id();
-
-    }
-
     public function __construct() {
 
         session_start();

@@ -8,7 +8,11 @@ class Run extends Session
 
     private $hashClient;
 
+    private $email;
+
     private $image;
+
+    private $date;
 
     private $admin = array(
         'm@internet.media.pl' => array('image' => 'dk.jpg', 'password' => '7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
@@ -20,9 +24,11 @@ class Run extends Session
 
             if($adminData['password'] === $password) {
 
-                $this->hashEmail = md5($email);
+                $this->hashEmail = md5($email.$this->getSalt().$this->date);
 
-                $this->hashClient = md5($_SERVER['REMOTE_ADDR']);
+                $this->hashClient = md5($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
+
+                $this->email = $email;
 
                 $this->image = $adminData['image'];
 
@@ -48,11 +54,9 @@ class Run extends Session
 
         $this->init();
 
-        $this->setSession('token', sha1($this->sessionId()));
+        $this->setSession('token', sha1($this->sessionId().$this->getSalt().$this->date));
 
-        $this->setSession('time', md5(date("Y-m-d")));
-
-        $this->setSession('image', $this->image);
+        $this->setSession('admin', array('email' => '', 'image' => $this->image));
 
         $this->setSession($this->hashEmail, $this->hashClient);
 
@@ -61,6 +65,8 @@ class Run extends Session
     public function __construct($email, $password)
     {
         parent::__construct();
+
+        $this->date = date("Y-m-d");
 
         return $this->checkAdmin($email, $password);
     }
