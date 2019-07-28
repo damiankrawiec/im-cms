@@ -6,31 +6,49 @@ class Tool extends Session
 
     private $date;
 
+    private $hashEmail;
+
+    private $checkAuth = false;
+
     private function checkAuth() {
 
-        $pathHashFile = 'auth/stamp/'.md5($this->getSession('email').$this->getSalt().$this->date).'.txt';
+        $this->hashEmail = md5($this->getSession('admin')['email'].$this->getSalt().$this->date);
 
-        if(is_file($pathHashFile)) {
+        $pathHashFile = 'auth/stamp/'.$this->hashEmail.'.txt';
 
-            $hashClient = file_get_contents($pathHashFile);
+        if($this->fileExists($pathHashFile)) {
 
-            if($hashClient === md5($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date)) {
+            $hashClientFile = file_get_contents($pathHashFile);
+
+            $hashClient = md5($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
+
+            if($hashClientFile === $hashClient) {
 
                 if($this->getSession('token') === sha1($this->sessionId().$this->getSalt().$this->date)) {
 
-                    return true;
+                    if($this->getSession(md5($this->hashEmail)) === md5($hashClient)) {
 
-                }else return false;
+                        $this->checkAuth = true;
 
-            }else return false;
+                    }else $this->checkAuth = false;
 
-        }else return false;
+                }else $this->checkAuth = false;
+
+            }else $this->checkAuth = false;
+
+        }else $this->checkAuth = false;
 
     }
 
-    private function logout() {
+    public function logout() {
 
+        unlink('auth/stamp/'.$this->hashEmail.'.txt');
 
+        $this->setSession('admin', 0);
+
+        $this->setSession('token', 0);
+
+        $this->setSession(md5($this->hashEmail), 0);
 
     }
 
@@ -41,7 +59,35 @@ class Tool extends Session
 
         $this->date = date("Y-m-d");
 
-        return $this->checkAuth();
+        $this->checkAuth();
+
+    }
+
+    public function getCheckAuth() {
+
+        return $this->checkAuth;
+
+    }
+
+    public function fileExists($path = false) {
+
+        if($path) {
+
+            if(file_exists($path)) {
+
+                return true;
+
+            }else{
+
+                return false;
+
+            }
+
+        }else{
+
+            return false;
+
+        }
 
     }
 

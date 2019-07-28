@@ -56,6 +56,10 @@ class Session
 
                 $_SESSION[$name] = $value;
 
+            }else if(is_array($value)) {
+
+                $_SESSION[$name] = $value;
+
             }else{
 
                 unset($_SESSION[$name]);

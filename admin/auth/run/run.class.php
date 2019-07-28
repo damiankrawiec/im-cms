@@ -4,13 +4,11 @@
 class Run extends Session
 {
 
+    private $run;
+
     private $hashEmail;
 
     private $hashClient;
-
-    private $email;
-
-    private $image;
 
     private $date;
 
@@ -20,27 +18,27 @@ class Run extends Session
 
     private function checkAdmin($email, $password) {
 
-        if($adminData = $this->admin[$email]) {
+        if(isset($this->admin[$email])) {
 
-            if($adminData['password'] === $password) {
+            $adminData = $this->admin[$email];
 
-                $this->hashEmail = md5($email.$this->getSalt().$this->date);
+            if ($adminData['password'] === $password) {
 
-                $this->hashClient = md5($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
+                $this->hashEmail = md5($email . $this->getSalt() . $this->date);
 
-                $this->email = $email;
+                $this->hashClient = md5($_SERVER['REMOTE_ADDR'] . $this->getSalt() . $this->date);
 
-                $this->image = $adminData['image'];
+                $this->setSession('admin', array('email' => $email, 'image' => $adminData['image']));
 
                 $this->stamp();
 
                 $this->session();
 
-                return true;
+                $this->run = true;
 
-            }else return false;
+            } else $this->run = false;
 
-        }else return false;
+        } else $this->run = false;
 
     }
 
@@ -56,9 +54,7 @@ class Run extends Session
 
         $this->setSession('token', sha1($this->sessionId().$this->getSalt().$this->date));
 
-        $this->setSession('admin', array('email' => '', 'image' => $this->image));
-
-        $this->setSession($this->hashEmail, $this->hashClient);
+        $this->setSession(md5($this->hashEmail), md5($this->hashClient));
 
     }
 
@@ -68,7 +64,13 @@ class Run extends Session
 
         $this->date = date("Y-m-d");
 
-        return $this->checkAdmin($email, $password);
+        $this->checkAdmin($email, $password);
+    }
+
+    public function getRun() {
+
+        return $this->run;
+
     }
 
 }

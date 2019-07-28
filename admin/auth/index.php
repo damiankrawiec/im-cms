@@ -1,19 +1,16 @@
 <?php
 
-//If set login variables than check data
 require_once '../php/script/post.php';
 
 require_once '../php/class/addition.class.php';
 
 $addition = new Addition();
 
-require_once 'validation/init.php';
-//---
-
 $hashPage = true;
 $sectionPath = '../../';
 $sectionPathAdmin = '../';
 require_once '../php/init.php';
+require_once 'validation/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -55,6 +52,10 @@ require_once '../php/init.php';
                         </div>
                         <input type="hidden" name="password">
                     </form>
+                    <?php
+                    if(isset($run) and !$run->getRun())
+                        echo $addition->message($translation['authorization']['fail'], $icon['message']['alert']);
+                    ?>
                     <button class="btn btn-secondary submit validation-run" id="auth"><?php echo $translation['login']['imperatives']; ?></button>
                 </div>
             </div>

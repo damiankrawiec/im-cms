@@ -6,15 +6,10 @@ if($p_email and $p_password) {
 
     require_once 'run/run.class.php';
 
-    if(new Run($p_email, $p_password)) {
+    $run = new Run($p_email, $p_password);
 
+    if($run->getRun())
         $addition->link('../');
-
-    }else{
-
-        echo $addition->message($translation['authorization']['error'], $icon['message']['alert']);
-
-    }
 
     unset($p_password);
 
