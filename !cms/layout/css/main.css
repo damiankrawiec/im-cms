@@ -1,10 +1,10 @@
-html {
+html,
+body {
   height: 100%;
 }
 body {
   margin: 0;
   padding: 0;
-  min-height: 100%;
   overflow-x: hidden;
   background: #ff9100;
   background: -moz-linear-gradient(135deg, #ff9100 0%, #bd3535 25%, #871b6f 60%, #a600ff 100%);
@@ -63,7 +63,28 @@ body {
 }
 .window-back .login-left #auth-header {
   font-size: 26px;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
+}
+.window-back-admin {
+  -webkit-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
+  box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
+  -webkit-border-top-left-radius: 30px;
+  -moz-border-top-left-radius: 30px;
+  border-top-left-radius: 30px;
+  -webkit-border-bottom-left-radius: 30px;
+  -moz-border-bottom-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  -webkit-border-top-right-radius: 30px;
+  -moz-border-top-right-radius: 30px;
+  border-top-right-radius: 30px;
+  -webkit-border-bottom-right-radius: 30px;
+  -moz-border-bottom-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #fff;
+  min-height: 100%;
+  width: 98%;
+  margin-left: 1%;
 }
 @media (max-width: 992px) {
   .login-left {

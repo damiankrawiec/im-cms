@@ -16,13 +16,7 @@ if($tool->getCheckAuth()) {
 
     require_once 'php/script/get.php';
 
-    if($g_section == 'logout') {
-
-        $tool->logout();
-
-        $addition->link('auth');
-
-    }
+    require_once 'php/script/logout.php';
 
     require_once 'php/class/system.class.php';
 
@@ -34,25 +28,7 @@ if($tool->getCheckAuth()) {
 
     }else{
 
-        require_once '../system/'.$system->getSystemName().'/setting.php';
-
-        require_once '../php/class/database.class.php';
-
-        $db = new Database();
-
-        echo 'Bieżący system: '.$system->getSystemName();
-
-        var_dump($db);
-
-        echo '<h1>Zalogowany</h1>';
-
-        $sectionPath = '../';
-        $sectionPathAdmin = '';
-        require_once 'php/init.php';
-
-        echo $tool->getSession('admin')['email'];
-        echo '<img src="layout/graphic/admin/'.$tool->getSession('admin')['image'].'">';
-        echo '<a href="'.$g_system.',logout">'.$translation['login']['end'].'</a>';
+        require_once 'content/index.php';
 
     }
 
