@@ -6,6 +6,10 @@ body {
 .im-hide {
   display: none;
 }
+.im-hide-category,
+.im-hide-pagination {
+  display: none;
+}
 .im-active img {
   background-color: #333;
 }
@@ -31,6 +35,13 @@ body {
 .im-language ul li {
   list-style-type: none;
   display: inline;
+}
+.objects .pagination-arrow {
+  text-align: center;
+}
+.objects .pagination-arrow i {
+  margin: 5px;
+  cursor: pointer;
 }
 .object {
   padding: 10px;

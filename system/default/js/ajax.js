@@ -45,9 +45,17 @@ function setFilter($label, $category) {
 
         }else{
 
-            $('.' + $label + ' .object').show();
+            $('.' + $label + ' .object').each(function(){
+
+                $(this).removeClass('im-hide-category');
+
+            });
 
         }
+
+        setPagination($label);
+
+        noData($label);
 
     });
 

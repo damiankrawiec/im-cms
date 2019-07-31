@@ -94,8 +94,8 @@ insert into im_section_object values (null, 2, 8, 6);
 
 -- record, label class in section
 
-insert into im_section_label values (null, 2, 'slider', 'col-6 col-sm-8 col-md-10');
-insert into im_section_label values (null, 2, 'submenu', 'col-6 col-sm-4 col-md-2');
+insert into im_section_label values (null, 2, 'slider', 'col-sm-8 col-md-10 d-none d-sm-block');
+insert into im_section_label values (null, 2, 'submenu', 'col-12 col-sm-4 col-md-2');
 insert into im_section_label values (null, 0, 'news', 'col-6');
 insert into im_section_label values (null, 0, 'company-skill', 'col-6');
 

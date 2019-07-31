@@ -459,13 +459,27 @@ class ObjectContent extends Language {
 
                 }
 
-                echo '<div class="'.$classLabelDisplay.$label.'">';
+                $pagination = false;
+                $number = '';
+                if($this->checkDisplayOption($option, 'pagination')) {
+
+                    if(stristr($option,'pagination:')) {
+
+                        $optionArrow = explode('pagination:', $option);
+
+                        $number = $optionArrow[1];
+
+                    }
+                    $pagination = true;
+                }
+
+                echo '<div class="'.$classLabelDisplay.'objects '.$label.'">';
 
                     echo '<div class="row">';
 
                         $this->displayCategory();
 
-                        foreach ($objectRecord as $or) {
+                        foreach ($objectRecord as $i => $or) {
 
                             $classAdd = $this->getTypeClass($or['type'])->class;
 
@@ -473,7 +487,7 @@ class ObjectContent extends Language {
                             if ($classAdd != '')
                                 $class .= ' ' . $classAdd;
 
-                            echo '<div class="'.$this->getCategoryObject($or['id']).'' . $class . '">';
+                            echo '<div class="'.$this->getCategoryObject($or['id']).$class.'">';
 
                             $property = $this->getPropertyFromType($or['type']);
 
@@ -517,7 +531,19 @@ class ObjectContent extends Language {
 
                         }
 
-                        echo '<div class="im-hide col-12 no-data"><i class="fal fa-exclamation-triangle"></i> '.$this->translationSystem['no-data'].'</div>';
+                        echo '<div class="im-hide col-12 no-data">'.$this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'].'</div>';
+
+                        if($pagination) {
+
+                            echo '<div class="col-12 pagination-arrow" id="'.$label.':'.$number.'">';
+
+                                echo $this->icon['arrow']['light-left'];
+
+                                echo $this->icon['arrow']['light-right'];
+
+                            echo '</div>';
+
+                        }
 
                     echo '</div>';
 

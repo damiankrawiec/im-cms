@@ -21,6 +21,10 @@ function filterObjectStart() {
 
             }
 
+            setPagination($s);
+
+            noData($s);
+
         }
 
     }
@@ -29,13 +33,40 @@ function filterObjectStart() {
 
 function filterObjectDisplay($label, $category) {
 
-    $('.' + $label + ' .object').hide();
+    $('.' + $label + ' .object').each(function(){
 
-    $('.' + $label + ' .object.' + $category).show();
+        $(this).addClass('im-hide-category');
 
-    if($('.' + $label + ' .object:visible').length == 0) {
+    });
 
-        $('.' + $label + ' .no-data').show();
+    $('.' + $label + ' .object.' + $category).each(function(){
+
+        $(this).removeClass('im-hide-category');
+
+    });
+
+}
+
+function setPagination($label){
+
+    if($('.' + $label + ' .pagination-arrow').length > 0) {
+
+        var $paginationData = $('.' + $label + ' .pagination-arrow').attr('id').split(':');
+
+        var $number = $paginationData[1];
+
+        $('.' + $label + ' .object').each(function () {
+
+            $(this).removeClass('im-hide-pagination');
+
+        });
+
+        $('.' + $label + ' .object:not(.im-hide-category)').each(function ($i) {
+
+            if ($i >= $number)
+                $(this).addClass('im-hide-pagination');
+
+        });
 
     }
 
@@ -44,5 +75,15 @@ function filterObjectDisplay($label, $category) {
 function filterSetSelect($label, $category) {
 
     $('select#' + $label + ' option[value="' + $category + '"]').prop('selected', true);
+
+}
+
+function noData($label) {
+
+    if($('.' + $label + ' .object:visible').length == 0) {
+
+        $('.' + $label + ' .no-data').show();
+
+    }
 
 }
