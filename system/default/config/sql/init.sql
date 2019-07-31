@@ -1,9 +1,9 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Kontakt', 'kontakt', 2, 'on', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', 1, 'on', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', 2, 'on', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'fal fa-home', 1, 'on', '', null, null);
+insert into im_section values (null, 0, 'Kontakt', 'kontakt', 'fal fa-phone-alt', 2, 'on', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', '', 1, 'on', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', 2, 'on', '', null, null);
 
 -- record, object label
 
@@ -45,9 +45,9 @@ insert into im_type_property values (null, 2, 3, 'col-12', '', 2);
 
 insert into im_type_property values (null, 3, 4, 'col-12', '', 1);
 
-insert into im_type_property values (null, 4, 7, 'col-12', 'nav nav-pills', 1);
+insert into im_type_property values (null, 4, 7, 'col-12', 'navbar navbar-expand-lg navbar-light bg-light', 1);
 
-insert into im_type_property values (null, 5, 7, 'col-12', 'nav flex-column', 1);
+insert into im_type_property values (null, 5, 7, 'col-12', 'navbar navbar-dark', 1);
 
 -- record, object
 
@@ -94,8 +94,8 @@ insert into im_section_object values (null, 2, 8, 6);
 
 -- record, label class in section
 
-insert into im_section_label values (null, 2, 'slider', 'col-10');
-insert into im_section_label values (null, 2, 'submenu', 'col-2');
+insert into im_section_label values (null, 2, 'slider', 'col-6 col-sm-8 col-md-10');
+insert into im_section_label values (null, 2, 'submenu', 'col-6 col-sm-4 col-md-2');
 insert into im_section_label values (null, 0, 'news', 'col-6');
 insert into im_section_label values (null, 0, 'company-skill', 'col-6');
 

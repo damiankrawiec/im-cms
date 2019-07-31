@@ -24,7 +24,7 @@ $object = new ObjectContent($this->systemName(), $db, $session['language']);
 
     <?php $object->display($this->getSection()->id, 'news', 'begin'); ?>
 
-    <?php $object->display($this->getSection()->id, 'company-skill', 'end'); ?>
+    <?php $object->display($this->getSection()->id, 'company-skill', 'end, pagination:1'); ?>
 
 </div>
 

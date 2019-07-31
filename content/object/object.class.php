@@ -287,10 +287,11 @@ class ObjectContent extends Language {
 
     private function getSection($parent) {
 
-        $sql = 'select section_id as id, name, url
+        $sql = 'select section_id as id, name, icon, url
                 from im_section
                 where status like "on"
                 and';
+
                 if($parent) {
 
                     $sql .= ' parent = '.$parent;
