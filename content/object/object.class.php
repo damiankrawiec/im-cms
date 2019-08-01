@@ -285,28 +285,67 @@ class ObjectContent extends Language {
 
     }
 
-    private function getSection($parent) {
+    private function getSection($parent, $submenu) {
 
         $sql = 'select section_id as id, name, icon, url
                 from im_section
                 where status like "on"
-                and';
+                and parent = :parent';
 
-                if($parent) {
-
-                    $sql .= ' parent = '.$parent;
-
-                }else{
-
-                    $sql .= ' parent = 0';
-
-                }
-
-                $sql .= ' order by position';
+        $sql .= ' order by position';
 
         $this->db->prepare($sql);
 
-        return $this->db->run('all');
+        $parentData = 0;
+        if($parent)
+            $parentData = $parent;
+
+        $parameter = array(
+            array('name' => ':parent', 'value' => $parentData, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        $sectionData = $this->db->run('all');
+
+        $sectionDataArray = array();
+        if(count($sectionData) > 0) {
+
+            foreach ($sectionData as $i => $sd) {
+
+                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'icon' => $sd['icon'], 'url' => $sd['url']);
+
+                if($submenu) {
+
+                    $parameter = array(
+                        array('name' => ':parent', 'value' => $sd['id'], 'type' => 'int')
+                    );
+
+                    $this->db->bind($parameter);
+
+                    $sectionDataSubmenu = $this->db->run('all');
+
+                    if($sectionDataSubmenu) {
+
+                        $sectionDataSubmenuArray = array();
+
+                        foreach ($sectionDataSubmenu as $j => $sds) {
+
+                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'icon' => $sds['icon'], 'url' => $sds['url']);
+
+                        }
+
+                        $sectionDataArray[$i]['submenu'] = $sectionDataSubmenuArray;
+
+                    }else $sectionDataArray[$i]['submenu'] = false;
+
+                }
+
+            }
+
+            return $sectionDataArray;
+
+        }else return false;
 
     }
 
@@ -407,11 +446,40 @@ class ObjectContent extends Language {
 
     }
 
-    private function checkDisplayOption($option, $type = '') {
+    private function checkDisplayOption($option = false, $type = '') {
 
-        if($option and $type != '') {
+        if($option and is_string($option) and $option != '' and $type != '') {
 
-            return stristr($option, $type);
+            if(stristr($option, ',')) {
+
+                $optionArray = explode(',', $option);
+
+            }else $optionArray = array($option);
+
+            if(count($optionArray) > 0) {
+
+                $findOption = false;
+                foreach ($optionArray as $oa) {
+
+                    if(stristr($oa, $type)) {
+
+                        if(stristr($oa, ':')) {
+
+                            $oaArray = explode(':', $oa);
+
+                            $findOption = $oaArray[1];
+
+                        }else $findOption = true;
+
+                        break;
+
+                    }
+
+                }
+
+                return $findOption;
+
+            }else return false;
 
         }else return false;
 
@@ -463,14 +531,10 @@ class ObjectContent extends Language {
                 $number = '';
                 if($this->checkDisplayOption($option, 'pagination')) {
 
-                    if(stristr($option,'pagination:')) {
+                    $number = $this->checkDisplayOption($option, 'pagination');
 
-                        $optionArrow = explode('pagination:', $option);
-
-                        $number = $optionArrow[1];
-
-                    }
                     $pagination = true;
+
                 }
 
                 echo '<div class="'.$classLabelDisplay.'objects '.$label.'">';
@@ -507,17 +571,14 @@ class ObjectContent extends Language {
                                 }
                                 if ($p['name'] == 'section') {
 
-                                    if($option and stristr($option, 'parent')) {
-
+                                    $sectionParent = $submenu = false;
+                                    if($this->checkDisplayOption($option, 'parent'))
                                         $sectionParent = $section;
 
-                                    }else{
+                                    if($this->checkDisplayOption($option, 'submenu'))
+                                        $submenu = true;
 
-                                        $sectionParent = false;
-
-                                    }
-
-                                    $displayPropertyData['section'] = $this->getSection($sectionParent);
+                                    $displayPropertyData['section'] = $this->getSection($sectionParent, $submenu);
 
                                 }
 

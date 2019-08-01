@@ -2,11 +2,12 @@
 
 if($this->checkDataDisplay($dataDisplay, 'array')) {
 
+    echo '<nav'.$classField.'>';
+
+    //"expand" determined is menu in vertical (false) or horizontal (true) position
     $expand = false;
     if(stristr($classField, 'navbar-expand'))
         $expand = true;
-
-    echo '<nav'.$classField.'>';
 
     if($expand) {
 
@@ -26,13 +27,36 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             if($m['id'] == $section)
                 $active = ' active';
 
-            echo '<li class="nav-item'.$active.'">';
+            $dropdown = '';
+            if(isset($m['submenu']) and $m['submenu'])
+                $dropdown = ' dropdown';
+
+            echo '<li class="nav-item'.$active.$dropdown.'">';
 
                 $icon = '';
                 if($m['icon'] != '')
                     $icon = '<i class="'.$m['icon'].'"></i> ';
 
-                echo '<a href="'.$m['url'].'" title="'.$m['name'].'" class="nav-link">'.$icon.$m['name'].'</a>';
+                if(isset($m['submenu']) and $m['submenu']) {
+
+                    echo '<a href="#" title="'.$m['name'].'" class="nav-link" id="navbarDropdown'.$this->objectCounter.'" data-toggle="dropdown">'.$icon.$m['name'].' '.$this->icon['arrow']['light-down'].'</a>';
+
+                    echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown'.$this->objectCounter.'">';
+                        foreach ($m['submenu'] as $ms) {
+
+                            $iconSub = '';
+                            if($ms['icon'] != '')
+                                $iconSub = '<i class="'.$ms['icon'].'"></i> ';
+
+                            echo '<a class="dropdown-item" href="'.$ms['url'].'">'.$iconSub.$ms['name'].'</a>';
+
+                        }
+                    echo '</div>';
+                }else {
+
+                    echo '<a href="' . $m['url'] . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $m['name'] . '</a>';
+
+                }
 
             echo '</li>';
         }
