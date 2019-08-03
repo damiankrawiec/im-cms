@@ -70,7 +70,7 @@ insert into im_image values (null, 'First slider', 'Content of first slider', 's
 insert into im_image values (null, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', '', null, null);
 insert into im_image values (null, 'Third slider', '', 'slider-3.jpg', '', 'on', '', null, null);
 
--- record, object image
+-- record, object file
 
 insert into im_file values (null, 'Moon', '(description moon file)', '1.jpg', 'on', '', null, null);
 insert into im_file values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);

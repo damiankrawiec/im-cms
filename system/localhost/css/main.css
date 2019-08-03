@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #444;
+}
+.im-hide {
+  display: none;
+}
+.im-hide-category,
+.im-hide-pagination {
+  display: none;
+}
+.im-active img {
+  background-color: #333;
+}
+.process {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  color: #ddd;
+  display: none;
+}
+.im-logo {
+  text-align: center;
+  padding: 5px;
+}
+.im-footer {
+  background-color: #333;
+  min-height: 300px;
+}
+.im-language ul li {
+  list-style-type: none;
+  display: inline;
+}
+.objects .pagination-arrow {
+  text-align: center;
+}
+.objects .pagination-arrow i {
+  margin: 5px;
+  cursor: pointer;
+}
+.object {
+  padding: 10px;
+  background-color: #333;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.object img {
+  width: 100%;
+}
+.object .carousel i {
+  font-size: 40px;
+}
+/*# sourceMappingURL=main.css.map */

@@ -28,15 +28,13 @@ $sectionId = $this->getSection()->id;
 
     ?>
 
-    <?php $object->display($sectionId, 'menu'); ?>
+    <?php $object->display($sectionId, 'menu', 'submenu'); ?>
 
-    <?php $object->display($sectionId, 'submenu', 'parent,begin'); ?>
+    <?php $object->display($sectionId, 'soon-one-event', 'begin'); ?>
 
     <?php $object->display($sectionId, 'slider', 'end'); ?>
 
-    <?php $object->display($sectionId, 'news', 'begin'); ?>
-
-    <?php $object->display($sectionId, 'company-skill', 'end,pagination:1'); ?>
+    <?php $object->display($sectionId, 'last-events', 'pagination:1'); ?>
 
 </div>
 
