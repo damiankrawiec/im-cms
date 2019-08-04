@@ -167,6 +167,10 @@ class Language extends Icon
 
             }
 
+            //var_dump($this->translation);
+
+            //var_dump($data);
+
             return $data;
 
         }

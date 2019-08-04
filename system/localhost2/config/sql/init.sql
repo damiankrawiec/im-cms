@@ -18,9 +18,9 @@ insert into im_label values (null, 'Najbliższe wydarzenie', 'soon-one-event', '
 -- record, object type
 
 insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', '', null, null);
-insert into im_type values (null, 'Slider', 'col-12 col-sm-8 col-md-10', '', null, null);
+insert into im_type values (null, 'Slider', 'col-12', '', null, null);
 insert into im_type values (null, 'Menu', 'col-12', '', null, null);
-insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12 col-sm-4 col-md-2', '', null, null);
+insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12', '', null, null);
 
 -- record, property of type of object (the same on every domain system)
 
@@ -38,12 +38,11 @@ insert into im_type_property values (null, 1, 1, 'col-12', 'h2', 2);
 insert into im_type_property values (null, 1, 2, 'col-12', '', 4);
 insert into im_type_property values (null, 1, 3, 'col-12', '', 1);
 insert into im_type_property values (null, 1, 4, 'col-12', '', 3);
-insert into im_type_property values (null, 1, 5, 'col-12 p-1 text-center', 'btn btn-dark', 5);
 
-insert into im_type_property values (null, 4, 1, 'col-12', 'h3', 2);
+insert into im_type_property values (null, 4, 1, 'col-12', 'h4', 2);
 insert into im_type_property values (null, 4, 3, 'col-12', '', 1);
 insert into im_type_property values (null, 4, 4, 'col-12', '', 3);
-insert into im_type_property values (null, 4, 5, 'col-12 p-1 text-center', 'btn btn-dark', 4);
+insert into im_type_property values (null, 4, 2, 'col-12 text-justify', '', 4);
 
 insert into im_type_property values (null, 2, 4, 'col-12', '', 1);
 
@@ -51,7 +50,7 @@ insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand
 
 -- record, object
 
-insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie!', 'To będzie wydarzenie lata', 'kontakt', 'on', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie!', 'To będzie wydarzenie lata', '', 'on', '', null, null, null);
 insert into im_object values (null, 1, 1, 0, 'Impreza 1', 'O imprezie 1', '', 'on', '', null, null, null);
 insert into im_object values (null, 1, 1, 0, 'Impreza 2', 'O imprezie 2', '', 'on', '', null, null, null);
 insert into im_object values (null, 1, 1, 0, 'Impreza 3', 'O imprezie 3', '', 'on', '', null, null, null);
@@ -75,6 +74,13 @@ insert into im_section_object values (null, 1, 4, 4);
 insert into im_section_object values (null, 1, 5, 5);
 insert into im_section_object values (null, 1, 6, 6);
 insert into im_section_object values (null, 1, 7, 7);
+
+-- record, label class in section
+
+insert into im_section_label values (null, 2, 'slider', 'col-sm-8 col-md-10 d-none d-sm-block');
+insert into im_section_label values (null, 2, 'submenu', 'col-12 col-sm-4 col-md-2');
+insert into im_section_label values (null, 0, 'news', 'col-6');
+insert into im_section_label values (null, 0, 'company-skill', 'col-6');
 
 -- record, connect images with object
 

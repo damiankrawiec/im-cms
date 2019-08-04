@@ -3,9 +3,14 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$object = new ObjectContent($this->systemName(), $db, $session['language']);
+//check current language
+require_once 'php/script/currentLanguage.php';
+
+$object = new ObjectContent($this->systemName(), $db, $currentLanguage);
 
 $sectionId = $this->getSection()->id;
+
+$label = $object->getAllLabel();
 
 ?>
 <div class="container-fluid">

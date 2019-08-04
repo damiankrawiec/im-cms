@@ -15,7 +15,7 @@ require_once 'php/class/session.class.php';
 
 $system = new System();
 
-//Go on (no stop)
+//Go on (no stop) - database of system domain setting
 require_once $system->systemName().'/setting.php';
 
 require_once 'php/class/database.class.php';
@@ -43,5 +43,4 @@ $setting = $system->getSetting();
 
 $session = new Session();
 
-//Labeled all "session" variables and get session variables in array
-require_once 'php/script/session.php';
+$sessionVariable = $session->getSession();

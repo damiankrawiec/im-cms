@@ -485,6 +485,29 @@ class ObjectContent extends Language {
 
     }
 
+    public function getAllLabel() {
+
+        $sql = 'select system_name
+                from im_label';
+
+        $this->db->prepare($sql);
+
+        $label = $this->db->run('all');
+
+        $labelArray = array();
+        if($label) {
+
+            foreach ($label as $l) {
+
+                $labelArray[$l['system_name']] = $l['system_name'];
+
+            }
+
+        }
+        return $labelArray;
+
+    }
+
     public function setPath($addPath = false) {
 
         if($addPath) {

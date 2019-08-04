@@ -271,7 +271,7 @@ create table im_object (
     section int default 0,-- direction to section, 0 - not direction (this in not foreign key)
     name varchar(128) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
-    link varchar(128) collate utf8_polish_ci default '',-- direction url inner or outer
+    link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date date ,-- date to display

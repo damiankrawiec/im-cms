@@ -7,6 +7,8 @@ $object = new ObjectContent($this->systemName(), $db, $session['language']);
 
 $sectionId = $this->getSection()->id;
 
+$label = $object->getAllLabel();
+
 ?>
 <div class="container-fluid">
 
@@ -28,13 +30,13 @@ $sectionId = $this->getSection()->id;
 
     ?>
 
-    <?php $object->display($sectionId, 'menu', 'submenu'); ?>
+    <?php $object->display($sectionId, $label['menu'], 'submenu'); ?>
 
-    <?php $object->display($sectionId, 'soon-one-event', 'begin'); ?>
+    <?php $object->display($sectionId, $label['soon-one-event'], 'begin'); ?>
 
-    <?php $object->display($sectionId, 'slider', 'end'); ?>
+    <?php $object->display($sectionId, $label['slider'], 'end'); ?>
 
-    <?php $object->display($sectionId, 'last-events', 'pagination:1'); ?>
+    <?php $object->display($sectionId, $label['last-events'], 'pagination:1'); ?>
 
 </div>
 

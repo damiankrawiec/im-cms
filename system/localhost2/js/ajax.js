@@ -37,25 +37,21 @@ function setFilter($label, $category) {
         }
     }).done(function () {
 
-        $('.' + $label + ' .no-data').hide();
+        labelProperty();
 
-        if($category > 0) {
-
-            filterObjectDisplay($label, $category);
-
-        }else{
-
-            $('.' + $label + ' .object').each(function(){
-
-                $(this).removeClass('im-hide-category');
-
-            });
-
-        }
-
-        setPagination($label);
-
-        noData($label);
+        // if($category > 0) {
+        //
+        //     filterObjectDisplay($label, $category);
+        //
+        // }else{
+        //
+        //     $('.' + $label + ' .object').each(function(){
+        //
+        //         $(this).removeClass('im-hide-category');
+        //
+        //     });
+        //
+        // }
 
     });
 

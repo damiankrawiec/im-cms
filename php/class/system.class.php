@@ -211,17 +211,19 @@ class System extends Setting
 
     }
 
-    public function getContent($db = false, $session = false) {
+    public function getContent($db = false, $session) {
 
-        if($db and $session) {
+        if($db) {
 
             if ($this->checkSystemStructure and $this->section) {
 
                 require_once $this->system . '/content.php';
 
-            }
+                return $label;
 
-        }
+            }else return false;
+
+        }else return false;
 
     }
 

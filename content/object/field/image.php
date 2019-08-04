@@ -6,15 +6,18 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
         $active = ' class="active"';
         $countRowDataDisplay = count($dataDisplay);
-        echo '<ol class="carousel-indicators">';
-        for ($i = 0; $i < $countRowDataDisplay; $i++) {
 
-            echo '<li data-target="#'.$this->label.'-'.$this->objectCounter.'" data-slide-to="'.$i.'"'.$active.'></li>';
+        if($countRowDataDisplay > 1) {
+            echo '<ol class="carousel-indicators">';
+            for ($i = 0; $i < $countRowDataDisplay; $i++) {
 
-            $active = '';
+                echo '<li data-target="#' . $this->label . '-' . $this->objectCounter . '" data-slide-to="' . $i . '"' . $active . '></li>';
 
+                $active = '';
+
+            }
+            echo '</ol>';
         }
-        echo '</ol>';
 
         echo '<div class="carousel-inner">';
 
@@ -47,7 +50,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
         echo '</div>';
 
-        if(count($dataDisplay) > 1) {
+        if($countRowDataDisplay > 1) {
 
             echo '<a class="carousel-control-prev" href="#' . $this->label . '-' . $this->objectCounter . '" role="button" data-slide="prev">
                     '.$this->icon['arrow']['image-left'].'

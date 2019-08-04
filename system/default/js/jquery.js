@@ -1,5 +1,7 @@
 $(function(){
 
+    labelProperty();
+
     //Filter object by category in label box of each section
     $('.object-category').change(function(){
 
@@ -14,8 +16,6 @@ $(function(){
         setLanguage($(this).attr('id'));
 
     });
-
-    filterObjectStart();
 
     $('.im-move').click(function(){
 

@@ -3,7 +3,38 @@ function filterObject($label, $category) {
     setFilter($label, $category);
 
 }
-function filterObjectStart() {
+
+function labelProperty(){
+
+    noDataHide();
+
+    filterObjectLabel();
+
+    if($('#label').length > 0) {
+
+        var $labelJson = $('#label').text();
+
+        if($labelJson != '') {
+
+            var $label = JSON.parse($labelJson);
+
+            for($l in $label) {
+
+                if(!noData($l)) {
+
+                    setPagination($l);
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+function filterObjectLabel() {
 
     var $sessionJson = $('#session').text();
 
@@ -20,10 +51,6 @@ function filterObjectStart() {
                 filterSetSelect($s, $session[$s]);
 
             }
-
-            setPagination($s);
-
-            noData($s);
 
         }
 
@@ -47,9 +74,15 @@ function filterObjectDisplay($label, $category) {
 
 }
 
-function setPagination($label){
+function filterSetSelect($label, $category) {
 
-    if($('.' + $label + ' .pagination-arrow').length > 0) {
+    $('select#' + $label + ' option[value="' + $category + '"]').prop('selected', true);
+
+}
+
+function setPagination($label) {
+
+    if ($('.' + $label + ' .pagination-arrow').length > 0) {
 
         var $paginationData = $('.' + $label + ' .pagination-arrow').attr('id').split(':');
 
@@ -72,18 +105,20 @@ function setPagination($label){
 
 }
 
-function filterSetSelect($label, $category) {
-
-    $('select#' + $label + ' option[value="' + $category + '"]').prop('selected', true);
-
-}
-
 function noData($label) {
 
     if($('.' + $label + ' .object:visible').length == 0) {
 
         $('.' + $label + ' .no-data').show();
 
-    }
+        return true;
+
+    }else return false;
+
+}
+
+function noDataHide() {
+
+    $('.no-data').hide();
 
 }
