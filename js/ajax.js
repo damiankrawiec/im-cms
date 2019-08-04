@@ -30,28 +30,35 @@ function setFilter($label, $category) {
             category: $category
         },
         beforeSend: function(){
+
             $('.process').show();
+
         },
         complete: function(){
+
             $('.process').fadeOut('slow');
+
         }
-    }).done(function () {
+    }).done(function() {
 
-        labelProperty();
+        refreshSession($label, $category);
 
-        // if($category > 0) {
-        //
-        //     filterObjectDisplay($label, $category);
-        //
-        // }else{
-        //
-        //     $('.' + $label + ' .object').each(function(){
-        //
-        //         $(this).removeClass('im-hide-category');
-        //
-        //     });
-        //
-        // }
+    });
+
+}
+
+function refreshSession($label, $type) {
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/getSession.php"
+    }).done(function ($data) {
+
+        $('#session').text($data);
+
+        hideNoData($label);
+
+        labelProperty($label, $type);
 
     });
 

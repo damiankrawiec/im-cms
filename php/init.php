@@ -33,6 +33,10 @@ require_once 'php/script/post.php';
 
 $system->setSection($g_url, $db);
 
+//Redirect to home when section does not exists
+if(!$system->getSection())
+    $system->link($s_startSection);
+
 $system->setStartSection($s_startSection);
 
 //All settings from database for system (like logo, system name, etc.)

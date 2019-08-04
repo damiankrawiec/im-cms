@@ -77,14 +77,12 @@ insert into im_section_object values (null, 1, 7, 7);
 
 -- record, label class in section
 
-insert into im_section_label values (null, 2, 'slider', 'col-sm-8 col-md-10 d-none d-sm-block');
-insert into im_section_label values (null, 2, 'submenu', 'col-12 col-sm-4 col-md-2');
-insert into im_section_label values (null, 0, 'news', 'col-6');
-insert into im_section_label values (null, 0, 'company-skill', 'col-6');
+insert into im_section_label values (null, 1, 'slider', 'col-sm-8 col-md-10 d-none d-sm-block');
+insert into im_section_label values (null, 1, 'soon-one-event', 'col-12 col-sm-4 col-md-2');
 
 -- record, connect images with object
 
-insert into im_object_image values (null, 1, 2, 1);
+insert into im_object_image values (null, 1, 3, 1);
 
 insert into im_object_image values (null, 2, 3, 1);
 insert into im_object_image values (null, 2, 2, 2);

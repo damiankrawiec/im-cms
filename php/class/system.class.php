@@ -231,16 +231,31 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
-            $file = scandir($this->system . '/js');
+            $fileGlobal = scandir('js');
 
-            if (count($file) > 2) {
+            $fileLocal = scandir($this->system . '/js');
 
-                foreach ($file as $f) {
+            if (count($fileGlobal) > 2) {
 
-                    if ($f == '.' or $f == '..' or $f == '.htaccess')
+                foreach ($fileGlobal as $fg) {
+
+                    if ($fg == '.' or $fg == '..' or $fg == '.htaccess')
                         continue;
 
-                    echo '<script src="' . $this->system . '/js/' . $f . '"></script>';
+                    echo '<script src="js/' . $fg . '"></script>';
+
+                }
+
+            }
+
+            if (count($fileLocal) > 2) {
+
+                foreach ($fileLocal as $fl) {
+
+                    if ($fl == '.' or $fl == '..' or $fl == '.htaccess')
+                        continue;
+
+                    echo '<script src="' . $this->system . '/js/' . $fl . '"></script>';
 
                 }
 
@@ -270,6 +285,18 @@ class System extends Setting
     public function getSetting() {
 
         return $this->setting;
+
+    }
+
+    public function link($location = false) {
+
+        if($location) {
+
+            header('Location:' . $location);
+
+            exit();
+
+        }
 
     }
 }

@@ -26,22 +26,22 @@ $label = $object->getAllLabel();
     <?php
 
     //Option:
-    //- parent (to section field, show child sections of current section)
-    //- begin, end (must be together) - connected 2 or more label group in one row
-    //- pagination always with :X on the right (number of objects show on one page of paging)
-    //- submenu show section name and his children via dropdown
+    //    //- parent (to section field, show child sections of current section)
+    //    //- begin, end (must be together) - connected 2 or more label group in one row
+    //    //- pagination always with :X on the right (number of objects show on one page of paging)
+    //    //- submenu show section name and his children via dropdown
 
     ?>
 
-    <?php $object->display($sectionId, 'menu'); ?>
+    <?php $object->display($sectionId, $label['menu']); ?>
 
-    <?php $object->display($sectionId, 'submenu', 'parent,begin'); ?>
+    <?php $object->display($sectionId, $label['submenu'], 'parent,begin'); ?>
 
-    <?php $object->display($sectionId, 'slider', 'end'); ?>
+    <?php $object->display($sectionId, $label['slider'], 'end'); ?>
 
-    <?php $object->display($sectionId, 'news', 'begin'); ?>
+    <?php $object->display($sectionId, $label['news'], 'begin'); ?>
 
-    <?php $object->display($sectionId, 'company-skill', 'end,pagination:1'); ?>
+    <?php $object->display($sectionId, $label['company-skill'], 'end,pagination:1'); ?>
 
 </div>
 

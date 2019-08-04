@@ -4,7 +4,13 @@ function filterObject($label, $category) {
 
 }
 
-function labelProperty(){
+function labelProperty($label, $type = false){
+
+    if($label !== 'all' && ($type && $type == 0)) {
+
+        showAllInLabel($label);
+
+    }
 
     filterObjectLabel();
 
@@ -60,6 +66,8 @@ function filterObjectDisplay($label, $category) {
 
     $('.' + $label + ' .object').each(function(){
 
+        $(this).removeClass('im-hide-pagination');
+
         $(this).addClass('im-hide-category');
 
     });
@@ -69,6 +77,22 @@ function filterObjectDisplay($label, $category) {
         $(this).removeClass('im-hide-category');
 
     });
+
+}
+
+function showAllInLabel($label) {
+
+    $('.' + $label + ' .object').each(function(){
+
+        $(this).removeClass('im-hide-category');
+
+    });
+
+}
+
+function hideNoData($label) {
+
+    $('.' + $label).find('.no-data').hide();
 
 }
 
@@ -115,8 +139,56 @@ function noData($label) {
 
 }
 
-function noDataHide() {
+function move($direction, $paginationData) {
 
-    $('.no-data').hide();
+    var $label = $paginationData[0];
+
+    var $number = $paginationData[1];
+
+    var $first = false;
+
+    var $last = false;
+
+    $('.' + $label + ' .object:visible').each(function(){
+
+        if(!$first)
+            $first = $(this);
+
+        $last = $(this);
+
+
+    });
+
+    var $object = false;
+
+    if($direction === 'im-left') {
+
+        $object = $first.prevAll('.im-hide-pagination');
+
+    }
+
+    if($direction === 'im-right') {
+
+        $object = $last.nextAll('.im-hide-pagination');
+
+    }
+
+    if($object.length > 0) {
+
+        $first.addClass('im-hide-pagination');
+
+        $last.addClass('im-hide-pagination');
+
+        $object.each(function($i){
+
+            if($i < $number) {
+
+                $(this).removeClass('im-hide-pagination');
+
+            }
+
+        });
+
+    }
 
 }

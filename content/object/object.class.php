@@ -77,7 +77,7 @@ class ObjectContent extends Language {
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text, o.link as link';
+        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text, o.link as external, o.section as link';
 
         //Field from joining tables
         //if($isParameter) {}
@@ -211,8 +211,12 @@ class ObjectContent extends Language {
         $check = false;
         if(isset($dataDisplay) and $dataDisplay and $dataDisplay != '') {
 
-            if($type == 'string')
-                $check = true;
+            if($type == 'string') {
+
+                if(is_string($dataDisplay))
+                    $check = true;
+
+            }
 
             if($type == 'array') {
 
@@ -344,6 +348,30 @@ class ObjectContent extends Language {
             }
 
             return $sectionDataArray;
+
+        }else return false;
+
+    }
+
+    private function getSectionUrl($id) {
+
+        $sql = 'select url
+                from im_section
+                where section_id = :id';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':id', 'value' => $id, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        $sectionUrl = $this->db->run('one');
+
+        if($sectionUrl) {
+
+            return $sectionUrl->url;
 
         }else return false;
 
@@ -602,6 +630,15 @@ class ObjectContent extends Language {
                                         $submenu = true;
 
                                     $displayPropertyData['section'] = $this->getSection($sectionParent, $submenu);
+
+                                }
+                                if($p['name'] == 'link') {
+
+                                    if(is_numeric($or['link']) and $or['link'] > 0) {
+
+                                        $displayPropertyData['link'] = $this->getSectionUrl($or['link']);
+
+                                    }else $displayPropertyData['link'] = false;
 
                                 }
 
