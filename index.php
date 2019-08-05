@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <?php $label = $system->getContent($db, $sessionVariable); ?>
+    <?php $data = $system->getContent($db, $sessionVariable); ?>
 
     <?php require_once 'section/process.php'; ?>
 

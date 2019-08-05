@@ -172,8 +172,6 @@ class ObjectContent extends Language {
 
             if(is_file($path)) {
 
-                $data = $this->makeTranslation($data);
-
                 if(isset($data[$p['name']])) {
 
                     $dataDisplay = $data[$p['name']];

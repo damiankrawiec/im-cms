@@ -134,46 +134,15 @@ class Language extends Icon
 
     }
 
-    protected function makeTranslation($data) {
+    protected function translationMark($mark, $data) {
 
-        if(is_array($data) and count($data) > 0) {
+        return '<i class="translation" id="'.$mark.'">'.$data.'</i>';
 
-            foreach ($data as $i => $d) {
+    }
 
-                if(is_array($d)) {
+    public function getCurrentTranslation() {
 
-                    foreach ($d as $ii => $dr) {
-
-                        foreach($dr as $iii => $drr) {
-
-                            if(isset($this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']])) {
-
-                                $data[$i][$ii][$iii] = $this->translation['im_'.$i.'-'.$iii.'-'.$dr['id']];
-
-                            }
-
-                        }
-                    }
-
-                }else if(is_string($d)) {
-
-                    if(isset($this->translation['im_object-'.$i.'-'.$data['id']])) {
-
-                        $data[$i] = $this->translation['im_object-'.$i.'-'.$data['id']];
-
-                    }
-
-                }
-
-            }
-
-            //var_dump($this->translation);
-
-            //var_dump($data);
-
-            return $data;
-
-        }
+        return $this->translation;
 
     }
 

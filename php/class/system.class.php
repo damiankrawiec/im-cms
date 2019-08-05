@@ -205,6 +205,8 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
+            echo '<link rel="stylesheet" href="section/css/main.css">';
+
             echo '<link rel="stylesheet" href="' . $this->system . '/css/main.css">';
 
         }
@@ -219,7 +221,7 @@ class System extends Setting
 
                 require_once $this->system . '/content.php';
 
-                return $label;
+                return array('label' => $label, 'translation' => $object->getCurrentTranslation());
 
             }else return false;
 
@@ -231,7 +233,7 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
-            $fileGlobal = scandir('js');
+            $fileGlobal = scandir('section/js');
 
             $fileLocal = scandir($this->system . '/js');
 
@@ -242,7 +244,7 @@ class System extends Setting
                     if ($fg == '.' or $fg == '..' or $fg == '.htaccess')
                         continue;
 
-                    echo '<script src="js/' . $fg . '"></script>';
+                    echo '<script src="section/js/' . $fg . '"></script>';
 
                 }
 

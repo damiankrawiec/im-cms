@@ -192,3 +192,46 @@ function move($direction, $paginationData) {
     }
 
 }
+function initSection($time) {
+
+    $('.process').show();
+
+    $('body').animate({
+        opacity: 1
+    }, $time, function () {
+
+        $('.process').fadeOut();
+
+    });
+
+}
+
+function translation() {
+
+    if($('#translation').length > 0) {
+
+        var $translationJson = $('#translation').text();
+
+        if($translationJson != '') {
+
+            var $translation = JSON.parse($translationJson);
+
+            $('body .translation').each(function () {
+
+                for($t in $translation) {
+
+                    if($(this).attr('id') === $t) {
+
+                        $(this).text($translation[$t]);
+
+                    }
+
+                }
+
+            });
+
+        }
+
+    }
+
+}
