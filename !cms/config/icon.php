@@ -7,6 +7,6 @@ $icon = array(
     'external-link' => array('square' => '<i class="fal fa-external-link-square"></i>'),
     'empty-triangle' => array('right' => '<i class="fal fa-caret-right"></i>'),
     'warning' => array('validation' => '<i class="fad fa-exclamation-triangle text-danger" style="font-size:26px;margin:5px"></i>'),
-    'process' => array('standard' => '<i class="fas fa-asterisk fa-spin" style="font-size:13px;margin-left:5px"></i>'),
+    'process' => array('standard' => '<i class="fas fa-cog fa-spin" style="font-size:13px;margin-left:5px"></i>'),
     'message' => array('information' => '<i class="fal fa-comment-alt-lines"></i>', 'alert' => '<i class="fad fa-exclamation"></i>')
 );

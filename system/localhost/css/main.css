@@ -4,23 +4,11 @@ body {
   overflow-x: hidden;
   background-color: #444;
 }
-.im-hide {
-  display: none;
-}
-.im-hide-category,
-.im-hide-pagination {
-  display: none;
-}
 .im-active img {
   background-color: #333;
 }
-.process {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  color: #ddd;
-  display: none;
+#process {
+  color: #fff;
 }
 .im-logo {
   text-align: center;

@@ -3,23 +3,8 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-.im-hide {
-  display: none;
-}
-.im-hide-category,
-.im-hide-pagination {
-  display: none;
-}
 .im-active img {
   background-color: #333;
-}
-.process {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  color: #ddd;
-  display: none;
 }
 .im-logo {
   text-align: center;

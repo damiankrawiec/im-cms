@@ -192,17 +192,21 @@ function move($direction, $paginationData) {
     }
 
 }
-function initSection($time) {
+function initSection($start, $time) {
 
-    $('.process').show();
+    $('#process').show();
 
-    $('body').animate({
-        opacity: 1
-    }, $time, function () {
+    setTimeout(function() {
 
-        $('.process').fadeOut();
+        $('body').animate({
+            opacity: 1
+        }, $time, function () {
 
-    });
+            $('#process').fadeOut();
+
+        });
+
+    }, $start);
 
 }
 
@@ -216,19 +220,11 @@ function translation() {
 
             var $translation = JSON.parse($translationJson);
 
-            $('body .translation').each(function () {
+            for($t in $translation) {
 
-                for($t in $translation) {
+                $('#' + $t).text($translation[$t]);
 
-                    if($(this).attr('id') === $t) {
-
-                        $(this).text($translation[$t]);
-
-                    }
-
-                }
-
-            });
+            }
 
         }
 

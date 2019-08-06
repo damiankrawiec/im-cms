@@ -1,1 +1,1 @@
-<div class="process"><i class="far fa-spinner-third fa-spin fa-8x"></i></div>
+<div id="process" class="animated bounceOut"><i class="fad fa-dot-circle"></i></div>

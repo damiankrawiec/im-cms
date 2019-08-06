@@ -9,7 +9,7 @@ function setLanguage($language = false){
                 language: $language
             },
             beforeSend: function(){
-                $('.process').show();
+                $('#process').show();
             }
         }).done(function () {
 
@@ -31,12 +31,12 @@ function setFilter($label, $category) {
         },
         beforeSend: function(){
 
-            $('.process').show();
+            $('#process').show();
 
         },
         complete: function(){
 
-            $('.process').fadeOut('slow');
+            $('#process').fadeOut(1000);
 
         }
     }).done(function() {

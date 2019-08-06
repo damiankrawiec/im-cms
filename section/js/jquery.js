@@ -1,6 +1,6 @@
 $(function(){
 
-    initSection(500);
+    initSection(50, 300);
 
     translation();
 
