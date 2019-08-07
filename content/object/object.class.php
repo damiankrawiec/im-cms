@@ -176,7 +176,9 @@ class ObjectContent extends Language {
 
                     $dataDisplay = $data[$p['name']];
 
-                    if (isset($dataDisplay)) {
+                    $dataId = $data['id'];
+
+                    if (isset($dataDisplay) and isset($dataId)) {
 
                         $class = $classField = '';
                         if($p['class'] != '')
@@ -274,6 +276,27 @@ class ObjectContent extends Language {
                 where obf.object_id = :object
                 and f.status like "on"
                 order by obf.position';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $objectId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
+    private function getObjectMovie($objectId) {
+
+        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.url as url
+                from im_movie m
+                join im_object_movie obm on (obm.movie_id = m.movie_id)
+                where obm.object_id = :object
+                and m.status like "on"
+                order by obm.position';
 
         $this->db->prepare($sql);
 
@@ -616,6 +639,11 @@ class ObjectContent extends Language {
                                 if ($p['name'] == 'file') {
 
                                     $displayPropertyData['file'] = $this->getObjectFile($or['id']);
+
+                                }
+                                if ($p['name'] == 'movie') {
+
+                                    $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
 
                                 }
                                 if ($p['name'] == 'section') {

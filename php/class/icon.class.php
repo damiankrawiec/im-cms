@@ -13,7 +13,8 @@ class Icon
                          'light-right' => '<i class="fal fa-angle-right fa-2x im-move" id="im-right"></i>',
                          'light-down' => '<i class="fal fa-chevron-down"></i>'),
         'link' => array('external' => '<i class="fal fa-external-link-square"></i>'),
-        'warning' => array('triangle' => '<i class="fal fa-exclamation-triangle"></i>')
+        'warning' => array('triangle' => '<i class="fal fa-exclamation-triangle"></i>'),
+        'multimedia' => array('movie' => '<i class="fal fa-film-alt"></i>')
     );
 
 }

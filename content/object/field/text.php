@@ -2,6 +2,6 @@
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
-    echo '<div'.$classField.'>' . $dataDisplay . '</div>';
+    echo '<div'.$classField.'>' . $this->translationMark('im_object-content-'.$dataId, $dataDisplay) . '</div>';
 
 }

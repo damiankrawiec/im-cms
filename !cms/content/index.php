@@ -43,8 +43,6 @@ echo '<div class="window-back-admin">';
 
 echo '</div>';
 
-require_once $sectionPath.'section/process.php';
-
 require_once $sectionPath.'section/body.php';
 
 require_once $sectionPathAdmin.'layout/js/js.php';

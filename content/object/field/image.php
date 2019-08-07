@@ -39,8 +39,8 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
                       <img'.$classField.' src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
                       <div class="carousel-caption d-none d-md-block">
-                        <h5>'.$img['name'].'</h5>
-                        '.($img['content'] != '' ? '<p>'.$img['content'].'</p>' : '').'
+                        <h5>'.$this->translationMark('im_image-name-'.$img['id'], $img['name']).'</h5>
+                        '.($img['content'] != '' ? '<p>'.$this->translationMark('im_image-name-'.$img['id'], $img['content']).'</p>' : '').'
                       </div>
                   </div>';
 

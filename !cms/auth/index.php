@@ -39,7 +39,7 @@ require_once 'validation/init.php';
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><?php echo $icon['email']['at'] ?></div>
                                 </div>
-                                <input type="text" class="form-control validation :email" id="inlineFormInputGroup" placeholder="<?php echo $translation['email']['imperatives']; ?>" name="email">
+                                <input type="text" class="form-control validation :email" placeholder="<?php echo $translation['email']['imperatives']; ?>" name="email">
                             </div>
                         </div>
                         <div class="form-group">
@@ -47,7 +47,7 @@ require_once 'validation/init.php';
                                 <div class="input-group-prepend">
                                     <div class="input-group-text"><?php echo $icon['security']['password']; ?></div>
                                 </div>
-                                <input type="password" class="form-control validation :password" id="inlineFormInputGroup" placeholder="<?php echo $translation['password']['imperatives']; ?>">
+                                <input type="password" class="form-control validation :password" placeholder="<?php echo $translation['password']['imperatives']; ?>">
                             </div>
                         </div>
                         <input type="hidden" name="password">
@@ -67,8 +67,6 @@ require_once 'validation/init.php';
         </div>
     </div>
 </div>
-
-<?php require_once $sectionPath.'section/process.php'; ?>
 
 <?php require_once $sectionPath.'section/body.php'; ?>
 

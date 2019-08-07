@@ -31,6 +31,7 @@ insert into im_property values (null, 'Link', 'link', '', null, null);
 insert into im_property values (null, 'Plik', 'file', '', null, null);
 insert into im_property values (null, 'Menu', 'section', '', null, null);
 insert into im_property values (null, 'Link zewnętrzny', 'external', '', null, null);
+insert into im_property values (null, 'Film', 'movie', '', null, null);
 
 -- record, set property in type
 

@@ -28,6 +28,8 @@ drop table if exists im_object_image;
 
 drop table if exists im_object_file;
 
+drop table if exists im_object_movie;
+
 drop table if exists im_category;
 
 drop table if exists im_label_category;
@@ -43,6 +45,8 @@ drop table if exists im_translation_system;
 drop table if exists im_translation;
 
 drop table if exists im_section_label;
+
+drop table if exists im_movie;
 
 -- triggers
 
@@ -119,6 +123,12 @@ drop trigger if exists im_translation_insert_date_create;
 drop trigger if exists im_translation_insert_date_modify;
 
 drop trigger if exists im_translation_update_date_modify;
+
+drop trigger if exists im_movie_insert_date_create;
+
+drop trigger if exists im_movie_insert_date_modify;
+
+drop trigger if exists im_movie_update_date_modify;
 
 -- end prepare database --
 
@@ -425,6 +435,41 @@ create trigger im_file_update_date_modify
 
 -- FILE END --
 
+-- MOVIE START --
+
+-- table
+
+create table im_movie (
+    movie_id int not null auto_increment,
+    name varchar(64) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
+    url varchar(128) collate utf8_polish_ci default '',
+    status varchar(3) default 'on',
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (movie_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_movie_insert_date_create
+    before insert on im_movie
+    for each row
+    set new.date_create = now();
+
+create trigger im_movie_insert_date_modify
+    before insert on im_movie
+    for each row
+    set new.date_modify = now();
+
+create trigger im_movie_update_date_modify
+    before update on im_movie
+    for each row
+    set new.date_modify = now();
+
+-- MOVIE END --
+
 -- OBJECT-IMAGE START --
 
 -- connecting images with object (m:n relationship), table
@@ -453,6 +498,22 @@ create table im_object_file (
     primary key (object_file_id),
     foreign key (object_id) references im_object(object_id),
     foreign key (file_id) references im_file(file_id)
+) engine = InnoDB;
+
+-- OBJECT-FILE END --
+
+-- OBJECT-FILE START --
+
+-- connecting files with object (m:n relationship), table
+
+create table im_object_movie (
+    object_movie_id int not null auto_increment,
+    object_id int not null,
+    movie_id int not null,
+    position int default 0,
+    primary key (object_movie_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (movie_id) references im_movie(movie_id)
 ) engine = InnoDB;
 
 -- OBJECT-FILE END --
