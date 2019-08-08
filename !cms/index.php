@@ -20,7 +20,7 @@ if($tool->getCheckAuth()) {
 
     require_once 'php/class/system.class.php';
 
-    $system = new System();
+    $system = new System($g_system);
 
     if(!$g_system) {
 

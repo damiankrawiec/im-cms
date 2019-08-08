@@ -46,3 +46,12 @@ function processButton($this){
     }, 500);
 
 }
+function currentSystem($interval){
+
+    setInterval(function(){
+
+        $('#current-system .animated').toggleClass('flash');
+
+    }, $interval);
+
+}

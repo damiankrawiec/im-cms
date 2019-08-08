@@ -1,5 +1,7 @@
 $(function(){
 
+    currentSystem(3000);
+
     $('.submit').click(function(){
 
         processButton($(this));

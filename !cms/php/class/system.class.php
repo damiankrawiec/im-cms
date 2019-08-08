@@ -1,46 +1,21 @@
 <?php
 
 
-class System
-{
-    public $domain;//server name (without path)
+class System {
 
     private $system;//system/[name]
 
-    public function __construct() {
+    public function __construct($domain) {
 
-        $this->domain = $this->getServer('HTTP_HOST');
-
-        $this->system = $this->systemName($this->domain);
+        $this->system = $this->systemName($domain);
 
     }
 
-    private function getServer($name = false) {
-
-        if($name) {
-
-            return $_SERVER[$name];
-
-        }else{
-
-            return $_SERVER;
-
-        }
-
-    }
     private function systemName($name = false) {
 
-        if('../system/'.$name) {
+        if(is_dir('../system/'.$name)) {
 
-            if(is_dir('../system/'.$name)) {
-
-                return $name;
-
-            }else{
-
-                return 'default';
-
-            }
+            return $name;
 
         }else{
 

@@ -23,7 +23,7 @@ require_once 'php/class/database.class.php';
 $db = new Database();
 
 //Get start section in system (no current section)
-require_once 'php/script/startSection.php';
+require_once 'php/script/start-section.php';
 
 //Grab all "get" variables
 require_once 'php/script/get.php';

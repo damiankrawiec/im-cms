@@ -4,7 +4,7 @@
 require_once 'content/object/object.class.php';
 
 //check current language
-require_once 'php/script/currentLanguage.php';
+require_once 'php/script/current-language.php';
 
 $object = new ObjectContent($this->systemName(), $db, $currentLanguage);
 

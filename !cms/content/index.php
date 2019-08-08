@@ -19,29 +19,19 @@ require_once 'php/init.php';
 <body>
 <?php
 
+//Init setting and $db object
 require_once 'php/script/system.php';
 
-echo '<div class="window-back-admin">';
+//Main content
+echo '<div class="container-fluid">';
 
-    echo '<div class="container-fluid">';
-
-        echo '<div class="row">';
-
-        echo 'Bieżący system: '.$system->getSystemName();
-
-        echo '<h1>Zalogowany</h1>';
-
-        $sectionPath = '../';
-
-        echo $tool->getSession('admin')['email'];
-        echo '<img src="layout/graphic/admin/'.$tool->getSession('admin')['image'].'">';
-        echo '<a href="'.$g_system.',logout">'.$translation['login']['end'].'</a>';
-
-        echo '</div>';
-
-    echo '</div>';
+//Topper (logged)
+require_once 'content/section/top.php';
 
 echo '</div>';
+
+//Display information about current system to be management
+require_once 'content/section/current-system.php';
 
 require_once $sectionPath.'section/body.php';
 

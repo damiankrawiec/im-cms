@@ -1,11 +1,4 @@
-.process{
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  color: @light-gray;
-  display: none;
-}
+//Authorization
 .window-back{
   padding: 100px 10px 0;
   > div{
@@ -34,12 +27,13 @@
     }
   }
 }
-.window-back-admin{
-  .box-shadow();
-  .border-left-radius(30px);
-  .border-right-radius(30px);
+//Admin (after successful login)
+#current-system{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
   background-color: @white;
-  min-height: 100%;
-  width: 98%;
-  margin-left: 1%;
 }
