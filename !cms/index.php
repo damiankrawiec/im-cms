@@ -2,6 +2,8 @@
 
 require_once 'php/script/post.php';
 
+require_once 'php/class/security.class.php';
+
 require_once 'php/class/session.class.php';
 
 require_once 'php/class/tool.class.php';
@@ -12,7 +14,7 @@ $addition = new Addition();
 
 $tool = new Tool();
 
-if($tool->getCheckAuth()) {
+if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     require_once 'php/script/get.php';
 
@@ -22,7 +24,7 @@ if($tool->getCheckAuth()) {
 
     $system = new System($g_system);
 
-    if(!$g_system) {
+    if($g_system === '' or $g_system !== $system->getSystemName()) {
 
         $addition->link($system->getSystemName());
 

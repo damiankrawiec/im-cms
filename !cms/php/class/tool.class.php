@@ -12,31 +12,31 @@ class Tool extends Session
 
     private function checkAuth() {
 
-        $this->hashEmail = md5($this->getSession('admin')['email'].$this->getSalt().$this->date);
+        $this->hashEmail = sha1($this->getSession('admin')['email'].$this->getSalt().$this->date);
 
         $pathHashFile = 'auth/stamp/'.$this->hashEmail.'.txt';
 
         if($this->fileExists($pathHashFile)) {
 
-            $hashClientFile = file_get_contents($pathHashFile);
+            $hashClientFile = $this->decode(file_get_contents($pathHashFile));
 
-            $hashClient = md5($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
+            $hashClient = sha1($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
 
             if($hashClientFile === $hashClient) {
 
                 if($this->getSession('token') === sha1($this->sessionId().$this->getSalt().$this->date)) {
 
-                    if($this->getSession(md5($this->hashEmail)) === md5($hashClient)) {
+                    if($this->decode($this->getSession(md5($this->hashEmail))) === $hashClient) {
 
-                        $this->checkAuth = true;
+                        $this->checkAuth = $this->getAuthToken();
 
-                    }else $this->checkAuth = false;
+                    }
 
-                }else $this->checkAuth = false;
+                }
 
-            }else $this->checkAuth = false;
+            }
 
-        }else $this->checkAuth = false;
+        }
 
     }
 
@@ -57,7 +57,7 @@ class Tool extends Session
 
         parent::__construct();
 
-        $this->date = date("Y-m-d");
+        $this->date = date("Y-m-d");//Check timestamp security, one of 24h admin must be logged (maybe again)
 
         $this->checkAuth();
 

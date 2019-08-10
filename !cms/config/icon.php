@@ -9,5 +9,5 @@ $icon = array(
     'warning' => array('validation' => '<i class="fad fa-exclamation-triangle text-danger" style="font-size:26px;margin:5px"></i>'),
     'process' => array('standard' => '<i class="fas fa-cog fa-spin" style="font-size:13px;margin-left:5px"></i>'),
     'message' => array('information' => '<i class="fal fa-comment-alt-lines"></i>', 'alert' => '<i class="fad fa-exclamation"></i>'),
-    'system' => array('current' => '<i class="fal fa-laptop-code"></i>')
+    'system' => array('standard' => '<i class="fal fa-laptop-code"></i>')
 );

@@ -33,6 +33,12 @@ $(function(){
 
     });
 
+    $('#select-system select').change(function(){
+
+        window.location = $(this).val();
+
+    });
+
     //At the end init gallery effect
     $('a[data-rel^=lightcase]').lightcase();
 

@@ -1,18 +1,8 @@
 <?php
 
 
-class Session
+class Session extends Security
 {
-
-    //This definition of salt must be in second (init) side
-    private $salt = 'NZ8aypZPiCZtNp4';
-    //integrity
-
-    protected function getSalt() {
-
-        return $this->salt;
-
-    }
 
     protected function init() {
 

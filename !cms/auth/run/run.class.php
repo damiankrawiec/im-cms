@@ -24,9 +24,9 @@ class Run extends Session
 
             if ($adminData['password'] === $password) {
 
-                $this->hashEmail = md5($email . $this->getSalt() . $this->date);
+                $this->hashEmail = sha1($email . $this->getSalt() . $this->date);//Name of file (server side security)
 
-                $this->hashClient = md5($_SERVER['REMOTE_ADDR'] . $this->getSalt() . $this->date);
+                $this->hashClient = $this->encode(sha1($_SERVER['REMOTE_ADDR'] . $this->getSalt() . $this->date));//Content of file (server side security)
 
                 $this->setSession('admin', array('email' => $email, 'image' => $adminData['image']));
 
@@ -54,7 +54,7 @@ class Run extends Session
 
         $this->setSession('token', sha1($this->sessionId().$this->getSalt().$this->date));
 
-        $this->setSession(md5($this->hashEmail), md5($this->hashClient));
+        $this->setSession(md5($this->hashEmail), $this->hashClient);
 
     }
 
