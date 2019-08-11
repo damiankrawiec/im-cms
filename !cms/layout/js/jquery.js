@@ -1,5 +1,7 @@
 $(function(){
 
+    initSection(50, 300);
+
     currentSystem(3000);
 
     $('.submit').click(function(){
@@ -35,7 +37,7 @@ $(function(){
 
     $('#select-system select').change(function(){
 
-        window.location = $(this).val();
+        modalInit($(this));
 
     });
 

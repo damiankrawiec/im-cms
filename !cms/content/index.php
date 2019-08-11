@@ -31,7 +31,11 @@ require_once 'content/section/top.php';
 echo '</div>';
 
 //Display information about current system to be management
-require_once 'content/section/current-system.php';
+require_once $sectionPathAdmin.'content/section/current-system.php';
+
+require_once $sectionPathAdmin.'content/section/process.php';
+
+require_once $sectionPathAdmin.'content/section/modal.php';
 
 require_once $sectionPath.'section/body.php';
 

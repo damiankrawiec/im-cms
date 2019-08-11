@@ -1,4 +1,7 @@
 body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   opacity: 0;
 }
 i.translation {
@@ -14,7 +17,7 @@ i.translation {
 #process {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 20px;
   font-size: 60px;
   padding: 10px;
   display: none;

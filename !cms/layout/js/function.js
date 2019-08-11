@@ -55,3 +55,73 @@ function currentSystem($interval){
     }, $interval);
 
 }
+function initSection($start, $time) {
+
+    $('#process').show();
+
+    setTimeout(function() {
+
+        $('body').animate({
+            opacity: 1
+        }, $time, function () {
+
+            $('#process').fadeOut();
+
+        });
+
+    }, $start);
+
+}
+
+function modalInit($this){
+
+    var $modalDataJson = $this.parent().find('.modal-data').text();
+
+    $modalData = JSON.parse($modalDataJson);
+
+    $('#modal .modal-body').text($modalData.text);
+
+    $('#modal').modal();
+
+    modalButton($this, $modalData.save, $modalData.cancel);
+
+}
+
+function modalButton($this, $save, $cancel){
+
+    $('.modal-button').click(function(){
+
+        if($(this).attr('id') === 'modal-cancel') {
+
+            if($cancel !== '') {
+                //List of events fix to cancel
+                if ($cancel === 'reload') {
+
+                    window.location.reload(true);
+
+                }
+                if ($cancel === 'this-option-reset') {
+
+                    $this.children('option[selected=selected]').prop('selected', true);
+
+                }
+            }
+
+        }
+        if($(this).attr('id') === 'modal-save') {
+
+            if($save !== '') {
+                //List of events fix to cancel
+                if ($save === 'link-this-val') {
+
+                    window.location = $this.val();
+
+                }
+
+            }
+
+        }
+
+    });
+
+}

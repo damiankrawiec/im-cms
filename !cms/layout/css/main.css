@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  opacity: 0;
   background: #ff9100;
   background: -moz-linear-gradient(135deg, #ff9100 0%, #bd3535 25%, #871b6f 60%, #a600ff 100%);
   background: -webkit-linear-gradient(135deg, #ff9100 0%, #bd3535 25%, #871b6f 60%, #a600ff 100%);
@@ -56,6 +57,15 @@ body {
 .window-back .login-left #auth-header {
   font-size: 26px;
   margin-bottom: 6px;
+}
+#process {
+  position: fixed;
+  top: 0;
+  right: 20px;
+  font-size: 60px;
+  padding: 10px;
+  display: none;
+  color: #fff;
 }
 #current-system {
   position: fixed;

@@ -22,6 +22,8 @@ if($system->getAllSystem()) {
 
         echo '</select>';
 
+        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['not-save'], 'save' => 'link-this-val', 'cancel' => 'this-option-reset')).'</div>';
+
     echo '</div>';
 
 }
