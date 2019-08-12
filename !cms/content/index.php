@@ -17,6 +17,7 @@ require_once 'php/init.php';
 
 </head>
 <body>
+
 <?php
 
 //Init setting and $db object
@@ -26,23 +27,30 @@ require_once 'php/script/system.php';
 echo '<div class="container-fluid">';
 
 //Topper (logged)
-require_once 'content/section/top.php';
+require_once 'content/box/top.php';
 
 echo '</div>';
 
 echo '<div class="container-fluid">';
 
 //Content
-require_once 'content/section/content.php';
+require_once 'content/box/content.php';
+
+echo '</div>';
+
+echo '<div class="container-fluid">';
+
+//Content
+require_once 'content/box/footer.php';
 
 echo '</div>';
 
 //Display information about current system to be management
-require_once $sectionPathAdmin.'content/section/current-system.php';
+require_once $sectionPathAdmin.'content/box/current-system.php';
 
-require_once $sectionPathAdmin.'content/section/process.php';
+require_once $sectionPathAdmin.'content/box/process.php';
 
-require_once $sectionPathAdmin.'content/section/modal.php';
+require_once $sectionPathAdmin.'content/box/modal.php';
 
 require_once $sectionPath.'section/body.php';
 

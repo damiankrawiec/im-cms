@@ -10,7 +10,7 @@ echo '<div class="row">';
 
     echo '<div class="col-12 col-sm-4">';
 
-        require_once 'content/section/select-system.php';
+        require_once 'content/box/select-system.php';
 
     echo '</div>';
 

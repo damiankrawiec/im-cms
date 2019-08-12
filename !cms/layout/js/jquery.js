@@ -1,6 +1,6 @@
 $(function(){
 
-    initSection(50, 300);
+    initSection(100, 300);
 
     currentSystem(3000);
 
@@ -41,7 +41,7 @@ $(function(){
 
     });
 
-    $('#data-table').DataTable();
+    $('.table').DataTable();
 
     //At the end init gallery effect
     $('a[data-rel^=lightcase]').lightcase();

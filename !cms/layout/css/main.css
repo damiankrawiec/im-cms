@@ -13,6 +13,9 @@ body {
   background: linear-gradient(135deg, #ff9100 0%, #bd3535 25%, #871b6f 60%, #a600ff 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9100", endColorstr="#a600ff", GradientType=1);
 }
+.table {
+  background-color: #fff;
+}
 .im-hide {
   display: none;
 }
@@ -75,6 +78,11 @@ body {
   width: 100%;
   padding: 5px;
   background-color: #fff;
+}
+#im-footer {
+  min-height: 300px;
+  width: 100%;
+  background-color: #333;
 }
 @media (max-width: 992px) {
   .login-left {

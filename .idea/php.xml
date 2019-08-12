@@ -13,7 +13,6 @@
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/composer" />
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/twbs/bootstrap" />
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/datatables/datatables" />
-      <path value="D:/wamp64/www/im-cms/app/composer/vendor/components/jquery" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

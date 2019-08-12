@@ -68,7 +68,7 @@ require_once 'validation/init.php';
     </div>
 </div>
 
-<?php require_once $sectionPathAdmin.'content/section/process.php'; ?>
+<?php require_once $sectionPathAdmin.'content/box/process.php'; ?>
 
 <?php require_once $sectionPath.'section/body.php'; ?>
 
