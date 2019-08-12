@@ -30,6 +30,13 @@ require_once 'content/section/top.php';
 
 echo '</div>';
 
+echo '<div class="container-fluid">';
+
+//Content
+require_once 'content/section/content.php';
+
+echo '</div>';
+
 //Display information about current system to be management
 require_once $sectionPathAdmin.'content/section/current-system.php';
 

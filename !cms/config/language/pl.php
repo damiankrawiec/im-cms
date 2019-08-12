@@ -7,5 +7,13 @@ $translation = array(
     'password' => array('singular' => 'Hasło', 'imperatives' => 'Wprowadź hasło'),
     'system' => array('current' => 'Bieżący system'),
     'modal' => array('title' => 'Informacja', 'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych'),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj')
+    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj'),
+    'message' => array('no-data' => 'Brak danych')
+);
+$tableDefinition = array(
+    'im_object' => array(
+        'head' => array(
+            'name' => 'Nazwa',
+            'content' => 'Opis'
+        ))
 );

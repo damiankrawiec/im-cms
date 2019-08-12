@@ -41,6 +41,8 @@ $(function(){
 
     });
 
+    $('#data-table').DataTable();
+
     //At the end init gallery effect
     $('a[data-rel^=lightcase]').lightcase();
 

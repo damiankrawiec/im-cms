@@ -9,4 +9,4 @@ echo '<meta charset="UTF-8">
       <link rel="stylesheet" href="'.$sectionPath.'module/fontawesome/css/all.min.css">
       <link rel="stylesheet" href="'.$sectionPath.'module/lightcase/css/lightcase.css">
       <link rel="stylesheet" href="'.$sectionPath.'module/animate/animate.min.css">
-      <link rel="stylesheet" href="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/css/jquery.dataTables.css">';
+      <link rel="stylesheet" href="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/css/jquery.dataTables.min.css">';
