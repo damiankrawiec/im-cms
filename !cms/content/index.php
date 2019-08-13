@@ -57,13 +57,6 @@ require_once 'content/box/content.php';
 
 echo '</div>';
 
-echo '<div class="container-fluid">';
-
-//Content
-require_once 'content/box/footer.php';
-
-echo '</div>';
-
 //Display information about current system to be management
 require_once $sectionPathAdmin.'content/box/current-system.php';
 

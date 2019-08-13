@@ -11,5 +11,8 @@ $icon = array(
     'message' => array('information' => '<i class="fal fa-comment-alt-lines"></i>', 'alert' => '<i class="fad fa-exclamation"></i>', 'title' => '<i class="fad fa-info-square"></i>'),
     'system' => array('standard' => '<i class="fal fa-laptop-code"></i>'),
     'button' => array('save' => '<i class="fal fa-check-square"></i>', 'cancel' => '<i class="fal fa-times-square"></i>'),
-    'menu' => array('dashboard' => '<i class="fal fa-columns"></i>', 'object' => '<i class="fal fa-draw-polygon"></i>')
+    'menu' => array('dashboard' => '<i class="fal fa-columns"></i>', 'object' => '<i class="fal fa-draw-polygon"></i>'),
+    'table' => array('foot' => '<i class="fal fa-database"></i>'),
+    'user' => array('standard' => '<i class="fal fa-user"></i>'),
+    'status' => array('on' => '<i class="fal fa-toggle-on text-info"></i>', 'off' => '<i class="fal fa-toggle-off text-secondary"></i>')
 );

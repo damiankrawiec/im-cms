@@ -13,9 +13,11 @@ $translation = array(
 );
 $tableDefinition = array(
     'im_object' => array(
-        'head' => array(
-            'name' => 'Nazwa',
-            'content' => 'Opis'
-        )
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
     )
 );

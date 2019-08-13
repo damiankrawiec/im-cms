@@ -5,7 +5,7 @@
       <div class="modal-body"></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary modal-button" id="modal-cancel" data-dismiss="modal"><?php echo $translation['button']['cancel'].' '.$icon['button']['cancel']; ?></button>
-        <button type="button" class="btn btn-primary modal-button" id="modal-save"><?php echo $translation['button']['save'].' '.$icon['button']['save']; ?></button>
+        <button type="button" class="btn btn-warning modal-button" id="modal-save"><?php echo $translation['button']['save'].' '.$icon['button']['save']; ?></button>
       </div>
     </div>
   </div>

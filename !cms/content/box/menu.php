@@ -6,7 +6,17 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
         echo '<a class="navbar-brand" href="#">';
 
-            echo '<img src="layout/graphic/admin/'.$tool->getSession('admin')['image'].'" style="height: 40px">';
+            $userImage = 'layout/graphic/admin/'.$tool->getSession('admin')['image'];
+
+            if($tool->fileExists($userImage)) {
+
+                echo '<img src="'.$userImage.'" style="height: 40px">';
+
+            }else{
+
+                echo $icon['user']['standard'];
+
+            }
 
         echo '</a>';
 
