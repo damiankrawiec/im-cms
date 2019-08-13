@@ -2,22 +2,20 @@
 
 echo '<div class="row">';
 
-    echo '<div class="col-12 col-sm-4">';
+    echo '<div class="col-12 col-sm-6 text-right text-white">';
 
-    echo '<img src="layout/graphic/admin/'.$tool->getSession('admin')['image'].'" >';
+        echo $translation['login']['logged'].': ';
 
-    echo '</div>';
+        echo $tool->getSession('admin')['email'];
 
-    echo '<div class="col-12 col-sm-4">';
-
-        require_once 'content/box/select-system.php';
+        echo ', <a href="'.$g_system.',logout" class="text-warning">'.$icon['login']['end'].'</a>';
 
     echo '</div>';
 
-    echo '<div class="col-12 col-sm-4 text-right">';
+echo '<div class="col-12 col-sm-6">';
 
-    echo $translation['login']['logged'].': '.$tool->getSession('admin')['email'].', <a href="'.$g_system.',logout">'.$icon['login']['end'].'</a>';
+require_once 'content/box/select-system.php';
 
-    echo '</div>';
+echo '</div>';
 
 echo '</div>';

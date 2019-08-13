@@ -17,6 +17,6 @@ if(isset($_GET['section'])) {
 
 }else{
 
-    $g_section = '';
+    $g_section = 'dashboard';
 
 }

@@ -8,12 +8,14 @@ $translation = array(
     'system' => array('current' => 'Bieżący system'),
     'modal' => array('title' => 'Informacja', 'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych'),
     'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj'),
-    'message' => array('no-data' => 'Brak danych')
+    'message' => array('no-data' => 'Brak danych'),
+    'menu' => array('dashboard' => 'Pulpit', 'object' => 'Obiekty')
 );
 $tableDefinition = array(
     'im_object' => array(
         'head' => array(
             'name' => 'Nazwa',
             'content' => 'Opis'
-        ))
+        )
+    )
 );

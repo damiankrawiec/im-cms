@@ -18,11 +18,6 @@ if($g_section !== '') {
 
     }
 
-}else{
-
-    //Dashboard
-    require_once 'content/section/dashboard.php';
-
 }
 
 echo '</div>';

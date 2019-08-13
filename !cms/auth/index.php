@@ -6,6 +6,7 @@ require_once '../php/class/addition.class.php';
 
 $addition = new Addition();
 
+$minHeadBody = true;
 $hashPage = true;
 $sectionPath = '../../';
 $sectionPathAdmin = '../';

@@ -23,11 +23,30 @@ require_once 'php/init.php';
 //Init setting and $db object
 require_once 'php/script/system.php';
 
-//Main content
 echo '<div class="container-fluid">';
 
-//Topper (logged)
-require_once 'content/box/top.php';
+    echo '<div class="row bg-dark">';
+
+    echo '<div class="col-6">';
+
+    require_once 'content/box/menu.php';
+
+    echo '</div>';
+
+    echo '<div class="col-6">';
+
+    //Topper (logged)
+    require_once 'content/box/top.php';
+
+    echo '</div>';
+
+    echo '</div>';
+
+echo '</div>';
+
+echo '<div class="container-fluid">';
+
+
 
 echo '</div>';
 
