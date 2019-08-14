@@ -2,7 +2,7 @@
 
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
-    echo '<table class="table table-hover">';
+    echo '<table class="table table-hover table-striped">';
     echo '<thead>';
     echo '<tr>';
 
@@ -45,11 +45,6 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
     }
     echo '</tbody>';
-    echo '<tfoot>';
-
-    echo '<tr><td colspan="'.$column.'" class="text-right">'.$icon['table']['foot'].' '.$s_systemName.'</td></tr>';
-
-    echo '</tfoot>';
     echo '</table>';
 
 }

@@ -12,7 +12,7 @@ $icon = array(
     'system' => array('standard' => '<i class="fal fa-laptop-code"></i>'),
     'button' => array('save' => '<i class="fal fa-check-square"></i>', 'cancel' => '<i class="fal fa-times-square"></i>'),
     'menu' => array('dashboard' => '<i class="fal fa-columns"></i>', 'object' => '<i class="fal fa-draw-polygon"></i>'),
-    'table' => array('foot' => '<i class="fal fa-database"></i>'),
+    'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
     'status' => array('on' => '<i class="fal fa-toggle-on text-info"></i>', 'off' => '<i class="fal fa-toggle-off text-secondary"></i>')
 );

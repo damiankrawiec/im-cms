@@ -41,9 +41,9 @@ $(function(){
 
     });
 
-    $('.table').DataTable({
-        "pagingType": "full_numbers"
-    });
+    dataTables();
+
+    $('.select').niceSelect();
 
     //At the end init gallery effect
     $('a[data-rel^=lightcase]').lightcase();

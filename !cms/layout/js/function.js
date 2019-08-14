@@ -125,3 +125,23 @@ function modalButton($this, $save, $cancel){
     });
 
 }
+function dataTables() {
+
+    var $arrow = $('#arrow-type').html().split(',');
+
+    console.log($arrow);
+
+    $('.table').DataTable({
+        'pagingType': 'full_numbers',
+        'stateSave': true,
+        'language': {
+            'oPaginate': {
+                'sFirst': $arrow[0],
+                'sPrevious': $arrow[1],
+                'sNext': $arrow[2],
+                'sLast': $arrow[3]
+            }
+        }
+    });
+
+}

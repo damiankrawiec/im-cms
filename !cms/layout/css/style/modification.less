@@ -1,7 +1,28 @@
 .dataTables_length, .dataTables_filter, .dataTables_info{
   color: @white;
 }
+.dataTables_filter{
+  input {
+    background-color: unset !important;
+    border-color: @white;
+    color: @white !important;
+  }
+}
 .page-item.active .page-link{
-  background-color: @warning;
-  border-color: @warning;
+  border: 1px solid @white;
+}
+ul.pagination{
+  font-size: 16px;
+  .page-link{
+    background-color: unset !important;
+    border: none;
+    i{
+      color: @white;
+    }
+  }
+}
+.custom-select{
+  background-color: unset !important;
+  border-color: @white;
+  color: @white;
 }
