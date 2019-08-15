@@ -1,5 +1,5 @@
 <?php
-$g_system = false;
+$g_system = $g_variable = false;
 
 if(isset($_GET['system'])) {
 
@@ -18,5 +18,15 @@ if(isset($_GET['section'])) {
 }else{
 
     $g_section = 'dashboard';
+
+}
+
+if(isset($_GET['variable'])) {
+
+    $g_variable = $_GET['variable'];
+
+}else{
+
+    $g_variable = '';
 
 }

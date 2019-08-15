@@ -17,6 +17,10 @@ body {
 .im-hide {
   display: none;
 }
+.im-alert {
+  padding: 5px;
+  background-color: #fff;
+}
 .dataTables_length,
 .dataTables_filter,
 .dataTables_info {

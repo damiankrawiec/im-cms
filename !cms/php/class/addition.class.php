@@ -20,7 +20,7 @@ class Addition
 
     public function message($text = '', $icon = false) {
 
-        $message = '<p class="text-danger">';
+        $message = '<p class="text-danger im-alert">';
 
         if($icon) {
 

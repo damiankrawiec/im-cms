@@ -34,7 +34,69 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                     if($i == $g_section)
                         $active = ' active';
 
-                    echo '<li class="nav-item'.$active.'"><a class="nav-link" href="'.$g_system.','.$m['url'].'">'.$m['icon'].' '.$m['name'].'</a></li>';
+                    //There is submenu
+                    if(isset($m['submenu'])) {
+
+                        $dropdown = ' dropdown';
+                        $a = '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+
+                    //Submenu does not exists
+                    }else{
+
+                        $dropdown = '';
+                        $a = '<a class="nav-link" href="'.$g_system . ',' . $m['url'].'">';
+
+                    }
+
+                    echo '<li class="nav-item'.$active.$dropdown.'">'.$a.$m['icon'].' '.$m['name'].'</a>';
+
+                        if($dropdown != '') {
+
+                            echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+
+                                //Submenu is checked early ($dropdown != ''), now the program checked is 'submenu' array or string
+                                if(is_array($m['submenu'])) {
+
+                                    $submenuData = $m['submenu'];
+
+                                }else if(is_string($m['submenu']) and stristr($m['submenu'], 'im_')){
+
+                                    $tableClear = str_replace('im_', '', $m['submenu']);
+
+                                    $sql = 'select '.$tableClear.'_id as id, name from '.$m['submenu'].' order by date_create';
+
+                                    $db->prepare($sql);
+
+                                    $submenuData = $db->run('all');
+
+                                }
+
+                                foreach ($submenuData as $sd) {
+
+                                    $submenuUrl = $g_system;
+                                    if(isset($sd['url'])) {
+
+                                        $submenuUrl .= ',' . $sd['url'];
+
+                                    }else{
+
+                                        $submenuUrl .= ',object,' . $sd['id'];
+
+                                    }
+
+                                    $submenuIcon = $icon['link']['internal'].' ';
+                                    if(isset($sd['icon']))
+                                        $submenuIcon = $sd['icon'].' ';
+
+                                    echo '<a class="dropdown-item" href = "'.$submenuUrl.'">'.$submenuIcon.$sd['name'].'</a>';
+                                    
+                                }
+
+                            echo '</div>';
+
+                        }
+
+                    echo '</li>';
 
                 }
 
