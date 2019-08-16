@@ -722,7 +722,7 @@ class ObjectContent extends Language {
 
                     echo '<div class="form-group">';
 
-                    echo '<select class="form-control object-category" id="'.$this->label.'">';
+                    echo '<select class="select object-category" id="'.$this->label.'">';
 
                         echo '<option value="0">'.$this->translationSystem['show-all'].'</option>';
 

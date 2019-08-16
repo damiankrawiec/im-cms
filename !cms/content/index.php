@@ -25,18 +25,28 @@ require_once 'php/script/system.php';
 
 echo '<div class="container-fluid">';
 
-    echo '<div class="row bg-dark">';
+    echo '<div class="row bg-secondary">';
 
-    echo '<div class="col-6">';
+    echo '<div class="col-12 text-right text-white">';
 
-    require_once 'content/box/menu.php';
+        require_once 'content/box/logged.php';
 
     echo '</div>';
 
-    echo '<div class="col-6">';
+    echo '</div>';
 
-    //Topper (logged)
-    require_once 'content/box/top.php';
+    echo '<div class="row bg-dark">';
+
+    echo '<div class="col-12 col-lg-8">';
+
+        require_once 'content/box/menu.php';
+
+    echo '</div>';
+
+    echo '<div class="col-12 col-lg-4">';
+
+        //Select domain system
+        require_once 'content/box/select-system.php';
 
     echo '</div>';
 

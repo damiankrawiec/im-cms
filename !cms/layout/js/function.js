@@ -135,6 +135,7 @@ function dataTables() {
         'pagingType': 'full_numbers',
         'stateSave': true,
         'language': {
+            'url': 'content/box/table/polish.json',
             'oPaginate': {
                 'sFirst': $arrow[0],
                 'sPrevious': $arrow[1],
@@ -143,5 +144,16 @@ function dataTables() {
             }
         }
     });
+
+}
+function niceSelect() {
+
+    $('.select').niceSelect();
+
+}
+function gallery() {
+
+    //At the end init gallery effect
+    $('a[data-rel^=lightcase]').lightcase();
 
 }

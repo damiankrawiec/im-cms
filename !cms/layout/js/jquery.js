@@ -43,9 +43,8 @@ $(function(){
 
     dataTables();
 
-    $('.select').niceSelect();
+    niceSelect()
 
-    //At the end init gallery effect
-    $('a[data-rel^=lightcase]').lightcase();
+    gallery();
 
 });

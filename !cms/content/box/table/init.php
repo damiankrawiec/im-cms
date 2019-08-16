@@ -2,49 +2,52 @@
 
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
-    echo '<table class="table table-hover table-striped">';
-    echo '<thead>';
-    echo '<tr>';
+    echo '<table class="table table-hover">';
+        echo '<thead class="thead-light text-center">';
+            echo '<tr>';
+            $field = array();
+            foreach ($tableData['table'] as $i => $t) {
 
-    $field = array();
-    $column = 0;
+                echo '<th>' . $t . '</th>';
+                array_push($field, $i);
 
-    foreach ($tableData['table'] as $i => $t) {
+            }
+            //count($field), means number of column
+            $countColumn = count($field);
+            echo '</tr>';
+        echo '</thead>';
+        echo '<tbody>';
+        foreach ($tableData['record'] as $r) {
 
-        echo '<th>' . $t . '</th>';
-        array_push($field, $i);
-        $column++;
+            echo '<tr>';
 
-    }
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
-    foreach ($tableData['record'] as $r) {
+            foreach ($field as $f) {
 
-        echo '<tr>';
+                echo '<td>';
 
-        foreach ($field as $f) {
+                if($f == 'status') {
 
-            echo '<td>';
+                    echo '<a href="#">'.$icon['status'][$r[$f]].'</a>';
 
-            if($f == 'status') {
+                }else{
 
-                echo '<a href="#">'.$icon['status'][$r[$f]].'</a>';
+                    echo $r[$f];
 
-            }else{
+                }
 
-                echo $r[$f];
+                echo '</td>';
 
             }
 
-            echo '</td>';
+            echo '</tr>';
 
         }
-
-        echo '</tr>';
-
-    }
-    echo '</tbody>';
+        echo '</tbody>';
+        echo '<tfoot class="text-right text-secondary">';
+            echo '<tr><td colspan="'.$countColumn.'"><small>';
+            echo $s_systemName;
+            echo '</small></td></tr>';
+        echo '</tfoot>';
     echo '</table>';
 
 }

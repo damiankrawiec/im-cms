@@ -231,3 +231,14 @@ function translation() {
     }
 
 }
+function niceSelect() {
+
+    $('.select').niceSelect();
+
+}
+function gallery() {
+
+    //At the end init gallery effect
+    $('a[data-rel^=lightcase]').lightcase();
+
+}

@@ -21,6 +21,9 @@ body {
   padding: 5px;
   background-color: #fff;
 }
+.dataTables_wrapper {
+  margin-top: 12px;
+}
 .dataTables_length,
 .dataTables_filter,
 .dataTables_info {
@@ -47,6 +50,25 @@ ul.pagination .page-link i {
 .custom-select {
   background-color: unset !important;
   border-color: #fff;
+  color: #fff;
+}
+#select-system {
+  padding-top: 12px;
+}
+.nice-select {
+  background-color: unset !important;
+  color: #fff !important;
+}
+.nice-select ul {
+  background-color: #6c757d !important;
+}
+.nice-select ul li {
+  background-color: #6c757d !important;
+}
+.dropdown-menu {
+  background-color: #6c757d;
+}
+.dropdown-menu a {
   color: #fff;
 }
 .window-back {
