@@ -14,9 +14,9 @@ $translation = array(
         'object' => 'Obiekty',
         'section' => 'Sekcje',
         'definition' => 'Definicje',
-            'type' => 'Typy obiektów',
-            'property' => 'Właściwości typów',
-            'category' => 'Kategorie obiektów'
+        'type' => 'Typy obiektów',
+        'category' => 'Kategorie obiektów',
+        'property' => 'Właściwości',
         )
 );
 $tableDefinition = array(
@@ -27,5 +27,12 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
+    ),
+    'im_property' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );

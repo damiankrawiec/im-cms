@@ -6,12 +6,13 @@ $s_systemName = 'IM.CMS';
 //If submenu is exists, that mean the url index is no need
 $s_menuDefinition = array(
     'dashboard' => array('icon' => $icon['menu']['dashboard'], 'name' => $translation['menu']['dashboard'], 'url' => 'dashboard'),
-    'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type'),
     'section' => array('icon' => $icon['menu']['section'], 'name' => $translation['menu']['section'], 'url' => 'section'),
+    'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type'),
+    'property' => array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'submenu' => 'im_type'),
     'definition' => array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'],
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
-            array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'url' => 'property'),
             array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category')
-        ))
+        )
+    ),
 );

@@ -3,19 +3,26 @@
 if($g_variable and $g_variable != '') {
 
 //Table definition init in this file
-    $table = 'im_object';
+    $table = 'im_property';
 //---
 
+    $getData = array(
+        'column' => 'name',
+        'table' => 'im_type',
+        'in' => array('type_id' => $g_variable)
+    );
+    require_once 'php/script/data.php';
+
     $sql = 'select 
-        name,
-        if(content = \'\', \'-\', content) as content,
-        if(description = \'\', \'-\', description) as description,
-        date_create,
-        date_modify,
-        status
-        from ' . $table . '
-        where type_id = ' .$g_variable.'
-        order by date_modify desc';
+        t.name,
+        t.system_name,
+        if(t.description = \'\', \'-\', t.description) as description,
+        t.date_create,
+        t.date_modify
+        from ' . $table . ' t
+        join im_type_property tj on(tj.'.$addition->cleanText($table, 'im_').'_id = t.'.$addition->cleanText($table, 'im_').'_id)
+        where tj.type_id = ' .$g_variable.'
+        order by t.date_modify desc';
 
     $db->prepare($sql);
 

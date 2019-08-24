@@ -35,4 +35,25 @@ class Addition
         return $message;
 
     }
+
+    public function cleanText($text, $clean) {
+
+        return str_replace($clean, '', $text);
+
+    }
+
+    public function whereOrAnd($sql) {
+
+        if(stristr($sql, 'where')) {
+
+            $whereOrAnd = ' and';
+
+        }else{
+
+            $whereOrAnd = ' where';
+        }
+
+        return $whereOrAnd;
+
+    }
 }
