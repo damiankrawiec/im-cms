@@ -7,7 +7,7 @@ $translation = array(
     'password' => array('singular' => 'Hasło', 'imperatives' => 'Wprowadź hasło'),
     'system' => array('current' => 'Bieżący system'),
     'modal' => array('title' => 'Informacja', 'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych'),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj'),
+    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj'),
     'message' => array('no-data' => 'Brak danych'),
     'menu' => array(
         'dashboard' => 'Pulpit',
@@ -16,8 +16,9 @@ $translation = array(
         'definition' => 'Definicje',
         'type' => 'Typy obiektów',
         'category' => 'Kategorie obiektów',
-        'property' => 'Właściwości',
-        )
+        'property' => 'Właściwości'
+    ),
+    'table' => array('event' => 'Działania')
 );
 $tableDefinition = array(
     'im_object' => array(
@@ -32,7 +33,23 @@ $tableDefinition = array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny',
+        'class' => 'Klasa Bootstrap - otoczenie',
+        'class_field' => 'Klasa Bootstrap - pole',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_type' => array(
+        'name' => 'Nazwa',
+        'class' => 'Klasa Bootstrap',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
+    )
+);
+$editDefinition = array(
+    'im_type' => array(
+        'name' => 'Nazwa',
+        'class' => 'Klasa Bootstrap',
+        'description' => 'Opis techniczny'
     )
 );

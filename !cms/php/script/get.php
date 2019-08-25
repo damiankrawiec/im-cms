@@ -1,32 +1,30 @@
 <?php
-$g_system = $g_variable = false;
+//This file is used in a few places - not require once
 
+$g_system = '';
 if(isset($_GET['system'])) {
 
     $g_system = $_GET['system'];
 
-}else{
-
-    $g_system = '';
-
 }
 
+$g_section = 'dashboard';
 if(isset($_GET['section'])) {
 
     $g_section = $_GET['section'];
 
-}else{
+}
 
-    $g_section = 'dashboard';
+$g_var1 = '';
+if(isset($_GET['var1'])) {
+
+    $g_var1 = $_GET['var1'];
 
 }
 
-if(isset($_GET['variable'])) {
+$g_var2 = '';
+if(isset($_GET['var2'])) {
 
-    $g_variable = $_GET['variable'];
-
-}else{
-
-    $g_variable = '';
+    $g_var2 = $_GET['var2'];
 
 }

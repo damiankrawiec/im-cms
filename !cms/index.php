@@ -16,7 +16,8 @@ $tool = new Tool();
 
 if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
-    require_once 'php/script/get.php';
+    //In addition class use get to built url
+    require 'php/script/get.php';
 
     require_once 'php/script/logout.php';
 
@@ -29,6 +30,9 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
         $addition->link($system->getSystemName());
 
     }else{
+
+        //Set current url
+        $addition->setUrl();
 
         require_once 'content/index.php';
 

@@ -2,7 +2,7 @@
 if(isset($getData) and is_array($getData) and count($getData) > 0 and isset($getData['column']) and isset($getData['table'])) {
 
     $sql = 'select 
-        '.$getData['column'].' 
+        '.$getData['column'].' as value
         from ' . $getData['table'];
 
     if(isset($getData['in']) and is_array($getData['in']) and count($getData['in']) > 0) {
@@ -28,6 +28,6 @@ if(isset($getData) and is_array($getData) and count($getData) > 0 and isset($get
 
     $db->prepare($sql);
 
-    $record = $db->run('all');
+    $oneData = $db->run('one');
 
 }

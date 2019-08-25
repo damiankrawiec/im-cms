@@ -2,6 +2,9 @@
 
 class Addition
 {
+
+    private $url = '';
+
     public function __construct() {
 
     }
@@ -54,6 +57,56 @@ class Addition
         }
 
         return $whereOrAnd;
+
+    }
+
+    public function setUrl() {
+
+        require 'php/script/get.php';
+
+        $url = '';
+
+        if($g_system != '')
+            $url .= $g_system;
+
+        if($g_section != '')
+            $url .= ','.$g_section;
+
+        if($g_var1 != '')
+            $url .= ','.$g_var1;
+
+        if($g_var2 != '')
+            $url .= ','.$g_var2;
+
+        $this->url = $url;
+
+    }
+
+    public function getUrl($count = 0) {
+
+        //Always: 0 = system, 1 = section
+        if($count >= 2) {
+
+            $urlArray = explode(',', $this->url);
+
+            $urlArrayNew = array();
+            foreach ($urlArray as $i => $ua) {
+
+                if($i < $count) {
+
+                    array_push($urlArrayNew, $ua);
+
+                }else break;
+
+            }
+
+            return implode(',', $urlArrayNew);
+
+        }else{
+
+            return $this->url;
+
+        }
 
     }
 }

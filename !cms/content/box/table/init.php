@@ -14,6 +14,15 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
             }
             //count($field), means number of column
             $countColumn = count($field);
+
+            if(isset($tableData['event'])) {
+
+                echo '<th>'.$translation['table']['event'].'</th>';
+
+                $countColumn++;
+
+            }
+
             echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
@@ -23,7 +32,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
             foreach ($field as $f) {
 
-                echo '<td>';
+                echo '<td class="align-middle">';
 
                 if($f == 'status') {
 
@@ -34,6 +43,17 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                     echo $r[$f];
 
                 }
+
+                echo '</td>';
+
+            }
+
+            if(isset($tableData['event'])) {
+
+                echo '<td class="align-middle">';
+
+                    if(stristr($tableData['event'], 'edit'))
+                        echo '<a href="'.$addition->getUrl(2).',edit,'.$r['id'].'" class="btn btn-info text-white">'.$icon['button']['edit'].'</a>';
 
                 echo '</td>';
 

@@ -10,7 +10,10 @@ $icon = array(
     'process' => array('standard' => '<i class="fas fa-cog fa-spin" style="font-size:13px;margin-left:5px"></i>'),
     'message' => array('information' => '<i class="fal fa-comment-alt-lines"></i>', 'alert' => '<i class="fad fa-exclamation"></i>', 'title' => '<i class="fad fa-info-square"></i>'),
     'system' => array('standard' => '<i class="fal fa-laptop-code"></i>'),
-    'button' => array('save' => '<i class="fal fa-check-square"></i>', 'cancel' => '<i class="fal fa-times-square"></i>'),
+    'button' => array(
+        'save' => '<i class="fal fa-check-square"></i>',
+        'cancel' => '<i class="fal fa-times-square"></i>',
+        'edit' => '<i class="fal fa-pencil pt-1"></i>'),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',
         'object' => '<i class="fal fa-draw-polygon"></i>',
