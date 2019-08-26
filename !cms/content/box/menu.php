@@ -75,10 +75,12 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                     if(isset($sd['url'])) {
 
                                         $submenuUrl .= ',' . $sd['url'];
+                                        $aId = ' id="'.$sd['url'].'"';
 
                                     }else{
 
                                         $submenuUrl .= ','.$i.',' . $sd['id'];
+                                        $aId = '';
 
                                     }
 
@@ -86,7 +88,7 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                     if(isset($sd['icon']))
                                         $submenuIcon = $sd['icon'].' ';
 
-                                    echo '<a class="dropdown-item" href = "'.$submenuUrl.'">'.$submenuIcon.$sd['name'].'</a>';
+                                    echo '<a class="dropdown-item" href = "'.$submenuUrl.'"'.$aId.'>'.$submenuIcon.$sd['name'].'</a>';
                                     
                                 }
 

@@ -3,6 +3,10 @@
 $table = 'im_type';
 //---
 
+$oneData = (object) array('value' => $translation['menu']['type']);
+
+require_once 'php/script/one-data-display.php';
+
 $sql = 'select 
         '.$addition->cleanText($table, 'im_').'_id as id,
         name,

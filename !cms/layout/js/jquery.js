@@ -43,7 +43,9 @@ $(function(){
 
     dataTables();
 
-    niceSelect()
+    niceSelect();
+
+    activeMenu();
 
     gallery();
 

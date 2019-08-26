@@ -157,3 +157,11 @@ function gallery() {
     $('a[data-rel^=lightcase]').lightcase();
 
 }
+function activeMenu() {
+
+    if($('.navbar li.active').length === 0) {
+
+        $('.navbar').find($('#' + $('#url-section').val())).parents('.nav-item').addClass('active');
+
+    }
+}
