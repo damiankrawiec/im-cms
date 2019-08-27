@@ -139,6 +139,15 @@ ul.pagination .page-link i {
 .table i {
   font-size: 20px;
 }
+.button-event {
+  position: fixed;
+  text-align: center;
+  width: 90%;
+  left: 5%;
+  bottom: 50px;
+  padding: 10px;
+  background-color: #fff;
+}
 @media (max-width: 992px) {
   .login-left {
     -webkit-border-top-right-radius: 30px;

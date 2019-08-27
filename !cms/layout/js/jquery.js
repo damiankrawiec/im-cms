@@ -41,12 +41,16 @@ $(function(){
 
     });
 
-    dataTables();
+    if($('#current-system').length > 0) {
 
-    niceSelect();
+        dataTables();
 
-    activeMenu();
+        niceSelect();
 
-    gallery();
+        activeMenu();
+
+        gallery();
+
+    }
 
 });

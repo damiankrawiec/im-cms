@@ -129,8 +129,6 @@ function dataTables() {
 
     var $arrow = $('#arrow-type').html().split(',');
 
-    console.log($arrow);
-
     $('.table').DataTable({
         'pagingType': 'full_numbers',
         'stateSave': true,

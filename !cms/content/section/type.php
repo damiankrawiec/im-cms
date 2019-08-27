@@ -66,7 +66,7 @@ if ($record) {
             'table' => $editDefinition[$table],
             'record' => $record
         );
-        require_once 'content/box/edit.php';
+        require_once 'content/box/event/edit.php';
 
     }
 
