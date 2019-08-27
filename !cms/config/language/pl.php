@@ -18,7 +18,12 @@ $translation = array(
         'category' => 'Kategorie obiektów',
         'property' => 'Właściwości'
     ),
-    'table' => array('event' => 'Działania')
+    'table' => array('event' => 'Działania'),
+    'edit' => array(
+        'name' => 'Podaj nazwę',
+        'class' => 'Podaj klasę Bootstrap (zaawansowane)',
+        'description' => 'Opis techniczny nie jest wymagany (widoczny tylko dla administratora)'
+    )
 );
 $tableDefinition = array(
     'im_object' => array(
@@ -48,8 +53,8 @@ $tableDefinition = array(
 );
 $editDefinition = array(
     'im_type' => array(
-        'name' => 'Nazwa',
-        'class' => 'Klasa Bootstrap',
-        'description' => 'Opis techniczny'
+        'name' => array('name' => 'Nazwa', 'type' => 'text'),
+        'class' => array('name' => 'Klasa Bootstrap', 'type' => 'text'),
+        'description' => array('name' => 'Opis techniczny', 'type' => 'textarea')
     )
 );

@@ -1,17 +1,24 @@
 <?php
 if(isset($editData) and is_array($editData) and count($editData) > 0) {
 
-    echo '<div class="window-back">';
+    echo '<div class="window-background">';
 
     foreach($editData['table'] as $i => $field) {
 
+        $editDataOne = $editData['record']->$i;
+
+        if($editDataOne == '-')
+            $editDataOne = '';
+
         echo '<div class="form-group">';
 
-            echo '<label for="exampleInputEmail1">'.$field.'</label>';
+            echo '<label for="'.$i.'">'.$field['name'].'</label>';
 
-            echo '<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="'.$editData['record']->$i.'">';
+            if($field['type'] == 'text')
+                echo '<input type="text" class="form-control" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'">';
 
-            echo '<small id="emailHelp" class="form-text text-muted"></small>';
+            if($field['type'] == 'textarea')
+                echo '<textarea class="form-control" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">'.$editDataOne.'</textarea>';
 
         echo '</div>';
 
