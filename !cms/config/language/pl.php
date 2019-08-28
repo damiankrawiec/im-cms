@@ -7,7 +7,7 @@ $translation = array(
     'password' => array('singular' => 'Hasło', 'imperatives' => 'Wprowadź hasło'),
     'system' => array('current' => 'Bieżący system'),
     'modal' => array('title' => 'Informacja', 'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych'),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj'),
+    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj'),
     'message' => array('no-data' => 'Brak danych'),
     'menu' => array(
         'dashboard' => 'Pulpit',
@@ -20,11 +20,12 @@ $translation = array(
     ),
     'table' => array('event' => 'Działania'),
     'edit' => array(
-        'name' => 'Podaj nazwę',
-        'class' => 'Podaj klasę Bootstrap (zaawansowane)',
-        'description' => 'Opis techniczny nie jest wymagany (widoczny tylko dla administratora)'
+        'name' => 'Pole nazwy (obowiązkowe)',
+        'class' => 'Pole do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
+        'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)'
     )
 );
+//Headers of data tables (on the edit the fields may be different)
 $tableDefinition = array(
     'im_object' => array(
         'name' => 'Nazwa',
@@ -51,10 +52,12 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany'
     )
 );
-$editDefinition = array(
-    'im_type' => array(
-        'name' => array('name' => 'Nazwa', 'type' => 'text'),
-        'class' => array('name' => 'Klasa Bootstrap', 'type' => 'text'),
-        'description' => array('name' => 'Opis techniczny', 'type' => 'textarea')
+$tableDefinitionEvent = array(
+    'edit' => array(
+        'im_type' => array(
+            'name' => 'Nazwa',
+            'class' => 'Klasa Bootstrap',
+            'description' => 'Opis techniczny'
+        )
     )
 );

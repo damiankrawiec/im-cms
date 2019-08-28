@@ -109,4 +109,32 @@ class Addition
         }
 
     }
+
+    public function transaction() {
+
+        return md5(microtime());
+
+    }
+
+    public function fileExists($path = false) {
+
+        if($path) {
+
+            if(file_exists($path)) {
+
+                return true;
+
+            }else{
+
+                return false;
+
+            }
+
+        }else{
+
+            return false;
+
+        }
+
+    }
 }

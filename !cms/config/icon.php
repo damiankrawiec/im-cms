@@ -13,7 +13,9 @@ $icon = array(
     'button' => array(
         'save' => '<i class="fal fa-check-square"></i>',
         'cancel' => '<i class="fal fa-times-square"></i>',
-        'edit' => '<i class="fal fa-pencil pt-1"></i>'),
+        'edit' => '<i class="fal fa-pencil pt-1"></i>',
+        'add' => '<i class="fal fa-plus-circle"></i>'
+    ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',
         'object' => '<i class="fal fa-draw-polygon"></i>',
@@ -21,7 +23,8 @@ $icon = array(
         'definition' => '<i class="fal fa-book-alt"></i>',
             'type' => '<i class="fal fa-cube"></i>',
             'property' => '<i class="fal fa-cubes"></i>',
-            'category' => '<i class="fal fa-kaaba"></i>'),
+            'category' => '<i class="fal fa-kaaba"></i>'
+    ),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
     'status' => array('on' => '<i class="fal fa-toggle-on text-info"></i>', 'off' => '<i class="fal fa-toggle-off text-secondary"></i>')

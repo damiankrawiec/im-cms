@@ -20,8 +20,16 @@ require_once 'php/init.php';
 
 <?php
 
+//---DO NOT REMOVE!!!
+
 //Init setting and $db object
 require_once 'php/script/system.php';
+
+//If detect "transaction" then /run
+if($p_transaction)
+    require_once 'php/run/init.php';
+
+//---DO NOT REMOVE!!!
 
 echo '<div class="container-fluid">';
 

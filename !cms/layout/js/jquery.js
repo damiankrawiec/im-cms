@@ -29,6 +29,19 @@ $(function(){
 
     });
 
+    $('.show-next').click(function() {
+
+        var $this = $(this);
+
+        var $parameter = $this.attr('id').split(':');
+
+        var $next = $this.nextAll('.' + $parameter[0]);
+
+        //if($parameter[1] === 'slide')
+            $next.slideToggle();
+
+    });
+
     $('input[type="password"]').keyup(function(){
 
         $('input[name="password"]').val(sha1($(this).val()));

@@ -16,3 +16,18 @@ $s_menuDefinition = array(
         )
     ),
 );
+//This definitions are placed in form, and next that fields will be inside sql query, after form send
+$s_eventDefinition = array(
+    'edit' => array(
+        'im_type' => array(
+            'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'class' => array('name' => $tableDefinitionEvent['edit']['im_type']['class'], 'type' => 'text'),
+            'description' => array('name' => $tableDefinitionEvent['edit']['im_type']['description'], 'type' => 'textarea')
+        )
+    ),
+    'add' => array(
+        'im_type' => array(
+            'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
+        )
+    )
+);

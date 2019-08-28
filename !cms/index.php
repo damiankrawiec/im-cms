@@ -1,7 +1,5 @@
 <?php
 
-require_once 'php/script/post.php';
-
 require_once 'php/class/security.class.php';
 
 require_once 'php/class/session.class.php';
@@ -18,6 +16,8 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     //In addition class use get to built url
     require 'php/script/get.php';
+
+    require_once 'php/script/post.php';
 
     require_once 'php/script/logout.php';
 

@@ -21,3 +21,13 @@ function password($string = '') {
     return $check;
 
 }
+function text($string = '') {
+
+    var $check = true;
+
+    if($string == '')
+        $check = false;
+
+    return $check;
+
+}

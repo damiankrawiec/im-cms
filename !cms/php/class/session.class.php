@@ -73,4 +73,15 @@ class Session extends Security
         }
 
     }
+
+    public function pushSession($name = false, $value) {
+
+        if($name) {
+
+            array_push($_SESSION[$name], $value);
+
+        }
+
+    }
+
 }

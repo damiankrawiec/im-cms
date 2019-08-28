@@ -15,6 +15,10 @@ function validation($form){
 
             $typeValidation = $classValidation.split(':')[1];
 
+            //!!!Define type of validation field
+            if($typeValidation === 'text')
+                $check = text($(this).val());
+
             if($typeValidation === 'email')
                 $check = email($(this).val());
 

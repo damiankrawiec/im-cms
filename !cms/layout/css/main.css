@@ -150,6 +150,9 @@ ul.pagination .page-link i {
   left: 0;
   bottom: 50px;
 }
+.button-event * {
+  margin: 1px;
+}
 @media (max-width: 992px) {
   .login-left {
     -webkit-border-top-right-radius: 30px;

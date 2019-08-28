@@ -1,31 +1,55 @@
 <?php
-if(isset($editData) and is_array($editData) and count($editData) > 0) {
+if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="window-background">';
 
-    foreach($editData['table'] as $i => $field) {
+    echo '<form method="post" class="edit">';
 
-        $editDataOne = $editData['record']->$i;
+        foreach($eventData['field'] as $i => $field) {
 
-        if($editDataOne == '-')
-            $editDataOne = '';
+            $editDataOne = $eventData['record']->$i;
 
-        echo '<div class="form-group">';
+            if($editDataOne == '-')
+                $editDataOne = '';
 
-            echo '<label for="'.$i.'">'.$field['name'].'</label>';
+            echo '<div class="form-group">';
 
-            if($field['type'] == 'text')
-                echo '<input type="text" class="form-control" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'">';
+                echo '<label for="'.$i.'">'.$field['name'].'</label>';
 
-            if($field['type'] == 'textarea')
-                echo '<textarea class="form-control" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">'.$editDataOne.'</textarea>';
+                $require = '';
+                if(isset($field['require']))
+                    $require = ' '.$field['require'];
 
-        echo '</div>';
+                if($field['type'] == 'text')
+                    echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'">';
 
-    }
+                if($field['type'] == 'textarea')
+                    echo '<textarea name="form_'.$i.'" class="form-control" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">'.$editDataOne.'</textarea>';
+
+            echo '</div>';
+
+        }
+
+        //All event need table
+        echo '<input type="hidden" name="event_table" value="'.$eventData['table'].'">';
+
+        //Edit and delete need id (not add)
+        echo '<input type="hidden" name="event_id" value="'.$eventData['record']->id.'">';
+
+        echo '<input type="hidden" name="event" value="edit">';
+
+        echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
+
+    echo '</form>';
 
     echo '</div>';
 
-    require_once 'content/box/button-event.php';
+    echo '<div class="button-event">';
+
+        echo '<a class="btn btn-outline-light" href="' . $addition->getUrl(2) . '">' . $translation['button']['cancel'] . '</a>';
+
+        echo '<button class="btn btn-outline-warning submit validation-run" id="edit">' . $translation['button']['save'] .'</button>';
+
+    echo '</div>';
 
 }

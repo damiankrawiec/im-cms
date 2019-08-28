@@ -50,6 +50,13 @@ if ($record) {
 
     if($displayCount == 'all') {
 
+        $eventData = array(
+            'field' => $s_eventDefinition['add'][$table],
+            'table' => $table
+        );
+
+        require_once 'content/box/event/add.php';
+
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
@@ -62,10 +69,12 @@ if ($record) {
 
     if($displayCount == 'one') {
 
-        $editData = array(
-            'table' => $editDefinition[$table],
-            'record' => $record
+        $eventData = array(
+            'field' => $s_eventDefinition['edit'][$table],
+            'record' => $record,
+            'table' => $table
         );
+
         require_once 'content/box/event/edit.php';
 
     }
