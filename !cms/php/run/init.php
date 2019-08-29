@@ -1,4 +1,8 @@
 <?php
+//First operation
+if($tool->getSession('transaction') == '')
+    $tool->setSession('transaction', array());
+
 //Operations
 if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
@@ -34,18 +38,10 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 }
 
 //SAVE CURRENT TRANSACTION (do not unset in logout, user may login one more time without close browser)
-//First operation
-if($tool->getSession('transaction') == '') {
 
-    $tool->setSession('transaction', array($p_transaction));
+//No repeat
+if(!in_array($p_transaction, $tool->getSession('transaction')))
+    $tool->pushSession('transaction', $p_transaction);
 
-//Next operations
-}else{
-
-    //No repeat
-    if(!in_array($p_transaction, $tool->getSession('transaction')))
-        $tool->pushSession('transaction', $p_transaction);
-
-}
 //---
 //Save to logs...

@@ -1,19 +1,29 @@
 <?php
 
-var_dump($eventData['restriction']);
+$restrictionStatus = true;
+if(isset($eventData['restriction'])) {
 
-//$sql = 'delete from '.$eventData['table'];
+    $checkData = $eventData['restriction'];
+    require_once 'php/run/delete/check-table-relation.php';
+
+}
+
+//if($restrictionStatus) {
 //
-//$tableId = $addition->cleanText($eventData['table'], 'im_').'_id';
+//    $sql = 'delete from '.$eventData['table'];
 //
-//$sql .= ' where '.$tableId.' = :id';
+//    $tableId = $addition->cleanText($eventData['table'], 'im_').'_id';
 //
-//$db->prepare($sql);
+//    $sql .= ' where '.$tableId.' = :id';
 //
-//$parameter = array(
-//    array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
-//);
+//    $db->prepare($sql);
 //
-//$db->bind($parameter);
+//    $parameter = array(
+//        array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
+//    );
 //
-//$db->run();
+//    $db->bind($parameter);
+//
+//    $db->run();
+//
+//}
