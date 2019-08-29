@@ -12,7 +12,10 @@ $translation = array(
         'confirm-delete' => 'Potwierdź usunięcie pozycji'
     ),
     'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj'),
-    'message' => array('no-data' => 'Brak danych'),
+    'message' => array(
+        'no-data' => 'Brak danych',
+        'relation-exists' => 'Pozycja posiada powązania z innymi danymi'
+    ),
     'menu' => array(
         'dashboard' => 'Pulpit',
         'object' => 'Obiekty',

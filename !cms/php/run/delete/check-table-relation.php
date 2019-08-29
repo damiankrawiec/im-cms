@@ -1,24 +1,29 @@
 <?php
 
-if(isset($checkData)) {
+$restrictionStatus = true;
+foreach($eventData['restriction'] as $table => $field) {
 
-    foreach($checkData as $table => $field) {
+    $sql = 'select '.$field.' from '.$table;
 
-        $sql = 'select '.$field.' from '.$table;
+    $tableId = $addition->cleanText($table, 'im_').'_id';
 
-        $tableId = $addition->cleanText($eventData['table'], 'im_').'_id';
+    $sql .= ' where '.$tableId.' = :id';
 
-        $sql .= ' where '.$tableId.' = :id';
+    $db->prepare($sql);
 
-        $db->prepare($sql);
+    $parameter = array(
+        array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
+    );
 
-        $parameter = array(
-            array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
-        );
+    $db->bind($parameter);
 
-        $db->bind($parameter);
+    var_dump($db->run());
 
-        $db->run();
+    if($db->run()) {
+
+        $restrictionStatus = false;
+
+        break;
 
     }
 
