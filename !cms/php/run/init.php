@@ -22,7 +22,7 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
             require_once $eventPath;
 
-            //Message information
+            //Message information...
 
         }
 
@@ -45,3 +45,4 @@ if($tool->getSession('transaction') == '') {
 
 }
 //---
+//Save to logs...

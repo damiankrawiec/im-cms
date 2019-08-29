@@ -14,7 +14,8 @@ $icon = array(
         'save' => '<i class="fal fa-check-square"></i>',
         'cancel' => '<i class="fal fa-times-square"></i>',
         'edit' => '<i class="fal fa-pencil pt-1"></i>',
-        'add' => '<i class="fal fa-plus-circle"></i>'
+        'add' => '<i class="fal fa-plus-circle"></i>',
+        'delete' => '<i class="fal fa-trash"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

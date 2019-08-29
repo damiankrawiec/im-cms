@@ -6,7 +6,11 @@ $translation = array(
     'email' => array('singular' => 'E-mail', 'imperatives' => 'Podaj adres e-mail', 'long' => 'Adres e-mail'),
     'password' => array('singular' => 'Hasło', 'imperatives' => 'Wprowadź hasło'),
     'system' => array('current' => 'Bieżący system'),
-    'modal' => array('title' => 'Informacja', 'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych'),
+    'modal' => array(
+        'title' => 'Informacja',
+        'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
+        'confirm-delete' => 'Potwierdź usunięcie pozycji'
+    ),
     'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj'),
     'message' => array('no-data' => 'Brak danych'),
     'menu' => array(

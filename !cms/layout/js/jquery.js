@@ -48,7 +48,13 @@ $(function(){
 
     });
 
-    $('#select-system select').change(function(){
+    $('.modal-change').change(function(){
+
+        modalInit($(this));
+
+    });
+
+    $('.modal-click').click(function(){
 
         modalInit($(this));
 

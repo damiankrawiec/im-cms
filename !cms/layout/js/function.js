@@ -79,15 +79,21 @@ function initSection($start, $time) {
 
 function modalInit($this){
 
-    var $modalDataJson = $this.parent().find('.modal-data').text();
+    var $modalData = $this.parent().find('.modal-data');
 
-    $modalData = JSON.parse($modalDataJson);
+    if($modalData) {
 
-    $('#modal .modal-body').text($modalData.text);
+        var $modalDataJson = $modalData.text();
 
-    $('#modal').modal();
+        $modalData = JSON.parse($modalDataJson);
 
-    modalButton($this, $modalData.save, $modalData.cancel);
+        $('#modal .modal-body').text($modalData.text);
+
+        $('#modal').modal();
+
+        modalButton($this, $modalData.save, $modalData.cancel);
+
+    }
 
 }
 
@@ -106,7 +112,22 @@ function modalButton($this, $save, $cancel){
                 }
                 if ($cancel === 'this-option-reset') {
 
-                    $this.children('option[selected=selected]').prop('selected', true);
+                    //Nice select plugin are specify dom structure
+                    $this.next().children('.current').text($('#url-system').val());
+
+                    $this.next().children('.list').children('li').each(function(){
+
+                        if($(this).text() === $('#url-system').val()) {
+
+                            $(this).addClass('selected');
+
+                        }else{
+
+                            $(this).removeClass('selected');
+
+                        }
+
+                    });
 
                 }
             }
@@ -119,6 +140,11 @@ function modalButton($this, $save, $cancel){
                 if ($save === 'link-this-val') {
 
                     window.location = $this.val();
+
+                }
+                if ($save === 'submit-next-form') {
+
+                    $this.next().submit();
 
                 }
 

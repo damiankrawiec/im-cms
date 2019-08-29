@@ -60,7 +60,14 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit'
+            'table_name' => $table,
+            'event' => 'edit,delete',
+            'restriction' => array(
+                'delete' => array(
+                    'im_object' => 'type_id',
+                    'im_property' => 'type_id'
+                )
+            )
         );
 
         require_once 'content/box/table/init.php';

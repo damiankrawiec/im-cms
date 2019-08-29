@@ -8,7 +8,7 @@ if($system->getAllSystem()) {
 
     echo '<div id="select-system">';
 
-        echo '<select class="select wide">';
+        echo '<select class="select wide modal-change">';
 
             foreach ($allSystem as $as) {
 
