@@ -20,6 +20,9 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_event_id)
                 $eventData['id'] = $p_event_id;
 
+            if($p_restriction)
+                $eventData['restriction'] = $p_restriction;
+
             require_once $eventPath;
 
             //Message information...

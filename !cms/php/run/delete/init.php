@@ -1,6 +1,6 @@
 <?php
 
-var_dump($p_restriction);
+var_dump($eventData['restriction']);
 
 //$sql = 'delete from '.$eventData['table'];
 //
