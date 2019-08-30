@@ -22,8 +22,13 @@ if($restrictionStatus) {
 
     $db->run();
 
+    $alert1 = $translation['message']['delete-success'];
+
 }else{
 
-    echo $addition->message($translation['message']['relation-exists']);
+    $alert0 = $translation['message']['relation-exists'];
+
+    if(isset($eventData['restriction']))
+        $alert0 .= ' - '.json_encode($eventData['restriction']);
 
 }

@@ -14,7 +14,9 @@ $translation = array(
     'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj'),
     'message' => array(
         'no-data' => 'Brak danych',
-        'relation-exists' => 'Pozycja posiada powązania z innymi danymi'
+        'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
+        'save-success' => 'Dane zostały zapisane poprawnie',
+        'delete-success' => 'Pozycja została usunięta poprawnie'
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',

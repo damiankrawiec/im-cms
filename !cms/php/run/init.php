@@ -6,13 +6,14 @@ if($tool->getSession('transaction') == '')
 //Operations
 if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
-    $addData = array();
-
     if($p_event) {
 
         $eventPath = 'php/run/'.$p_event.'/init.php';
 
         if($addition->fileExists($eventPath)) {
+
+            //Alert top default set to not display (to showing success - 1 or fail - 0, init $alert0 or $alert1 variable)
+            $alert0 = $alert1 = false;
 
             $eventData = array(
                 'table' => $p_event_table
@@ -29,7 +30,12 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
             require_once $eventPath;
 
-            //Message information...
+            //Message top information (fail, success)
+            if($alert0)
+                echo $addition->alert0($alert0, $icon['message']['fail']);
+
+            if($alert1)
+                echo $addition->alert1($alert1, $icon['message']['success']);
 
         }
 

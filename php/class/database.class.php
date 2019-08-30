@@ -52,10 +52,6 @@ class Database extends systemSetting
                 $typeReturn = PDO::PARAM_STR;
                 break;
 
-            case 'number':
-                $typeReturn = PDO::PARAM_STR;
-                break;
-
             case 'bool':
                 $typeReturn = PDO::PARAM_BOOL;
                 break;

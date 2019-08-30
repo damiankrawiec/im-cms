@@ -65,7 +65,7 @@ if ($record) {
             'restriction' => array(
                 'delete' => array(
                     'im_object' => 'type_id',
-                    'im_property' => 'type_id'
+                    'im_type_property' => 'type_id'
                 )
             )
         );

@@ -25,15 +25,42 @@ class Addition
 
         $message = '<p class="text-danger im-alert">';
 
-        if($icon) {
-
+        if($icon)
             $message .= $icon.' ';
-
-        }
 
         $message .= $text;
 
         $message .= '</p>';
+
+        return $message;
+
+    }
+
+    public function alert0($text = '', $icon = false) {
+
+        $message = '<div class="im-alert">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
+
+        return $message;
+
+    }
+
+    public function alert1($text = '', $icon = false) {
+
+        $message = '<div class="im-alert">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
 
         return $message;
 

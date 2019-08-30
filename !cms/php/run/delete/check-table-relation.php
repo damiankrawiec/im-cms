@@ -1,13 +1,8 @@
 <?php
 
-$restrictionStatus = true;
 foreach($eventData['restriction'] as $table => $field) {
 
-    $sql = 'select '.$field.' from '.$table;
-
-    $tableId = $addition->cleanText($table, 'im_').'_id';
-
-    $sql .= ' where '.$tableId.' = :id';
+    $sql = 'select * from '.$table.' where '.$field.' = :id';
 
     $db->prepare($sql);
 
@@ -17,9 +12,7 @@ foreach($eventData['restriction'] as $table => $field) {
 
     $db->bind($parameter);
 
-    var_dump($db->run());
-
-    if($db->run()) {
+    if($db->run('all')) {
 
         $restrictionStatus = false;
 
