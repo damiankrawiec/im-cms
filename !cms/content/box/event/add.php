@@ -1,9 +1,9 @@
 <?php
 if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
-    echo '<a href="#" class="btn btn-outline-light show-next" id="window-background:slide">'.$translation['button']['add'].' '.$icon['button']['add'].'</a>';
+    echo '<a href="#" class="btn btn-outline-light show-next" id="add-new:slide">'.$translation['button']['add'].' '.$icon['button']['add'].'</a>';
 
-    echo '<div class="window-background im-hide">';
+    echo '<div class="add-new im-hide bg-light">';
 
     echo '<form method="post" class="add">';
 
@@ -33,7 +33,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '</form>';
 
-    echo '<button class="btn btn-info submit validation-run" id="add">' . $translation['button']['save'] .'</button>';
+    echo '<button class="btn btn-outline-info submit validation-run" id="add">' . $translation['button']['save'] .'</button>';
 
     echo '</div>';
 

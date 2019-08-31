@@ -53,12 +53,12 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     //Edit
                     if(stristr($tableData['event'], 'edit'))
-                        echo '<a href="'.$addition->getUrl(2).',edit,'.$r['id'].'" class="btn btn-info text-white">'.$icon['button']['edit'].'</a>';
+                        echo '<a href="'.$addition->getUrl(2).',edit,'.$r['id'].'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
 
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {
 
-                        echo '<a href="#" class="btn btn-info text-white modal-click">' . $icon['button']['delete'] . '</a>';
+                        echo '<a href="#" class="btn btn-outline-info text-info modal-click">' . $icon['button']['delete'] . '</a>';
 
                         echo '<form action="' . $addition->getUrl(2) . '" method="post">';
 

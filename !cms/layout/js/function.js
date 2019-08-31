@@ -193,3 +193,18 @@ function activeMenu() {
 
     }
 }
+function closeAlertTop() {
+
+    if($('.im-alert-top').length > 0) {
+
+        var $alert = $('.im-alert-top');
+
+        setTimeout(function(){
+
+            $alert.slideUp();
+
+        }, 10000);
+
+    }
+
+}

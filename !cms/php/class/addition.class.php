@@ -38,7 +38,7 @@ class Addition
 
     public function alert0($text = '', $icon = false) {
 
-        $message = '<div class="im-alert">';
+        $message = '<div class="im-alert-top">';
 
         if($icon)
             $message .= $icon.' ';
@@ -53,7 +53,7 @@ class Addition
 
     public function alert1($text = '', $icon = false) {
 
-        $message = '<div class="im-alert">';
+        $message = '<div class="im-alert-top">';
 
         if($icon)
             $message .= $icon.' ';

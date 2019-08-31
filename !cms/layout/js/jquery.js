@@ -68,6 +68,8 @@ $(function(){
 
         activeMenu();
 
+        closeAlertTop();
+
         gallery();
 
     }
