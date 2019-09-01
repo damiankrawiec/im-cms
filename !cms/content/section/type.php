@@ -22,13 +22,7 @@ $sql = 'select
 
             $displayCount = 'one';
 
-        }else{
-
-            $sql .= ' order by date_modify desc';
-
-            $displayCount = 'all';
-
-        }
+        }else $displayCount = 'all';
 
 $db->prepare($sql);
 

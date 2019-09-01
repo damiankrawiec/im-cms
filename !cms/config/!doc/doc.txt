@@ -1,23 +1,27 @@
 --- Simple display and events to use system domain (show, add, edit and remove)
-1. Create file like "section" (second get variable) name in "content/section"
+1. Create file named like "section" (second get variable) name in "content/section"
 2. In this file at the beginning defined $table variable (table name from database used in all code of file)
-3. Create $sql query of file (database table name) for all records ($displayCount = all) and one ($displayCount = one)
+3. Create $sql query database of file (table name) for all records ($displayCount = all) and one ($displayCount = one) and SQL query modification
 4. Create add: when query return "all"
-    4.1. Define array $eventData (field when add, table - name)
+    4.1. Define array $eventData (field(s) when add - field who is required when record is added, like name, relation, table - name)
     4.2. field = $s_eventDefinition[add][table] (config/setting) - name (of course), type (type of field, e.g. text), require (if field is required in ajax checking)
         4.2.1. "name" field taking translate name from $tableDefinitionEvent from config/language/...
-    4.3. Require event/add
+    4.3. Require event/add (all elements need to add)
 5. Display all records: when query return "all"
-    5.1. Define array $tableData:
+    5.1. Define array $tableData (in prepare display you need define events, restriction - show specially prepared button):
         - table (fields of headers defined in config/language/...),
         - record (return data from sql query),
         - table_name (table name),
         - event (edit,delete),
-        - restriction (e.g. event "delete", table "im_object", field will be deleted "type_id")
+        - restriction (e.g. event "delete", table "im_object", when deleting id check alter keys in another table, key name: "type_id")
     5.2. Require table/init
 6. Display one record (edit)
-    6.1. Define array $eventData (field when edit, record (object), table - name)
+    6.1. Define array $eventData (field(s) when edit, one record (object), table - name)
     6.2. field = $s_eventDefinition[edit][table] (config/setting) - name (of course), type (type of field, e.g. text), require (if field is required in ajax checking)
             6.2.1. "name" field taking translate name from $tableDefinitionEvent from config/language/...
-    6.3. "record" returned record from sql query
-    6.4. Require event/edit
+    6.3. Require event/edit
+
+Resume:
+- add, edit ($eventData), box/event/[eventName]
+- delete with restriction ($tableData), box/table/init
+- display ($tableData), box/table/init

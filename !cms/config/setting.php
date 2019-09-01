@@ -23,11 +23,20 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
             'class' => array('name' => $tableDefinitionEvent['edit']['im_type']['class'], 'type' => 'text'),
             'description' => array('name' => $tableDefinitionEvent['edit']['im_type']['description'], 'type' => 'textarea')
+        ),
+        'im_property' => array(
+            'name' => array('name' => $tableDefinitionEvent['edit']['im_property']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'class' => array('name' => $tableDefinitionEvent['edit']['im_property']['class'], 'type' => 'text'),
+            'class_field' => array('name' => $tableDefinitionEvent['edit']['im_property']['class_field'], 'type' => 'text'),
+            'description' => array('name' => $tableDefinitionEvent['edit']['im_property']['description'], 'type' => 'textarea')
         )
     ),
     'add' => array(
         'im_type' => array(
             'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
+        ),
+        'im_property' => array(
+            'name' => array('name' => $tableDefinitionEvent['edit']['im_property']['name'], 'type' => 'text', 'require' => 'validation :text'),
         )
     )
 );
