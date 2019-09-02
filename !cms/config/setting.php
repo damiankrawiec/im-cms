@@ -33,10 +33,10 @@ $s_eventDefinition = array(
     ),
     'add' => array(
         'im_type' => array(
-            'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'name' => array('name' => $tableDefinitionEvent['add']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
         ),
         'im_property' => array(
-            'name' => array('name' => $tableDefinitionEvent['edit']['im_property']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'name' => array('name' => $tableDefinitionEvent['add']['im_property']['name'], 'type' => 'text', 'require' => 'validation :text'),
         )
     )
 );

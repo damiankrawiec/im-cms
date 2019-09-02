@@ -63,6 +63,19 @@ $tableDefinition = array(
     )
 );
 $tableDefinitionEvent = array(
+    'add' => array(
+        'im_type' => array(
+            'name' => 'Nazwa',
+            'class' => 'Klasa Bootstrap',
+            'description' => 'Opis techniczny'
+        ),
+        'im_property' => array(
+            'name' => 'Nazwa',
+            'class' => 'Klasa Bootstrap - otoczenie',
+            'class_field' => 'Klasa Bootstrap - pole',
+            'description' => 'Opis techniczny'
+        )
+    ),
     'edit' => array(
         'im_type' => array(
             'name' => 'Nazwa',
