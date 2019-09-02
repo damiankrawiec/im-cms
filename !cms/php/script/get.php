@@ -28,3 +28,10 @@ if(isset($_GET['var2'])) {
     $g_var2 = $_GET['var2'];
 
 }
+
+$g_var3 = '';
+if(isset($_GET['var3'])) {
+
+    $g_var3 = $_GET['var3'];
+
+}

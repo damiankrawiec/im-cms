@@ -30,7 +30,8 @@ $translation = array(
     'table' => array('event' => 'Działania'),
     'edit' => array(
         'name' => 'Pole nazwy (obowiązkowe)',
-        'class' => 'Pole do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
+        'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
+        'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)'
     )
 );

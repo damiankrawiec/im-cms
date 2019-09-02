@@ -2,6 +2,9 @@
 //Table definition init in this file
 $table = 'im_type';
 //---
+//Base url definition in this file
+$baseUrl = $addition->getUrl(2);
+//---
 
 $oneData = (object) array('value' => $translation['menu']['type']);
 
@@ -61,7 +64,8 @@ if ($record) {
                     'im_object' => 'type_id',
                     'im_type_property' => 'type_id'
                 )
-            )
+            ),
+            'url' => $baseUrl
         );
 
         require_once 'content/box/table/init.php';
@@ -73,7 +77,8 @@ if ($record) {
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
-            'table' => $table
+            'table' => $table,
+            'url' => $baseUrl
         );
 
         require_once 'content/box/event/edit.php';

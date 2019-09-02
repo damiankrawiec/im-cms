@@ -13,10 +13,11 @@
         - record (return data from sql query),
         - table_name (table name),
         - event (edit,delete),
-        - restriction (e.g. event "delete", table "im_object", when deleting id check alter keys in another table, key name: "type_id")
+        - restriction (e.g. event "delete", table "im_object", when deleting id check alter keys in another table, key name: "type_id"),
+        - current file url
     5.2. Require table/init
 6. Display one record (edit)
-    6.1. Define array $eventData (field(s) when edit, one record (object), table - name)
+    6.1. Define array $eventData (field(s) when edit, one record (object), table - name, current file url)
     6.2. field = $s_eventDefinition[edit][table] (config/setting) - name (of course), type (type of field, e.g. text), require (if field is required in ajax checking)
             6.2.1. "name" field taking translate name from $tableDefinitionEvent from config/language/...
     6.3. Require event/edit

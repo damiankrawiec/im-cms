@@ -46,7 +46,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="button-event">';
 
-        echo '<a class="btn btn-outline-light" href="' . $addition->getUrl(2) . '">' . $translation['button']['cancel'] . '</a>';
+        echo '<a class="btn btn-outline-light" href="' . $eventData['url'] . '">' . $translation['button']['cancel'] . '</a>';
 
         echo '<button class="btn btn-outline-warning submit validation-run" id="edit">' . $translation['button']['save'] .'</button>';
 

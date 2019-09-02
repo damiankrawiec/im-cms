@@ -5,6 +5,9 @@ if($g_var1 != '') {
 //Table definition init in this file
     $table = 'im_property';
 //---
+//Base url definition in this file
+    $baseUrl = $addition->getUrl(3);
+//---
 
     $getData = array(
         'column' => 'name',
@@ -27,9 +30,9 @@ if($g_var1 != '') {
         from ' . $table . ' t
         join im_type_property tj on(tj.'.$addition->cleanText($table, 'im_').'_id = t.'.$addition->cleanText($table, 'im_').'_id)';
 
-    if($g_var1 == 'edit' and $g_var2 != '') {
+    if($g_var2 == 'edit' and $g_var3 != '') {
 
-        $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
+        $sql .= ' where t.'.$addition->cleanText($table, 'im_').'_id = :id';
 
         $displayCount = 'one';
 
@@ -39,8 +42,6 @@ if($g_var1 != '') {
 
     $sql .= ' tj.type_id = :type';
 
-    var_dump($sql);
-
     $db->prepare($sql);
 
     $parameter = array(
@@ -48,7 +49,7 @@ if($g_var1 != '') {
     );
 
     if($displayCount == 'one')
-        array_push($parameter, array('name' => ':id', 'value' => $g_var2, 'type' => 'int'));
+        array_push($parameter, array('name' => ':id', 'value' => $g_var3, 'type' => 'int'));
 
     $db->bind($parameter);
 
@@ -77,7 +78,8 @@ if($g_var1 != '') {
                         'im_object' => 'type_id',
                         'im_type_property' => 'type_id'
                     )
-                )
+                ),
+                'url' => $baseUrl
             );
 
             require_once 'content/box/table/init.php';
@@ -88,7 +90,8 @@ if($g_var1 != '') {
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
-                'table' => $table
+                'table' => $table,
+                'url' => $baseUrl
             );
 
             require_once 'content/box/event/edit.php';
