@@ -164,4 +164,14 @@ class Addition
         }
 
     }
+    public function arrayJson($table) {
+
+        return str_replace('"', '\'', json_encode($table));
+
+    }
+    public function jsonArray($json) {
+
+        return json_decode(str_replace('\'', '"', $json));
+
+    }
 }

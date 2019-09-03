@@ -10,10 +10,6 @@ $p_password = false;
 if(isset($_POST['password']))
     $p_password = $_POST['password'];
 
-$p_password = false;
-if(isset($_POST['password']))
-    $p_password = $_POST['password'];
-
 $p_transaction = false;
 if(isset($_POST['transaction']))
     $p_transaction = $_POST['transaction'];
@@ -23,21 +19,20 @@ if(isset($_POST['event']))
     $p_event = $_POST['event'];
 
 $p_restriction = false;
-if(isset($_POST['restriction'])) {
-
-    $p_restrictionJson = str_replace('\'', '"', $_POST['restriction']);
-
-    $p_restriction = json_decode($p_restrictionJson);
-
-}
+if(isset($_POST['restriction']))
+    $p_restriction = $addition->jsonArray($_POST['restriction']);
 
 $p_event_table = false;
 if(isset($_POST['event_table']))
-    $p_event_table = $_POST['event_table'];
+    $p_event_table = $addition->jsonArray($_POST['event_table']);
 
 $p_event_id = false;
 if(isset($_POST['event_id']))
-    $p_event_id = $_POST['event_id'];
+    $p_event_id = $addition->jsonArray($_POST['event_id']);
+
+$p_event_supplement = false;
+if(isset($_POST['event_supplement']))
+    $p_event_supplement = $addition->jsonArray($_POST['event_supplement']);
 
 //Get "form_" variables from POST array
 $keyPost = array_keys($_POST);

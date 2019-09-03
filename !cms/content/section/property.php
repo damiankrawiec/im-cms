@@ -3,7 +3,7 @@
 if($g_var1 != '') {
 
 //Table definition init in this file
-    $table = 'im_property';
+    $table = 'im_type_property';
 //---
 //Base url definition in this file
     $baseUrl = $addition->getUrl(3);
@@ -19,20 +19,20 @@ if($g_var1 != '') {
     require_once 'php/script/one-data-display.php';
 
     $sql = 'select 
-        t.'.$addition->cleanText($table, 'im_').'_id as id,
-        t.name,
-        t.system_name,
-        if(t.description = \'\', \'-\', t.description) as description,
-        tj.class,
-        tj.class_field,
-        t.date_create,
-        t.date_modify
+        t.type_property_id as type_property_id,
+        tj.name as name,
+        tj.system_name as system_name,
+        if(tj.description = \'\', \'-\', tj.description) as description,
+        t.class as class,
+        t.class_field as class_field,
+        tj.date_create as date_create,
+        tj.date_modify as date_modify
         from ' . $table . ' t
-        join im_type_property tj on(tj.'.$addition->cleanText($table, 'im_').'_id = t.'.$addition->cleanText($table, 'im_').'_id)';
+        join im_property tj on(tj.property_id = t.property_id)';
 
     if($g_var2 == 'edit' and $g_var3 != '') {
 
-        $sql .= ' where t.'.$addition->cleanText($table, 'im_').'_id = :id';
+        $sql .= ' where t.type_property_id = :id';
 
         $displayCount = 'one';
 
@@ -40,7 +40,7 @@ if($g_var1 != '') {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' tj.type_id = :type';
+    $sql .= ' t.type_id = :type';
 
     $db->prepare($sql);
 
@@ -63,7 +63,13 @@ if($g_var1 != '') {
 
             $eventData = array(
                 'field' => $s_eventDefinition['add'][$table],
-                'table' => $table
+                'table_add' => array($table),
+                'supplement' => array(
+                    'im_type_property' => array(
+                        'type_id' => $g_var1,
+                        'position' => (count($record) + 1)
+                    )
+                )
             );
 
             require_once 'content/box/event/add.php';
@@ -71,14 +77,8 @@ if($g_var1 != '') {
             $tableData = array(
                 'table' => $tableDefinition[$table],
                 'record' => $record,
-                'table_name' => $table,
                 'event' => 'edit,delete',
-                'restriction' => array(
-                    'delete' => array(
-                        'im_object' => 'type_id',
-                        'im_type_property' => 'type_id'
-                    )
-                ),
+                'table_delete' => array($table),
                 'url' => $baseUrl
             );
 
@@ -90,7 +90,6 @@ if($g_var1 != '') {
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
-                'table' => $table,
                 'url' => $baseUrl
             );
 

@@ -30,10 +30,12 @@ $translation = array(
     'table' => array('event' => 'Działania'),
     'edit' => array(
         'name' => 'Pole nazwy (obowiązkowe)',
+        'system_name' => 'Pole nazwa systemowa, którą nie będzie można później zmienić (obowiązkowe)',
         'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)'
-    )
+    ),
+    'select' => array('no-set' => 'Wybierz wartość')
 );
 //Headers of data tables (on the edit the fields may be different)
 $tableDefinition = array(
@@ -45,7 +47,7 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
     ),
-    'im_property' => array(
+    'im_type_property' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny',
@@ -65,15 +67,10 @@ $tableDefinition = array(
 $tableDefinitionEvent = array(
     'add' => array(
         'im_type' => array(
-            'name' => 'Nazwa',
-            'class' => 'Klasa Bootstrap',
-            'description' => 'Opis techniczny'
+            'name' => 'Nazwa'
         ),
-        'im_property' => array(
-            'name' => 'Nazwa',
-            'class' => 'Klasa Bootstrap - otoczenie',
-            'class_field' => 'Klasa Bootstrap - pole',
-            'description' => 'Opis techniczny'
+        'im_type_property' => array(
+            'system_name' => 'Nazwa systemowa'
         )
     ),
     'edit' => array(
@@ -82,11 +79,9 @@ $tableDefinitionEvent = array(
             'class' => 'Klasa Bootstrap',
             'description' => 'Opis techniczny'
         ),
-        'im_property' => array(
-            'name' => 'Nazwa',
+        'im_type_property' => array(
             'class' => 'Klasa Bootstrap - otoczenie',
-            'class_field' => 'Klasa Bootstrap - pole',
-            'description' => 'Opis techniczny'
+            'class_field' => 'Klasa Bootstrap - pole'
         )
     )
 );

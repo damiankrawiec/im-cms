@@ -31,3 +31,16 @@ function text($string = '') {
     return $check;
 
 }
+function select($string = '') {
+
+    var $check = true;
+
+    if($string == '')
+        $check = false;
+
+    if($string == 0)
+        $check = false;
+
+    return $check;
+
+}

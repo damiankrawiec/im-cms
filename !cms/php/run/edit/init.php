@@ -1,28 +1,32 @@
 <?php
 
-$sql = 'update '.$eventData['table'].' set ';
+foreach($eventData['table'] as $table => $field) {
 
-$parameter = array();
-foreach ($eventData['data'] as $e => $ed) {
+    $sql = 'update ' . $table . ' set ';
 
-    $sql .= $e.' = :'.$e.', ';
+    $parameter = array();
+    foreach ($field as $f) {
 
-    array_push($parameter, array('name' => ':'.$e, 'value' => $ed, 'type' => 'string'));
+        $sql .= $f . ' = :' . $f . ', ';
+
+        array_push($parameter, array('name' => ':' . $f, 'value' => $eventData['data'][$f], 'type' => 'string'));
+
+    }
+
+    $sql = substr($sql, 0, -2);
+
+    $tableId = $addition->cleanText($table, 'im_') . '_id';
+
+    $sql .= ' where ' . $tableId . ' = :id';
+
+    array_push($parameter, array('name' => ':id', 'value' => $eventData['id']->$tableId, 'type' => 'int'));
+
+    $db->prepare($sql);
+
+    $db->bind($parameter);
+
+    $db->run();
 
 }
-
-$sql = substr($sql, 0, -2);
-
-$tableId = $addition->cleanText($eventData['table'], 'im_').'_id';
-
-$sql .= ' where '.$tableId.' = :id';
-
-array_push($parameter, array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int'));
-
-$db->prepare($sql);
-
-$db->bind($parameter);
-
-$db->run();
 
 $alert1 = $translation['message']['save-success'];

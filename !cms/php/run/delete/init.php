@@ -6,21 +6,25 @@ if(isset($eventData['restriction']))
 
 if($restrictionStatus) {
 
-    $sql = 'delete from '.$eventData['table'];
+    foreach($eventData['table'] as $table) {
 
-    $tableId = $addition->cleanText($eventData['table'], 'im_').'_id';
+        $sql = 'delete from ' . $table;
 
-    $sql .= ' where '.$tableId.' = :id';
+        $tableId = $addition->cleanText($table, 'im_') . '_id';
 
-    $db->prepare($sql);
+        $sql .= ' where ' . $tableId . ' = :id';
 
-    $parameter = array(
-        array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
-    );
+        $db->prepare($sql);
 
-    $db->bind($parameter);
+        $parameter = array(
+            array('name' => ':id', 'value' => $eventData['id']->$tableId, 'type' => 'int')
+        );
 
-    $db->run();
+        $db->bind($parameter);
+
+        $db->run();
+
+    }
 
     $alert1 = $translation['message']['delete-success'];
 

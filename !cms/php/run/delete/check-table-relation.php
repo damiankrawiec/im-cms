@@ -7,7 +7,7 @@ foreach($eventData['restriction'] as $table => $field) {
     $db->prepare($sql);
 
     $parameter = array(
-        array('name' => ':id', 'value' => $eventData['id'], 'type' => 'int')
+        array('name' => ':id', 'value' => $eventData['id']->$field, 'type' => 'int')
     );
 
     $db->bind($parameter);

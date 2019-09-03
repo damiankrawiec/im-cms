@@ -28,13 +28,16 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
             echo '</div>';
 
+            require 'php/script/field-table.php';
+
         }
 
-        //All event need table
-        echo '<input type="hidden" name="event_table" value="'.$eventData['table'].'">';
+        $idRecord = $eventData['record'];
+        require_once 'php/script/id-table.php';
 
-        //Edit and delete need id (not add)
-        echo '<input type="hidden" name="event_id" value="'.$eventData['record']->id.'">';
+        echo '<input type="hidden" name="event_table" value="'.$addition->arrayJson($fieldTable).'">';
+
+        echo '<input type="hidden" name="event_id" value="'.$addition->arrayJson($idTable).'">';
 
         echo '<input type="hidden" name="event" value="edit">';
 

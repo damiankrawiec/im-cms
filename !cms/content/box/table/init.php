@@ -53,31 +53,28 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     //Edit
                     if(stristr($tableData['event'], 'edit'))
-                        echo '<a href="'.$tableData['url'].',edit,'.$r['id'].'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
+                        echo '<a href="'.$tableData['url'].',edit,'.$r[$addition->cleanText($table, 'im_').'_id'].'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
 
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {
+
+                        $idRecord = $r;
+                        require 'php/script/id-table.php';
 
                         echo '<a href="#" class="btn btn-outline-info text-info modal-click">' . $icon['button']['delete'] . '</a>';
 
                         echo '<form action="' . $tableData['url'] . '" method="post">';
 
                         //All event need table
-                        echo '<input type="hidden" name="event_table" value="'.$tableData['table_name'].'">';
+                        echo '<input type="hidden" name="event_table" value="'.$addition->arrayJson($tableData['table_delete']).'">';
 
                         //Edit and delete need id (not add)
-                        echo '<input type="hidden" name="event_id" value="'.$r['id'].'">';
+                        echo '<input type="hidden" name="event_id" value="'.$addition->arrayJson($idTable).'">';
 
                         //Check if there some restrictions for delete
-                        if(isset($tableData['restriction']['delete'])) {
+                        if(isset($tableData['restriction']['delete']))
+                            echo '<input type="hidden" name="restriction" value="'.$addition->arrayJson($tableData['restriction']['delete']).'">';
 
-                            $restrictionJson = json_encode($tableData['restriction']['delete']);
-
-                            $restrictionJson = str_replace('"', '\'', $restrictionJson);
-
-                            echo '<input type="hidden" name="restriction" value="'.$restrictionJson.'">';
-
-                        }
 
                         echo '<input type="hidden" name="event" value="delete">';
 

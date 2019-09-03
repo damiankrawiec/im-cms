@@ -15,15 +15,19 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             //Alert top default set to not display (to showing success - 1 or fail - 0, init $alert0 or $alert1 variable)
             $alert0 = $alert1 = false;
 
-            $eventData = array(
-                'table' => $p_event_table
-            );
+            $eventData = array();
 
             if(count($formData) > 0)
                 $eventData['data'] = $formData;
 
+            if($p_event_table)
+                $eventData['table'] = $p_event_table;
+
             if($p_event_id)
                 $eventData['id'] = $p_event_id;
+
+            if($p_event_supplement)
+                $eventData['supplement'] = $p_event_supplement;
 
             if($p_restriction)
                 $eventData['restriction'] = $p_restriction;

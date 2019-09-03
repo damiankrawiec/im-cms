@@ -19,6 +19,9 @@ function validation($form){
             if($typeValidation === 'text')
                 $check = text($(this).val());
 
+            if($typeValidation === 'select')
+                $check = select($(this).val());
+
             if($typeValidation === 'email')
                 $check = email($(this).val());
 

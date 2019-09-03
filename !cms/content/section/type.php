@@ -11,7 +11,7 @@ $oneData = (object) array('value' => $translation['menu']['type']);
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        '.$addition->cleanText($table, 'im_').'_id as id,
+        type_id,
         name,
         class,
         if(description = \'\', \'-\', description) as description,
@@ -49,7 +49,7 @@ if ($record) {
 
         $eventData = array(
             'field' => $s_eventDefinition['add'][$table],
-            'table' => $table
+            'table_add' => array($table)
         );
 
         require_once 'content/box/event/add.php';
@@ -57,8 +57,8 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'table_name' => $table,
             'event' => 'edit,delete',
+            'table_delete' => array($table),
             'restriction' => array(
                 'delete' => array(
                     'im_object' => 'type_id',
@@ -77,7 +77,6 @@ if ($record) {
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
-            'table' => $table,
             'url' => $baseUrl
         );
 
