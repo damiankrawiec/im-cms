@@ -211,3 +211,10 @@ function closeAlertTop() {
     }
 
 }
+function datepicker() {
+
+    $('datepicker-here').datepicker();
+
+    $('.datepicker-here').val($('.datepicker-here').next().val());
+
+}

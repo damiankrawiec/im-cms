@@ -242,3 +242,8 @@ function gallery() {
     $('a[data-rel^=lightcase]').lightcase();
 
 }
+function datepicker() {
+
+    $('.datepicker-here').datepicker();
+
+}

@@ -70,6 +70,8 @@ $(function(){
 
         closeAlertTop();
 
+        datepicker();
+
         gallery();
 
     }

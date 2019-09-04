@@ -20,21 +20,33 @@ $s_menuDefinition = array(
 $s_eventDefinition = array(
     'edit' => array(
         'im_type' => array(
-            'name' => array('name' => $tableDefinitionEvent['edit']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_type'),
-            'class' => array('name' => $tableDefinitionEvent['edit']['im_type']['class'], 'type' => 'text', 'table' => 'im_type'),
-            'description' => array('name' => $tableDefinitionEvent['edit']['im_type']['description'], 'type' => 'textarea', 'table' => 'im_type')
+            'name' => array('name' => $tableDefinitionEvent['im_type']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_type'),
+            'class' => array('name' => $tableDefinitionEvent['im_type']['class'], 'type' => 'text', 'table' => 'im_type'),
+            'description' => array('name' => $tableDefinitionEvent['im_type']['description'], 'type' => 'textarea', 'table' => 'im_type')
         ),
         'im_type_property' => array(
-            'class' => array('name' => $tableDefinitionEvent['edit']['im_type_property']['class'], 'type' => 'text', 'table' => 'im_type_property'),
-            'class_field' => array('name' => $tableDefinitionEvent['edit']['im_type_property']['class_field'], 'type' => 'text', 'table' => 'im_type_property'),
+            'class' => array('name' => $tableDefinitionEvent['im_type_property']['class'], 'type' => 'text', 'table' => 'im_type_property'),
+            'class_field' => array('name' => $tableDefinitionEvent['im_type_property']['class_field'], 'type' => 'text', 'table' => 'im_type_property')
+        ),
+        'im_object' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
+            'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'table' => 'im_object'),
+            'link' => array('name' => $tableDefinitionEvent['im_object']['link'], 'type' => 'text', 'table' => 'im_object'),
+            'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'table' => 'im_object'),
+            'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea', 'table' => 'im_object'),
+            'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')
         )
     ),
     'add' => array(
         'im_type' => array(
-            'name' => array('name' => $tableDefinitionEvent['add']['im_type']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'name' => array('name' => $tableDefinitionEvent['im_type']['name'], 'type' => 'text', 'require' => 'validation :text')
         ),
         'im_type_property' => array(
-            'property_id' => array('name' => $tableDefinitionEvent['add']['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select'),
+            'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select')
+        ),
+        'im_object' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
         )
     )
 );

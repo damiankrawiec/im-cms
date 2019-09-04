@@ -33,7 +33,10 @@ $translation = array(
         'system_name' => 'Pole nazwa systemowa, którą nie będzie można później zmienić (obowiązkowe)',
         'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
-        'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)'
+        'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
+        'link' => 'Pole na odsyłacz zewnętrzny (nie jest wymagane, otwarcie w nowym oknie)',
+        'date' => 'Pole data w dowolnym formacie (nie jest wymagane)',
+        'content' => 'Pole na treść (nie jest wymagane)'
     ),
     'select' => array('no-set' => 'Wybierz wartość')
 );
@@ -65,23 +68,23 @@ $tableDefinition = array(
     )
 );
 $tableDefinitionEvent = array(
-    'add' => array(
-        'im_type' => array(
-            'name' => 'Nazwa'
-        ),
-        'im_type_property' => array(
-            'system_name' => 'Nazwa systemowa'
-        )
+    'im_type' => array(
+        'name' => 'Nazwa',
+        'class' => 'Klasa Bootstrap',
+        'description' => 'Opis techniczny'
     ),
-    'edit' => array(
-        'im_type' => array(
-            'name' => 'Nazwa',
-            'class' => 'Klasa Bootstrap',
-            'description' => 'Opis techniczny'
-        ),
-        'im_type_property' => array(
-            'class' => 'Klasa Bootstrap - otoczenie',
-            'class_field' => 'Klasa Bootstrap - pole'
-        )
-    )
+    'im_type_property' => array(
+        'system_name' => 'Nazwa systemowa',
+        'class' => 'Klasa Bootstrap - otoczenie',
+        'class_field' => 'Klasa Bootstrap - pole'
+    ),
+    'im_object' => array(
+        'name' => 'Nazwa',
+        'label' => 'Etykieta',
+        'section' => 'Przekierowanie do sekcji',
+        'link' => 'Odsyłacz zewnętrzny',
+        'date' => 'Data',
+        'content' => 'Treść',
+        'description' => 'Opis techniczny'
+    ),
 );

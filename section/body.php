@@ -11,6 +11,9 @@ if(!isset($minHeadBody)) {
       echo '<script src="'.$sectionPath.'module/lightcase/js/lightcase.js"></script>
             <script src="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
             <script src="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-            <script src="'.$sectionPath.'module/nice-select/jquery.nice-select.min.js"></script>';
+            <script src="'.$sectionPath.'module/nice-select/jquery.nice-select.min.js"></script>
+            <script src="'.$sectionPath.'module/datapicker/datepicker.min.js"></script>
+            <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
+            ';
 
 }

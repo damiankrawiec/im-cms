@@ -20,33 +20,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if($field['type'] == 'text')
                     echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="">';
 
-            if(stristr($field['type'], 'select')) {
+            require 'php/script/select-event.php';
 
-                $select = explode(':', $field['type']);
-
-                $sql = 'select '.$addition->cleanText($select[1], 'im_').'_id as id, name from '.$select[1];
-
-                $db->prepare($sql);
-
-                $property = $db->run('all');
-
-                if($property) {
-
-                    echo '<select name="form_' . $i . '" class="form-control'.$require.'" id="' . $i . '">';
-
-                    echo '<option value="0">'.$translation['select']['no-set'].'</option>';
-
-                    foreach ($property as $p) {
-
-                        echo '<option value="'.$p['id'].'">'.$p['name'].'</option>';
-
-                    }
-
-                    echo '</select>';
-
-                }
-
-            }
             echo '</div>';
 
         }

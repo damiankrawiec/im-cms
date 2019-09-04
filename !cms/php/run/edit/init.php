@@ -7,9 +7,13 @@ foreach($eventData['table'] as $table => $field) {
     $parameter = array();
     foreach ($field as $f) {
 
+        $bindType = 'string';
+        if(is_numeric($eventData['data'][$f]))
+            $bindType = 'int';
+
         $sql .= $f . ' = :' . $f . ', ';
 
-        array_push($parameter, array('name' => ':' . $f, 'value' => $eventData['data'][$f], 'type' => 'string'));
+        array_push($parameter, array('name' => ':' . $f, 'value' => $eventData['data'][$f], 'type' => $bindType));
 
     }
 

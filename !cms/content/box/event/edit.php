@@ -3,6 +3,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="window-background">';
 
+    echo '<h3>'.$eventData['record']->name.'</h3>';
+
     echo '<form method="post" class="edit">';
 
         foreach($eventData['field'] as $i => $field) {
@@ -25,6 +27,15 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 if($field['type'] == 'textarea')
                     echo '<textarea name="form_'.$i.'" class="form-control" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">'.$editDataOne.'</textarea>';
+
+                if($field['type'] == 'date') {
+
+                    echo '<input type="text" name="form_' . $i . '" data-language="pl" class="datepicker-here form-control' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" value="' . $eventData['record']->$i . '">';
+                    echo '<input type="hidden" value="'.$eventData['record']->$i.'">';
+
+                }
+
+                require 'php/script/select-event.php';
 
             echo '</div>';
 

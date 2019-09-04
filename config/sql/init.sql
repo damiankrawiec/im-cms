@@ -284,7 +284,7 @@ create table im_object (
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
-    date date ,-- date to display
+    date varchar(32) collate utf8_polish_ci default '',-- date to display
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
     primary key (object_id),
