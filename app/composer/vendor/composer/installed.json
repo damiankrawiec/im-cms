@@ -188,5 +188,35 @@
             "sass",
             "web"
         ]
+    },
+    {
+        "name": "xdan/jodit",
+        "version": "3.2.55",
+        "version_normalized": "3.2.55.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/xdan/jodit.git",
+            "reference": "e722fad9277ac9e1421e954f508d7f4f8f0f1296"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/xdan/jodit/zipball/e722fad9277ac9e1421e954f508d7f4f8f0f1296",
+            "reference": "e722fad9277ac9e1421e954f508d7f4f8f0f1296",
+            "shasum": ""
+        },
+        "time": "2019-08-13T09:42:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Chupurnov Valeriy",
+                "email": "chupurnov@gmail.com"
+            }
+        ],
+        "description": "Awesome WYSIWYG editor and FileBrowser"
     }
 ]

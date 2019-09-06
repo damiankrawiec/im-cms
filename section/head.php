@@ -14,6 +14,7 @@ if(!isset($minHeadBody)) {
     echo '<link rel="stylesheet" href="' . $sectionPath . 'app/composer/vendor/datatables/datatables/media/css/dataTables.bootstrap4.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/lightcase/css/lightcase.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/nice-select/nice-select.css">
+          <link rel="stylesheet" href="' . $sectionPath . 'app/composer/vendor/xdan/jodit/build/jodit.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/datapicker/datepicker.min.css">
           ';
 }

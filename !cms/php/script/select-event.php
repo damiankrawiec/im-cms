@@ -19,7 +19,7 @@ if(stristr($field['type'], 'select')) {
         foreach ($property as $p) {
 
             $selected = '';
-            if($eventData['record']->$i == $p['id'])
+            if(isset($eventData['record']) and $eventData['record']->$i == $p['id'])
                 $selected = ' selected';
 
             echo '<option value="'.$p['id'].'"'.$selected.'>'.$p['name'].'</option>';

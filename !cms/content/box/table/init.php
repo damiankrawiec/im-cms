@@ -35,7 +35,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 if($f == 'status') {
 
-                    echo '<a href="#">'.$icon['status'][$r[$f]].'</a>';
+                    echo '<a href="#" class="status">'.$icon['status'][$r[$f]].'</a>';
 
                 }else{
 
@@ -49,7 +49,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
             if(isset($tableData['event'])) {
 
-                echo '<td class="align-middle">';
+                echo '<td class="align-middle event">';
 
                     //Edit
                     if(stristr($tableData['event'], 'edit'))

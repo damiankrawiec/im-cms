@@ -74,6 +74,8 @@ $(function(){
 
         gallery();
 
+        editor();
+
     }
 
 });

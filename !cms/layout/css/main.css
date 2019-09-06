@@ -140,8 +140,11 @@ ul.pagination .page-link i {
   background-color: #fff;
   padding: 5px;
 }
-.table i {
-  font-size: 20px;
+.table .status {
+  font-size: 22px;
+}
+.table .event i {
+  font-size: 16px;
 }
 .table .btn {
   margin: 0 1px 0;

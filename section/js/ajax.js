@@ -4,7 +4,7 @@ function setLanguage($language = false){
 
         $.ajax({
             method: "POST",
-            url: "ajax/setLanguage.php",
+            url: "ajax/set-language.php",
             data: {
                 language: $language
             },
@@ -24,7 +24,7 @@ function setFilter($label, $category) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/setFilter.php",
+        url: "ajax/set-filter.php",
         data: {
             label: $label,
             category: $category
@@ -51,7 +51,7 @@ function refreshSession($label, $type) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/getSession.php"
+        url: "ajax/get-session.php"
     }).done(function ($data) {
 
         $('#session').text($data);
