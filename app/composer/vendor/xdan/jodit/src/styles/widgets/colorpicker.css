@@ -1,0 +1,75 @@
+/*!
+ * Jodit Editor (https://xdsoft.net/jodit/)
+ * Licensed under GNU General Public License version 2 or later or a commercial license or MIT;
+ * For GPL see LICENSE-GPL.txt in the project root for license information.
+ * For MIT see LICENSE-MIT.txt in the project root for license information.
+ * For commercial licenses see https://xdsoft.net/jodit/commercial/
+ * Copyright (c) 2013-2019 Valeriy Chupurnov. All rights reserved. https://xdsoft.net
+ */
+.jodit_colorpicker {
+  min-width: 180px;
+  text-align: left;
+  margin: 0;
+  user-select: none;
+}
+.jodit_colorpicker .jodit_colorpicker_group {
+  margin-bottom: 5px;
+  white-space: normal;
+}
+.jodit_colorpicker a {
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+}
+.jodit_colorpicker a:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 0;
+}
+.jodit_colorpicker a svg {
+  display: inline-block;
+  vertical-align: middle;
+  font-smoothing: antialiased;
+  max-width: 14px;
+}
+.jodit_colorpicker a:hover {
+  border-color: #000;
+}
+.jodit_colorpicker a:active {
+  background: #d6d6d6;
+  color: #b5b5b5;
+}
+.jodit_colorpicker .jodit_text_icon {
+  width: auto;
+  text-decoration: none;
+  color: #000000;
+}
+.jodit_colorpicker span {
+  float: right;
+}
+.jodit_colorpicker span em {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 4px;
+}
+.jodit_colorpicker span input {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  -webkit-appearance: none;
+}
+.jodit_colorpicker span input[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.jodit_colorpicker span input input[type='color']::-webkit-color-swatch {
+  border: none;
+}
+/*# sourceMappingURL=colorpicker.css.map */

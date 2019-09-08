@@ -76,6 +76,12 @@ $(function(){
 
         editor();
 
+        $('.status').click(function() {
+
+            changeStatus($(this));
+
+        });
+
     }
 
 });

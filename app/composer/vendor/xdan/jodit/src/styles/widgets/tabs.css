@@ -1,0 +1,92 @@
+/*!
+ * Jodit Editor (https://xdsoft.net/jodit/)
+ * Licensed under GNU General Public License version 2 or later or a commercial license or MIT;
+ * For GPL see LICENSE-GPL.txt in the project root for license information.
+ * For MIT see LICENSE-MIT.txt in the project root for license information.
+ * For commercial licenses see https://xdsoft.net/jodit/commercial/
+ * Copyright (c) 2013-2019 Valeriy Chupurnov. All rights reserved. https://xdsoft.net
+ */
+.jodit_tabs {
+  font-family: Helvetica, sans-serif, Arial;
+}
+.jodit_tabs .jodit_tabs_buttons {
+  line-height: 18px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  display: flex;
+}
+.jodit_tabs .jodit_tabs_buttons > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+  height: 29px;
+  line-height: 27px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.1s linear;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  box-shadow: none;
+  background-color: #f5f5f5;
+  color: #737373;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+@media (max-width: 768px) {
+  .jodit_tabs .jodit_tabs_buttons > a {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+}
+.jodit_tabs .jodit_tabs_buttons > a + a {
+  margin-left: -1px;
+}
+.jodit_tabs .jodit_tabs_buttons > a i,
+.jodit_tabs .jodit_tabs_buttons > a svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: sub;
+  margin-right: 5px;
+  fill: #737373;
+}
+.jodit_tabs .jodit_tabs_buttons > a:hover {
+  border: 1px solid #c6c6c6;
+  color: #111;
+  box-shadow: none;
+  background-color: #f8f8f8;
+  outline: none;
+}
+.jodit_tabs .jodit_tabs_buttons > a:hover i,
+.jodit_tabs .jodit_tabs_buttons > a:hover svg {
+  fill: #111;
+}
+.jodit_tabs .jodit_tabs_buttons > a:active,
+.jodit_tabs .jodit_tabs_buttons > a.active {
+  outline: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+.jodit_tabs .jodit_tabs_buttons > a:active i,
+.jodit_tabs .jodit_tabs_buttons > a.active i,
+.jodit_tabs .jodit_tabs_buttons > a:active svg,
+.jodit_tabs .jodit_tabs_buttons > a.active svg {
+  fill: #333;
+}
+.jodit_tabs .jodit_tabs_wrapper .jodit_tab {
+  display: none;
+}
+.jodit_tabs .jodit_tabs_wrapper .jodit_tab.active {
+  display: block;
+}
+.jodit_tabs .jodit_tabs_wrapper .jodit_tab .jodit_tab_empty {
+  min-width: 220px;
+  min-height: 100px;
+}
+/*# sourceMappingURL=tabs.css.map */

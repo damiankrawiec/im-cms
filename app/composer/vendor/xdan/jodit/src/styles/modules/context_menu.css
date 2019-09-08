@@ -1,0 +1,55 @@
+/*!
+ * Jodit Editor (https://xdsoft.net/jodit/)
+ * Licensed under GNU General Public License version 2 or later or a commercial license or MIT;
+ * For GPL see LICENSE-GPL.txt in the project root for license information.
+ * For MIT see LICENSE-MIT.txt in the project root for license information.
+ * For commercial licenses see https://xdsoft.net/jodit/commercial/
+ * Copyright (c) 2013-2019 Valeriy Chupurnov. All rights reserved. https://xdsoft.net
+ */
+.jodit_context_menu {
+  font-family: Helvetica, sans-serif, Arial;
+  display: none;
+  background: #fff;
+  position: absolute;
+  min-width: 150px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.24);
+  z-index: 2222224;
+}
+.jodit_context_menu a {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.24);
+  text-decoration: none !important;
+  color: #727272;
+  height: 38px;
+}
+.jodit_context_menu a svg {
+  float: left;
+  display: block;
+  width: 18px;
+  height: 38px;
+  margin: 0 10px;
+  fill: #727272;
+}
+.jodit_context_menu a span {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-left: 1px solid rgba(204, 204, 204, 0.24);
+  box-sizing: border-box;
+  height: 38px;
+}
+.jodit_context_menu a:hover {
+  background-color: #e3e3e3;
+  color: #000;
+}
+.jodit_context_menu a:hover .jodit_icon {
+  fill: #000;
+}
+.jodit_context_menu a:last-child {
+  border: 0;
+}
+.jodit_context_menu-show {
+  display: block;
+}
+/*# sourceMappingURL=context_menu.css.map */

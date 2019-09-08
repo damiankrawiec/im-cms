@@ -35,7 +35,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 if($f == 'status') {
 
-                    echo '<a href="#" class="status">'.$icon['status'][$r[$f]].'</a>';
+                    echo '<a href="#" class="status" id="'.$table.':'.$r[$addition->cleanText($table, 'im_').'_id'].'">'.$icon['status'][$r[$f]].'</a>';
 
                 }else{
 

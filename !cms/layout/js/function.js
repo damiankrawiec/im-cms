@@ -213,9 +213,9 @@ function closeAlertTop() {
 }
 function datepicker() {
 
-    $('datepicker-here').datepicker();
+    $('.im-datepicker').datepicker();
 
-    $('.datepicker-here').val($('.datepicker-here').next().val());
+    $('.im-datepicker').val($('.im-datepicker').next().val());
 
 }
 function editor() {

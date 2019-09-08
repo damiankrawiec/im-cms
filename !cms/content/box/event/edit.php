@@ -42,7 +42,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 }
                 if($field['type'] == 'date') {
 
-                    echo '<input type="text" name="form_' . $i . '" data-language="pl" class="datepicker-here form-control' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" value="' . $eventData['record']->$i . '">';
+                    echo '<input type="text" name="form_' . $i . '" data-language="pl" class="im-datepicker form-control' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" value="' . $eventData['record']->$i . '">';
                     echo '<input type="hidden" value="'.$eventData['record']->$i.'">';
 
                 }
