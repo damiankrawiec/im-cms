@@ -15,5 +15,6 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'app/composer/vendor/xdan/jodit/build/jodit.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/datepicker.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
+            <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
             ';
 }

@@ -14,7 +14,7 @@ $tool = new Tool();
 
 if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
-    //In addition class use get to built url
+    //In addition class use get to build url
     require 'php/script/get.php';
 
     require_once 'php/script/post.php';
@@ -23,7 +23,8 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     require_once 'php/class/system.class.php';
 
-    $system = new System($g_system);
+    //Path is need because many files in structure call system class
+    $system = new System($g_system, '../');
 
     if($g_system === '' or $g_system !== $system->getSystemName()) {
 

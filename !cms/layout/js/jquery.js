@@ -82,6 +82,8 @@ $(function(){
 
         });
 
+        $('select.form-control').chosen();
+
     }
 
 });

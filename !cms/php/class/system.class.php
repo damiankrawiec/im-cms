@@ -2,13 +2,15 @@
 
 class System {
 
-    private $path = '../system';
+    private $path;
 
     private $system;//system/[name]
 
     private $allSystem = false;
 
-    public function __construct($domain) {
+    public function __construct($domain, $pathUp) {
+
+        $this->path = $pathUp.'system';
 
         $this->systemName($domain);
 

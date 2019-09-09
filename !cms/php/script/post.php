@@ -22,6 +22,10 @@ $p_table = false;
 if(isset($_POST['table']))
     $p_table = $_POST['table'];
 
+$p_system = false;
+if(isset($_POST['system']))
+    $p_system = $_POST['system'];
+
 $p_restriction = false;
 if(isset($_POST['restriction']))
     $p_restriction = $addition->jsonArray($_POST['restriction']);
