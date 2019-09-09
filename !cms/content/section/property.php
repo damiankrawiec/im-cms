@@ -19,6 +19,7 @@ if($g_var1 != '') {
     require_once 'php/script/one-data-display.php';
 
     $sql = 'select 
+        tj.property_id as property_id,
         t.type_property_id as type_property_id,
         tj.name as name,
         tj.system_name as system_name,
@@ -78,7 +79,7 @@ if($g_var1 != '') {
                 'table' => $tableDefinition[$table],
                 'record' => $record,
                 'event' => 'edit,delete',
-                'table_delete' => array($table),
+                'table_delete' => array('main' => $table),
                 'url' => $baseUrl
             );
 

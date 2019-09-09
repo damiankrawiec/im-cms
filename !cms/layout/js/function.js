@@ -158,11 +158,12 @@ function modalButton($this, $save, $cancel){
     });
 
 }
+
 function dataTables() {
 
     var $arrow = $('#arrow-type').html().split(',');
 
-    $('.table').DataTable({
+    $('.data-table').DataTable({
         'pagingType': 'full_numbers',
         'stateSave': true,
         'language': {
@@ -252,5 +253,28 @@ function switchStatus($this) {
     }
 
     return [$switchStatus, $classNew];
+
+}
+function sortStatus($this) {
+
+    var $currentSwitch = $this.children('span').text();
+
+    var $newSwitch = $this.attr('id');
+
+    $this.children('span').text($newSwitch);
+
+    $this.attr('id', $currentSwitch);
+
+    var $dataTable = $this.parent().find('.table');
+
+    if($dataTable.attr('class').indexOf('dataTable') > -1) {
+
+
+
+    }else{
+
+
+
+    }
 
 }

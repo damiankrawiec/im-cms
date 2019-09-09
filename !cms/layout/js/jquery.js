@@ -82,6 +82,12 @@ $(function(){
 
         });
 
+        $('.sort-status').click(function() {
+
+            sortStatus($(this));
+
+        });
+
         $('select.form-control').chosen();
 
     }

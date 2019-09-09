@@ -11,7 +11,7 @@ $translation = array(
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji'
     ),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj'),
+    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj', 'on' => 'Włącz', 'off' => 'Wyłącz'),
     'message' => array(
         'no-data' => 'Brak danych',
         'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
@@ -27,7 +27,7 @@ $translation = array(
         'category' => 'Kategorie obiektów',
         'property' => 'Właściwości'
     ),
-    'table' => array('event' => 'Działania'),
+    'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
         'name' => 'Pole nazwy (obowiązkowe)',
         'system_name' => 'Pole nazwa systemowa, którą nie będzie można później zmienić (obowiązkowe)',

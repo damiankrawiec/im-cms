@@ -1,7 +1,15 @@
 <?php
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
-    echo '<table class="table table-hover">';
+    if(isset($tableData['sort'])) {
+
+        echo '<a href="#" class="btn btn-outline-light float-right sort-status" id="'.$translation['button']['off'].'"><span>'.$translation['button']['on'].'</span> ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
+
+        echo '<div class="clearfix"></div>';
+
+    }
+
+    echo '<table class="table table-hover data-table">';
         echo '<thead class="thead-light text-center">';
             echo '<tr>';
             $field = array();
@@ -85,6 +93,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                         echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-delete'].': "'.$r['name'].'"', 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
 
                     }
+
                 echo '</td>';
 
             }

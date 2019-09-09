@@ -25,6 +25,7 @@ $s_eventDefinition = array(
             'description' => array('name' => $tableDefinitionEvent['im_type']['description'], 'type' => 'textarea', 'table' => 'im_type')
         ),
         'im_type_property' => array(
+            'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select', 'table' => 'im_type_property'),
             'class' => array('name' => $tableDefinitionEvent['im_type_property']['class'], 'type' => 'text', 'table' => 'im_type_property'),
             'class_field' => array('name' => $tableDefinitionEvent['im_type_property']['class_field'], 'type' => 'text', 'table' => 'im_type_property')
         ),

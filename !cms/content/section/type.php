@@ -58,7 +58,7 @@ if ($record) {
             'table' => $tableDefinition[$table],
             'record' => $record,
             'event' => 'edit,delete',
-            'table_delete' => array($table),
+            'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(
                     'im_object' => 'type_id',
