@@ -43,6 +43,8 @@ if($g_var1 != '') {
 
     $sql .= ' type_id = :type';
 
+    $sql .= ' order by position';
+
     $db->prepare($sql);
 
     $parameter = array(

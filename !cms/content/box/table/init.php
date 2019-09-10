@@ -3,13 +3,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
     if(isset($tableData['sort'])) {
 
-        echo '<a href="#" class="btn btn-outline-light float-right sort-status" id="'.$translation['button']['off'].'"><span>'.$translation['button']['on'].'</span> ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
+        echo '<a href="#" class="btn btn-outline-light float-right sort-status" title="'.$translation['button']['off'].'" id="on"><span>'.$translation['button']['on'].'</span> ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
 
         echo '<div class="clearfix"></div>';
 
     }
 
-    echo '<table class="table table-hover data-table">';
+    echo '<table class="table table-hover data-table" id="'.$table.'">';
         echo '<thead class="thead-light text-center">';
             echo '<tr>';
             $field = array();
@@ -35,7 +35,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
         echo '<tbody>';
         foreach ($tableData['record'] as $r) {
 
-            echo '<tr>';
+            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'">';
 
             foreach ($field as $f) {
 

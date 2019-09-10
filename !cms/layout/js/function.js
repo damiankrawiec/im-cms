@@ -159,13 +159,16 @@ function modalButton($this, $save, $cancel){
 
 }
 
+var $dataTableName;
 function dataTables() {
 
     var $arrow = $('#arrow-type').html().split(',');
 
-    $('.data-table').DataTable({
+    $dataTableName = $('.data-table').DataTable({
         'pagingType': 'full_numbers',
         'stateSave': true,
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "ordering": false,
         'language': {
             'url': 'content/box/table/polish.json',
             'oPaginate': {
@@ -255,25 +258,58 @@ function switchStatus($this) {
     return [$switchStatus, $classNew];
 
 }
+
+var $currentShow = 10;
+function currentShow() {
+
+    $dataTableName.on('draw', function() {
+
+        var $select = $('.dataTables_length select').val();
+
+        if($select != -1)
+            $currentShow = $select;
+
+    });
+
+}
 function sortStatus($this) {
 
     var $currentSwitch = $this.children('span').text();
 
-    var $newSwitch = $this.attr('id');
+    var $newSwitch = $this.attr('title');
+
+    var $id = $this.attr('id');
 
     $this.children('span').text($newSwitch);
 
-    $this.attr('id', $currentSwitch);
+    $this.attr('title', $currentSwitch);
 
     var $dataTable = $this.parent().find('.table');
 
-    if($dataTable.attr('class').indexOf('dataTable') > -1) {
+    //Paging (turn off sort mode)
+    if($id === 'off') {
 
+        $('.dataTables_length label').show();
 
+        $this.attr('id', 'on');
 
-    }else{
+        $('.data-table tbody a').show();
 
+        saveSort($dataTableName);
 
+    }
+    //Show all (turn on sort mode)
+    if($id === 'on') {
+
+        $('.dataTables_length label').hide();
+
+        $dataTableName.page.len(-1).draw();
+
+        $this.attr('id', 'off');
+
+        $('.data-table tbody a').hide();
+
+        $('.data-table tbody').sortable({disabled: false});
 
     }
 

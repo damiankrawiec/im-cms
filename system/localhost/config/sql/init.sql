@@ -52,13 +52,13 @@ insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand
 
 -- record, object
 
-insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie!', 'To będzie wydarzenie lata', '', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 1', 'O imprezie 1', '', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 2', 'O imprezie 2', '', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 3', 'O imprezie 3', '', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 4', 'O imprezie 4', '', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Slider', '', '', 'on', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, 'Menu', '', '', 'on', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie!', 'To będzie wydarzenie lata', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 1', 'O imprezie 1', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 2', 'O imprezie 2', '', 2, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 3', 'O imprezie 3', '', 3, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 4', 'O imprezie 4', '', 4, 'on', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Slider', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, 'Menu', '', '', 1, 'on', '', null, null, null);
 
 -- record, object image
 
@@ -73,13 +73,13 @@ insert into im_movie values (null, 'Dancing', '<iframe width="100%" height="315"
 
 -- record, connect object with section
 
-insert into im_section_object values (null, 1, 1, 1);
-insert into im_section_object values (null, 1, 2, 2);
-insert into im_section_object values (null, 1, 3, 3);
-insert into im_section_object values (null, 1, 4, 4);
-insert into im_section_object values (null, 1, 5, 5);
-insert into im_section_object values (null, 1, 6, 6);
-insert into im_section_object values (null, 1, 7, 7);
+insert into im_section_object values (null, 1, 1);
+insert into im_section_object values (null, 1, 2);
+insert into im_section_object values (null, 1, 3);
+insert into im_section_object values (null, 1, 4);
+insert into im_section_object values (null, 1, 5);
+insert into im_section_object values (null, 1, 6);
+insert into im_section_object values (null, 1, 7);
 
 -- record, label class in section
 

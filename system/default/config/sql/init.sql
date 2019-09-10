@@ -54,15 +54,15 @@ insert into im_type_property values (null, 5, 7, 'col-12', 'navbar navbar-dark',
 
 -- record, object
 
-insert into im_object values (null, 1, 1, 2, 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', 'Treść tej aktualności', 'www.onet.pl', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', 'Treść tej aktualności', '', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej', 'Treść atrybutu', '', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', 'Treść kolejnej aktualności', '', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (drugi) lub kontakt (pierwszy)', 'Treść atrybutu drugiego', '', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (trzeci) lub kontakt (drugi)', 'Treść atrybutu drugiego', '', 'on', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, 'Slider', '', '', 'on', '', null, null, null);
-insert into im_object values (null, 4, 4, 0, 'Menu', '', '', 'on', '', null, null, null);
-insert into im_object values (null, 5, 5, 0, 'Submenu', '', '', 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 2, 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', 'Treść tej aktualności', 'www.onet.pl', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', 'Treść tej aktualności', '', 2, 'on', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej', 'Treść atrybutu', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', 'Treść kolejnej aktualności', '', 3, 'on', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (drugi) lub kontakt (pierwszy)', 'Treść atrybutu drugiego', '', 2, 'on', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej (trzeci) lub kontakt (drugi)', 'Treść atrybutu drugiego', '', 3, 'on', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, 'Slider', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Menu', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 5, 5, 0, 'Submenu', '', '', 1, 'on', '', null, null, null);
 
 -- record, object image
 
@@ -81,19 +81,19 @@ insert into im_file values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null)
 
 -- record, connect object with section
 
-insert into im_section_object values (null, 1, 1, 1);
-insert into im_section_object values (null, 1, 2, 2);
-insert into im_section_object values (null, 1, 3, 3);
-insert into im_section_object values (null, 2, 4, 1);
-insert into im_section_object values (null, 1, 5, 4);
-insert into im_section_object values (null, 2, 5, 2);
-insert into im_section_object values (null, 1, 6, 5);
-insert into im_section_object values (null, 2, 6, 3);
-insert into im_section_object values (null, 1, 7, 6);
-insert into im_section_object values (null, 1, 8, 7);
-insert into im_section_object values (null, 2, 7, 4);
-insert into im_section_object values (null, 2, 9, 5);
-insert into im_section_object values (null, 2, 8, 6);
+insert into im_section_object values (null, 1, 1);
+insert into im_section_object values (null, 1, 2);
+insert into im_section_object values (null, 1, 3);
+insert into im_section_object values (null, 2, 4);
+insert into im_section_object values (null, 1, 5);
+insert into im_section_object values (null, 2, 5);
+insert into im_section_object values (null, 1, 6);
+insert into im_section_object values (null, 2, 6);
+insert into im_section_object values (null, 1, 7);
+insert into im_section_object values (null, 1, 8);
+insert into im_section_object values (null, 2, 7);
+insert into im_section_object values (null, 2, 9);
+insert into im_section_object values (null, 2, 8);
 
 -- record, label class in section
 

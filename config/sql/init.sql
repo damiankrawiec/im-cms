@@ -282,6 +282,7 @@ create table im_object (
     name varchar(128) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
+    position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
@@ -324,7 +325,6 @@ create table im_section_object (
     section_object_id int not null auto_increment,
     section_id int not null,
     object_id int not null,
-    position int default 0,
     primary key (section_object_id),
     foreign key (section_id) references im_section(section_id),
     foreign key (object_id) references im_object(object_id)

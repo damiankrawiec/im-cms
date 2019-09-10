@@ -16,5 +16,6 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/datapicker/datepicker.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
             <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
+            <script src="'.$sectionPath.'app/composer/vendor/components/jqueryui/jquery-ui.min.js"></script>
             ';
 }

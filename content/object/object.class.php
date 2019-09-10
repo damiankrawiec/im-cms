@@ -116,7 +116,7 @@ class ObjectContent extends Language {
 
         $sql .= ' o.status like "on"';
 
-        $sql .= ' order by so.position';
+        $sql .= ' order by o.position';
 
         $this->db->prepare($sql);
 

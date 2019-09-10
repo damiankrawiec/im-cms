@@ -18,6 +18,10 @@ $p_event = false;
 if(isset($_POST['event']))
     $p_event = $_POST['event'];
 
+$p_id = false;
+if(isset($_POST['id']))
+    $p_id = $_POST['id'];
+
 $p_table = false;
 if(isset($_POST['table']))
     $p_table = $_POST['table'];

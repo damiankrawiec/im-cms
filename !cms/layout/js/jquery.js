@@ -88,6 +88,8 @@ $(function(){
 
         });
 
+        currentShow();
+
         $('select.form-control').chosen();
 
     }
