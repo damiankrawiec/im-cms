@@ -9,14 +9,7 @@ if($g_var1 != '') {
     $baseUrl = $addition->getUrl(3);
 //---
 
-//    $getData = array(
-//        'column' => 'name',
-//        'table' => 'im_type',
-//        'in' => array('type_id' => $g_var1)
-//    );
-//    require_once 'php/script/one-data.php';
-//
-//    require_once 'php/script/one-data-display.php';
+    require_once 'content/box/section/breadcrumb.php';
 
     $sql = 'select 
         section_id,
