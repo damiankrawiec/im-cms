@@ -22,7 +22,9 @@ $icon = array(
         'edit' => '<i class="fal fa-pencil pt-1"></i>',
         'add' => '<i class="fal fa-plus-circle"></i>',
         'delete' => '<i class="fal fa-trash-alt pt-1"></i>',
-        'sort' => '<i class="fal fa-sort"></i>'
+        'sort' => '<i class="fal fa-sort"></i>',
+        'move' => '<i class="fal fa-arrow-alt-right pt-1"></i>',
+        'copy' => '<i class="fal fa-copy"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

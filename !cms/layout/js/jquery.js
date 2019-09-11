@@ -88,6 +88,12 @@ $(function(){
 
         });
 
+        $('.copy').click(function(){
+
+            copyField($(this).attr('title'))
+
+        });
+
         currentShow();
 
         $('select.form-control').chosen();

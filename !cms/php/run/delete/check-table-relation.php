@@ -6,6 +6,9 @@ foreach($eventData['restriction'] as $table => $field) {
 
     $db->prepare($sql);
 
+    if(!stristr($field, 'id'))
+        $field = $addition->cleanText($table, 'im_').'_id';
+
     $parameter = array(
         array('name' => ':id', 'value' => $eventData['id']->$field, 'type' => 'int')
     );

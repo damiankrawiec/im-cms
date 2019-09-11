@@ -61,9 +61,11 @@ function saveSort($dataTableName) {
         }
     }).done(function() {
 
-        //$dataTableName.page.len($currentShow).draw();
+        $dataTableName.page.len($currentShow).draw();
 
         $('.data-table tbody').sortable({disabled: true});
+
+        window.location.reload(true);
 
     });
 

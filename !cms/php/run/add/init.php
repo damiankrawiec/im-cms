@@ -26,14 +26,22 @@ foreach($eventData['table'] as $table) {
         foreach ($eventData['supplement']->$table as $s => $su) {
 
             $bindType = 'string';
-            if(stristr($s, 'id'))
+            if(stristr($s, 'id') or $s == 'parent')
                 $bindType = 'int';
 
             $sql .= $s . ', ';
 
             $sqlValue .= ':' . $s . ', ';
 
-            array_push($parameter, array('name' => ':' . $s, 'value' => $su, 'type' => $bindType));
+            $value = $su;
+            if($su == 'create') {
+
+                if($s == 'url')
+                    $value = $addition->createUrl($eventData['data']['name']);
+
+            }
+
+            array_push($parameter, array('name' => ':' . $s, 'value' => $value, 'type' => $bindType));
 
         }
 

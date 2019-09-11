@@ -23,8 +23,16 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if(isset($field['require']))
                     $require = ' '.$field['require'];
 
-                if($field['type'] == 'text')
-                    echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'">';
+                $readonly = '';
+                if(isset($field['readonly']))
+                    $readonly = ' readonly';
+
+                if(isset($field['copy']))
+                    echo ' <a href="#" class="copy" title="'.$i.':'.$field['copy'].'">'.$icon['button']['copy'].'</a>';
+
+
+            if($field['type'] == 'text')
+                    echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'"'.$readonly.'>';
 
                 if(stristr($field['type'], 'textarea')) {
 

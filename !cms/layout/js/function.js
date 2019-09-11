@@ -314,3 +314,10 @@ function sortStatus($this) {
     }
 
 }
+function copyField($this) {
+
+    var $places = $this.split(':');
+
+    $('#' + $places[1]).val($('#' + $places[0]).val());
+
+}

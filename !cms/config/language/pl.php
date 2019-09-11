@@ -36,7 +36,8 @@ $translation = array(
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
         'link' => 'Pole na odsyłacz zewnętrzny (nie jest wymagane, otwarcie w nowym oknie)',
         'date' => 'Pole data w dowolnym formacie (nie jest wymagane)',
-        'content' => 'Pole na treść (nie jest wymagane)'
+        'content' => 'Pole na treść (nie jest wymagane)',
+        'url' => 'Pole url to nazwa w pasku adresu (pole wymagane)'
     ),
     'select' => array('no-set' => 'Wybierz wartość')
 );
@@ -65,6 +66,14 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_section' => array(
+        'name' => 'Nazwa',
+        'url' => 'Nazwa url',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
     )
 );
 $tableDefinitionEvent = array(
@@ -87,4 +96,9 @@ $tableDefinitionEvent = array(
         'content' => 'Treść',
         'description' => 'Opis techniczny'
     ),
+    'im_section' => array(
+        'name' => 'Nazwa',
+        'url' => 'Nazwa url',
+        'description' => 'Opis techniczny'
+    )
 );

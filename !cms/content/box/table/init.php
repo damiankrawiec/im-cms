@@ -59,6 +59,19 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 echo '<td class="align-middle event">';
 
+                    //Move
+                    if(stristr($tableData['event'], 'move')) {
+
+                        $urlArray = explode(',', $tableData['url']);
+
+                        array_pop($urlArray);
+
+                        $urlString = implode(',', $urlArray);
+
+                        echo '<a href="' . $urlString . ',' . $r[$addition->cleanText($table, 'im_') . '_id'] . '" class="btn btn-outline-info text-info">' . $icon['button']['move'] . '</a>';
+
+                    }
+
                     //Edit
                     if(stristr($tableData['event'], 'edit'))
                         echo '<a href="'.$tableData['url'].',edit,'.$r[$addition->cleanText($table, 'im_').'_id'].'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';

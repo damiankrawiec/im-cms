@@ -43,6 +43,8 @@ if($g_var1 != '') {
 
     $sql .= ' t.type_id = :type';
 
+    $sql .= ' order by t.position';
+
     $db->prepare($sql);
 
     $parameter = array(
@@ -80,6 +82,7 @@ if($g_var1 != '') {
                 'record' => $record,
                 'event' => 'edit,delete',
                 'table_delete' => array('main' => $table),
+                'sort' => true,
                 'url' => $baseUrl
             );
 

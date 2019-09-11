@@ -8,12 +8,16 @@ foreach($eventData['table'] as $table => $field) {
     foreach ($field as $f) {
 
         $bindType = 'string';
-        if(is_numeric($eventData['data'][$f]))
+        if(is_numeric($eventData['data'][$f]) or $f == 'parent')
             $bindType = 'int';
 
         $sql .= $f . ' = :' . $f . ', ';
 
-        array_push($parameter, array('name' => ':' . $f, 'value' => $eventData['data'][$f], 'type' => $bindType));
+        $value = $eventData['data'][$f];
+        if($f == 'url')
+            $value = $addition->createUrl($eventData['data']['url']);
+
+        array_push($parameter, array('name' => ':' . $f, 'value' => $value, 'type' => $bindType));
 
     }
 
