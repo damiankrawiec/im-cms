@@ -32,10 +32,10 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
             echo '</tr>';
         echo '</thead>';
-        echo '<tbody>';
+        echo '<tbody id="selections">';
         foreach ($tableData['record'] as $r) {
 
-            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'">';
+            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'" class="selection">';
 
             foreach ($field as $f) {
 

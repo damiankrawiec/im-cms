@@ -284,16 +284,10 @@ function sortStatus($this) {
 
     $this.attr('title', $currentSwitch);
 
-    var $dataTable = $this.parent().find('.table');
+    var $selections = document.getElementById('selections');
 
-    //Paging (turn off sort mode)
+    //Paging (turn off sort mode - at the end of ajax query, done)
     if($id === 'off') {
-
-        $('.dataTables_length label').show();
-
-        $this.attr('id', 'on');
-
-        $('.data-table tbody a').show();
 
         saveSort($dataTableName);
 
@@ -309,7 +303,9 @@ function sortStatus($this) {
 
         $('.data-table tbody a').hide();
 
-        $('.data-table tbody').sortable({disabled: false});
+        new Sortable($selections, {
+            animation: 150
+        });
 
     }
 

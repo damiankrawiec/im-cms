@@ -39,8 +39,6 @@ function saveSort($dataTableName) {
     });
     $idsString = $ids.join(',');
 
-    console.log($idsString);
-
     $.ajax({
         method: "POST",
         url: "ajax/save-sort.php",
@@ -51,19 +49,12 @@ function saveSort($dataTableName) {
         },
         beforeSend: function(){
 
-            $('#process').show();
-
-        },
-        complete: function(){
-
-            $('#process').fadeOut(1000);
+            $('body').css('opacity', 0);
 
         }
     }).done(function() {
 
         $dataTableName.page.len($currentShow).draw();
-
-        $('.data-table tbody').sortable({disabled: true});
 
         window.location.reload(true);
 

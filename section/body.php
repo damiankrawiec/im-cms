@@ -3,7 +3,7 @@
 if(!isset($sectionPath))
     $sectionPath = '';
 
-echo '<script src="'.$sectionPath.'module/jquery/jquery.min.js"></script>
+echo '<script src="'.$sectionPath.'app/composer/vendor/components/jquery/jquery.min.js"></script>
       <script src="'.$sectionPath.'app/composer/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>';
 
 if(!isset($minHeadBody)) {
@@ -16,6 +16,6 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/datapicker/datepicker.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
             <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
-            <script src="'.$sectionPath.'app/composer/vendor/components/jqueryui/jquery-ui.min.js"></script>
+            <script src="'.$sectionPath.'module/sortable/Sortable.min.js"></script>
             ';
 }
