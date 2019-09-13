@@ -27,7 +27,7 @@ function changeStatus($this) {
     });
 
 }
-function saveSort($dataTableName) {
+function saveSort($dataTableName, $currentShow) {
 
     var $table = $('.data-table tbody');
 

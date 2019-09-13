@@ -1,7 +1,7 @@
 <?php
 if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
-    echo '<a href="#" class="btn btn-outline-light show-next" id="add-new:slide">'.$translation['button']['add'].' '.$icon['button']['add'].'</a>';
+    echo '<a href="#" class="btn btn-outline-light show-next add-new" id="add-new:slide">'.$translation['button']['add'].' '.$icon['button']['add'].'</a>';
 
     echo '<div class="add-new im-hide bg-light">';
 

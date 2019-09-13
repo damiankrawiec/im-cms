@@ -274,40 +274,35 @@ function currentShow() {
 }
 function sortStatus($this) {
 
-    var $currentSwitch = $this.children('span').text();
+    $this.hide();
 
-    var $newSwitch = $this.attr('title');
+    $this.next().show();
 
-    var $id = $this.attr('id');
+    var $sortable = document.getElementById('sortable');
 
-    $this.children('span').text($newSwitch);
+    $('.dataTables_length label, .data-table tbody a, .add-new').hide();
 
-    $this.attr('title', $currentSwitch);
+    $dataTableName.page.len(-1).draw();
 
-    var $selections = document.getElementById('selections');
+    var $sortableCurrent = new Sortable($sortable, {
+        animation: 150
+    });
 
-    //Paging (turn off sort mode - at the end of ajax query, done)
-    if($id === 'off') {
+    $('#sort-save').click(function(){
 
-        saveSort($dataTableName);
+        saveSort($dataTableName, $currentShow);
 
-    }
-    //Show all (turn on sort mode)
-    if($id === 'on') {
+    });
 
-        $('.dataTables_length label').hide();
+    $('#sort-cancel').click(function(){
 
-        $dataTableName.page.len(-1).draw();
+        $('body').css('opacity', 0);
 
-        $this.attr('id', 'off');
+        $dataTableName.page.len($currentShow).draw();
 
-        $('.data-table tbody a').hide();
+        window.location.reload(true);
 
-        new Sortable($selections, {
-            animation: 150
-        });
-
-    }
+    });
 
 }
 function copyField($this) {

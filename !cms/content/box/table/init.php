@@ -3,7 +3,15 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
     if(isset($tableData['sort'])) {
 
-        echo '<a href="#" class="btn btn-outline-light float-right sort-status" title="'.$translation['button']['off'].'" id="on"><span>'.$translation['button']['on'].'</span> ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
+        echo '<a href="#" class="btn btn-outline-light float-right sort-status" title="'.$translation['button']['off'].'">'.$translation['button']['on'].' ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
+
+        echo '<div class="float-right im-hide">';
+
+            echo '<button class="btn btn-outline-light" id="sort-cancel">' . $translation['button']['cancel'] . '</button>';
+
+            echo '<button class="btn btn-outline-light" id="sort-save">' . $translation['button']['save'] .'</button>';
+
+        echo '</div>';
 
         echo '<div class="clearfix"></div>';
 
@@ -32,10 +40,10 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
             echo '</tr>';
         echo '</thead>';
-        echo '<tbody id="selections">';
+        echo '<tbody id="sortable">';
         foreach ($tableData['record'] as $r) {
 
-            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'" class="selection">';
+            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'">';
 
             foreach ($field as $f) {
 
