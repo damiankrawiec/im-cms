@@ -95,7 +95,13 @@ if($g_var1 != '') {
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
-                'url' => $baseUrl
+                'url' => $baseUrl,
+                'fix' => array(
+                    'collection' => 'im_section',
+                    'id' => array('object_id' => $g_var3),
+                    'table' => array('section_object_id' => 'section_id')
+                )
+
             );
 
             require_once 'content/box/event/edit.php';

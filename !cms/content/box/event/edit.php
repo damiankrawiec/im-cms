@@ -57,6 +57,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 require 'php/script/select-event.php';
 
+                require_once 'php/script/fix-event.php';
+
             echo '</div>';
 
             require 'php/script/field-table.php';

@@ -17,5 +17,6 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
             <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
             <script src="'.$sectionPath.'module/sortable/Sortable.min.js"></script>
+            <script src="'.$sectionPath.'module/fix/js/jquery.transfer.js"></script>
             ';
 }

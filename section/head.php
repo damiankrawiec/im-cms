@@ -17,5 +17,7 @@ if(!isset($minHeadBody)) {
           <link rel="stylesheet" href="' . $sectionPath . 'app/composer/vendor/xdan/jodit/build/jodit.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/datapicker/datepicker.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/chosen/component-chosen.min.css">
+          <link rel="stylesheet" href="' . $sectionPath . 'module/fix/icon_font/css/icon_font.css">
+          <link rel="stylesheet" href="' . $sectionPath . 'module/fix/css/jquery.transfer.css">
           ';
 }

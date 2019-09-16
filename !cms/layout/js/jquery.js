@@ -94,6 +94,12 @@ $(function(){
 
         });
 
+        if($('.collection').length > 0) {
+
+            fix();
+
+        }
+
         currentShow();
 
         $('select.form-control').chosen();
