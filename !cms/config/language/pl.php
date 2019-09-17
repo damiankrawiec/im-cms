@@ -39,7 +39,17 @@ $translation = array(
         'content' => 'Pole na treść (nie jest wymagane)',
         'url' => 'Pole url to nazwa w pasku adresu (pole wymagane)'
     ),
-    'select' => array('no-set' => 'Wybierz wartość')
+    'select' => array('no-set' => 'Wybierz wartość'),
+    'fix' => array(
+        'available' => 'Dostępne wartości',
+        'selected' => 'Wybrane wartości',
+        'search' => 'Szukaj...',
+        'section' => 'Sekcje wyświetlające',
+        'image' => 'Obrazy podłączone',
+        'file' => 'Pliki podłączone',
+        'movie' => 'Filmy podłączone',
+        'category' => 'Kategorie występowania'
+    )
 );
 //Headers of data tables (on the edit the fields may be different)
 $tableDefinition = array(

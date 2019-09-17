@@ -8,6 +8,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
     echo '<form method="post" class="edit">';
 
         $editorDisplay = false;
+        $fieldSum = count($eventData['field']);
+        $fieldCount = 0;
         foreach($eventData['field'] as $i => $field) {
 
             $editDataOne = $eventData['record']->$i;
@@ -57,11 +59,14 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 require 'php/script/select-event.php';
 
-                require_once 'php/script/fix-event.php';
+                if($fieldSum == ($fieldCount + 1))
+                    require 'php/script/fix-event.php';
 
             echo '</div>';
 
             require 'php/script/field-table.php';
+
+            $fieldCount++;
 
         }
 

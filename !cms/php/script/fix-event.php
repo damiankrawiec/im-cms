@@ -1,48 +1,57 @@
 <?php
 
-if(isset($eventData['fix']) and is_array($eventData['fix']) and count($eventData['fix']) > 0) {
+$collectionCount = 0;
 
-    $sql = 'select '.$addition->cleanText($eventData['fix']['collection'], 'im_').'_id as id, name from '.$eventData['fix']['collection'];
+while(true) {
 
-    $db->prepare($sql);
+    if (isset($eventData['fix-' . $collectionCount])) {
 
-    $collection = $db->run('all');
+        $sql = 'select ' . $addition->cleanText($eventData['fix-' . $collectionCount]['collection']['table'], 'im_') . '_id as id, name from ' . $eventData['fix-' . $collectionCount]['collection']['table'];
 
-    if($collection) {
+        $db->prepare($sql);
 
-        $collectionArray = array();
-        foreach ($collection as $c) {
+        $collection = $db->run('all');
 
-            array_push($collectionArray, array('collect' => $c['name'], 'value' => $c['id']));
+        $sql = 'select ' . $eventData['fix-' . $collectionCount]['table']['id'] . ' as id from ' . $eventData['fix-' . $collectionCount]['table']['name'] . ' where ' . $eventData['fix-' . $collectionCount]['id']['name'] . ' = ' . $eventData['fix-' . $collectionCount]['id']['value'];
+
+        $db->prepare($sql);
+
+        $idSelected = $db->run('all');
+
+        $idSelectedArray = array(0);
+
+        if ($idSelected) {
+
+            foreach ($idSelected as $is) {
+
+                array_push($idSelectedArray, $is['id']);
+
+            }
 
         }
 
-        echo '<div class="collection im-hide">'.json_encode($collectionArray).'</div>';
+        if ($collection) {
 
-        echo '<div class="container">
-            <div style="margin-top:50px">
-                Selected: <span id="selectedItemSpan"></span>
-            </div>
-            <div class="transfer"></div>';
+            echo '<label for="collection-'.$collectionCount.'" class="collection-label">'.$eventData['fix-' . $collectionCount]['collection']['name'].'</label>';
 
-        echo '</div>';
+            echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
-//        echo '<select name="form_' . $i . '" class="form-control'.$require.'" id="' . $i . '">';
-//
-//        echo '<option value="0">'.$translation['select']['no-set'].'</option>';
-//
-//        foreach ($property as $p) {
-//
-//            $selected = '';
-//            if(isset($eventData['record']) and $eventData['record']->$i == $p['id'])
-//                $selected = ' selected';
-//
-//            echo '<option value="'.$p['id'].'"'.$selected.'>'.$p['name'].'</option>';
-//
-//        }
-//
-//        echo '</select>';
+            foreach ($collection as $c) {
 
-    }
+                $selected = '';
+                if (in_array($c['id'], $idSelectedArray))
+                    $selected = ' selected';
+
+                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] . '</option>';
+
+            }
+
+            echo '</select>';
+
+        }
+
+    }else break;
+
+    $collectionCount++;
 
 }

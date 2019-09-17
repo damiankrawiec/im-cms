@@ -96,12 +96,31 @@ if($g_var1 != '') {
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
                 'url' => $baseUrl,
-                'fix' => array(
-                    'collection' => 'im_section',
-                    'id' => array('object_id' => $g_var3),
-                    'table' => array('section_object_id' => 'section_id')
+                'fix-0' => array(
+                    'collection' => array('name' => $translation['fix']['section'], 'table' => 'im_section'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_section_object', 'id' => 'section_id')
+                ),
+                'fix-1' => array(
+                    'collection' => array('name' => $translation['fix']['image'], 'table' => 'im_image'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_image', 'id' => 'image_id')
+                ),
+                'fix-2' => array(
+                    'collection' => array('name' => $translation['fix']['file'], 'table' => 'im_file'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_file', 'id' => 'file_id')
+                ),
+                'fix-3' => array(
+                    'collection' => array('name' => $translation['fix']['movie'], 'table' => 'im_movie'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_movie', 'id' => 'movie_id')
+                ),
+                'fix-4' => array(
+                    'collection' => array('name' => $translation['fix']['category'], 'table' => 'im_category'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_category', 'id' => 'category_id')
                 )
-
             );
 
             require_once 'content/box/event/edit.php';

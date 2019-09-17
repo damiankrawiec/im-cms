@@ -18,6 +18,6 @@ if(!isset($minHeadBody)) {
           <link rel="stylesheet" href="' . $sectionPath . 'module/datapicker/datepicker.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/chosen/component-chosen.min.css">
           <link rel="stylesheet" href="' . $sectionPath . 'module/fix/icon_font/css/icon_font.css">
-          <link rel="stylesheet" href="' . $sectionPath . 'module/fix/css/jquery.transfer.css">
+          <link rel="stylesheet" href="' . $sectionPath . 'module/multijs/multi.min.css">
           ';
 }
