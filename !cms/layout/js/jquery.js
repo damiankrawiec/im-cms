@@ -6,12 +6,17 @@ $(function(){
 
     $('.submit').click(function(){
 
-        processButton($(this));
+        $this = $(this);
 
-        $targetForm = '.' + $(this).attr('id');
-        if($(this).attr('class').indexOf('validation-run') > -1) {
+        processButton($this);
+
+        $targetForm = '.' + $this.attr('id');
+        if($this.attr('class').indexOf('validation-run') > -1) {
 
             if(validation($targetForm)){
+
+                if($this.attr('class').indexOf('collection-run') > -1)
+                    collection();
 
                 $($targetForm).submit();
 
@@ -22,6 +27,9 @@ $(function(){
             }
 
         }else{
+
+            if($this.attr('class').indexOf('collection-run') > -1)
+                collection();
 
             $($targetForm).submit();
 

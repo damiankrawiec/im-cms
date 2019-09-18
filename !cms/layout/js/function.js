@@ -334,3 +334,27 @@ function fix() {
     });
 
 }
+function collection() {
+
+    $('.edit .multi-wrapper').each(function() {
+
+        var $this = $(this);
+
+        var $currentId = '';
+        $this.children('.selected-wrapper').children('a').each(function() {
+
+            $currentId += ($(this).attr('data-value')) + ',';
+
+        });
+
+        if($currentId != '') {
+
+            $currentId = $currentId.substring(0, $currentId.length - 1);
+
+            $this.next().val($currentId);
+
+        }else $this.next().val('0');
+
+    });
+
+}

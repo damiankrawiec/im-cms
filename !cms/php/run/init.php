@@ -32,6 +32,9 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_restriction)
                 $eventData['restriction'] = $p_restriction;
 
+            if($p_event_collection)
+                $eventData['collection'] = $p_event_collection;
+
             require_once $eventPath;
 
             //Message top information (fail, success)

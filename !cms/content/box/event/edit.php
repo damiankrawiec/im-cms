@@ -10,6 +10,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
         $editorDisplay = false;
         $fieldSum = count($eventData['field']);
         $fieldCount = 0;
+        $fixArray = array();
         foreach($eventData['field'] as $i => $field) {
 
             $editDataOne = $eventData['record']->$i;
@@ -77,6 +78,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         echo '<input type="hidden" name="event_id" value="'.$addition->arrayJson($idTable).'">';
 
+        echo '<input type="hidden" name="event_collection" value="'.$addition->arrayJson($fixArray).'">';
+
         echo '<input type="hidden" name="event" value="edit">';
 
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
@@ -85,11 +88,15 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '</div>';
 
+    $collectionSubmit = '';
+    if(count($fixArray) > 0)
+        $collectionSubmit = ' collection-run';
+
     echo '<div class="button-event">';
 
         echo '<a class="btn btn-outline-dark" href="' . $eventData['url'] . '">' . $translation['button']['cancel'] . '</a>';
 
-        echo '<button class="btn btn-outline-warning submit validation-run" id="edit">' . $translation['button']['save'] .'</button>';
+        echo '<button class="btn btn-outline-warning submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['save'] .'</button>';
 
     echo '</div>';
 

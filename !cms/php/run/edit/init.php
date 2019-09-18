@@ -35,6 +35,12 @@ foreach($eventData['table'] as $table => $field) {
 
     $db->run();
 
+    if(isset($eventData['collection']) and count($collectionData) > 0) {
+
+        require_once 'php/run/edit/collection.php';
+
+    }
+
 }
 
 $alert1 = $translation['message']['save-success'];

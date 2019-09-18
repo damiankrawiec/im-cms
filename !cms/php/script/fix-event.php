@@ -36,17 +36,26 @@ while(true) {
 
             echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
+            $selectedId = '';
             foreach ($collection as $c) {
 
                 $selected = '';
-                if (in_array($c['id'], $idSelectedArray))
+                if (in_array($c['id'], $idSelectedArray)) {
                     $selected = ' selected';
+                    $selectedId .= $c['id'].',';
+                }
 
                 echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] . '</option>';
 
             }
 
+            $selectedId = substr($selectedId, 0, -1);
+
             echo '</select>';
+
+            echo '<input type="hidden" name="collection_'.$eventData['fix-' . $collectionCount]['table']['id'].'" value="'.$selectedId.'">';
+
+            array_push($fixArray, array('table' => $eventData['fix-' . $collectionCount]['table']['name'], 'one' => $eventData['fix-' . $collectionCount]['id']['name'], 'all' => $eventData['fix-' . $collectionCount]['table']['id']));
 
         }
 

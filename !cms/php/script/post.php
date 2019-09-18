@@ -42,18 +42,33 @@ $p_event_id = false;
 if(isset($_POST['event_id']))
     $p_event_id = $addition->jsonArray($_POST['event_id']);
 
+$p_event_collection = false;
+if(isset($_POST['event_collection']))
+    $p_event_collection = $addition->jsonArray($_POST['event_collection']);
+
 $p_event_supplement = false;
 if(isset($_POST['event_supplement']))
     $p_event_supplement = $addition->jsonArray($_POST['event_supplement']);
 
 //Get "form_" variables from POST array
 $keyPost = array_keys($_POST);
+
 $formData = array();
 foreach ($keyPost as $post) {
 
     if(stristr($post, 'form_')){
 
         $formData[$addition->cleanText($post, 'form_')] = $_POST[$post];
+
+    }
+
+}
+$collectionData = array();
+foreach ($keyPost as $post) {
+
+    if(stristr($post, 'collection_')){
+
+        $collectionData[$addition->cleanText($post, 'collection_')] = $_POST[$post];
 
     }
 
