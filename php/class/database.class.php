@@ -10,6 +10,8 @@ class Database extends systemSetting
 
     private $prepare;
 
+    private $parameter;
+
     public function __construct() {
 
         $this->sql = false;
@@ -17,6 +19,8 @@ class Database extends systemSetting
         $this->pdo = false;
 
         $this->prepare = false;
+
+        $this->parameter = 'No parameters';
 
         $this->connect();
 
@@ -86,6 +90,8 @@ class Database extends systemSetting
         if($parameter and is_array($parameter) and count($parameter) > 0) {
 
             if(substr_count($this->sql, ':') == count($parameter)) {
+
+                $this->parameter = $parameter;
 
                 foreach ($parameter as $p) {
 
@@ -176,6 +182,8 @@ class Database extends systemSetting
                 var_dump('Error execute() in run()');
 
                 var_dump($this->sql);
+
+                var_dump($this->parameter);
 
                 exit();
             }

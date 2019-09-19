@@ -22,10 +22,13 @@ $translation = array(
         'dashboard' => 'Pulpit',
         'object' => 'Obiekty',
         'section' => 'Sekcje',
-        'definition' => 'Definicje',
-        'type' => 'Typy obiektów',
-        'category' => 'Kategorie obiektów',
-        'property' => 'Właściwości'
+        'definition-object' => 'Definicje obiektowe',
+        'type' => 'Typy',
+        'category' => 'Kategorie',
+        'property' => 'Właściwości typów',
+        'language' => 'Język',
+        'translation' => 'Tłumaczenia',
+        'definition' => 'Definicje'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
@@ -84,6 +87,13 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
+    ),
+    'im_category' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );
 $tableDefinitionEvent = array(
@@ -109,6 +119,12 @@ $tableDefinitionEvent = array(
     'im_section' => array(
         'name' => 'Nazwa',
         'url' => 'Nazwa url',
+        'description' => 'Opis techniczny'
+    ),
+    'im_category' => array(
+        'name' => 'Nazwa',
+        'label' => 'Etykieta',
+        'content' => 'Opis',
         'description' => 'Opis techniczny'
     )
 );

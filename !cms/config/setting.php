@@ -9,10 +9,16 @@ $s_menuDefinition = array(
     'section' => array('icon' => $icon['menu']['section'], 'name' => $translation['menu']['section'], 'url' => 'section,0'),
     'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type'),
     'property' => array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'submenu' => 'im_type'),
-    'definition' => array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'],
+    'definition-object' => array('icon' => $icon['menu']['definition-object'], 'name' => $translation['menu']['definition-object'],
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
             array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category')
+        )
+    ),
+    'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
+        'submenu' => array(
+            array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'definition'),
+            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation'], 'url' => 'translation')
         )
     ),
 );
@@ -42,6 +48,12 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section', 'copy' => 'url'),
             'url' => array('name' => $tableDefinitionEvent['im_section']['url'], 'type' => 'text', 'table' => 'im_section', 'require' => 'validation :text'),
             'description' => array('name' => $tableDefinitionEvent['im_section']['description'], 'type' => 'textarea', 'table' => 'im_section')
+        ),
+        'im_category' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_category']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_category'),
+            'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_category'),
+            'content' => array('name' => $tableDefinitionEvent['im_category']['content'], 'type' => 'textarea:editor', 'table' => 'im_category'),
+            'description' => array('name' => $tableDefinitionEvent['im_category']['description'], 'type' => 'textarea', 'table' => 'im_category')
         )
     ),
     'add' => array(
@@ -57,6 +69,10 @@ $s_eventDefinition = array(
         ),
         'im_section' => array(
             'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section')
+        ),
+        'im_category' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_category']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'label_id' => array('name' => $tableDefinitionEvent['im_category']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
         )
     )
 );

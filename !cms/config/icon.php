@@ -30,10 +30,13 @@ $icon = array(
         'dashboard' => '<i class="fal fa-columns"></i>',
         'object' => '<i class="fal fa-draw-polygon"></i>',
         'section' => '<i class="fal fa-file-alt"></i>',
+        'definition-object' => '<i class="fal fa-file-signature"></i>',
+        'type' => '<i class="fal fa-cube"></i>',
+        'property' => '<i class="fal fa-cubes"></i>',
+        'category' => '<i class="fal fa-tasks"></i>',
         'definition' => '<i class="fal fa-book-alt"></i>',
-            'type' => '<i class="fal fa-cube"></i>',
-            'property' => '<i class="fal fa-cubes"></i>',
-            'category' => '<i class="fal fa-kaaba"></i>'
+        'language' => '<i class="fal fa-globe"></i>',
+        'translation' => '<i class="fal fa-language"></i>'
     ),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
