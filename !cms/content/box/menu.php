@@ -74,8 +74,17 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                     $submenuUrl = $g_system;
                                     if(isset($sd['url'])) {
 
+                                        $currentId = $sd['url'];
+                                        if(stristr($sd['url'], ',')) {
+
+                                            $sdUrl = explode(',', $sd['url']);
+
+                                            $currentId = $sdUrl[0];
+
+                                        }
+
                                         $submenuUrl .= ',' . $sd['url'];
-                                        $aId = ' id="'.$sd['url'].'"';
+                                        $aId = ' id="'.$currentId.'"';
 
                                     }else{
 

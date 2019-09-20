@@ -102,6 +102,12 @@ $(function(){
 
         });
 
+        $('.filter').change(function() {
+
+            filter($(this).val());
+
+        });
+
         if($('.collection').length > 0) {
 
             fix();

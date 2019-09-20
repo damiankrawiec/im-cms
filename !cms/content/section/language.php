@@ -1,56 +1,46 @@
 <?php
 //Table definition init in this file
-$table = 'im_category';
+$table = 'im_language';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(3);
+$baseUrl = $addition->getUrl(2);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['category']);
+$oneData = (object) array('value' => $translation['menu']['definition']);
 
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        category_id,
-        label_id,
+        language_id,
         name,
-        if(content = \'\', \'-\', content) as content,
+        system_name,
+        url,
+        status_default,
+        status,
         if(description = \'\', \'-\', description) as description,
         date_create,
-        date_modify,
-        status
+        date_modify
         from ' . $table;
 
-if($g_var2 == 'edit' and $g_var3 != '') {
+        if($g_var1 == 'edit' and $g_var2 != '') {
 
-    $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
+            $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
 
-    $displayCount = 'one';
+            $displayCount = 'one';
 
-}else $displayCount = 'all';
-
-if($g_var1 > 0) {
-
-    $sql .= $addition->whereOrAnd($sql);
-
-    $sql .= ' label_id = :label';
-
-}
-
-$sql .= ' order by position';
+        }else $displayCount = 'all';
 
 $db->prepare($sql);
 
-$parameter = array();
+if($displayCount == 'one') {
 
-if($g_var1 > 0)
-    array_push($parameter, array('name' => ':label', 'value' => $g_var1, 'type' => 'int'));
+    $parameter = array(
+        array('name' => ':id', 'value' => $g_var2, 'type' => 'int')
+    );
 
-if($displayCount == 'one')
-    array_push($parameter, array('name' => ':id', 'value' => $g_var3, 'type' => 'int'));
-
-if(count($parameter) > 0)
     $db->bind($parameter);
+
+}
 
 $record = $db->run($displayCount);
 
@@ -62,12 +52,7 @@ if ($record) {
 
         $eventData = array(
             'field' => $s_eventDefinition['add'][$table],
-            'table_add' => array($table),
-            'supplement' => array(
-                'im_category' => array(
-                    'position' => (count($record) + 1)
-                )
-            )
+            'table_add' => array($table)
         );
 
         require_once 'content/box/event/add.php';
@@ -79,15 +64,12 @@ if ($record) {
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(
-                    'im_object_category' => 'category_id'
+                    'im_translation' => 'language_id',
+                    'im_translation_system' => 'language_id'
                 )
             ),
-            'url' => $baseUrl,
-            'filter' => array('table' => 'im_label', 'id' => $g_var1)
+            'url' => $baseUrl
         );
-
-        if($g_var1 > 0)
-            $tableData['sort'] = true;
 
         require_once 'content/box/table/init.php';
 

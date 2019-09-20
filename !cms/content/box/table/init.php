@@ -1,6 +1,45 @@
 <?php
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
+    if(isset($tableData['filter'])) {
+
+        $sql = 'select '.
+            $addition->cleanText($tableData['filter']['table'], 'im_').'_id as id,
+                name
+                from ' . $tableData['filter']['table'];
+
+        $db->prepare($sql);
+
+        $filter = $db->run('all');
+
+        if($filter) {
+
+            echo '<div class="float-right filter-box">';
+
+            echo '<select class="form-control filter">';
+
+            echo '<option value="0">'.$translation['select']['all'].'</option>';
+
+            foreach ($filter as $fi) {
+
+                $selected = '';
+                if($fi['id'] == $tableData['filter']['id'])
+                    $selected = ' selected';
+
+                echo '<option value="'.$fi['id'].'"'.$selected.'>'.$fi['name'].'</option>';
+
+            }
+
+            echo '</select>';
+
+            echo '</div>';
+
+            echo '<div class="clearfix"></div>';
+
+        }
+
+    }
+
     if(isset($tableData['sort'])) {
 
         echo '<a href="#" class="btn btn-outline-light float-right sort-status" title="'.$translation['button']['off'].'">'.$translation['button']['on'].' ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
@@ -49,9 +88,9 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 echo '<td class="align-middle">';
 
-                if($f == 'status') {
+                if(stristr($f, 'status')) {
 
-                    echo '<a href="#" class="status" id="'.$table.':'.$r[$addition->cleanText($table, 'im_').'_id'].'">'.$icon['status'][$r[$f]].'</a>';
+                    echo '<a href="#" class="status" id="'.$table.':'.$f.':'.$r[$addition->cleanText($table, 'im_').'_id'].'">'.$icon['status'][$r[$f]].'</a>';
 
                 }else{
 
@@ -103,7 +142,6 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                         //Check if there some restrictions for delete
                         if(isset($tableData['restriction']['delete']))
                             echo '<input type="hidden" name="restriction" value="'.$addition->arrayJson($tableData['restriction']['delete']).'">';
-
 
                         echo '<input type="hidden" name="event" value="delete">';
 

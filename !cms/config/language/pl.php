@@ -28,7 +28,11 @@ $translation = array(
         'property' => 'Właściwości typów',
         'language' => 'Język',
         'translation' => 'Tłumaczenia',
-        'definition' => 'Definicje'
+        'definition' => 'Definicje',
+        'multimedia' => 'Multimedia',
+        'image' => 'Obrazy',
+        'file' => 'Pliki',
+        'movie' => 'Filmy'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
@@ -42,7 +46,7 @@ $translation = array(
         'content' => 'Pole na treść (nie jest wymagane)',
         'url' => 'Pole url to nazwa w pasku adresu (pole wymagane)'
     ),
-    'select' => array('no-set' => 'Wybierz wartość'),
+    'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
         'available' => 'Dostępne wartości',
         'selected' => 'Wybrane wartości',
@@ -93,7 +97,17 @@ $tableDefinition = array(
         'content' => 'Opis',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
-        'date_modify' => 'Zmodyfikowany'
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
+    ),
+    'im_language' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status',
+        'status_default' => 'Język domyślny'
     )
 );
 $tableDefinitionEvent = array(
@@ -125,6 +139,12 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'label' => 'Etykieta',
         'content' => 'Opis',
+        'description' => 'Opis techniczny'
+    ),
+    'im_language' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'url' => 'Obraz',
         'description' => 'Opis techniczny'
     )
 );

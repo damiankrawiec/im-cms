@@ -58,6 +58,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
+                if($field['type'] == 'file')
+                    echo '<br><img src="../system/'.$g_system.'/public/'.$eventData['record']->$i.'">';
+
                 require 'php/script/select-event.php';
 
                 if($fieldSum == ($fieldCount + 1))

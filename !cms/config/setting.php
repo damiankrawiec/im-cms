@@ -12,15 +12,22 @@ $s_menuDefinition = array(
     'definition-object' => array('icon' => $icon['menu']['definition-object'], 'name' => $translation['menu']['definition-object'],
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
-            array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category')
+            array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category,0')
+        )
+    ),
+    'multimedia' => array('icon' => $icon['menu']['multimedia'], 'name' => $translation['menu']['multimedia'],
+        'submenu' => array(
+            array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
+            array('icon' => $icon['menu']['file'], 'name' => $translation['menu']['file'], 'url' => 'file'),
+            array('icon' => $icon['menu']['movie'], 'name' => $translation['menu']['movie'], 'url' => 'movie')
         )
     ),
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
         'submenu' => array(
-            array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'definition'),
+            array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'language'),
             array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation'], 'url' => 'translation')
         )
-    ),
+    )
 );
 //This definitions are placed in form, and next that fields will be inside sql query, after form send
 $s_eventDefinition = array(
@@ -54,6 +61,11 @@ $s_eventDefinition = array(
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_category'),
             'content' => array('name' => $tableDefinitionEvent['im_category']['content'], 'type' => 'textarea:editor', 'table' => 'im_category'),
             'description' => array('name' => $tableDefinitionEvent['im_category']['description'], 'type' => 'textarea', 'table' => 'im_category')
+        ),
+        'im_language' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language'),
+            'description' => array('name' => $tableDefinitionEvent['im_language']['description'], 'type' => 'text', 'table' => 'im_language'),
+            'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'file', 'table' => 'im_language')
         )
     ),
     'add' => array(
@@ -73,6 +85,10 @@ $s_eventDefinition = array(
         'im_category' => array(
             'name' => array('name' => $tableDefinitionEvent['im_category']['name'], 'type' => 'text', 'require' => 'validation :text'),
             'label_id' => array('name' => $tableDefinitionEvent['im_category']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
+        ),
+        'im_language' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text')
         )
     )
 );

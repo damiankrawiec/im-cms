@@ -36,7 +36,11 @@ $icon = array(
         'category' => '<i class="fal fa-tasks"></i>',
         'definition' => '<i class="fal fa-book-alt"></i>',
         'language' => '<i class="fal fa-globe"></i>',
-        'translation' => '<i class="fal fa-language"></i>'
+        'translation' => '<i class="fal fa-language"></i>',
+        'multimedia' => '<i class="fal fa-photo-video"></i>',
+        'image' => '<i class="fal fa-image"></i>',
+        'file' => '<i class="fal fa-file"></i>',
+        'movie' => '<i class="fal fa-video"></i>'
     ),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
