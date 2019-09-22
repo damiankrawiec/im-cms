@@ -1,5 +1,5 @@
 <?php
-$sql = 'select url
+$sql = 'select name_url
         from im_section
         where position = :position';
 
@@ -15,7 +15,7 @@ $urlObject = $db->run('one');
 
 if($urlObject) {
 
-    $s_startSection = $urlObject->url;
+    $s_startSection = $urlObject->name_url;
 
 }else{
 

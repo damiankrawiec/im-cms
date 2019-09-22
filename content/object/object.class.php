@@ -312,7 +312,7 @@ class ObjectContent extends Language {
 
     private function getSection($parent, $submenu) {
 
-        $sql = 'select section_id as id, name, icon, url
+        $sql = 'select section_id as id, name, icon, name_url
                 from im_section
                 where status like "on"
                 and parent = :parent';
@@ -338,7 +338,7 @@ class ObjectContent extends Language {
 
             foreach ($sectionData as $i => $sd) {
 
-                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'icon' => $sd['icon'], 'url' => $sd['url']);
+                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'icon' => $sd['icon'], 'url' => $sd['name_url']);
 
                 if($submenu) {
 
@@ -356,7 +356,7 @@ class ObjectContent extends Language {
 
                         foreach ($sectionDataSubmenu as $j => $sds) {
 
-                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'icon' => $sds['icon'], 'url' => $sds['url']);
+                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'icon' => $sds['icon'], 'url' => $sds['name_url']);
 
                         }
 
@@ -376,7 +376,7 @@ class ObjectContent extends Language {
 
     private function getSectionUrl($id) {
 
-        $sql = 'select url
+        $sql = 'select name_url
                 from im_section
                 where section_id = :id';
 
@@ -392,7 +392,7 @@ class ObjectContent extends Language {
 
         if($sectionUrl) {
 
-            return $sectionUrl->url;
+            return $sectionUrl->name_url;
 
         }else return false;
 

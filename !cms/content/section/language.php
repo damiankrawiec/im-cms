@@ -80,7 +80,8 @@ if ($record) {
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
-            'url' => $baseUrl
+            'url' => $baseUrl,
+            'system' => $g_system
         );
 
         require_once 'content/box/event/edit.php';

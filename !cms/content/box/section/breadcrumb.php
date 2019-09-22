@@ -2,7 +2,7 @@
 
 if($g_var1 > 0) {
 
-    $sql = 'select name, url, parent from im_section where section_id = :id';
+    $sql = 'select name, name_url, parent from im_section where section_id = :id';
 
     $db->prepare($sql);
 

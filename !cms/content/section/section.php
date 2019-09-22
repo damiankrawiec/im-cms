@@ -14,7 +14,7 @@ if($g_var1 != '') {
     $sql = 'select 
         section_id,
         name,
-        url,
+        name_url,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,

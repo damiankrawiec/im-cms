@@ -1,6 +1,8 @@
 <?php
 //System name in all system structure
 $s_systemName = 'IM.CMS';
+$s_permittedImage = 'jpg,jpeg,png,gif';
+$s_previewImage = '200px';
 //If 'submenu' is string, that mean it is the name of table from database, and data will generated dynamic
 //If 'submenu' is array, that mean it is data from this array
 //If submenu is exists, that mean the url index is no need
@@ -52,8 +54,8 @@ $s_eventDefinition = array(
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')
         ),
         'im_section' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section', 'copy' => 'url'),
-            'url' => array('name' => $tableDefinitionEvent['im_section']['url'], 'type' => 'text', 'table' => 'im_section', 'require' => 'validation :text'),
+            'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section', 'copy' => 'name_url'),
+            'name_url' => array('name' => $tableDefinitionEvent['im_section']['name_url'], 'type' => 'text', 'table' => 'im_section', 'require' => 'validation :text'),
             'description' => array('name' => $tableDefinitionEvent['im_section']['description'], 'type' => 'textarea', 'table' => 'im_section')
         ),
         'im_category' => array(
@@ -64,8 +66,9 @@ $s_eventDefinition = array(
         ),
         'im_language' => array(
             'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language'),
-            'description' => array('name' => $tableDefinitionEvent['im_language']['description'], 'type' => 'text', 'table' => 'im_language'),
-            'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'file', 'table' => 'im_language')
+            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_language'),
+            'description' => array('name' => $tableDefinitionEvent['im_language']['description'], 'type' => 'textarea', 'table' => 'im_language'),
+            'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_language')
         )
     ),
     'add' => array(

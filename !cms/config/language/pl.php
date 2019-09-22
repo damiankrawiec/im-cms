@@ -44,7 +44,8 @@ $translation = array(
         'link' => 'Pole na odsyłacz zewnętrzny (nie jest wymagane, otwarcie w nowym oknie)',
         'date' => 'Pole data w dowolnym formacie (nie jest wymagane)',
         'content' => 'Pole na treść (nie jest wymagane)',
-        'url' => 'Pole url to nazwa w pasku adresu (pole wymagane)'
+        'name_url' => 'Pole url to nazwa w pasku adresu (pole wymagane)',
+        'image' => 'Obecne obrazy'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -56,6 +57,9 @@ $translation = array(
         'file' => 'Pliki podłączone',
         'movie' => 'Filmy podłączone',
         'category' => 'Kategorie występowania'
+    ),
+    'validation' => array(
+        'wrong-file-image' => 'Plik obrazu niepoprawny'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -86,7 +90,7 @@ $tableDefinition = array(
     ),
     'im_section' => array(
         'name' => 'Nazwa',
-        'url' => 'Nazwa url',
+        'name_url' => 'Nazwa url',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
@@ -132,7 +136,7 @@ $tableDefinitionEvent = array(
     ),
     'im_section' => array(
         'name' => 'Nazwa',
-        'url' => 'Nazwa url',
+        'name_url' => 'Nazwa url',
         'description' => 'Opis techniczny'
     ),
     'im_category' => array(

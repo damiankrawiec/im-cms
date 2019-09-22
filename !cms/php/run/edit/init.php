@@ -7,6 +7,9 @@ foreach($eventData['table'] as $table => $field) {
     $parameter = array();
     foreach ($field as $f) {
 
+        if($f == 'url' and !$fileName)
+            continue;
+
         $bindType = 'string';
         if(is_numeric($eventData['data'][$f]) or $f == 'parent')
             $bindType = 'int';
@@ -14,8 +17,12 @@ foreach($eventData['table'] as $table => $field) {
         $sql .= $f . ' = :' . $f . ', ';
 
         $value = $eventData['data'][$f];
+
+        if($f == 'name_url')
+            $value = $addition->createUrl($eventData['data']['name_url']);
+
         if($f == 'url')
-            $value = $addition->createUrl($eventData['data']['url']);
+            $value = $fileName;
 
         array_push($parameter, array('name' => ':' . $f, 'value' => $value, 'type' => $bindType));
 

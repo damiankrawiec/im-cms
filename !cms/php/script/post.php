@@ -50,19 +50,28 @@ $p_event_supplement = false;
 if(isset($_POST['event_supplement']))
     $p_event_supplement = $addition->jsonArray($_POST['event_supplement']);
 
-//Get "form_" variables from POST array
-$keyPost = array_keys($_POST);
-
 $formData = array();
-foreach ($keyPost as $post) {
+if(isset($_POST)) {
 
-    if(stristr($post, 'form_')){
+    //Get "form_" variables from POST array
+    $keyPost = array_keys($_POST);
 
-        $formData[$addition->cleanText($post, 'form_')] = $_POST[$post];
+    foreach ($keyPost as $post) {
+
+        if (stristr($post, 'form_')) {
+
+            $formData[$addition->cleanText($post, 'form_')] = $_POST[$post];
+
+        }
 
     }
-
 }
+
+$fileData = false;
+if(isset($_FILES))
+    $fileData = $_FILES;
+
+
 $collectionData = array();
 foreach ($keyPost as $post) {
 

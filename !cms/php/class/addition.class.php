@@ -171,7 +171,7 @@ class Addition
 
         if($path) {
 
-            if(file_exists($path)) {
+            if(file_exists($path) and is_file($path)) {
 
                 return true;
 
@@ -186,6 +186,36 @@ class Addition
             return false;
 
         }
+
+    }
+    public function removeFile($path) {
+
+        if($this->fileExists($path)) {
+
+            unlink($path);
+
+        }
+
+
+    }
+    public function addFile($path, $file) {
+
+
+
+    }
+    public function setFileName($file, $permitted) {
+
+        $newFileNameArray = explode('.', $file);
+
+        $extension = end($newFileNameArray);
+
+        if(!$permitted or ($permitted and stristr($permitted, $extension))) {
+
+            $fileName = reset($newFileNameArray) . '-' . $this->transaction() . '.' . $extension;
+
+            return strtolower($fileName);
+
+        }else return false;
 
     }
     public function arrayJson($table) {

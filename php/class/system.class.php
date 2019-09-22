@@ -169,7 +169,7 @@ class System extends Setting
 
         $sql = 'select section_id as id, name
                 from im_section
-                where url = :url';
+                where name_url = :url';
 
         $db->prepare($sql);
 

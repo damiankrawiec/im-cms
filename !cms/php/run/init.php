@@ -35,14 +35,22 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_event_collection)
                 $eventData['collection'] = $p_event_collection;
 
+            if($fileData) {
+
+                $eventData['data']['url'] = $fileData['url'];
+
+                require_once 'php/run/file/init.php';
+
+            }
+
             require_once $eventPath;
 
             //Message top information (fail, success)
-            if($alert0)
-                echo $addition->alert0($alert0, $icon['message']['fail']);
-
             if($alert1)
                 echo $addition->alert1($alert1, $icon['message']['success']);
+
+            if($alert0)
+                echo $addition->alert0($alert0, $icon['message']['fail']);
 
         }
 
