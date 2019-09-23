@@ -44,3 +44,13 @@ function select($string = '') {
     return $check;
 
 }
+function file($file = '') {
+
+    var $check = true;
+
+    if($file == '')
+        $check = false;
+
+    return $check;
+
+}

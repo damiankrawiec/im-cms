@@ -1,7 +1,5 @@
 <?php
 
-var_dump($eventData);
-
 foreach($eventData['table'] as $table) {
 
     $sql = 'insert into ' . $table . ' (';
@@ -19,7 +17,11 @@ foreach($eventData['table'] as $table) {
 
         $sqlValue .= ':' . $e . ', ';
 
-        array_push($parameter, array('name' => ':' . $e, 'value' => $ed, 'type' => $bindType));
+        $value = $ed;
+        if($e == 'url')
+            $value = $fileName;
+
+        array_push($parameter, array('name' => ':' . $e, 'value' => $value, 'type' => $bindType));
 
     }
 

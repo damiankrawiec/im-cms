@@ -4,19 +4,19 @@ $fileName = false;
 
 $newFile = $eventData['data']['url'];
 
-if($newFile['name'] != '') {
+if($newFile != '') {
 
     $permitted = false;
-    if(isset($eventData['data']['permitted']))
-        $permitted = $eventData['data']['permitted'];
+    if(isset($eventData['permitted']))
+        $permitted = $eventData['permitted'];
 
-    if($fileName = $addition->setFileName($newFile['name'], $permitted)) {
+    if($fileName = $addition->setFileName($newFile, $permitted)) {
 
-        if($addition->addFile($newFile['tmp_name'], $eventData['data']['path'] . $fileName)) {
+        if($addition->addFile($tmpName, $eventData['path'] . $fileName)) {
 
-            if (isset($eventData['data']['current'])) {
+            if (isset($eventData['current'])) {
 
-                $addition->removeFile($eventData['data']['path'] . $eventData['data']['current']);
+                $addition->removeFile($eventData['path'] . $eventData['current']);
 
             }
 

@@ -26,14 +26,14 @@ if(isset($field['option'])) {
 
     if (stristr($field['option'], 'add')) {
 
-        echo '<input type="file" name="'.$i.'">';
+        echo '<input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
 
-        echo '<input type="hidden" name="form_path" value="'.$filePath.'">';
+        echo '<input type="hidden" name="path" value="'.$filePath.'">';
 
-        echo '<input type="hidden" name="form_permitted" value="'.$s_permittedImage.'">';
+        echo '<input type="hidden" name="permitted" value="'.$s_permittedImage.'">';
 
         if ($currentFile)
-            echo '<input type="hidden" name="form_current" value="'.$currentFile.'">';
+            echo '<input type="hidden" name="current" value="'.$currentFile.'">';
 
     }
 

@@ -5,7 +5,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="add-new im-hide bg-light">';
 
-    echo '<form method="post" class="add">';
+    echo '<form method="post" class="add"'.(isset($eventData['field']['url']) ? 'enctype="multipart/form-data"' : '').'>';
 
         foreach($eventData['field'] as $i => $field) {
 
@@ -20,11 +20,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if($field['type'] == 'text')
                     echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="">';
 
-                if($field['type'] == 'image') {
-
+                if($field['type'] == 'image')
                     require_once 'php/script/image.php';
-
-                }
 
                 require 'php/script/select-event.php';
 

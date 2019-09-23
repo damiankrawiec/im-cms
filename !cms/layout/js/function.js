@@ -28,6 +28,9 @@ function validation($form){
             if($typeValidation === 'password')
                 $check = password($(this).val());
 
+            if($typeValidation === 'file')
+                $check = file($(this).val());
+
             if(!$check){
 
                 $(this).after($icon);

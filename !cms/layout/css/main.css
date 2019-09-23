@@ -15,7 +15,7 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9100", endColorstr="#a600ff", GradientType=1);
 }
 .chosen-container {
-  min-width: 200px;
+  min-width: 250px;
 }
 .im-hide {
   display: none;

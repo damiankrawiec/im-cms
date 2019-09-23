@@ -19,7 +19,7 @@ $s_menuDefinition = array(
     ),
     'multimedia' => array('icon' => $icon['menu']['multimedia'], 'name' => $translation['menu']['multimedia'],
         'submenu' => array(
-            array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image,0'),
+            array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
             array('icon' => $icon['menu']['file'], 'name' => $translation['menu']['file'], 'url' => 'file'),
             array('icon' => $icon['menu']['movie'], 'name' => $translation['menu']['movie'], 'url' => 'movie')
         )
@@ -102,7 +102,7 @@ $s_eventDefinition = array(
         ),
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
-            'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'add', 'table' => 'im_image'),
+            'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_image'),
             'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'option' => 'preview,add', 'table' => 'im_image')
         )
     )

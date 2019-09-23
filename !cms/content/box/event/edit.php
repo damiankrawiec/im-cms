@@ -58,11 +58,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
-                if($field['type'] == 'image') {
-
+                if($field['type'] == 'image')
                     require_once 'php/script/image.php';
-
-                }
 
                 require 'php/script/select-event.php';
 

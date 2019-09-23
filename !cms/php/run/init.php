@@ -32,12 +32,23 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_restriction)
                 $eventData['restriction'] = $p_restriction;
 
+            if($p_path)
+                $eventData['path'] = $p_path;
+
+            if($p_permitted)
+                $eventData['permitted'] = $p_permitted;
+
+            if($p_current)
+                $eventData['current'] = $p_current;
+
             if($p_event_collection)
                 $eventData['collection'] = $p_event_collection;
 
             if($fileData) {
 
-                $eventData['data']['url'] = $fileData['url'];
+                $eventData['data']['url'] = $fileData['url']['name'];
+
+                $tmpName = $fileData['url']['tmp_name'];
 
                 require_once 'php/run/file/init.php';
 

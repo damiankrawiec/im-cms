@@ -3,55 +3,44 @@
 $table = 'im_image';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(3);
+$baseUrl = $addition->getUrl(2);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['image']);
 
 require_once 'php/script/one-data-display.php';
 
-$sql = 'select distinct 
-        j.image_id as image_id,
-        j.name as name,
-        j.content as content,
-        j.url as url,
-        j.link as link,
-        j.status as status,
-        tj.position as position,
-        if(j.description = \'\', \'-\', j.description) as description,
-        j.date_create as date_create,
-        j.date_modify as date_modify
-        from ' . $table .' j
-        join im_object_image tj on (tj.image_id = j.image_id)';
+$sql = 'select 
+        image_id,
+        name,
+        content,
+        url,
+        link,
+        status,
+        if(description = \'\', \'-\', description) as description,
+        date_create,
+        date_modify
+        from ' . $table;
 
-if($g_var2 == 'edit' and $g_var3 != '') {
+if($g_var1 == 'edit' and $g_var2 != '') {
 
-    $sql .= ' where j.'.$addition->cleanText($table, 'im_').'_id = :id';
+    $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
 
     $displayCount = 'one';
 
 }else $displayCount = 'all';
 
-if($g_var1 > 0) {
-
-    $sql .= $addition->whereOrAnd($sql);
-
-    $sql .= ' tj.object_id = :object';
-
-}
-
 $db->prepare($sql);
 
-$parameter = array();
+if($displayCount == 'one') {
 
-if($g_var1 > 0)
-    array_push($parameter, array('name' => ':object', 'value' => $g_var1, 'type' => 'int'));
+    $parameter = array(
+        array('name' => ':id', 'value' => $g_var2, 'type' => 'int')
+    );
 
-if($displayCount == 'one')
-    array_push($parameter, array('name' => ':id', 'value' => $g_var3, 'type' => 'int'));
-
-if(count($parameter) > 0)
     $db->bind($parameter);
+
+}
 
 $record = $db->run($displayCount);
 
@@ -61,13 +50,17 @@ if ($record) {
 
     if($displayCount == 'all') {
 
-        $eventData = array(
-            'field' => $s_eventDefinition['add'][$table],
-            'table_add' => array($table),
-            'system' => $g_system
-        );
+        if($g_var1 == 0) {
 
-        require_once 'content/box/event/add.php';
+            $eventData = array(
+                'field' => $s_eventDefinition['add'][$table],
+                'table_add' => array($table),
+                'system' => $g_system
+            );
+
+            require_once 'content/box/event/add.php';
+
+        }
 
         $tableData = array(
             'table' => $tableDefinition[$table],
@@ -79,12 +72,8 @@ if ($record) {
                     'im_object_image' => 'image_id'
                 )
             ),
-            'url' => $baseUrl,
-            'filter' => array('table' => 'im_object', 'id' => $g_var1)
+            'url' => $baseUrl
         );
-
-        if($g_var1 > 0)
-            $tableData['sort'] = true;
 
         require_once 'content/box/table/init.php';
 
