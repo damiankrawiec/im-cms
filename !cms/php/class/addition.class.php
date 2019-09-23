@@ -198,9 +198,13 @@ class Addition
 
 
     }
-    public function addFile($path, $file) {
+    public function addFile($tmp, $file) {
 
+        if(move_uploaded_file($tmp, $file)) {
 
+            return true;
+
+        }else return false;
 
     }
     public function setFileName($file, $permitted) {

@@ -12,14 +12,16 @@ if($newFile['name'] != '') {
 
     if($fileName = $addition->setFileName($newFile['name'], $permitted)) {
 
-        move_uploaded_file($newFile['tmp_name'], $eventData['data']['path'] . $fileName);
+        if($addition->addFile($newFile['tmp_name'], $eventData['data']['path'] . $fileName)) {
 
-        if(isset($eventData['data']['current'])) {
+            if (isset($eventData['data']['current'])) {
 
-            $addition->removeFile($eventData['data']['path'].$eventData['data']['current']);
+                $addition->removeFile($eventData['data']['path'] . $eventData['data']['current']);
+
+            }
 
         }
 
-    }else $alert0 = $translation['validation']['wrong-file-image'];
+    }else $alert0 = $translation['validation']['wrong-file'];
 
 }

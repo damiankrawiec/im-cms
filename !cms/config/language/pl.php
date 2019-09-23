@@ -59,7 +59,7 @@ $translation = array(
         'category' => 'Kategorie występowania'
     ),
     'validation' => array(
-        'wrong-file-image' => 'Plik obrazu niepoprawny'
+        'wrong-file' => 'Plik niepoprawny'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -112,7 +112,15 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
         'status_default' => 'Język domyślny'
-    )
+    ),
+    'im_image' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
+    ),
 );
 $tableDefinitionEvent = array(
     'im_type' => array(
@@ -150,5 +158,12 @@ $tableDefinitionEvent = array(
         'system_name' => 'Nazwa systemowa',
         'url' => 'Obraz',
         'description' => 'Opis techniczny'
-    )
+    ),
+    'im_image' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'url' => 'Obraz',
+        'link' => 'Przekierowanie',
+        'description' => 'Opis techniczny'
+    ),
 );

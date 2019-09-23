@@ -19,7 +19,7 @@ $s_menuDefinition = array(
     ),
     'multimedia' => array('icon' => $icon['menu']['multimedia'], 'name' => $translation['menu']['multimedia'],
         'submenu' => array(
-            array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
+            array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image,0'),
             array('icon' => $icon['menu']['file'], 'name' => $translation['menu']['file'], 'url' => 'file'),
             array('icon' => $icon['menu']['movie'], 'name' => $translation['menu']['movie'], 'url' => 'movie')
         )
@@ -69,6 +69,13 @@ $s_eventDefinition = array(
             'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_language'),
             'description' => array('name' => $tableDefinitionEvent['im_language']['description'], 'type' => 'textarea', 'table' => 'im_language'),
             'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_language')
+        ),
+        'im_image' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
+            'content' => array('name' => $tableDefinitionEvent['im_image']['content'], 'type' => 'textarea:editor', 'table' => 'im_image'),
+            'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_image'),
+            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'option' => 'preview,add', 'table' => 'im_image'),
+            'description' => array('name' => $tableDefinitionEvent['im_image']['description'], 'type' => 'textarea', 'table' => 'im_image')
         )
     ),
     'add' => array(
@@ -92,6 +99,11 @@ $s_eventDefinition = array(
         'im_language' => array(
             'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text'),
             'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text')
+        ),
+        'im_image' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
+            'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'add', 'table' => 'im_image'),
+            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'option' => 'preview,add', 'table' => 'im_image')
         )
     )
 );

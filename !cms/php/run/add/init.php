@@ -1,5 +1,7 @@
 <?php
 
+var_dump($eventData);
+
 foreach($eventData['table'] as $table) {
 
     $sql = 'insert into ' . $table . ' (';
