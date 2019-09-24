@@ -21,6 +21,7 @@ if($g_var1 != '') {
     $sql = 'select 
         object_id,
         label_id,
+        system_name,
         name,
         section,
         link,
@@ -106,26 +107,29 @@ if($g_var1 != '') {
                     'table' => array('name' => 'im_section_object', 'id' => 'section_id')
                 ),
                 'fix-1' => array(
+                    'collection' => array('name' => $translation['fix']['category'], 'table' => 'im_category'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_category', 'id' => 'category_id')
+                ),
+                'fix-2' => array(
                     'collection' => array('name' => $translation['fix']['image'], 'table' => 'im_image'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_image', 'id' => 'image_id')
                 ),
-                'fix-2' => array(
+                'fix-3' => array(
                     'collection' => array('name' => $translation['fix']['file'], 'table' => 'im_file'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_file', 'id' => 'file_id')
                 ),
-                'fix-3' => array(
+                'fix-4' => array(
                     'collection' => array('name' => $translation['fix']['movie'], 'table' => 'im_movie'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_movie', 'id' => 'movie_id')
-                ),
-                'fix-4' => array(
-                    'collection' => array('name' => $translation['fix']['category'], 'table' => 'im_category'),
-                    'id' => array('name' => 'object_id', 'value' => $g_var3),
-                    'table' => array('name' => 'im_object_category', 'id' => 'category_id')
                 )
             );
+
+            //Filter fields in type
+            require_once 'php/script/field.php';
 
             require_once 'content/box/event/edit.php';
 

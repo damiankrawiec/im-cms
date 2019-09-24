@@ -31,6 +31,7 @@ insert into im_property values (null, 'Zdjęcie', 'image', '', null, null);
 insert into im_property values (null, 'Link', 'link', '', null, null);
 insert into im_property values (null, 'Plik', 'file', '', null, null);
 insert into im_property values (null, 'Menu', 'section', '', null, null);
+insert into im_property values (null, 'Link zewnętrzny', 'external', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 
 -- record, set property in type
@@ -52,13 +53,13 @@ insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand
 
 -- record, object
 
-insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie!', 'To będzie wydarzenie lata', '', 1, 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 1', 'O imprezie 1', '', 1, 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 2', 'O imprezie 2', '', 2, 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 3', 'O imprezie 3', '', 3, 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 4', 'O imprezie 4', '', 4, 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Slider', '', '', 1, 'on', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, 'Menu', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie', '', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 1', '', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 2', '', '', '', 2, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 3', '', '', '', 3, 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 4', '', '', '', 4, 'on', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Slider', '', '', '', 1, 'on', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, 'Menu', '', '', '', 1, 'on', '', null, null, null);
 
 -- record, object image
 

@@ -2,17 +2,17 @@
 
 $collectionCount = 0;
 
-while(true) {
+foreach ($eventData as $fix => $ed) {
 
-    if (isset($eventData['fix-' . $collectionCount])) {
+    if (stristr($fix, 'fix')) {
 
-        $sql = 'select ' . $addition->cleanText($eventData['fix-' . $collectionCount]['collection']['table'], 'im_') . '_id as id, name from ' . $eventData['fix-' . $collectionCount]['collection']['table'];
+        $sql = 'select ' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, name from ' . $eventData[$fix]['collection']['table'];
 
         $db->prepare($sql);
 
         $collection = $db->run('all');
 
-        $sql = 'select ' . $eventData['fix-' . $collectionCount]['table']['id'] . ' as id from ' . $eventData['fix-' . $collectionCount]['table']['name'] . ' where ' . $eventData['fix-' . $collectionCount]['id']['name'] . ' = ' . $eventData['fix-' . $collectionCount]['id']['value'];
+        $sql = 'select ' . $eventData[$fix]['table']['id'] . ' as id from ' . $eventData[$fix]['table']['name'] . ' where ' . $eventData[$fix]['id']['name'] . ' = ' . $eventData[$fix]['id']['value'];
 
         $db->prepare($sql);
 
@@ -32,7 +32,7 @@ while(true) {
 
         if ($collection) {
 
-            echo '<label for="collection-'.$collectionCount.'" class="collection-label">'.$eventData['fix-' . $collectionCount]['collection']['name'].'</label>';
+            echo '<label for="collection-'.$collectionCount.'" class="collection-label">'.$eventData[$fix]['collection']['name'].'</label>';
 
             echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
@@ -53,13 +53,13 @@ while(true) {
 
             echo '</select>';
 
-            echo '<input type="hidden" name="collection_'.$eventData['fix-' . $collectionCount]['table']['id'].'" value="'.$selectedId.'">';
+            echo '<input type="hidden" name="collection_'.$eventData[$fix]['table']['id'].'" value="'.$selectedId.'">';
 
-            array_push($fixArray, array('table' => $eventData['fix-' . $collectionCount]['table']['name'], 'one' => $eventData['fix-' . $collectionCount]['id']['name'], 'all' => $eventData['fix-' . $collectionCount]['table']['id']));
+            array_push($fixArray, array('table' => $eventData[$fix]['table']['name'], 'one' => $eventData[$fix]['id']['name'], 'all' => $eventData[$fix]['table']['id']));
 
         }
 
-    }else break;
+    }
 
     $collectionCount++;
 

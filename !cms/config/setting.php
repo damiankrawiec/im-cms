@@ -45,6 +45,7 @@ $s_eventDefinition = array(
             'class_field' => array('name' => $tableDefinitionEvent['im_type_property']['class_field'], 'type' => 'text', 'table' => 'im_type_property')
         ),
         'im_object' => array(
+            'system_name' => array('name' => $tableDefinitionEvent['im_object']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
             'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_object'),
             'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'table' => 'im_object'),
@@ -98,7 +99,7 @@ $s_eventDefinition = array(
             'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select')
         ),
         'im_object' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text'),
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
         ),
         'im_section' => array(

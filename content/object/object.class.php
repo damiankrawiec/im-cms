@@ -291,7 +291,7 @@ class ObjectContent extends Language {
 
     private function getObjectMovie($objectId) {
 
-        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.url as url
+        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.link as url
                 from im_movie m
                 join im_object_movie obm on (obm.movie_id = m.movie_id)
                 where obm.object_id = :object

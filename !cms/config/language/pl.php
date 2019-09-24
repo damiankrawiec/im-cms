@@ -36,8 +36,8 @@ $translation = array(
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
-        'name' => 'Pole nazwy (obowiązkowe)',
-        'system_name' => 'Pole nazwa systemowa, którą nie będzie można później zmienić (obowiązkowe)',
+        'name' => 'Pole nazwy',
+        'system_name' => 'Pole nazwa systemowa (obowiązkowe)',
         'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
@@ -67,8 +67,7 @@ $translation = array(
 //Headers of data tables (on the edit the fields may be different)
 $tableDefinition = array(
     'im_object' => array(
-        'name' => 'Nazwa',
-        'content' => 'Opis',
+        'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
@@ -151,6 +150,7 @@ $tableDefinitionEvent = array(
         'class_field' => 'Klasa Bootstrap - pole'
     ),
     'im_object' => array(
+        'system_name' => 'Nazwa systemowa',
         'name' => 'Nazwa',
         'label' => 'Etykieta',
         'section' => 'Przekierowanie do sekcji',

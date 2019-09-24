@@ -279,7 +279,8 @@ create table im_object (
     type_id int not null,
     label_id int not null,
     section int default 0,-- direction to section, 0 - not direction (this in not foreign key)
-    name varchar(128) collate utf8_polish_ci default '',
+    system_name varchar(128) collate utf8_polish_ci default '',-- first, important, require, because object type could be without normal name
+    name varchar(256) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     position int default 0,
