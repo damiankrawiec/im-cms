@@ -1,19 +1,21 @@
 <?php
 //Table definition init in this file
-$table = 'im_type';
+$table = 'im_file';
 //---
 //Base url definition in this file
 $baseUrl = $addition->getUrl(2);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['type']);
+$oneData = (object) array('value' => $translation['menu']['file']);
 
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        type_id,
+        file_id,
         name,
-        class,
+        content,
+        url,
+        status,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify
@@ -47,7 +49,8 @@ if($displayCount == 'all') {
 
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
-        'table_add' => array($table)
+        'table_add' => array($table),
+        'system' => $g_system
     );
 
     require_once 'content/box/event/add.php';
@@ -63,10 +66,10 @@ if ($record) {
             'record' => $record,
             'event' => 'edit,delete',
             'table_delete' => array('main' => $table),
+            'file_delete' => '../system/'.$g_system.'/public',
             'restriction' => array(
                 'delete' => array(
-                    'im_object' => 'type_id',
-                    'im_type_property' => 'type_id'
+                    'im_object_file' => 'file_id'
                 )
             ),
             'url' => $baseUrl
@@ -81,7 +84,8 @@ if ($record) {
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
-            'url' => $baseUrl
+            'url' => $baseUrl,
+            'system' => $g_system
         );
 
         require_once 'content/box/event/edit.php';

@@ -39,6 +39,9 @@ if($restrictionStatus) {
 
     $alert1 = $translation['message']['delete-success'];
 
+    if(isset($eventData['file_delete']))
+        require_once 'php/run/delete/file.php';
+
 }else{
 
     $alert0 = $translation['message']['relation-exists'];

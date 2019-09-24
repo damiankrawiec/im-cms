@@ -46,6 +46,10 @@ $p_restriction = false;
 if(isset($_POST['restriction']))
     $p_restriction = $addition->jsonArray($_POST['restriction']);
 
+$p_file_delete = false;
+if(isset($_POST['file_delete']))
+    $p_file_delete = $_POST['file_delete'];
+
 $p_event_table = false;
 if(isset($_POST['event_table']))
     $p_event_table = $addition->jsonArray($_POST['event_table']);

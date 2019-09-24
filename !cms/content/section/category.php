@@ -56,21 +56,34 @@ $record = $db->run($displayCount);
 
 echo '<div class="col-12">';
 
-if ($record) {
+if($displayCount == 'all') {
 
-    if($displayCount == 'all') {
+    if($g_var1 == 0) {
 
         $eventData = array(
             'field' => $s_eventDefinition['add'][$table],
             'table_add' => array($table),
             'supplement' => array(
                 'im_category' => array(
-                    'position' => (count($record) + 1)
+                    'position' => ($record ? (count($record) + 1) : 1)
                 )
             )
         );
 
         require_once 'content/box/event/add.php';
+
+    }else{
+
+        if(!$record)
+            echo '<a href="'.$addition->getUrl(2).',0'.'" class="btn btn-light float-right">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
+
+    }
+
+}
+
+if ($record) {
+
+    if($displayCount == 'all') {
 
         $tableData = array(
             'table' => $tableDefinition[$table],

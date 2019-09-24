@@ -40,7 +40,7 @@ foreach($eventData['table'] as $table) {
             $value = $su;
             if($su == 'create') {
 
-                if($s == 'url')
+                if($s == 'name_url')
                     $value = $addition->createUrl($eventData['data']['name']);
 
             }

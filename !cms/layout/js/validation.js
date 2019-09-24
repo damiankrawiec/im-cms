@@ -54,3 +54,13 @@ function file($file = '') {
     return $check;
 
 }
+function textarea($string = '') {
+
+    var $check = true;
+
+    if($string == '')
+        $check = false;
+
+    return $check;
+
+}

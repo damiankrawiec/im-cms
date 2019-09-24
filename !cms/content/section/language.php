@@ -46,6 +46,17 @@ $record = $db->run($displayCount);
 
 echo '<div class="col-12">';
 
+if($displayCount == 'all') {
+
+    $eventData = array(
+        'field' => $s_eventDefinition['add'][$table],
+        'table_add' => array($table)
+    );
+
+    require_once 'content/box/event/add.php';
+
+}
+
 if ($record) {
 
     if($displayCount == 'all') {

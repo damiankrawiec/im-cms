@@ -31,6 +31,9 @@ function validation($form){
             if($typeValidation === 'file')
                 $check = file($(this).val());
 
+            if($typeValidation === 'textarea')
+                $check = textarea($(this).text());
+
             if(!$check){
 
                 $(this).after($icon);

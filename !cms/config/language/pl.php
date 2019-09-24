@@ -11,7 +11,7 @@ $translation = array(
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji'
     ),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj', 'on' => 'Włącz', 'off' => 'Wyłącz'),
+    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj', 'on' => 'Włącz', 'off' => 'Wyłącz', 'reset-view' => 'Resetuj widok'),
     'message' => array(
         'no-data' => 'Brak danych',
         'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
@@ -44,8 +44,9 @@ $translation = array(
         'link' => 'Pole na odsyłacz zewnętrzny (nie jest wymagane, otwarcie w nowym oknie)',
         'date' => 'Pole data w dowolnym formacie (nie jest wymagane)',
         'content' => 'Pole na treść (nie jest wymagane)',
-        'name_url' => 'Pole url to nazwa w pasku adresu (pole wymagane)',
-        'image' => 'Obecne obrazy'
+        'name_url' => 'Pole url to nazwa w pasku adresu (obowiązkowe)',
+        'image' => 'Obecne obrazy',
+        'source' => 'Pole na źródło (obowiązkowe)'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -59,7 +60,8 @@ $translation = array(
         'category' => 'Kategorie występowania'
     ),
     'validation' => array(
-        'wrong-file' => 'Plik niepoprawny'
+        'wrong-file' => 'Plik niepoprawny',
+        'delete-file-fail' => 'Nieudane usunięcie bieżącego pliku'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -121,6 +123,21 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
     ),
+    'im_file' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
+    ),
+    'im_movie' => array(
+        'name' => 'Nazwa',
+        'link' => 'Odsyłacz zewnętrzny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status'
+    )
 );
 $tableDefinitionEvent = array(
     'im_type' => array(
@@ -166,4 +183,16 @@ $tableDefinitionEvent = array(
         'link' => 'Przekierowanie',
         'description' => 'Opis techniczny'
     ),
+    'im_file' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'url' => 'Plik',
+        'description' => 'Opis techniczny'
+    ),
+    'im_movie' => array(
+        'name' => 'Nazwa',
+        'content' => 'Źródło',
+        'link' => 'Odsyłacz zewnętrzny',
+        'description' => 'Opis techniczny'
+    )
 );

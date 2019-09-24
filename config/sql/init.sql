@@ -443,7 +443,7 @@ create table im_movie (
     movie_id int not null auto_increment,
     name varchar(64) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
-    url varchar(128) collate utf8_polish_ci default '',
+    link varchar(128) collate utf8_polish_ci default '',
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time

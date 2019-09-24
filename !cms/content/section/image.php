@@ -46,27 +46,28 @@ $record = $db->run($displayCount);
 
 echo '<div class="col-12">';
 
+if($displayCount == 'all') {
+
+    $eventData = array(
+        'field' => $s_eventDefinition['add'][$table],
+        'table_add' => array($table),
+        'system' => $g_system
+    );
+
+    require_once 'content/box/event/add.php';
+
+}
+
 if ($record) {
 
     if($displayCount == 'all') {
-
-        if($g_var1 == 0) {
-
-            $eventData = array(
-                'field' => $s_eventDefinition['add'][$table],
-                'table_add' => array($table),
-                'system' => $g_system
-            );
-
-            require_once 'content/box/event/add.php';
-
-        }
 
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
             'event' => 'edit,delete',
             'table_delete' => array('main' => $table),
+            'file_delete' => '../system/'.$g_system.'/public',
             'restriction' => array(
                 'delete' => array(
                     'im_object_image' => 'image_id'

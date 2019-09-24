@@ -194,7 +194,9 @@ class Addition
 
             unlink($path);
 
-        }
+            return true;
+
+        }else return false;
 
 
     }
@@ -215,7 +217,9 @@ class Addition
 
         if(!$permitted or ($permitted and stristr($permitted, $extension))) {
 
-            $fileName = reset($newFileNameArray) . '-' . $this->transaction() . '.' . $extension;
+            $newFileNameClear = $this->createUrl(reset($newFileNameArray));
+
+            $fileName = $newFileNameClear . '-' . $this->transaction() . '.' . $extension;
 
             return strtolower($fileName);
 

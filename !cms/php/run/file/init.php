@@ -16,7 +16,8 @@ if($newFile != '') {
 
             if (isset($eventData['current'])) {
 
-                $addition->removeFile($eventData['path'] . $eventData['current']);
+                if(!$addition->removeFile($eventData['path'] . $eventData['current']))
+                    $alert0 = $translation['validation']['delete-file-fail'];
 
             }
 

@@ -60,22 +60,26 @@ if($g_var1 != '') {
 
     echo '<div class="col-12">';
 
+    if($displayCount == 'all') {
+
+        $eventData = array(
+            'field' => $s_eventDefinition['add'][$table],
+            'table_add' => array($table),
+            'supplement' => array(
+                'im_type_property' => array(
+                    'type_id' => $g_var1,
+                    'position' => ($record ? (count($record) + 1) : 1)
+                )
+            )
+        );
+
+        require_once 'content/box/event/add.php';
+
+    }
+
     if ($record) {
 
         if($displayCount == 'all') {
-
-            $eventData = array(
-                'field' => $s_eventDefinition['add'][$table],
-                'table_add' => array($table),
-                'supplement' => array(
-                    'im_type_property' => array(
-                        'type_id' => $g_var1,
-                        'position' => (count($record) + 1)
-                    )
-                )
-            );
-
-            require_once 'content/box/event/add.php';
 
             $tableData = array(
                 'table' => $tableDefinition[$table],

@@ -41,6 +41,9 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_current)
                 $eventData['current'] = $p_current;
 
+            if($p_file_delete)
+                $eventData['file_delete'] = $p_file_delete;
+
             if($p_event_collection)
                 $eventData['collection'] = $p_event_collection;
 

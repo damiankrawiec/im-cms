@@ -58,8 +58,11 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
-                if($field['type'] == 'image')
-                    require_once 'php/script/image.php';
+                if($field['type'] == 'source')
+                    echo '<textarea name="form_' . $i . '" class="form-control'.$require.'" rows="3" id="' . $i . '" placeholder="' . $translation['edit']['source'] . '"></textarea>';
+
+                if($field['type'] == 'image' or $field['type'] == 'file')
+                    require_once 'php/script/files.php';
 
                 require 'php/script/select-event.php';
 
