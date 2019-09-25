@@ -54,6 +54,16 @@ function file($file = '') {
     return $check;
 
 }
+function source($string = '') {
+
+    var $check = true;
+
+    if($string == '')
+        $check = false;
+
+    return $check;
+
+}
 function textarea($string = '') {
 
     var $check = true;

@@ -23,16 +23,16 @@ foreach ($field as $f)
 if(!in_array('name', $fields))
     unset($eventData['field']['name']);
 
-if(!in_array('text', $fields))
+if(!in_array('content', $fields))
     unset($eventData['field']['content']);
 
-if(!in_array('link', $fields))
+if(!in_array('section', $fields))
     unset($eventData['field']['section']);
 
 if(!in_array('date', $fields))
     unset($eventData['field']['date']);
 
-if(!in_array('external', $fields))
+if(!in_array('link', $fields))
     unset($eventData['field']['link']);
 
 if(!in_array('image', $fields))

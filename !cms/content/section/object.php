@@ -128,7 +128,7 @@ if($g_var1 != '') {
                 )
             );
 
-            //Filter fields in type
+            //Filter fields in type (hide)
             require_once 'php/script/field.php';
 
             require_once 'content/box/event/edit.php';

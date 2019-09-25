@@ -1,6 +1,6 @@
 <?php
 
-if($g_var1 > 0) {
+if($g_var1 > 0 and $g_var2 == '') {
 
     $sql = 'select name, name_url, parent from im_section where section_id = :id';
 
@@ -20,7 +20,7 @@ if($g_var1 > 0) {
 
         $sectionCurrent = $db->run('one');
 
-        array_push($breadcrumb, '<div class="col-12"><a href="'.$addition->getUrl(2).',' . $sectionCurrent->parent . '" title="' . $sectionCurrent->name . '">' . $sectionCurrent->name . '</a></div>');
+        array_push($breadcrumb, '<a href="'.$addition->getUrl(2).',' . $sectionCurrent->parent . '" title="' . $sectionCurrent->name . '">' . $sectionCurrent->name . '</a>');
 
         $sectionId = $sectionCurrent->parent;
 
@@ -31,13 +31,23 @@ if($g_var1 > 0) {
 
     $breadcrumb = array_reverse($breadcrumb);
 
+    $countBreadcrumb = count($breadcrumb);
+
     echo '<div class="section-breadcrumb">';
 
-    foreach ($breadcrumb as $b) {
+    echo '<ul>';
 
-        echo $b;
+    echo '<li>'.$translation['breadcrumb']['title'].':</li>';
 
+    foreach ($breadcrumb as $b => $bc) {
+
+        echo '<li>'.$bc.'</li>';
+
+        if(($b + 1) < $countBreadcrumb)
+            echo '<li>'.$icon['arrow']['next'].'</li>';
     }
+
+    echo '</ul>';
 
     echo '</div>';
 

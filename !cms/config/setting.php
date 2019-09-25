@@ -27,9 +27,11 @@ $s_menuDefinition = array(
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
         'submenu' => array(
             array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'language'),
-            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation'], 'url' => 'translation')
+            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation'], 'url' => 'translation'),
+            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation_system'], 'url' => 'translation_system,0')
         )
-    )
+    ),
+    'setting' => array('icon' => $icon['menu']['setting'], 'name' => $translation['menu']['setting'], 'url' => 'setting')
 );
 //This definitions are placed in form, and next that fields will be inside sql query, after form send
 $s_eventDefinition = array(
@@ -48,15 +50,16 @@ $s_eventDefinition = array(
             'system_name' => array('name' => $tableDefinitionEvent['im_object']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
             'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_object'),
-            'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'table' => 'im_object'),
-            'link' => array('name' => $tableDefinitionEvent['im_object']['link'], 'type' => 'text', 'table' => 'im_object'),
-            'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'table' => 'im_object'),
-            'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'table' => 'im_object'),
+            'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'require' => 'validation :select', 'table' => 'im_object'),
+            'link' => array('name' => $tableDefinitionEvent['im_object']['link'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
+            'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
+            'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')
         ),
         'im_section' => array(
             'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section', 'copy' => 'name_url'),
             'name_url' => array('name' => $tableDefinitionEvent['im_section']['name_url'], 'type' => 'text', 'table' => 'im_section', 'require' => 'validation :text'),
+            'icon' => array('name' => $tableDefinitionEvent['im_section']['icon'], 'type' => 'text', 'table' => 'im_section'),
             'description' => array('name' => $tableDefinitionEvent['im_section']['description'], 'type' => 'textarea', 'table' => 'im_section')
         ),
         'im_category' => array(
@@ -75,7 +78,7 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
             'content' => array('name' => $tableDefinitionEvent['im_image']['content'], 'type' => 'textarea:editor', 'table' => 'im_image'),
             'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_image'),
-            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'option' => 'preview,add', 'table' => 'im_image'),
+            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'table' => 'im_image'),
             'description' => array('name' => $tableDefinitionEvent['im_image']['description'], 'type' => 'textarea', 'table' => 'im_image')
         ),
         'im_file' => array(
@@ -86,9 +89,21 @@ $s_eventDefinition = array(
         ),
         'im_movie' => array(
             'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie'),
-            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'source', 'require' => 'validation :text', 'table' => 'im_movie'),
+            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_movie'),
             'link' => array('name' => $tableDefinitionEvent['im_movie']['link'], 'type' => 'text', 'table' => 'im_movie'),
             'description' => array('name' => $tableDefinitionEvent['im_movie']['description'], 'type' => 'textarea', 'table' => 'im_movie')
+        ),
+        'im_setting' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_setting']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),
+            'content' => array('name' => $tableDefinitionEvent['im_setting']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_setting'),
+            'description' => array('name' => $tableDefinitionEvent['im_setting']['description'], 'type' => 'textarea', 'table' => 'im_setting')
+        ),
+        'im_translation_system' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_translation_system']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_translation_system']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_translation_system'),
+            'content' => array('name' => $tableDefinitionEvent['im_translation_system']['content'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
+            'description' => array('name' => $tableDefinitionEvent['im_translation_system']['description'], 'type' => 'textarea', 'table' => 'im_translation_system')
         )
     ),
     'add' => array(
@@ -124,7 +139,17 @@ $s_eventDefinition = array(
         ),
         'im_movie' => array(
             'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie'),
-            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'source', 'require' => 'validation :text', 'table' => 'im_movie')
+            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_movie')
+        ),
+        'im_setting' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_setting']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),
+            'content' => array('name' => $tableDefinitionEvent['im_setting']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_setting')
+        ),
+        'im_translation_system' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_translation_system']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_translation_system']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
+            'content' => array('name' => $tableDefinitionEvent['im_translation_system']['content'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system')
         )
     )
 );

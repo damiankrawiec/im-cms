@@ -22,4 +22,11 @@ i.translation {
   padding: 10px;
   display: none;
 }
+#scroll-top {
+  position: fixed;
+  bottom: 55px;
+  right: 50px;
+  cursor: pointer;
+  display: none;
+}
 /*# sourceMappingURL=main.css.map */

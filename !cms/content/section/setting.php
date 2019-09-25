@@ -1,21 +1,16 @@
 <?php
 //Table definition init in this file
-$table = 'im_movie';
+$table = 'im_setting';
 //---
 //Base url definition in this file
 $baseUrl = $addition->getUrl(2);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['movie']);
-
-require_once 'php/script/one-data-display.php';
-
 $sql = 'select 
-        movie_id,
+        setting_id,
         name,
+        system_name,
         content,
-        link,
-        status,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify
@@ -67,7 +62,8 @@ if ($record) {
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(
-                    'im_object_movie' => 'movie_id'
+                    'im_object' => 'type_id',
+                    'im_type_property' => 'type_id'
                 )
             ),
             'url' => $baseUrl

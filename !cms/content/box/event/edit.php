@@ -3,7 +3,13 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="window-background">';
 
-    echo '<h3>'.$eventData['record']->name.'</h3>';
+    if(isset($eventData['record']->system_name)) {
+
+        $nameDisplay = 'system_name';
+
+    }else $nameDisplay = 'name';
+
+    echo '<h3>'.$nameDisplay = $eventData['record']->$nameDisplay.'</h3>';
 
     echo '<form method="post" class="edit"'.(isset($eventData['field']['url']) ? 'enctype="multipart/form-data"' : '').'>';
 
@@ -47,7 +53,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                         $editorDisplay = true;
                     }
 
-                    echo '<textarea name="form_' . $i . '" class="form-control' .$editorDisplayNow. '" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">' . $editDataOne . '</textarea>';
+                    echo '<textarea name="form_' . $i . '" class="form-control'.$require.$editorDisplayNow. '" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '">' . $editDataOne . '</textarea>';
 
 
                 }
@@ -57,9 +63,6 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                     echo '<input type="hidden" value="'.$eventData['record']->$i.'">';
 
                 }
-
-                if($field['type'] == 'source')
-                    echo '<textarea name="form_' . $i . '" class="form-control'.$require.'" rows="3" id="' . $i . '" placeholder="' . $translation['edit']['source'] . '"></textarea>';
 
                 if($field['type'] == 'image' or $field['type'] == 'file')
                     require_once 'php/script/files.php';

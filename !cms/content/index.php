@@ -31,7 +31,7 @@ if($p_transaction)
 
 //---DO NOT REMOVE!!!
 
-echo '<div class="container-fluid">';
+echo '<div class="container-fluid" id="content-top">';
 
     echo '<div class="row bg-secondary">';
 
@@ -62,13 +62,7 @@ echo '<div class="container-fluid">';
 
 echo '</div>';
 
-echo '<div class="container-fluid">';
-
-
-
-echo '</div>';
-
-echo '<div class="container-fluid">';
+echo '<div class="container-fluid" id="container">';
 
 //Content
 require_once 'content/box/content.php';

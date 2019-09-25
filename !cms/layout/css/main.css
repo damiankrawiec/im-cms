@@ -17,6 +17,14 @@ body {
 .chosen-container {
   min-width: 250px;
 }
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
 .im-hide {
   display: none;
 }
@@ -180,6 +188,29 @@ ul.pagination .page-link i {
 }
 .edit {
   padding: 10px 10px 80px;
+}
+#scroll-top {
+  position: fixed;
+  bottom: 55px;
+  right: 50px;
+  cursor: pointer;
+  display: none;
+}
+#content-top {
+  z-index: 10;
+}
+.section-breadcrumb ul {
+  padding: 5px;
+}
+.section-breadcrumb ul li {
+  display: inline;
+  margin: 3px;
+}
+.section-breadcrumb ul li a {
+  color: #343a40;
+}
+#container {
+  margin-top: 5px;
 }
 @media (max-width: 992px) {
   .login-left {

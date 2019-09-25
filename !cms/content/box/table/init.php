@@ -94,7 +94,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 }else{
 
+                    if($f == 'icon' and $r[$f] != '-')
+                        echo '<i class="';
+
                     echo $r[$f];
+
+                    if($f == 'icon' and $r[$f] != '-')
+                        echo ' fa-2x"></i>';
 
                 }
 

@@ -24,13 +24,13 @@ insert into im_type values (null, 'Submenu', 'col-12', '', null, null);
 -- record, property of type of object
 
 insert into im_property values (null, 'Nazwa', 'name', '', null, null);
-insert into im_property values (null, 'Tekst', 'text', '', null, null);
+insert into im_property values (null, 'Tekst', 'content', '', null, null);
 insert into im_property values (null, 'Data', 'date', '', null, null);
 insert into im_property values (null, 'Zdjęcie', 'image', '', null, null);
-insert into im_property values (null, 'Link', 'link', '', null, null);
+insert into im_property values (null, 'Link wewnętrzny', 'section', '', null, null);
 insert into im_property values (null, 'Plik', 'file', '', null, null);
-insert into im_property values (null, 'Menu', 'section', '', null, null);
-insert into im_property values (null, 'Link zewnętrzny', 'external', '', null, null);
+insert into im_property values (null, 'Menu', 'menu', '', null, null);
+insert into im_property values (null, 'Link zewnętrzny', 'link', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 
 -- record, set property in type

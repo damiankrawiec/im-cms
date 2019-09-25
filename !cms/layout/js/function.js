@@ -31,8 +31,11 @@ function validation($form){
             if($typeValidation === 'file')
                 $check = file($(this).val());
 
-            if($typeValidation === 'textarea')
-                $check = textarea($(this).text());
+            if($typeValidation === 'source')
+                $check = source($(this).val());
+
+            if($typeValidation.indexOf( 'textarea') > -1)
+                $check = textarea($(this).prev().find('.jodit_wysiwyg').text());
 
             if(!$check){
 
@@ -367,5 +370,34 @@ function collection() {
 function filter($value) {
 
     window.location = $('#url-system').val() + ',' + $('#url-section').val() + ',' + $value;
+
+}
+function scrollEvent() {
+
+    var $window = $(window);
+
+    $window.scroll(function() {
+
+        if($window.scrollTop() > 90){
+
+            $('#content-top').addClass('position-fixed');
+
+            $('#scroll-top').fadeIn();
+
+        }else{
+
+            $('#content-top').removeClass('position-fixed');
+
+            $('#scroll-top').fadeOut();
+
+        }
+
+    });
+
+    $('#scroll-top').click(function(){
+
+        $('html').animate({scrollTop: '0'}, 1000);
+
+    });
 
 }

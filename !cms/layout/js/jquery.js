@@ -118,6 +118,8 @@ $(function(){
 
         $('select.form-control').chosen();
 
+        scrollEvent();
+
     }
 
 });

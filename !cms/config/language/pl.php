@@ -28,25 +28,29 @@ $translation = array(
         'property' => 'Właściwości typów',
         'language' => 'Język',
         'translation' => 'Tłumaczenia',
+        'translation_system' => 'Tłumaczenia systemowe',
         'definition' => 'Definicje',
         'multimedia' => 'Multimedia',
         'image' => 'Obrazy',
         'file' => 'Pliki',
-        'movie' => 'Filmy'
+        'movie' => 'Filmy',
+        'setting' => 'Ustawienia'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
         'name' => 'Pole nazwy',
-        'system_name' => 'Pole nazwa systemowa (obowiązkowe)',
+        'system_name' => 'Pole nazwa systemowa',
         'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
-        'link' => 'Pole na odsyłacz zewnętrzny (nie jest wymagane, otwarcie w nowym oknie)',
-        'date' => 'Pole data w dowolnym formacie (nie jest wymagane)',
-        'content' => 'Pole na treść (nie jest wymagane)',
-        'name_url' => 'Pole url to nazwa w pasku adresu (obowiązkowe)',
+        'link' => 'Pole na odsyłacz zewnętrzny (otwarcie w nowym oknie)',
+        'date' => 'Pole data w dowolnym formacie',
+        'content' => 'Pole na treść',
+        'name_url' => 'Pole url to nazwa w pasku adresu',
         'image' => 'Obecne obrazy',
-        'source' => 'Pole na źródło (obowiązkowe)'
+        'source' => 'Pole na źródło',
+        'icon' => 'Pole tekstowe ikony',
+        'language' => 'Definicja języka'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -62,6 +66,9 @@ $translation = array(
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',
         'delete-file-fail' => 'Nieudane usunięcie bieżącego pliku'
+    ),
+    'breadcrumb' => array(
+        'title' => 'Twoje położenie'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -92,6 +99,7 @@ $tableDefinition = array(
     'im_section' => array(
         'name' => 'Nazwa',
         'name_url' => 'Nazwa url',
+        'icon' => 'Ikona (Fontawesome)',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
@@ -136,6 +144,22 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
+    ),
+    'im_setting' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_translation_system' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'language' => 'Język',
+        'content' => 'Tłumaczenie',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );
 $tableDefinitionEvent = array(
@@ -162,6 +186,7 @@ $tableDefinitionEvent = array(
     'im_section' => array(
         'name' => 'Nazwa',
         'name_url' => 'Nazwa url',
+        'icon' => 'Ikona (Fontawesome)',
         'description' => 'Opis techniczny'
     ),
     'im_category' => array(
@@ -193,6 +218,19 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'content' => 'Źródło',
         'link' => 'Odsyłacz zewnętrzny',
+        'description' => 'Opis techniczny'
+    ),
+    'im_setting' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'content' => 'Zawartość',
+        'description' => 'Opis techniczny'
+    ),
+    'im_translation_system' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'language' => 'Język',
+        'content' => 'Zawartość',
         'description' => 'Opis techniczny'
     )
 );

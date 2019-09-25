@@ -231,6 +231,31 @@ function translation() {
     }
 
 }
+function scrollEvent() {
+
+    var $window = $(window);
+
+    $window.scroll(function() {
+
+        if($window.scrollTop() > 200){
+
+            $('#scroll-top').fadeIn();
+
+        }else{
+
+            $('#scroll-top').fadeOut();
+
+        }
+
+    });
+
+    $('#scroll-top').click(function(){
+
+        $('html').animate({scrollTop: '0'}, 1000);
+
+    });
+
+}
 function niceSelect() {
 
     $('.select').niceSelect();

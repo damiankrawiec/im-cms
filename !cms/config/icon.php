@@ -40,7 +40,8 @@ $icon = array(
         'multimedia' => '<i class="fal fa-photo-video"></i>',
         'image' => '<i class="fal fa-image"></i>',
         'file' => '<i class="fal fa-file"></i>',
-        'movie' => '<i class="fal fa-video"></i>'
+        'movie' => '<i class="fal fa-video"></i>',
+        'setting' => '<i class="fal fa-cog"></i>'
     ),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),

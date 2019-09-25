@@ -20,9 +20,19 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if($field['type'] == 'text')
                     echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="">';
 
-                if($field['type'] == 'source')
-                    echo '<textarea name="form_' . $i . '" class="form-control'.$require.'" rows="3" id="' . $i . '" placeholder="' . $translation['edit']['source'] . '"></textarea>';
+                if(stristr($field['type'], 'textarea')) {
 
+                    $editorDisplayNow = '';
+                    if(stristr($field['type'], ':editor') and !$editorDisplay) {
+
+                        $editorDisplayNow = ' editor';
+
+                        $editorDisplay = true;
+                    }
+
+                    echo '<textarea name="form_' . $i . '" class="form-control'.$require.$editorDisplayNow. '" rows="3" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '"></textarea>';
+
+                }
 
                 if($field['type'] == 'image' or $field['type'] == 'file')
                     require_once 'php/script/files.php';

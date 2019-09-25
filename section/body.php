@@ -3,6 +3,8 @@
 if(!isset($sectionPath))
     $sectionPath = '';
 
+require_once $sectionPath.'section/top.php';
+
 echo '<script src="'.$sectionPath.'app/composer/vendor/components/jquery/jquery.min.js"></script>
       <script src="'.$sectionPath.'app/composer/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>';
 

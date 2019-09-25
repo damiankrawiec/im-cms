@@ -77,7 +77,7 @@ class ObjectContent extends Language {
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as text, o.link as external, o.section as link';
+        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as content, o.section as section, o.link as link';
 
         //Field from joining tables
         //if($isParameter) {}
@@ -646,7 +646,7 @@ class ObjectContent extends Language {
                                     $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
 
                                 }
-                                if ($p['name'] == 'section') {
+                                if ($p['name'] == 'menu') {
 
                                     $sectionParent = $submenu = false;
                                     if($this->checkDisplayOption($option, 'parent'))
@@ -655,16 +655,16 @@ class ObjectContent extends Language {
                                     if($this->checkDisplayOption($option, 'submenu'))
                                         $submenu = true;
 
-                                    $displayPropertyData['section'] = $this->getSection($sectionParent, $submenu);
+                                    $displayPropertyData['menu'] = $this->getSection($sectionParent, $submenu);
 
                                 }
-                                if($p['name'] == 'link') {
+                                if($p['name'] == 'section') {
 
-                                    if(is_numeric($or['link']) and $or['link'] > 0) {
+                                    if(is_numeric($or['section']) and $or['section'] > 0) {
 
-                                        $displayPropertyData['link'] = $this->getSectionUrl($or['link']);
+                                        $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
 
-                                    }else $displayPropertyData['link'] = false;
+                                    }else $displayPropertyData['section'] = false;
 
                                 }
 
