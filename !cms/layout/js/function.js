@@ -401,3 +401,11 @@ function scrollEvent() {
     });
 
 }
+
+function translationMove($target) {
+
+    $('#translation-move').attr('action', $target);
+
+    $('#translation-move').submit();
+
+}

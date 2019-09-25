@@ -24,7 +24,9 @@ $icon = array(
         'delete' => '<i class="fal fa-trash-alt pt-1"></i>',
         'sort' => '<i class="fal fa-sort"></i>',
         'move' => '<i class="fal fa-arrow-alt-right pt-1"></i>',
-        'copy' => '<i class="fal fa-copy"></i>'
+        'copy' => '<i class="fal fa-copy"></i>',
+        'translation' => '<i class="fal fa-language fa-2x"></i>',
+        'back' => '<i class="fal fa-reply"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

@@ -13,7 +13,7 @@ require_once 'php/script/one-data-display.php';
 $sql = 'select 
         t.translation_system_id as translation_system_id,
         t.name as name,
-        tj.name as language,
+        t.language_id as language_id,
         t.system_name as system_name,
         t.content as content,
         if(t.description = \'\', \'-\', t.description) as description,
@@ -75,6 +75,10 @@ if($displayCount == 'all') {
 
 }
 
+if($g_var1 > 0 and !$record)
+    echo '<a href="'.$addition->getUrl(2).',0'.'" class="btn btn-light float-right mb-1">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
+
+
 if ($record) {
 
     if($displayCount == 'all') {
@@ -93,8 +97,6 @@ if ($record) {
     }
 
     if($displayCount == 'one') {
-
-        echo $record->language;
 
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],

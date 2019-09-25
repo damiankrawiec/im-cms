@@ -42,6 +42,10 @@ $p_current = false;
 if(isset($_POST['current']))
     $p_current = $_POST['current'];
 
+$p_back = false;
+if(isset($_POST['back']))
+    $p_back = $_POST['back'];
+
 $p_restriction = false;
 if(isset($_POST['restriction']))
     $p_restriction = $addition->jsonArray($_POST['restriction']);

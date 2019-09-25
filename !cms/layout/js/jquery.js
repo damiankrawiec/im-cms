@@ -113,6 +113,11 @@ $(function(){
             fix();
 
         }
+        $('.translation-move').click(function(){
+
+            translationMove($(this).attr('id'));
+
+        });
 
         currentShow();
 

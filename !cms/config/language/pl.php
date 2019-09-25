@@ -27,7 +27,6 @@ $translation = array(
         'category' => 'Kategorie',
         'property' => 'Właściwości typów',
         'language' => 'Język',
-        'translation' => 'Tłumaczenia',
         'translation_system' => 'Tłumaczenia systemowe',
         'definition' => 'Definicje',
         'multimedia' => 'Multimedia',
@@ -50,7 +49,7 @@ $translation = array(
         'image' => 'Obecne obrazy',
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
-        'language' => 'Definicja języka'
+        'language_id' => 'Definicja języka'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -155,7 +154,6 @@ $tableDefinition = array(
     'im_translation_system' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
-        'language' => 'Język',
         'content' => 'Tłumaczenie',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',

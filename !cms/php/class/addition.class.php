@@ -129,6 +129,9 @@ class Addition
         if($g_var2 != '')
             $url .= ','.$g_var2;
 
+        if($g_var3 != '')
+            $url .= ','.$g_var3;
+
         $this->url = $url;
 
     }
@@ -158,6 +161,24 @@ class Addition
             return $this->url;
 
         }
+
+    }
+    public function varUrl() {
+
+        require 'php/script/get.php';
+
+        $url = '';
+
+        if($g_var1 != '')
+            $url .= ','.$g_var1;
+
+        if($g_var2 != '')
+            $url .= ','.$g_var2;
+
+        if($g_var3 != '')
+            $url .= ','.$g_var3;
+
+        return $url;
 
     }
 
@@ -253,4 +274,5 @@ class Addition
         return $string;
 
     }
+
 }

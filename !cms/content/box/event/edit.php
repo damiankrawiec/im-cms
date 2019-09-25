@@ -28,6 +28,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 echo '<label for="'.$i.'">'.$field['name'].'</label>';
 
+                require 'php/script/translation.php';
+
                 $require = '';
                 if(isset($field['require']))
                     $require = ' '.$field['require'];
@@ -57,6 +59,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
 
                 }
+
                 if($field['type'] == 'date') {
 
                     echo '<input type="text" name="form_' . $i . '" data-language="pl" class="im-datepicker form-control' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" value="' . $eventData['record']->$i . '">';
@@ -97,6 +100,17 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
 
     echo '</form>';
+
+    if(isset($translationForm)) {
+
+        echo '<form action="" method="post" id="translation-move">';
+
+        echo '<input name="back" value="'.$addition->getUrl(2).$addition->varUrl().'">';
+        
+        echo '</form>';
+
+    }
+
 
     echo '</div>';
 

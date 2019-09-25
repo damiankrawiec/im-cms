@@ -75,7 +75,7 @@ if($displayCount == 'all') {
     }else{
 
         if(!$record)
-            echo '<a href="'.$addition->getUrl(2).',0'.'" class="btn btn-light float-right">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
+            echo '<a href="'.$addition->getUrl(2).',0'.'" class="btn btn-light float-right mb-1">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
 
     }
 

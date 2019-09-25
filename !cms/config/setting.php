@@ -27,7 +27,6 @@ $s_menuDefinition = array(
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
         'submenu' => array(
             array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'language'),
-            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation'], 'url' => 'translation'),
             array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation_system'], 'url' => 'translation_system,0')
         )
     ),
@@ -102,6 +101,7 @@ $s_eventDefinition = array(
         'im_translation_system' => array(
             'name' => array('name' => $tableDefinitionEvent['im_translation_system']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
             'system_name' => array('name' => $tableDefinitionEvent['im_translation_system']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_translation_system'),
+            'language_id' => array('name' => $tableDefinitionEvent['im_translation_system']['language'], 'type' => 'select:im_language', 'require' => 'validation :select', 'table' => 'im_translation_system'),
             'content' => array('name' => $tableDefinitionEvent['im_translation_system']['content'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation_system'),
             'description' => array('name' => $tableDefinitionEvent['im_translation_system']['description'], 'type' => 'textarea', 'table' => 'im_translation_system')
         )
