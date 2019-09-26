@@ -132,6 +132,12 @@ class Addition
         if($g_var3 != '')
             $url .= ','.$g_var3;
 
+        if($g_var4 != '')
+            $url .= ','.$g_var4;
+
+        if($g_var5 != '')
+            $url .= ','.$g_var5;
+
         $this->url = $url;
 
     }
@@ -177,6 +183,12 @@ class Addition
 
         if($g_var3 != '')
             $url .= ','.$g_var3;
+
+        if($g_var4 != '')
+            $url .= ','.$g_var4;
+
+        if($g_var5 != '')
+            $url .= ','.$g_var5;
 
         return $url;
 

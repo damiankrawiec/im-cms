@@ -11,7 +11,16 @@ $translation = array(
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji'
     ),
-    'button' => array('save' => 'Zapisz', 'cancel' => 'Anuluj', 'edit' => 'Edytuj', 'add' => 'Dodaj', 'on' => 'Włącz', 'off' => 'Wyłącz', 'reset-view' => 'Resetuj widok'),
+    'button' => array(
+        'save' => 'Zapisz',
+        'cancel' => 'Anuluj',
+        'edit' => 'Edytuj',
+        'add' => 'Dodaj',
+        'on' => 'Włącz',
+        'off' => 'Wyłącz',
+        'reset-view' => 'Resetuj widok',
+        'back' => 'Powrót'
+    ),
     'message' => array(
         'no-data' => 'Brak danych',
         'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
@@ -27,6 +36,7 @@ $translation = array(
         'category' => 'Kategorie',
         'property' => 'Właściwości typów',
         'language' => 'Język',
+        'translation' => 'Tłumaczenia',
         'translation_system' => 'Tłumaczenia systemowe',
         'definition' => 'Definicje',
         'multimedia' => 'Multimedia',
@@ -158,6 +168,12 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_translation' => array(
+        'name' => 'Nazwa',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );
 $tableDefinitionEvent = array(
@@ -228,7 +244,13 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
         'language' => 'Język',
-        'content' => 'Zawartość',
+        'content' => 'Tłumaczenie',
+        'description' => 'Opis techniczny'
+    ),
+    'im_translation' => array(
+        'name' => 'Nazwa',
+        'language' => 'Język',
+        'content' => 'Tłumaczenie',
         'description' => 'Opis techniczny'
     )
 );

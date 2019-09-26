@@ -35,3 +35,17 @@ if(isset($_GET['var3'])) {
     $g_var3 = $_GET['var3'];
 
 }
+
+$g_var4 = '';
+if(isset($_GET['var4'])) {
+
+    $g_var4 = $_GET['var4'];
+
+}
+
+$g_var5 = '';
+if(isset($_GET['var5'])) {
+
+    $g_var5 = $_GET['var5'];
+
+}

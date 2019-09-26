@@ -105,7 +105,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         echo '<form action="" method="post" id="translation-move">';
 
-        echo '<input name="back" value="'.$addition->getUrl(2).$addition->varUrl().'">';
+        echo '<input type="hidden" name="back" value="'.$addition->getUrl(2).$addition->varUrl().'">';
         
         echo '</form>';
 
