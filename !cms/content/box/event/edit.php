@@ -28,7 +28,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 echo '<label for="'.$i.'">'.$field['name'].'</label>';
 
-                require 'php/script/translation.php';
+                if(in_array($table, $s_translationTable))
+                    require 'php/script/translation.php';
 
                 $require = '';
                 if(isset($field['require']))

@@ -3,6 +3,8 @@
 $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
 $s_previewImage = '200px';
+//In what table can be translate in other languages
+$s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_movie');
 //If 'submenu' is string, that mean it is the name of table from database, and data will generated dynamic
 //If 'submenu' is array, that mean it is data from this array
 //If submenu is exists, that mean the url index is no need
@@ -108,7 +110,7 @@ $s_eventDefinition = array(
         'im_translation' => array(
             'name' => array('name' => $tableDefinitionEvent['im_translation']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation'),
             'language_id' => array('name' => $tableDefinitionEvent['im_translation']['language'], 'type' => 'select:im_language', 'require' => 'validation :select', 'table' => 'im_translation'),
-            'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation'),
+            'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => '', 'require' => '', 'table' => 'im_translation'),
             'description' => array('name' => $tableDefinitionEvent['im_translation']['description'], 'type' => 'textarea', 'table' => 'im_translation')
         )
     ),
@@ -137,7 +139,7 @@ $s_eventDefinition = array(
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
             'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_image'),
-            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'option' => 'preview,add', 'table' => 'im_image')
+            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'select:im_section', 'table' => 'im_image')
         ),
         'im_file' => array(
             'name' => array('name' => $tableDefinitionEvent['im_file']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_file'),
@@ -159,7 +161,8 @@ $s_eventDefinition = array(
         ),
         'im_translation' => array(
             'name' => array('name' => $tableDefinitionEvent['im_translation']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation'),
-            'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation'),
+            'language_id' => array('name' => $tableDefinitionEvent['im_translation']['language'], 'type' => 'select:im_language', 'require' => 'validation :select', 'table' => 'im_translation'),
+            'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => '', 'require' => '', 'table' => 'im_translation')
         )
     )
 );

@@ -18,7 +18,12 @@ require_once 'php/script/one-data-display.php';
 
 $sql = 'select
         translation_id,
+        language_id,
         name,
+        target_table,
+        target_column,
+        target_record,
+        content,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify
@@ -76,6 +81,20 @@ $db->bind($parameter);
 
 $record = $db->run($displayCount);
 
+if($g_var2 == 'name') {
+
+    $s_eventDefinition['add'][$table]['content']['type'] = $s_eventDefinition['edit'][$table]['content']['type'] = 'text';
+    $s_eventDefinition['add'][$table]['content']['require'] = $s_eventDefinition['edit'][$table]['content']['require'] = 'validation :text';
+
+}
+
+if($g_var2 == 'content') {
+
+    $s_eventDefinition['add'][$table]['content']['type'] = $s_eventDefinition['edit'][$table]['content']['type'] = 'textarea:editor';
+    $s_eventDefinition['add'][$table]['content']['require'] = $s_eventDefinition['edit'][$table]['content']['require'] = 'validation :textarea';
+
+}
+
 echo '<div class="col-12">';
 
 if($displayCount == 'all') {
@@ -84,6 +103,20 @@ if($displayCount == 'all') {
         'field' => $s_eventDefinition['add'][$table],
         'table_add' => array($table)
     );
+
+    $supplement = array();
+
+    if($g_var1 != '')
+        $supplement['target_table'] = $g_var1;
+
+    if($g_var2 != '')
+        $supplement['target_column'] = $g_var2;
+
+    if($g_var3 != '')
+        $supplement['target_record'] = $g_var3;
+
+    if(count($supplement) > 0)
+        $eventData['supplement']['im_translation'] = $supplement;
 
     require_once 'content/box/event/add.php';
 

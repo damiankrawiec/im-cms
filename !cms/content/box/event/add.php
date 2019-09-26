@@ -7,6 +7,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<form method="post" class="add"'.(isset($eventData['field']['url']) ? 'enctype="multipart/form-data"' : '').'>';
 
+        $editorDisplay = false;
         foreach($eventData['field'] as $i => $field) {
 
             echo '<div class="form-group">';
