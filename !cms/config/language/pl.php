@@ -79,6 +79,14 @@ $translation = array(
     ),
     'breadcrumb' => array(
         'title' => 'Twoje położenie'
+    ),
+    'dashboard' => array(
+        'section' => 'Ostatnie sekcje',
+        'object' => 'Ostatnie obiekty',
+        'property' => 'Ostatnie właściwości',
+        'image' => 'Ostatnie obrazy',
+        'file' => 'Ostatnie pliki',
+        'movie' => 'Ostatnie filmy'
     )
 );
 //Headers of data tables (on the edit the fields may be different)

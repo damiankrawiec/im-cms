@@ -216,6 +216,12 @@ ul.pagination .page-link i {
 .copy {
   font-size: 21px;
 }
+.dashboard-box {
+  padding: 10px;
+  background-color: #fff;
+  border: 5px solid #343a40;
+  margin: 5px 0 5px;
+}
 @media (max-width: 992px) {
   .login-left {
     -webkit-border-top-right-radius: 30px;

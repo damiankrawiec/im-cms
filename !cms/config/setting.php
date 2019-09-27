@@ -3,6 +3,15 @@
 $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
 $s_previewImage = '200px';
+//There should be 6, 9, 12...elements (max: col-md-4)
+$s_dashboard = array(
+    array('name' => $translation['dashboard']['section'], 'table' => 'im_section', 'field' => 'parent'),
+    array('name' => $translation['dashboard']['object'], 'table' => 'im_object', 'field' => 'type_id'),
+    array('name' => $translation['dashboard']['property'], 'table' => 'im_property', 'field' => 'type_id'),
+    array('name' => $translation['dashboard']['image'], 'table' => 'im_image'),
+    array('name' => $translation['dashboard']['file'], 'table' => 'im_file'),
+    array('name' => $translation['dashboard']['movie'], 'table' => 'im_movie')
+);
 //In what table can be translate in other languages
 $s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_movie');
 //If 'submenu' is string, that mean it is the name of table from database, and data will generated dynamic
