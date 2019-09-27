@@ -143,6 +143,7 @@ create table im_section (
     parent int default 0,-- parent, when 0 then root section
     name varchar(128) collate utf8_polish_ci default '',
     name_url varchar(128) default '',-- url name, like as name, it could be change
+    meta varchar(512) default '',-- meta description
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
     position int default 0,
     status varchar(3) default 'on',

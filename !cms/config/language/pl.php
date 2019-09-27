@@ -56,6 +56,7 @@ $translation = array(
         'date' => 'Pole data w dowolnym formacie',
         'content' => 'Pole na treść',
         'name_url' => 'Pole url to nazwa w pasku adresu',
+        'meta' => 'Pole służy do poprawienia indeksu Google danej podstrony (nie jest wymagane)',
         'image' => 'Obecne obrazy',
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
@@ -200,6 +201,7 @@ $tableDefinitionEvent = array(
     'im_section' => array(
         'name' => 'Nazwa',
         'name_url' => 'Nazwa url',
+        'meta' => 'Opis strony (meta)',
         'icon' => 'Ikona (Fontawesome)',
         'description' => 'Opis techniczny'
     ),

@@ -15,6 +15,7 @@ if($g_var1 != '') {
         section_id,
         name,
         name_url,
+        meta,
         if(icon = \'\', \'-\', icon) as icon,
         if(description = \'\', \'-\', description) as description,
         date_create,

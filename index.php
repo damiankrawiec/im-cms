@@ -5,7 +5,7 @@
 
     <?php require_once 'section/head.php'; ?>
 
-    <title><?php echo $setting['name'].' - '.$system->getSection()->name; ?></title>
+    <?php require_once 'section/title.php'; ?>
 
     <?php $system->getHead(); ?>
 

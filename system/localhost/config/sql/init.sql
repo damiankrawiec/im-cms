@@ -1,12 +1,12 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'fad fa-home-heart', 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'fad fa-camera-alt', 2, 'on', '', null, null);
-insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'fad fa-drum', 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'fad fa-guitar', 1, 'on', '', null, null);
-insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', 'fad fa-camera-alt', 2, 'on', '', null, null);
-insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'fad fa-sliders-v-square', 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', 'fad fa-headphones-alt', 3, 'on', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', 1, 'on', '', null, null);
+insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', 2, 'on', '', null, null);
+insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', 3, 'on', '', null, null);
+insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', 1, 'on', '', null, null);
+insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', 2, 'on', '', null, null);
+insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', 3, 'on', '', null, null);
+insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', 3, 'on', '', null, null);
 
 -- record, object label
 

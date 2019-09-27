@@ -40,7 +40,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                     $readonly = ' readonly';
 
                 if(isset($field['copy']))
-                    echo ' <a href="#" class="copy" title="'.$i.':'.$field['copy'].'">'.$icon['button']['copy'].'</a>';
+                    echo ' <a href="#" class="copy btn btn-light p-1 m-1 pt-2" title="'.$i.':'.$field['copy'].'">'.$icon['button']['copy'].'</a>';
 
 
                 if($field['type'] == 'text')
