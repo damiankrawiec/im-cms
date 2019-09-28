@@ -33,6 +33,7 @@ $translation = array(
         'section' => 'Sekcje',
         'definition-object' => 'Definicje obiektowe',
         'type' => 'Typy',
+        'label' => 'Etykiety',
         'category' => 'Kategorie',
         'property' => 'Właściwości typów',
         'language' => 'Język',
@@ -81,12 +82,15 @@ $translation = array(
         'title' => 'Twoje położenie'
     ),
     'dashboard' => array(
-        'section' => 'Ostatnie sekcje',
-        'object' => 'Ostatnie obiekty',
-        'property' => 'Ostatnie właściwości',
-        'image' => 'Ostatnie obrazy',
-        'file' => 'Ostatnie pliki',
-        'movie' => 'Ostatnie filmy'
+        'section' => 'Ostatnio dodane lub zmodyfikowane sekcje',
+        'object' => 'Ostatnio dodane lub zmodyfikowane obiekty',
+        'setting' => 'Ostatnio dodane lub zmodyfikowane ustawienia',
+        'category' => 'Ostatnio dodane lub zmodyfikowane kategorie',
+        'type' => 'Ostatnio dodane lub zmodyfikowane typy',
+        'label' => 'Ostatnio dodane lub zmodyfikowane etykiety',
+        'image' => 'Ostatnio dodane lub zmodyfikowane obrazy',
+        'file' => 'Ostatnio dodane lub zmodyfikowane pliki',
+        'movie' => 'Ostatnio dodane lub zmodyfikowane filmy'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -183,6 +187,13 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_label' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );
 $tableDefinitionEvent = array(
@@ -261,6 +272,11 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'language' => 'Język',
         'content' => 'Tłumaczenie',
+        'description' => 'Opis techniczny'
+    ),
+    'im_label' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny'
     )
 );

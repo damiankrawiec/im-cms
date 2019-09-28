@@ -34,6 +34,7 @@ $icon = array(
         'section' => '<i class="fal fa-file-alt"></i>',
         'definition-object' => '<i class="fal fa-file-signature"></i>',
         'type' => '<i class="fal fa-cube"></i>',
+        'label' => '<i class="fal fa-tag"></i>',
         'property' => '<i class="fal fa-cubes"></i>',
         'category' => '<i class="fal fa-tasks"></i>',
         'definition' => '<i class="fal fa-book-alt"></i>',

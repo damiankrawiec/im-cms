@@ -14,7 +14,7 @@ foreach ($s_dashboard as $dashboard) {
 
     echo '<div class="col-12 col-sm-2 col-md-4 dashboard-box">';
 
-    echo '<h2>'.$dashboard['name'].'</h2>';
+    echo '<p>'.$dashboard['name'].'</p>';
 
     if($dashboardRecord) {
 

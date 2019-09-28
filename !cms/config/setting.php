@@ -7,7 +7,10 @@ $s_previewImage = '200px';
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'table' => 'im_section', 'field' => 'parent'),
     array('name' => $translation['dashboard']['object'], 'table' => 'im_object', 'field' => 'type_id'),
-    array('name' => $translation['dashboard']['property'], 'table' => 'im_property', 'field' => 'type_id'),
+    array('name' => $translation['dashboard']['setting'], 'table' => 'im_setting'),
+    array('name' => $translation['dashboard']['category'], 'table' => 'im_category', 'field' => 'label_id'),
+    array('name' => $translation['dashboard']['type'], 'table' => 'im_type'),
+    array('name' => $translation['dashboard']['label'], 'table' => 'im_label'),
     array('name' => $translation['dashboard']['image'], 'table' => 'im_image'),
     array('name' => $translation['dashboard']['file'], 'table' => 'im_file'),
     array('name' => $translation['dashboard']['movie'], 'table' => 'im_movie')
@@ -25,6 +28,7 @@ $s_menuDefinition = array(
     'definition-object' => array('icon' => $icon['menu']['definition-object'], 'name' => $translation['menu']['definition-object'],
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
+            array('icon' => $icon['menu']['label'], 'name' => $translation['menu']['label'], 'url' => 'label'),
             array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category,0')
         )
     ),
@@ -122,6 +126,11 @@ $s_eventDefinition = array(
             'language_id' => array('name' => $tableDefinitionEvent['im_translation']['language'], 'type' => 'select:im_language', 'require' => 'validation :select', 'table' => 'im_translation'),
             'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => '', 'require' => '', 'table' => 'im_translation'),
             'description' => array('name' => $tableDefinitionEvent['im_translation']['description'], 'type' => 'textarea', 'table' => 'im_translation')
+        ),
+        'im_label' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_label'),
+            'description' => array('name' => $tableDefinitionEvent['im_label']['description'], 'type' => 'textarea', 'table' => 'im_label')
         )
     ),
     'add' => array(
@@ -174,6 +183,10 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_translation']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_translation'),
             'language_id' => array('name' => $tableDefinitionEvent['im_translation']['language'], 'type' => 'select:im_language', 'require' => 'validation :select', 'table' => 'im_translation'),
             'content' => array('name' => $tableDefinitionEvent['im_translation']['content'], 'type' => '', 'require' => '', 'table' => 'im_translation')
+        ),
+        'im_label' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label')
         )
     )
 );
