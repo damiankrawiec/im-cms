@@ -3,7 +3,7 @@
 $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
 $s_previewImage = '200px';
-//There should be 6, 9, 12...elements (max: col-md-4)
+//Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4)
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'table' => 'im_section', 'title' => 'name', 'field' => 'parent'),
     array('name' => $translation['dashboard']['object'], 'table' => 'im_object', 'title' => 'system_name as name', 'field' => 'type_id'),
