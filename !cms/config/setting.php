@@ -5,15 +5,15 @@ $s_permittedImage = 'jpg,jpeg,png,gif';
 $s_previewImage = '200px';
 //There should be 6, 9, 12...elements (max: col-md-4)
 $s_dashboard = array(
-    array('name' => $translation['dashboard']['section'], 'table' => 'im_section', 'field' => 'parent'),
-    array('name' => $translation['dashboard']['object'], 'table' => 'im_object', 'field' => 'type_id'),
-    array('name' => $translation['dashboard']['setting'], 'table' => 'im_setting'),
-    array('name' => $translation['dashboard']['category'], 'table' => 'im_category', 'field' => 'label_id'),
-    array('name' => $translation['dashboard']['type'], 'table' => 'im_type'),
-    array('name' => $translation['dashboard']['label'], 'table' => 'im_label'),
-    array('name' => $translation['dashboard']['image'], 'table' => 'im_image'),
-    array('name' => $translation['dashboard']['file'], 'table' => 'im_file'),
-    array('name' => $translation['dashboard']['movie'], 'table' => 'im_movie')
+    array('name' => $translation['dashboard']['section'], 'table' => 'im_section', 'title' => 'name', 'field' => 'parent'),
+    array('name' => $translation['dashboard']['object'], 'table' => 'im_object', 'title' => 'system_name as name', 'field' => 'type_id'),
+    array('name' => $translation['dashboard']['setting'], 'table' => 'im_setting', 'title' => 'name'),
+    array('name' => $translation['dashboard']['category'], 'table' => 'im_category', 'title' => 'name', 'field' => 'label_id'),
+    array('name' => $translation['dashboard']['type'], 'table' => 'im_type', 'title' => 'name'),
+    array('name' => $translation['dashboard']['label'], 'table' => 'im_label', 'title' => 'name'),
+    array('name' => $translation['dashboard']['image'], 'table' => 'im_image', 'title' => 'name'),
+    array('name' => $translation['dashboard']['file'], 'table' => 'im_file', 'title' => 'name'),
+    array('name' => $translation['dashboard']['movie'], 'table' => 'im_movie', 'title' => 'name')
 );
 //In what table can be translate in other languages
 $s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_movie');

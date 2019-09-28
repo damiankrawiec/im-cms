@@ -6,7 +6,7 @@ foreach ($s_dashboard as $dashboard) {
     if(isset($dashboard['field']) )
         $dashboardField = ', '.$dashboard['field'].' as field';
 
-    $sql = 'select '.$addition->cleanText($dashboard['table'], 'im_').'_id as id, name'.$dashboardField.' from '.$dashboard['table'].' order by date_create desc limit 10';
+    $sql = 'select '.$addition->cleanText($dashboard['table'], 'im_').'_id as id, '.$dashboard['title'].''.$dashboardField.' from '.$dashboard['table'].' order by date_create desc limit 10';
 
     $db->prepare($sql);
 
