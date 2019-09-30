@@ -25,6 +25,8 @@ require_once 'validation/init.php';
 
     <link rel="stylesheet" href="../layout/css/main.css">
 
+    <link rel="stylesheet" href="../layout/css/auth/main.css">
+
 </head>
 <body>
 <div id="background">
