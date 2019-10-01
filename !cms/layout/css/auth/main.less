@@ -1,5 +1,66 @@
 @import '../file/vars.less';
 @import '../file/mixins.less';
+html, body {
+  height: 100%;
+}
 body{
   .linear-gradient();
+}
+//Authorization
+.window-back{
+  padding: 100px 10px 0;
+  > div{
+    margin: 0;
+    padding: 0;
+  }
+  #login-right{
+    .box-shadow();
+    .border-right-radius(30px);
+    overflow: hidden;
+    z-index: -1;
+    img{
+      height: 100%;
+    }
+  }
+  .login-left{
+    .box-shadow();
+    .border-left-radius(30px);
+    background-color: @white;
+    height: 100%;
+    padding: 30px;
+    text-align: center;
+    #auth-header{
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
+  }
+}
+#process{
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  font-size: 60px;
+  padding: 10px;
+  display: none;
+  color: @white;
+}
+#scroll-top{
+  position: fixed;
+  bottom: 55px;
+  right: 50px;
+  cursor: pointer;
+  display: none;
+}
+.im-alert{
+  padding: 5px;
+  background-color: @white;
+}
+.im-hide{
+  display: none;
+}
+//col < 576px, col-sm >= 576px, col-md >= 768px, col-lg >= 992px, col-xl >= 1200px
+@media (max-width: 992px) {
+  .login-left{
+    .border-right-radius(30px);
+  }
 }

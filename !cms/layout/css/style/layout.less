@@ -1,36 +1,3 @@
-//Authorization
-.window-back{
-  padding: 100px 10px 0;
-  > div{
-    margin: 0;
-    padding: 0;
-  }
-  #login-right{
-    .box-shadow();
-    .border-right-radius(30px);
-    overflow: hidden;
-    z-index: -1;
-    img{
-      height: 100%;
-    }
-  }
-  .login-left{
-    .box-shadow();
-    .border-left-radius(30px);
-    background-color: @white;
-    height: 100%;
-    padding: 30px;
-    text-align: center;
-    #auth-header{
-      font-size: 26px;
-      margin-bottom: 6px;
-    }
-  }
-}
-.window-background{
-  background-color: @white;
-  padding: 10px;
-}
 #process{
   position: fixed;
   bottom: 30px;
@@ -39,6 +6,10 @@
   padding: 10px;
   display: none;
   color: @white;
+}
+.window-background{
+  background-color: @white;
+  padding: 10px;
 }
 //Admin (after successful login)
 #current-system{
@@ -129,4 +100,7 @@
   a{
     color: @secondary;
   }
+}
+.last-record{
+  background-color: @light-yellow;
 }

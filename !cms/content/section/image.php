@@ -42,6 +42,14 @@ if($displayCount == 'one') {
 
 }
 
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (isset($parameter))
+        $lastData['parameter'] = $parameter;
+
+}
+
 $record = $db->run($displayCount);
 
 echo '<div class="col-12">';

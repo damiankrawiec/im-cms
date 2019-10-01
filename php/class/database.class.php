@@ -181,9 +181,9 @@ class Database extends systemSetting
 
                 var_dump('Error execute() in run()');
 
-                var_dump($this->sql);
+                echo $this->sql;
 
-                var_dump($this->parameter);
+                echo $this->parameter;
 
                 exit();
             }

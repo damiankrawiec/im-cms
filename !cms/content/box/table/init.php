@@ -1,6 +1,9 @@
 <?php
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
+    $lastId = 0;
+    require_once 'php/script/last.php';
+
     if(isset($tableData['filter'])) {
 
         $sql = 'select '.
@@ -82,7 +85,9 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
         echo '<tbody id="sortable">';
         foreach ($tableData['record'] as $r) {
 
-            echo '<tr id="'.$r[$addition->cleanText($table, 'im_').'_id'].'">';
+            $currentId = $r[$addition->cleanText($table, 'im_').'_id'];
+
+            echo '<tr id="'.$currentId.'"'.($currentId == $lastId ? ' class="last-record"' : '').'>';
 
             foreach ($field as $f) {
 
@@ -90,7 +95,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                 if(stristr($f, 'status')) {
 
-                    echo '<a href="#" class="status" id="'.$table.':'.$f.':'.$r[$addition->cleanText($table, 'im_').'_id'].'">'.$icon['status'][$r[$f]].'</a>';
+                    echo '<a href="#" class="status" id="'.$table.':'.$f.':'.$currentId.'">'.$icon['status'][$r[$f]].'</a>';
 
                 }else{
 
@@ -121,13 +126,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         $urlString = implode(',', $urlArray);
 
-                        echo '<a href="' . $urlString . ',' . $r[$addition->cleanText($table, 'im_') . '_id'] . '" class="btn btn-outline-info text-info">' . $icon['button']['move'] . '</a>';
+                        echo '<a href="' . $urlString . ',' . $currentId . '" class="btn btn-outline-info text-info">' . $icon['button']['move'] . '</a>';
 
                     }
 
                     //Edit
                     if(stristr($tableData['event'], 'edit'))
-                        echo '<a href="'.$tableData['url'].',edit,'.$r[$addition->cleanText($table, 'im_').'_id'].'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
+                        echo '<a href="'.$tableData['url'].',edit,'.$currentId.'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
 
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {

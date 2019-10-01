@@ -8,6 +8,7 @@ body {
   overflow-x: hidden;
   opacity: 0;
   font-size: 14px;
+  background-color: #ddd;
 }
 .chosen-container {
   min-width: 250px;
@@ -77,52 +78,6 @@ ul.pagination .page-link i {
 .dropdown-menu a {
   color: #fff;
 }
-.window-back {
-  padding: 100px 10px 0;
-}
-.window-back > div {
-  margin: 0;
-  padding: 0;
-}
-.window-back #login-right {
-  -webkit-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  -moz-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  -webkit-border-top-right-radius: 30px;
-  -moz-border-top-right-radius: 30px;
-  border-top-right-radius: 30px;
-  -webkit-border-bottom-right-radius: 30px;
-  -moz-border-bottom-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  overflow: hidden;
-  z-index: -1;
-}
-.window-back #login-right img {
-  height: 100%;
-}
-.window-back .login-left {
-  -webkit-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  -moz-box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.41);
-  -webkit-border-top-left-radius: 30px;
-  -moz-border-top-left-radius: 30px;
-  border-top-left-radius: 30px;
-  -webkit-border-bottom-left-radius: 30px;
-  -moz-border-bottom-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  background-color: #fff;
-  height: 100%;
-  padding: 30px;
-  text-align: center;
-}
-.window-back .login-left #auth-header {
-  font-size: 26px;
-  margin-bottom: 6px;
-}
-.window-background {
-  background-color: #fff;
-  padding: 10px;
-}
 #process {
   position: fixed;
   bottom: 30px;
@@ -131,6 +86,10 @@ ul.pagination .page-link i {
   padding: 10px;
   display: none;
   color: #fff;
+}
+.window-background {
+  background-color: #fff;
+  padding: 10px;
 }
 #current-system {
   position: fixed;
@@ -223,14 +182,7 @@ ul.pagination .page-link i {
 .dashboard-box a {
   color: #6c757d;
 }
-@media (max-width: 992px) {
-  .login-left {
-    -webkit-border-top-right-radius: 30px;
-    -moz-border-top-right-radius: 30px;
-    border-top-right-radius: 30px;
-    -webkit-border-bottom-right-radius: 30px;
-    -moz-border-bottom-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
+.last-record {
+  background-color: #fef8e7;
 }
 /*# sourceMappingURL=main.css.map */

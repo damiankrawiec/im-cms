@@ -47,6 +47,8 @@ if($g_var1 != '') {
 
     $sql .= ' order by position';
 
+    $sqlLast = $sql;
+
     $db->prepare($sql);
 
     $parameter = array(
@@ -57,6 +59,14 @@ if($g_var1 != '') {
         array_push($parameter, array('name' => ':id', 'value' => $g_var3, 'type' => 'int'));
 
     $db->bind($parameter);
+
+    if($displayCount == 'all') {
+
+        $lastData = array('sql' => $sql);
+
+        $lastData['parameter'] = $parameter;
+
+    }
 
     $record = $db->run($displayCount);
 

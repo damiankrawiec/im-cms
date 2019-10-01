@@ -27,7 +27,7 @@ $sql = 'select
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify
-        from ' . $table. ' ';
+        from ' . $table;
 
 if($g_var1 != '') {
 
@@ -78,6 +78,14 @@ if($displayCount == 'one')
     array_push($parameter, array('name' => ':id', 'value' => $g_var5, 'type' => 'int'));
 
 $db->bind($parameter);
+
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (count($parameter) > 0)
+        $lastData['parameter'] = $parameter;
+
+}
 
 $record = $db->run($displayCount);
 

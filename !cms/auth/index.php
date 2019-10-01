@@ -23,8 +23,6 @@ require_once 'validation/init.php';
 
     <?php require_once '../layout/font/init.php'; ?>
 
-    <link rel="stylesheet" href="../layout/css/main.css">
-
     <link rel="stylesheet" href="../layout/css/auth/main.css">
 
 </head>

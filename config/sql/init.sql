@@ -130,6 +130,12 @@ drop trigger if exists im_movie_insert_date_modify;
 
 drop trigger if exists im_movie_update_date_modify;
 
+drop trigger if exists im_type_property_insert_date_create;
+
+drop trigger if exists im_type_property_insert_date_modify;
+
+drop trigger if exists im_type_property_update_date_modify;
+
 -- end prepare database --
 
 set names utf8;
@@ -345,10 +351,30 @@ create table im_type_property (
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
     class_field varchar(128) collate utf8_polish_ci default '',-- class of object fields
     position int default 0,
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
     primary key (type_property_id),
     foreign key (type_id) references im_type(type_id),
     foreign key (property_id) references im_property(property_id)
 ) engine = InnoDB;
+
+-- trigger
+
+create trigger im_type_property_insert_date_create
+    before insert on im_type_property
+    for each row
+    set new.date_create = now();
+
+create trigger im_type_property_insert_date_modify
+    before insert on im_type_property
+    for each row
+    set new.date_modify = now();
+
+create trigger im_type_property_update_date_modify
+    before update on im_type_property
+    for each row
+    set new.date_modify = now();
 
 -- TYPE-PROPERTY END --
 

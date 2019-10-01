@@ -24,7 +24,7 @@ $s_menuDefinition = array(
     'dashboard' => array('icon' => $icon['menu']['dashboard'], 'name' => $translation['menu']['dashboard'], 'url' => 'dashboard'),
     'section' => array('icon' => $icon['menu']['section'], 'name' => $translation['menu']['section'], 'url' => 'section,0'),
     'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type'),
-    'property' => array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'submenu' => 'im_type'),
+    'type-property' => array('icon' => $icon['menu']['type-property'], 'name' => $translation['menu']['type-property'], 'submenu' => 'im_type'),
     'definition-object' => array('icon' => $icon['menu']['definition-object'], 'name' => $translation['menu']['definition-object'],
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
@@ -32,6 +32,7 @@ $s_menuDefinition = array(
             array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category,0')
         )
     ),
+    'property' => array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'url' => 'property'),
     'multimedia' => array('icon' => $icon['menu']['multimedia'], 'name' => $translation['menu']['multimedia'],
         'submenu' => array(
             array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
@@ -42,7 +43,7 @@ $s_menuDefinition = array(
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
         'submenu' => array(
             array('icon' => $icon['menu']['definition'], 'name' => $translation['menu']['definition'], 'url' => 'language'),
-            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation_system'], 'url' => 'translation_system,0')
+            array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation-system'], 'url' => 'translation-system,0')
         )
     ),
     'setting' => array('icon' => $icon['menu']['setting'], 'name' => $translation['menu']['setting'], 'url' => 'setting')
@@ -56,9 +57,14 @@ $s_eventDefinition = array(
             'description' => array('name' => $tableDefinitionEvent['im_type']['description'], 'type' => 'textarea', 'table' => 'im_type')
         ),
         'im_type_property' => array(
-            'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select', 'table' => 'im_type_property'),
+            'type_property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select', 'table' => 'im_type_property'),
             'class' => array('name' => $tableDefinitionEvent['im_type_property']['class'], 'type' => 'text', 'table' => 'im_type_property'),
             'class_field' => array('name' => $tableDefinitionEvent['im_type_property']['class_field'], 'type' => 'text', 'table' => 'im_type_property')
+        ),
+        'im_property' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_property']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_property'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_property']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_property'),
+            'description' => array('name' => $tableDefinitionEvent['im_property']['description'], 'type' => 'textarea', 'table' => 'im_property')
         ),
         'im_object' => array(
             'system_name' => array('name' => $tableDefinitionEvent['im_object']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
@@ -139,6 +145,10 @@ $s_eventDefinition = array(
         ),
         'im_type_property' => array(
             'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['system_name'], 'type' => 'select:im_property', 'require' => 'validation :select')
+        ),
+        'im_property' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_property']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_property'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_property']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_property')
         ),
         'im_object' => array(
             'system_name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text'),

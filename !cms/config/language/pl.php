@@ -32,13 +32,14 @@ $translation = array(
         'object' => 'Obiekty',
         'section' => 'Sekcje',
         'definition-object' => 'Definicje obiektowe',
+        'type-property' => 'Właściwości typów',
         'type' => 'Typy',
         'label' => 'Etykiety',
         'category' => 'Kategorie',
-        'property' => 'Właściwości typów',
+        'property' => 'Właściwości',
         'language' => 'Język',
         'translation' => 'Tłumaczenia',
-        'translation_system' => 'Tłumaczenia systemowe',
+        'translation-system' => 'Tłumaczenia systemowe',
         'definition' => 'Definicje',
         'multimedia' => 'Multimedia',
         'image' => 'Obrazy',
@@ -82,15 +83,15 @@ $translation = array(
         'title' => 'Twoje położenie'
     ),
     'dashboard' => array(
-        'section' => 'Ostatnio dodane lub zmodyfikowane sekcje',
-        'object' => 'Ostatnio dodane lub zmodyfikowane obiekty',
-        'setting' => 'Ostatnio dodane lub zmodyfikowane ustawienia',
-        'category' => 'Ostatnio dodane lub zmodyfikowane kategorie',
-        'type' => 'Ostatnio dodane lub zmodyfikowane typy',
-        'label' => 'Ostatnio dodane lub zmodyfikowane etykiety',
-        'image' => 'Ostatnio dodane lub zmodyfikowane obrazy',
-        'file' => 'Ostatnio dodane lub zmodyfikowane pliki',
-        'movie' => 'Ostatnio dodane lub zmodyfikowane filmy'
+        'section' => 'Sekcje (ostatnio dodane lub zmodyfikowane)',
+        'object' => 'Obiekty (ostatnio dodane lub zmodyfikowane)',
+        'setting' => 'Ustawienia (ostatnio dodane lub zmodyfikowane)',
+        'category' => 'Kategorie (ostatnio dodane lub zmodyfikowane)',
+        'type' => 'Typy (ostatnio dodane lub zmodyfikowane)',
+        'label' => 'Etykiety (ostatnio dodane lub zmodyfikowane)',
+        'image' => 'Obrazy (ostatnio dodane lub zmodyfikowane)',
+        'file' => 'Pliki (ostatnio dodane lub zmodyfikowane)',
+        'movie' => 'Filmy (ostatnio dodane lub zmodyfikowane)'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
@@ -114,6 +115,13 @@ $tableDefinition = array(
     'im_type' => array(
         'name' => 'Nazwa',
         'class' => 'Klasa Bootstrap',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_property' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
@@ -177,7 +185,6 @@ $tableDefinition = array(
     'im_translation_system' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
-        'content' => 'Tłumaczenie',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
@@ -206,6 +213,11 @@ $tableDefinitionEvent = array(
         'system_name' => 'Nazwa systemowa',
         'class' => 'Klasa Bootstrap - otoczenie',
         'class_field' => 'Klasa Bootstrap - pole'
+    ),
+    'im_property' => array(
+        'name' => 'Nazwa',
+        'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny'
     ),
     'im_object' => array(
         'system_name' => 'Nazwa systemowa',

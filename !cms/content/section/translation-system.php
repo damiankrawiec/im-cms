@@ -6,25 +6,24 @@ $table = 'im_translation_system';
 $baseUrl = $addition->getUrl(3);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['translation_system']);
+$oneData = (object) array('value' => $translation['menu']['translation-system']);
 
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        t.translation_system_id as translation_system_id,
-        t.name as name,
-        t.language_id as language_id,
-        t.system_name as system_name,
-        t.content as content,
-        if(t.description = \'\', \'-\', t.description) as description,
-        t.date_create as date_create,
-        t.date_modify as date_modify
-        from ' . $table . ' t
-        join im_language tj on(tj.language_id = t.language_id)';
+        translation_system_id,
+        language_id,
+        name,
+        system_name,
+        content,
+        if(description = \'\', \'-\', description) as description,
+        date_create,
+        date_modify
+        from ' . $table;
 
 if($g_var2 == 'edit' and $g_var3 != '') {
 
-    $sql .= ' where t.translation_system_id = :id';
+    $sql .= ' where translation_system_id = :id';
 
     $displayCount = 'one';
 
@@ -50,6 +49,22 @@ if($g_var1 > 0)
 
 if(count($parameter) > 0)
     $db->bind($parameter);
+
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (count($parameter) > 0)
+        $lastData['parameter'] = $parameter;
+
+}
+
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (count($parameter) > 0)
+        $lastData['parameter'] = $parameter;
+
+}
 
 $record = $db->run($displayCount);
 

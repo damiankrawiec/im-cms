@@ -6,6 +6,8 @@ if($g_section !== '') {
 
     if($tool->fileExists('content/section/'.$g_section.'.php')) {
 
+        $sql = $parameter = null;
+
         require_once 'content/section/' . $g_section . '.php';
 
     }else{

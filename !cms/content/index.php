@@ -15,8 +15,6 @@ require_once 'php/init.php';
 
     <link rel="stylesheet" href="layout/css/main.css">
 
-    <link rel="stylesheet" href="layout/css/content/main.css">
-
 </head>
 <body>
 

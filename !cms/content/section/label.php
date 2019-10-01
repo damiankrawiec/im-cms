@@ -27,6 +27,8 @@ if($g_var1 == 'edit' and $g_var2 != '') {
 
 }else $displayCount = 'all';
 
+$sqlLast = $sql;
+
 $db->prepare($sql);
 
 if($displayCount == 'one') {
@@ -36,6 +38,14 @@ if($displayCount == 'one') {
     );
 
     $db->bind($parameter);
+
+}
+
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (isset($parameter))
+        $lastData['parameter'] = $parameter;
 
 }
 

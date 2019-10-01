@@ -48,6 +48,14 @@ if($g_var1 != '') {
 
     $db->bind($parameter);
 
+    if($displayCount == 'all') {
+
+        $lastData = array('sql' => $sql);
+
+        $lastData['parameter'] = $parameter;
+
+    }
+
     $record = $db->run($displayCount);
 
     echo '<div class="col-12">';

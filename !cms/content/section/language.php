@@ -22,13 +22,13 @@ $sql = 'select
         date_modify
         from ' . $table;
 
-        if($g_var1 == 'edit' and $g_var2 != '') {
+if($g_var1 == 'edit' and $g_var2 != '') {
 
-            $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
+    $sql .= ' where '.$addition->cleanText($table, 'im_').'_id = :id';
 
-            $displayCount = 'one';
+    $displayCount = 'one';
 
-        }else $displayCount = 'all';
+}else $displayCount = 'all';
 
 $db->prepare($sql);
 
@@ -39,6 +39,14 @@ if($displayCount == 'one') {
     );
 
     $db->bind($parameter);
+
+}
+
+if($displayCount == 'all') {
+
+    $lastData = array('sql' => $sql);
+    if (isset($parameter))
+        $lastData['parameter'] = $parameter;
 
 }
 
