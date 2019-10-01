@@ -121,9 +121,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="button-event">';
 
-        echo '<a class="btn btn-outline-dark" href="' . $eventData['url'] . '">' . $translation['button']['cancel'] . '</a>';
+        echo '<a class="btn btn-secondary" href="' . $eventData['url'] . '">' . $translation['button']['cancel'] . '</a>';
 
-        echo '<button class="btn btn-outline-warning submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['save'] .'</button>';
+        echo '<button class="btn btn-info submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['save'] .'</button>';
 
     echo '</div>';
 

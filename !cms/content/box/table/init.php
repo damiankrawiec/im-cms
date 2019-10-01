@@ -45,13 +45,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
     if(isset($tableData['sort'])) {
 
-        echo '<a href="#" class="btn btn-outline-light float-right sort-status" title="'.$translation['button']['off'].'">'.$translation['button']['on'].' ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
+        echo '<a href="#" class="btn btn-secondary float-right sort-status" title="'.$translation['button']['off'].'">'.$translation['button']['on'].' ' . $translation['table']['sort'] . ' ' . $icon['button']['sort'] . '</a>';
 
         echo '<div class="float-right im-hide">';
 
-            echo '<button class="btn btn-outline-light" id="sort-cancel">' . $translation['button']['cancel'] . '</button>';
+            echo '<button class="btn btn-secondary" id="sort-cancel">' . $translation['button']['cancel'] . ' '.$icon['button']['cancel'].'</button>';
 
-            echo '<button class="btn btn-outline-light" id="sort-save">' . $translation['button']['save'] .'</button>';
+            echo '<button class="btn btn-info ml-1" id="sort-save">' . $translation['button']['save'] .' '.$icon['button']['save'].'</button>';
 
         echo '</div>';
 
@@ -126,13 +126,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         $urlString = implode(',', $urlArray);
 
-                        echo '<a href="' . $urlString . ',' . $currentId . '" class="btn btn-outline-info text-info">' . $icon['button']['move'] . '</a>';
+                        echo '<a href="' . $urlString . ',' . $currentId . '" class="btn btn-light">' . $icon['button']['move'] . '</a>';
 
                     }
 
                     //Edit
                     if(stristr($tableData['event'], 'edit'))
-                        echo '<a href="'.$tableData['url'].',edit,'.$currentId.'" class="btn btn-outline-info text-info">'.$icon['button']['edit'].'</a>';
+                        echo '<a href="'.$tableData['url'].',edit,'.$currentId.'" class="btn btn-light">'.$icon['button']['edit'].'</a>';
 
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {
@@ -140,7 +140,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                         $idRecord = $r;
                         require 'php/script/id-table.php';
 
-                        echo '<a href="#" class="btn btn-outline-info text-info modal-click">' . $icon['button']['delete'] . '</a>';
+                        echo '<a href="#" class="btn btn-light modal-click">' . $icon['button']['delete'] . '</a>';
 
                         echo '<form action="' . $tableData['url'] . '" method="post">';
 
@@ -164,7 +164,13 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         echo '</form>';
 
-                        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-delete'].': "'.$r['name'].'"', 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
+                        if(isset($tableData['table']['system_name'])) {
+
+                            $nameDisplay = 'system_name';
+
+                        }else $nameDisplay = 'name';
+
+                        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-delete'].': "'.$r[$nameDisplay].'"', 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
 
                     }
 

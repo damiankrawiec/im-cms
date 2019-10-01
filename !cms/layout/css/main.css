@@ -34,15 +34,15 @@ li {
 .dataTables_length,
 .dataTables_filter,
 .dataTables_info {
-  color: #fff;
+  color: #6c757d;
 }
 .dataTables_filter input {
   background-color: unset !important;
-  border-color: #fff;
-  color: #fff !important;
+  border-color: #6c757d;
+  color: #6c757d !important;
 }
 .page-item.active .page-link {
-  border: 1px solid #fff;
+  border: 1px solid #6c757d;
 }
 ul.pagination {
   font-size: 16px;
@@ -50,14 +50,15 @@ ul.pagination {
 ul.pagination .page-link {
   background-color: unset !important;
   border: none;
+  color: #6c757d !important;
 }
 ul.pagination .page-link i {
-  color: #fff;
+  color: #6c757d;
 }
 .custom-select {
   background-color: unset !important;
-  border-color: #fff;
-  color: #fff;
+  border-color: #6c757d;
+  color: #6c757d;
 }
 #select-system {
   padding-top: 12px;
@@ -77,6 +78,9 @@ ul.pagination .page-link i {
 }
 .dropdown-menu a {
   color: #fff;
+}
+.multi-wrapper .item {
+  color: #343a40;
 }
 #process {
   position: fixed;
@@ -137,7 +141,6 @@ ul.pagination .page-link i {
   color: #343a40;
 }
 .add-new {
-  border: 1px solid #fff;
   padding: 10px;
   margin: 10px 0 10px;
 }
