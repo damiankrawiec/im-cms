@@ -33,7 +33,7 @@ if($g_var1 > 0) {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' t.language_id = :language';
+    $sql .= ' language_id = :language';
 
 }
 

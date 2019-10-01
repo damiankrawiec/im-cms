@@ -24,6 +24,10 @@ function changeStatus($this) {
 
         $this.children().attr('class', $switchStatus[1]);
 
+        $('.data-table tr').removeClass('last-record');
+
+        $this.parents('tr').addClass('last-record');
+
     });
 
 }
