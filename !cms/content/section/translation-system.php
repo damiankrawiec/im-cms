@@ -11,19 +11,21 @@ $oneData = (object) array('value' => $translation['menu']['translation-system'])
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        translation_system_id,
-        language_id,
-        name,
-        system_name,
-        content,
-        if(description = \'\', \'-\', description) as description,
-        date_create,
-        date_modify
-        from ' . $table;
+        t.translation_system_id as translation_system_id,
+        t.language_id as language_id,
+        t.name as name,
+        t.system_name as system_name,
+        tj.name as language,
+        t.content as content,
+        if(t.description = \'\', \'-\', t.description) as description,
+        t.date_create as date_create,
+        t.date_modify as date_modify
+        from ' . $table .' t
+        join im_language tj on(tj.language_id = t.language_id)';
 
 if($g_var2 == 'edit' and $g_var3 != '') {
 
-    $sql .= ' where translation_system_id = :id';
+    $sql .= ' where t.translation_system_id = :id';
 
     $displayCount = 'one';
 
@@ -33,7 +35,7 @@ if($g_var1 > 0) {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' language_id = :language';
+    $sql .= ' t.language_id = :language';
 
 }
 
@@ -58,30 +60,17 @@ if($displayCount == 'all') {
 
 }
 
-if($displayCount == 'all') {
-
-    $lastData = array('sql' => $sql);
-    if (count($parameter) > 0)
-        $lastData['parameter'] = $parameter;
-
-}
-
 $record = $db->run($displayCount);
 
 echo '<div class="col-12">';
 
 if($displayCount == 'all') {
 
-    if($g_var1 > 0) {
+    if($g_var1 == 0) {
 
         $eventData = array(
             'field' => $s_eventDefinition['add'][$table],
-            'table_add' => array($table),
-            'supplement' => array(
-                'im_translation_system' => array(
-                    'language_id' => $g_var1
-                )
-            )
+            'table_add' => array($table)
         );
 
         require_once 'content/box/event/add.php';

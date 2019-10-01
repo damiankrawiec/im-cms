@@ -17,37 +17,39 @@ $oneData = (object) array('value' => $translation['menu']['translation']);
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select
-        translation_id,
-        language_id,
-        name,
-        target_table,
-        target_column,
-        target_record,
-        content,
-        if(description = \'\', \'-\', description) as description,
-        date_create,
-        date_modify
-        from ' . $table;
+        t.translation_id as translation_id,
+        t.language_id as language_id,
+        t.name as name,
+        tj.name as language,
+        t.target_table as target_table,
+        t.target_column as target_column,
+        t.target_record as target_record,
+        t.content as content,
+        if(t.description = \'\', \'-\', t.description) as description,
+        t.date_create as date_create,
+        t.date_modify as date_modify
+        from ' . $table.' t
+        join im_language tj on(tj.language_id = t.language_id)';
 
 if($g_var1 != '') {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' target_table like :table';
+    $sql .= ' t.target_table like :table';
 
 }
 if($g_var2 != '') {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' target_column like :column';
+    $sql .= ' t.target_column like :column';
 
 }
 if($g_var3 != '') {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' target_record = :record';
+    $sql .= ' t.target_record = :record';
 
 }
 
@@ -55,7 +57,7 @@ if($g_var4 == 'edit' and $g_var5 != '') {
 
     $sql .= $addition->whereOrAnd($sql);
 
-    $sql .= ' '.$addition->cleanText($table, 'im_').'_id = :id';
+    $sql .= ' t.'.$addition->cleanText($table, 'im_').'_id = :id';
 
     $displayCount = 'one';
 

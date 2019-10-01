@@ -12,7 +12,7 @@ foreach ($s_dashboard as $dashboard) {
 
     $dashboardRecord = $db->run('all');
 
-    echo '<div class="col-12 col-sm-2 col-md-4 dashboard-box">';
+    echo '<div class="col-12 col-md-6 col-xl-4 dashboard-box">';
 
     echo '<p class="h6">'.$dashboard['icon'].' '.$dashboard['name'].'</p>';
 

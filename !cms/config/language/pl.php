@@ -185,12 +185,14 @@ $tableDefinition = array(
     'im_translation_system' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
+        'language' => 'Język',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
     ),
     'im_translation' => array(
         'name' => 'Nazwa',
+        'language' => 'Język',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
@@ -210,6 +212,7 @@ $tableDefinitionEvent = array(
         'description' => 'Opis techniczny'
     ),
     'im_type_property' => array(
+        'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
         'class' => 'Klasa Bootstrap - otoczenie',
         'class_field' => 'Klasa Bootstrap - pole'
