@@ -14,7 +14,8 @@ class Icon
                          'light-down' => '<i class="fal fa-chevron-down"></i>'),
         'link' => array('external' => '<i class="fal fa-external-link-square"></i>'),
         'warning' => array('triangle' => '<i class="fal fa-exclamation-triangle"></i>'),
-        'multimedia' => array('movie' => '<i class="fal fa-film-alt"></i>')
+        'multimedia' => array('movie' => '<i class="fal fa-film-alt"></i>'),
+        'tool' => array('edit' => '<i class="fad fa-pen-square fa-2x"></i>')
     );
 
 }

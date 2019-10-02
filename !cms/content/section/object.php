@@ -107,6 +107,9 @@ if($g_var1 != '') {
         }
         if($displayCount == 'one') {
 
+            if($g_var4 != '')
+                echo '<a href="../'.$g_var4.'" class="btn btn-secondary m-1 float-right">'.$icon['button']['cancel'].' '.$translation['button']['close'].'</a>';
+
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,

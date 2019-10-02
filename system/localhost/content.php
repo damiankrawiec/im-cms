@@ -3,10 +3,7 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-//check current language
-require_once 'php/script/current-language.php';
-
-$object = new ObjectContent($this->systemName(), $db, $currentLanguage);
+$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin);
 
 $sectionId = $this->getSection()->id;
 

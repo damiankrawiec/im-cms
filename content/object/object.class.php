@@ -16,9 +16,11 @@ class ObjectContent extends Language {
 
     private $row;//check if starting object has class and class is "col"
 
+    private $admin;
+
     protected $systemName;
 
-    public function __construct($systemName, $db, $languageCurrent) {
+    public function __construct($systemName, $db, $languageCurrent, $admin) {
 
         parent::__construct($db, $languageCurrent);
 
@@ -31,6 +33,8 @@ class ObjectContent extends Language {
         $this->path = '';
 
         $this->row = false;
+
+        $this->admin = $admin;
 
     }
 
@@ -534,6 +538,20 @@ class ObjectContent extends Language {
 
     }
 
+    private function getToolUrl($object) {
+
+        if(stristr($this->systemName, 'system/')) {
+
+            $systemUrl = str_replace('system/', '', $this->systemName);
+
+            $toolUrl = '!cms/' . $systemUrl . ',object,' . $object['type'] . ',edit,' . $object['id'] . ',' . $this->getSectionUrl($object['section']);
+
+            return $toolUrl;
+
+        }else return '#';
+
+    }
+
     public function getAllLabel() {
 
         $sql = 'select system_name
@@ -623,7 +641,13 @@ class ObjectContent extends Language {
                             if ($classAdd != '')
                                 $class .= ' ' . $classAdd;
 
+                            if ($this->admin)
+                                $class .= ' im-preview';
+
                             echo '<div class="'.$this->getCategoryObject($or['id']).$class.'">';
+
+                            if($this->admin)
+                                echo '<div class="edit-tool"><a href="'.$this->getToolUrl(array('id' => $or['id'], 'type' => $or['type'], 'section' => $section)).'">'.$this->icon['tool']['edit'].'</a></div>';
 
                             $property = $this->getPropertyFromType($or['type']);
 

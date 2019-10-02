@@ -128,6 +128,7 @@ ul.pagination .page-link i {
   width: 100%;
   left: 0;
   bottom: 50px;
+  opacity: 0.9;
 }
 .button-event * {
   margin: 1px;

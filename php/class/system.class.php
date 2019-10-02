@@ -12,13 +12,19 @@ class System extends Setting
 
     private $currentSection;//url
 
+    private $currentLanguage;
+
     private $startSection;//url
 
     private $setting;//array
 
+    private $admin = false;//Is admin logged
+
     public function __construct() {
 
         $this->section = false;
+
+        $this->currentLanguage = false;
 
         $this->domain = $this->getServer('HTTP_HOST');
 
@@ -163,6 +169,26 @@ class System extends Setting
 
     }
 
+    private function checkIsAdmin($session) {
+
+        if(isset($session) and isset($session['admin']) and is_array($session['admin']) and count($session['admin']) > 0) {
+
+            $this->admin = true;
+
+        }
+
+    }
+
+    private function currentLanguage($session) {
+
+        if(isset($session['language'])) {
+
+            $this->currentLanguage = $session['language'];
+
+        }
+
+    }
+
     public function setSection($url, $db) {
 
         $this->currentSection = $url;
@@ -218,6 +244,10 @@ class System extends Setting
         if($db) {
 
             if ($this->checkSystemStructure and $this->section) {
+
+                $this->currentLanguage($session);
+
+                $this->checkIsAdmin($session);
 
                 require_once $this->system . '/content.php';
 

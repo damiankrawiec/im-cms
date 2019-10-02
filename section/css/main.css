@@ -14,6 +14,22 @@ i.translation {
 .im-hide-pagination {
   display: none;
 }
+.im-preview:hover {
+  opacity: 0.8;
+}
+.im-preview:hover .edit-tool {
+  display: block;
+}
+.edit-tool {
+  position: absolute;
+  display: none;
+  right: 2px;
+  top: 2px;
+  z-index: 1;
+}
+.edit-tool a {
+  color: #a00000;
+}
 #process {
   position: fixed;
   top: 0;

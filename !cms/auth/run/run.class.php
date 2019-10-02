@@ -12,6 +12,7 @@ class Run extends Session
 
     private $date;
 
+    //Admins array
     private $admin = array(
         'm@internet.media.pl' => array('image' => 'dk.jpg', 'password' => '7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
     );
@@ -51,6 +52,8 @@ class Run extends Session
     private function session() {
 
         $this->init();
+
+        //Destroy in tool.class/logout()
 
         $this->setSession('token', sha1($this->sessionId().$this->getSalt().$this->date));
 

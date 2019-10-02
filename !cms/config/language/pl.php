@@ -19,7 +19,8 @@ $translation = array(
         'on' => 'Włącz',
         'off' => 'Wyłącz',
         'reset-view' => 'Resetuj widok',
-        'back' => 'Powrót'
+        'back' => 'Powrót',
+        'close' => 'Zamknij'
     ),
     'message' => array(
         'no-data' => 'Brak danych',
@@ -279,13 +280,13 @@ $tableDefinitionEvent = array(
     'im_translation_system' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
-        'language' => 'Język',
+        'language' => 'Język (tłumaczenia systemowe należy wykonać dla każdego języka)',
         'content' => 'Tłumaczenie',
         'description' => 'Opis techniczny'
     ),
     'im_translation' => array(
         'name' => 'Nazwa',
-        'language' => 'Język',
+        'language' => 'Język (sugerujemy, aby tłumaczenie wykonać zawsze dla języków innych niż domyślny, w przeciwnym razie treści języka domyślnego zostaną nadpisane)',
         'content' => 'Tłumaczenie',
         'description' => 'Opis techniczny'
     ),
