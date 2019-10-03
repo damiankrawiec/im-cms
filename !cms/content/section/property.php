@@ -6,10 +6,6 @@ $table = 'im_property';
 $baseUrl = $addition->getUrl(2);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['type']);
-
-require_once 'php/script/one-data-display.php';
-
 $sql = 'select 
         property_id,
         name,

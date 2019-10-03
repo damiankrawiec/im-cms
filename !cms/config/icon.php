@@ -47,6 +47,7 @@ $icon = array(
         'movie' => '<i class="fal fa-video"></i>',
         'setting' => '<i class="fal fa-cog"></i>'
     ),
+    'php' => array('version' => '<i class="fal fa-code"></i>'),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
     'status' => array('on' => '<i class="fal fa-toggle-on text-info"></i>', 'off' => '<i class="fal fa-toggle-off text-secondary"></i>')

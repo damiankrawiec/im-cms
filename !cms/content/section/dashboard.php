@@ -31,3 +31,25 @@ foreach ($s_dashboard as $dashboard) {
     echo '</div>';
 
 }
+
+echo '<div class="col-12 dashboard-box">';
+
+    $phpVersion = phpversion();
+
+    echo $icon['php']['version'].' '.$translation['php']['version'].': '.$phpVersion.'<br>';
+
+    $phpVersionArray = explode('.', $phpVersion);
+
+    if($phpVersionArray[0] < 7) {
+
+        echo '<span class="text-danger">'.$translation['php']['version-to-low'].'</span>';
+
+    }else{
+
+        echo '<span class="text-success">'.$translation['php']['version-fine'].'</span>';
+
+    }
+
+
+
+echo '</div>';

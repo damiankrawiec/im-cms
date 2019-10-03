@@ -93,6 +93,11 @@ $translation = array(
         'image' => 'Obrazy (ostatnio dodane lub zmodyfikowane)',
         'file' => 'Pliki (ostatnio dodane lub zmodyfikowane)',
         'movie' => 'Filmy (ostatnio dodane lub zmodyfikowane)'
+    ),
+    'php' => array(
+        'version' => 'Wersja interpretera PHP',
+        'version-to-low' => 'Wersja PHP obsługiwana przez serwer jest za niska, dla prawidłowej pracy systemu zalecana jest aktualizacja interpretera PHP do wersji minimum 7.0',
+        'version-fine' => 'Wersja PHP obsługiwana przez serwer jest odpowiednia, wszystkie składniki systemu pracują poprawnie'
     )
 );
 //Headers of data tables (on the edit the fields may be different)
