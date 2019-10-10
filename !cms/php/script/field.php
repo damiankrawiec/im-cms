@@ -16,30 +16,35 @@ $db->bind($parameter);
 
 $field = $db->run('all');
 
-$fields = array();
-foreach ($field as $f)
-    array_push($fields, $f['name']);
+    $fields = array();
 
-if(!in_array('name', $fields))
-    unset($eventData['field']['name']);
+    if($field) {
 
-if(!in_array('content', $fields))
-    unset($eventData['field']['content']);
+        foreach ($field as $f)
+            array_push($fields, $f['name']);
 
-if(!in_array('section', $fields))
-    unset($eventData['field']['section']);
+    }else echo $addition->message($translation['message']['no-field'], $icon['button']['cancel']);
 
-if(!in_array('date', $fields))
-    unset($eventData['field']['date']);
+    if (!in_array('name', $fields))
+        unset($eventData['field']['name']);
 
-if(!in_array('link', $fields))
-    unset($eventData['field']['link']);
+    if (!in_array('content', $fields))
+        unset($eventData['field']['content']);
 
-if(!in_array('image', $fields))
-    unset($eventData['fix-2']);
+    if (!in_array('section', $fields))
+        unset($eventData['field']['section']);
 
-if(!in_array('file', $fields))
-    unset($eventData['fix-3']);
+    if (!in_array('date', $fields))
+        unset($eventData['field']['date']);
 
-if(!in_array('movie', $fields))
-    unset($eventData['fix-4']);
+    if (!in_array('link', $fields))
+        unset($eventData['field']['link']);
+
+    if (!in_array('image', $fields))
+        unset($eventData['fix-2']);
+
+    if (!in_array('file', $fields))
+        unset($eventData['fix-3']);
+
+    if (!in_array('movie', $fields))
+        unset($eventData['fix-4']);

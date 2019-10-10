@@ -26,7 +26,8 @@ $translation = array(
         'no-data' => 'Brak danych',
         'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
         'save-success' => 'Dane zostały zapisane poprawnie',
-        'delete-success' => 'Pozycja została usunięta poprawnie'
+        'delete-success' => 'Pozycja została usunięta poprawnie',
+        'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych pól',
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',

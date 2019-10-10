@@ -9,3 +9,6 @@ if(isset($g_system))
     echo '<input type="hidden" id="url-system" value="'.$g_system.'">';
 if(isset($g_section))
     echo '<input type="hidden" id="url-section" value="'.$g_section.'">';
+//Get full url
+if(isset($g_system) and isset($g_section))
+    echo '<input type="hidden" id="url-full" value="'.$g_system.','.$g_section.$addition->varUrl().'">';

@@ -119,7 +119,7 @@ function modalButton($this, $save, $cancel){
                 //List of events fix to cancel
                 if ($cancel === 'reload') {
 
-                    window.location.reload(true);
+                    window.location = $('#url-full').val();
 
                 }
                 if ($cancel === 'this-option-reset') {
@@ -309,7 +309,7 @@ function sortStatus($this) {
 
         $dataTableName.page.len($currentShow).draw();
 
-        window.location.reload(true);
+        window.location = $('#url-full').val();
 
     });
 

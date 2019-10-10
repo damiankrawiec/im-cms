@@ -60,7 +60,7 @@ function saveSort($dataTableName, $currentShow) {
 
         $dataTableName.page.len($currentShow).draw();
 
-        window.location.reload(true);
+        window.location = $('#url-full').val();
 
     });
 
