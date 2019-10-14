@@ -15,7 +15,7 @@ $sql = 'select
         name,
         content,
         url,
-        link,
+        section,
         status,
         if(description = \'\', \'-\', description) as description,
         date_create,

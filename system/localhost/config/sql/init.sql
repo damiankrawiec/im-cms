@@ -63,10 +63,10 @@ insert into im_object values (null, 3, 3, 0, 'Menu', '', '', '', 1, 'on', '', nu
 
 -- record, object image
 
-insert into im_image values (null, 'Equalizer?', 'Frequency music', '1.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 'Vinyl classic', 'Classic form of listening music', '2.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 'Type of headphones', '', '3.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 'Sheet music', '', '4.jpg', '', 'on', '', null, null);
+insert into im_image values (null, 0, 'Equalizer?', 'Frequency music', '1.jpg', 'on', '', null, null);
+insert into im_image values (null, 0, 'Vinyl classic', 'Classic form of listening music', '2.jpg', 'on', '', null, null);
+insert into im_image values (null, 0, 'Type of headphones', '', '3.jpg', 'on', '', null, null);
+insert into im_image values (null, 0, 'Sheet music', '', '4.jpg', 'on', '', null, null);
 
 -- record, object movie
 

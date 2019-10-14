@@ -24,11 +24,11 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         $active = ' active';
         foreach ($dataDisplay as $img) {
 
-            if($img['link'] > 0) {
+            if($img['section'] > 0) {
 
                 $dataRel = '';
 
-                $href = $this->getSectionUrl($img['link']);
+                $href = $this->getSectionUrl($img['section']);
 
             }else{
 

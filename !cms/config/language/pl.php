@@ -262,7 +262,7 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'content' => 'Opis',
         'url' => 'Obraz',
-        'link' => 'Przekierowanie',
+        'section' => 'Przekierowanie',
         'description' => 'Opis techniczny'
     ),
     'im_file' => array(
