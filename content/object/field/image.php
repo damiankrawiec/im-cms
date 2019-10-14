@@ -24,18 +24,22 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         $active = ' active';
         foreach ($dataDisplay as $img) {
 
-            if($img['link'] == '') {
+            if($img['link'] > 0) {
 
-                $href = $img['url'];
+                $dataRel = '';
+
+                $href = $this->getSectionUrl($img['link']);
 
             }else{
 
-                $href = $img['link'];
+                $dataRel = ' data-rel="lightcase:collection-'.$this->objectCounter.'"';
+
+                $href = $this->systemName.'/public/'.$img['url'];
 
             }
 
             echo '<div class="carousel-item' . $active . '">
-                    <a href="'.$this->systemName.'/public/'.$href.'" title="'.$img['name'].'" data-rel="lightcase:collection-'.$this->objectCounter.'">
+                    <a href="'.$href.'" title="'.$img['name'].'"'.$dataRel.'>
                       <img'.$classField.' src="'.$this->systemName.'/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
                       <div class="carousel-caption d-none d-md-block">

@@ -13,7 +13,7 @@ function setLanguage($language = false){
             }
         }).done(function () {
 
-            document.location.reload(true);
+            window.location = $('#url').val();
 
         });
 

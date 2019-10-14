@@ -20,6 +20,7 @@ if($g_var1 != '') {
 
     $sql = 'select 
         t.type_property_id as type_property_id,
+        t.property_id as property_id,
         tj.name as name,
         tj.system_name as system_name,
         if(tj.description = \'\', \'-\', tj.description) as description,
