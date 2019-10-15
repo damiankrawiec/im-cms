@@ -629,7 +629,7 @@ class ObjectContent extends Language {
 
                 echo '<div class="'.$classLabelDisplay.'objects '.$label.'">';
 
-                    //echo '<div class="row">';
+                    echo '<div class="row">';
 
                         $this->displayCategory();
 
@@ -716,7 +716,7 @@ class ObjectContent extends Language {
 
                         }
 
-                    //echo '</div>';
+                    echo '</div>';
 
                 echo '</div>';
 
