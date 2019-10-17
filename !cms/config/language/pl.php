@@ -50,12 +50,12 @@ $translation = array(
         'setting' => 'Ustawienia',
         'label-property' => 'Właściwości etykiet'
     ),
-    'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
+    'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania', 'all' => 'wszystkie'),
     'edit' => array(
         'name' => 'Pole nazwy',
         'system_name' => 'Pole nazwa systemowa',
-        'class' => 'Pole zewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
-        'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (nie jest wymagane, zaawansowane)',
+        'class' => 'Pole do nadawania właściwości poprzez klasę Bootstrap (zaawansowane)',
+        'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę Bootstrap (zaawansowane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
         'link' => 'Pole na odsyłacz zewnętrzny (otwarcie w nowym oknie)',
         'date' => 'Pole data w dowolnym formacie',
@@ -65,8 +65,7 @@ $translation = array(
         'image' => 'Obecne obrazy',
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
-        'language_id' => 'Definicja języka',
-        'label' => 'Pole na nazwę systemową etykiety'
+        'language_id' => 'Definicja języka'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -213,9 +212,10 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
     ),
-    'im_section_label' => array(
-        'name' => 'Zastosowanie w sekcji',
+    'im_label_section' => array(
         'label' => 'Nazwa etykiety',
+        'system_name' => 'Nazwa systemowa',
+        'name' => 'Zastosowanie w sekcji',
         'class' => 'Właściwości',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
@@ -311,9 +311,10 @@ $tableDefinitionEvent = array(
         'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny'
     ),
-    'im_section_label' => array(
+    'im_label_section' => array(
         'name' => 'Zastosowanie w sekcji',
-        'label' => 'Nazwa etykiety',
+        'name_event' => 'Zastosowanie w sekcji (gdy nie wybierzesz nic ustawienie zostanie nadane dla wszystkich sekcji)',
+        'label' => 'Etykieta',
         'class' => 'Właściwości',
         'description' => 'Opis techniczny'
     )

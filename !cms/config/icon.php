@@ -46,7 +46,7 @@ $icon = array(
         'file' => '<i class="fal fa-file"></i>',
         'movie' => '<i class="fal fa-video"></i>',
         'setting' => '<i class="fal fa-cog"></i>',
-        'label-property' => '<i class="fal fa-tags"></i>'
+        'label-property' => '<i class="fal fa-project-diagram"></i>'
     ),
     'php' => array('version' => '<i class="fal fa-code"></i>'),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),

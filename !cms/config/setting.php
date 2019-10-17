@@ -138,34 +138,40 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
             'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_label'),
             'description' => array('name' => $tableDefinitionEvent['im_label']['description'], 'type' => 'textarea', 'table' => 'im_label')
+        ),
+        'im_label_section' => array(
+            'label_id' => array('name' => $tableDefinitionEvent['im_label_section']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_label_section'),
+            'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section', 'table' => 'im_label_section'),
+            'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label_section'),
+            'description' => array('name' => $tableDefinitionEvent['im_label_section']['description'], 'type' => 'textarea', 'table' => 'im_label', 'table' => 'im_label_section')
         )
     ),
     'add' => array(
         'im_type' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_type']['name'], 'type' => 'text', 'require' => 'validation :text')
+            'name' => array('name' => $tableDefinitionEvent['im_type']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_type')
         ),
         'im_type_property' => array(
-            'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['name'], 'type' => 'select:im_property', 'require' => 'validation :select')
+            'property_id' => array('name' => $tableDefinitionEvent['im_type_property']['name'], 'type' => 'select:im_property', 'require' => 'validation :select', 'table' => 'im_type_property')
         ),
         'im_property' => array(
             'name' => array('name' => $tableDefinitionEvent['im_property']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_property'),
             'system_name' => array('name' => $tableDefinitionEvent['im_property']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_property')
         ),
         'im_object' => array(
-            'system_name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text'),
-            'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
+            'system_name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
+            'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_object')
         ),
         'im_section' => array(
             'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section'),
             'meta' => array('name' => $tableDefinitionEvent['im_section']['meta'], 'type' => 'textarea', 'table' => 'im_section')
         ),
         'im_category' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_category']['name'], 'type' => 'text', 'require' => 'validation :text'),
-            'label_id' => array('name' => $tableDefinitionEvent['im_category']['label'], 'type' => 'select:im_label', 'require' => 'validation :select')
+            'name' => array('name' => $tableDefinitionEvent['im_category']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_category'),
+            'label_id' => array('name' => $tableDefinitionEvent['im_category']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_category')
         ),
         'im_language' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text'),
-            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text')
+            'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language'),
+            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language')
         ),
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),
@@ -200,10 +206,10 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
             'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label')
         ),
-        'im_section_label' => array(
-            'section' => array('name' => $tableDefinitionEvent['im_section_label']['name'], 'type' => 'select:im_section', 'require' => 'validation :select'),
-            'label' => array('name' => $tableDefinitionEvent['im_section_label']['label'], 'type' => 'text', 'require' => 'validation :text'),
-            'class' => array('name' => $tableDefinitionEvent['im_section_label']['class'], 'type' => 'text', 'require' => 'validation :text')
+        'im_label_section' => array(
+            'label_id' => array('name' => $tableDefinitionEvent['im_label_section']['label'], 'type' => 'select:im_label', 'require' => 'validation :select'),
+            'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section'),
+            'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'require' => 'validation :text')
         )
     )
 );

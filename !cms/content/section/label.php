@@ -72,7 +72,7 @@ if ($record) {
             'table' => $tableDefinition[$table],
             'record' => $record,
             'event' => 'edit,delete',
-            'table_delete' => array('main' => $table),
+            'table_delete' => array('im_label_section', 'main' => $table),
             'restriction' => array(
                 'delete' => array(
                     'im_object' => 'label_id'

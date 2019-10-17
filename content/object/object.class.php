@@ -457,17 +457,30 @@ class ObjectContent extends Language {
 
     private function getClassLabel($section) {
 
-        $sql = 'select class
-                from im_section_label
-                where section = :section
-                and label = :label
-                ';
+        $sql = 'select label_id as id
+                from im_label
+                where system_name = :label';
 
         $this->db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':section', 'value' => $section, 'type' => 'int'),
             array('name' => ':label', 'value' => $this->label, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $labelOne = $this->db->run('one');
+
+        $sql = 'select class
+                from im_label_section
+                where label_id = :label
+                and section = :section';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':label', 'value' => $labelOne->id, 'type' => 'int'),
+            array('name' => ':section', 'value' => $section, 'type' => 'int')
         );
 
         $this->db->bind($parameter);
@@ -482,7 +495,7 @@ class ObjectContent extends Language {
 
             $parameter = array(
                 array('name' => ':section', 'value' => 0, 'type' => 'int'),
-                array('name' => ':label', 'value' => $this->label, 'type' => 'string')
+                array('name' => ':label', 'value' => $labelOne->id, 'type' => 'string')
             );
 
             $this->db->bind($parameter);

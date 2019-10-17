@@ -1,6 +1,6 @@
 <?php
 //Table definition init in this file
-$table = 'im_section_label';
+$table = 'im_label_section';
 //---
 //Base url definition in this file
 $baseUrl = $addition->getUrl(2);
@@ -11,15 +11,18 @@ $oneData = (object) array('value' => $translation['menu']['label-property']);
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        section_label_id,
-        section,
-        (select name from im_section where section_id = section) as name,
-        label,
-        class,
-        if(description = \'\', \'-\', description) as description,
-        date_create,
-        date_modify
-        from ' . $table;
+        t.label_section_id as label_section_id,
+        t.label_id as label_id,
+        tj.name as label,
+        tj.system_name as system_name,
+        t.section as section,
+        ifnull((select name from im_section where section_id = t.section), "'.$translation['table']['all'].'") as name,-- the section is not in relation
+        t.class as class,
+        if(t.description = \'\', \'-\', t.description) as description,
+        t.date_create as date_create,
+        t.date_modify as date_modify
+        from ' . $table . ' t
+        join im_label tj on(tj.label_id = t.label_id)';
 
 if($g_var1 == 'edit' and $g_var2 != '') {
 

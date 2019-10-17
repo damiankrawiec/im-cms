@@ -1,4 +1,4 @@
-9<?php
+<?php
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
