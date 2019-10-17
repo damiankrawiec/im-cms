@@ -29,7 +29,8 @@ $s_menuDefinition = array(
         'submenu' => array(
             array('icon' => $icon['menu']['type'], 'name' => $translation['menu']['type'], 'url' => 'type'),
             array('icon' => $icon['menu']['label'], 'name' => $translation['menu']['label'], 'url' => 'label'),
-            array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category,0')
+            array('icon' => $icon['menu']['category'], 'name' => $translation['menu']['category'], 'url' => 'category,0'),
+            array('icon' => $icon['menu']['label-property'], 'name' => $translation['menu']['label-property'], 'url' => 'label-property')
         )
     ),
     'property' => array('icon' => $icon['menu']['property'], 'name' => $translation['menu']['property'], 'url' => 'property'),
@@ -198,6 +199,11 @@ $s_eventDefinition = array(
         'im_label' => array(
             'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
             'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label')
+        ),
+        'im_section_label' => array(
+            'section' => array('name' => $tableDefinitionEvent['im_section_label']['name'], 'type' => 'select:im_section', 'require' => 'validation :select'),
+            'label' => array('name' => $tableDefinitionEvent['im_section_label']['label'], 'type' => 'text', 'require' => 'validation :text'),
+            'class' => array('name' => $tableDefinitionEvent['im_section_label']['class'], 'type' => 'text', 'require' => 'validation :text')
         )
     )
 );

@@ -136,6 +136,12 @@ drop trigger if exists im_type_property_insert_date_modify;
 
 drop trigger if exists im_type_property_update_date_modify;
 
+drop trigger if exists im_section_label_insert_date_create;
+
+drop trigger if exists im_section_label_insert_date_modify;
+
+drop trigger if exists im_section_label_update_date_modify;
+
 -- end prepare database --
 
 set names utf8;
@@ -387,8 +393,28 @@ create table im_section_label (
     section int not null,
     label varchar(128) collate utf8_polish_ci default '',
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
     primary key (section_label_id)
 ) engine = InnoDB;
+
+-- trigger
+
+create trigger im_section_label_insert_date_create
+    before insert on im_section_label
+    for each row
+    set new.date_create = now();
+
+create trigger im_section_label_insert_date_modify
+    before insert on im_section_label
+    for each row
+    set new.date_modify = now();
+
+create trigger im_section_label_update_date_modify
+    before update on im_section_label
+    for each row
+    set new.date_modify = now();
 
 -- SECTION-LABEL END --
 

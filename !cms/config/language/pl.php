@@ -47,7 +47,8 @@ $translation = array(
         'image' => 'Obrazy',
         'file' => 'Pliki',
         'movie' => 'Filmy',
-        'setting' => 'Ustawienia'
+        'setting' => 'Ustawienia',
+        'label-property' => 'Właściwości etykiet'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania'),
     'edit' => array(
@@ -64,7 +65,8 @@ $translation = array(
         'image' => 'Obecne obrazy',
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
-        'language_id' => 'Definicja języka'
+        'language_id' => 'Definicja języka',
+        'label' => 'Pole na nazwę systemową etykiety'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -210,6 +212,14 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
+    ),
+    'im_section_label' => array(
+        'name' => 'Zastosowanie w sekcji',
+        'label' => 'Nazwa etykiety',
+        'class' => 'Właściwości',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
     )
 );
 $tableDefinitionEvent = array(
@@ -299,6 +309,12 @@ $tableDefinitionEvent = array(
     'im_label' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
+        'description' => 'Opis techniczny'
+    ),
+    'im_section_label' => array(
+        'name' => 'Zastosowanie w sekcji',
+        'label' => 'Nazwa etykiety',
+        'class' => 'Właściwości',
         'description' => 'Opis techniczny'
     )
 );
