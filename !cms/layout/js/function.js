@@ -235,7 +235,14 @@ function editor() {
 
     if($('.editor').length > 0) {
 
-        //var $editor = new Jodit(".editor");
+        tinymce.init({
+            selector: '.editor',
+            height: 300,
+            menubar: false,
+            plugins: "code emoticons lists table wordcount link image preview",
+            toolbar: 'undo redo | fontsizeselect | bold italic underline strikethrough superscript subscript forecolor backcolor bullist | alignleft aligncenter alignright alignjustify | image link table emoticons | code | wordcount | preview',
+
+        });
 
     }
 

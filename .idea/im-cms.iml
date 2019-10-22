@@ -4,6 +4,8 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/app/composer/vendor/datatables/datatables" />
       <excludeFolder url="file://$MODULE_DIR$/app/composer/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/app/composer/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/app/composer/vendor/tinymce/tinymce" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

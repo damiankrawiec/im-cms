@@ -14,7 +14,7 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
             <script src="'.$sectionPath.'app/composer/vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
             <script src="'.$sectionPath.'module/nice-select/jquery.nice-select.min.js"></script>
-           
+            <script src="'.$sectionPath.'app/composer/vendor/tinymce/tinymce/tinymce.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/datepicker.min.js"></script>
             <script src="'.$sectionPath.'module/datapicker/pl.js"></script>
             <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
