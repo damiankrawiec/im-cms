@@ -235,7 +235,7 @@ function editor() {
 
     if($('.editor').length > 0) {
 
-        var $editor = new Jodit(".editor");
+        //var $editor = new Jodit(".editor");
 
     }
 

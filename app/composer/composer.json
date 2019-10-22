@@ -12,7 +12,6 @@
   "require": {
     "filp/whoops": "2.3.1",
     "datatables/datatables": "1.10.19",
-    "xdan/jodit": "3.2.55",
     "components/jquery": "3.3.1"
   }
 }
