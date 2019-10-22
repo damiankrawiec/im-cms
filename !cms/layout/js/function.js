@@ -35,7 +35,7 @@ function validation($form){
                 $check = source($(this).val());
 
             if($typeValidation.indexOf( 'textarea') > -1)
-                $check = textarea($(this).prev().find('.jodit_wysiwyg').text());
+                $check = textarea($(this).parent().find('.tox-tinymce').find('.tox-edit-area').html());
 
             if(!$check){
 
