@@ -661,11 +661,13 @@ class ObjectContent extends Language {
 
                             if($this->admin) {
 
+                                //Many different methods to get from object to cms section
+
                                 echo '<div class="edit-tool">';
 
                                     echo '<a href="' . $this->getToolUrl('object,'.$or['type'].',edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
 
-                                    //echo '<a href="' . $this->getToolUrl('type-property,'.$or['type'].',edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
+                                    //echo '<a href="' . $this->getToolUrl('type-property,'.$or['type'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
 
                                     //echo '<a href="' . $this->getToolUrl('label,edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
 

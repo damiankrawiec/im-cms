@@ -107,8 +107,12 @@ if($g_var1 != '') {
         }
         if($displayCount == 'one') {
 
-            if($g_var4 != '')
-                echo '<a href="../'.$g_var4.'" class="btn btn-secondary m-1 float-right">'.$icon['button']['cancel'].' '.$translation['button']['close'].'</a>';
+            if($g_var4 != '') {
+
+                $cmsBack = $g_var4;
+                require_once 'php/script/cms-back.php';
+
+            }
 
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
