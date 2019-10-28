@@ -58,6 +58,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<button class="btn btn-info submit validation-run" id="add">' . $translation['button']['save'] .'</button>';
 
+    echo '<button class="btn btn-secondary ml-1" id="add-cancel">' . $translation['button']['cancel'] .'</button>';
+
     echo '</div>';
 
 }

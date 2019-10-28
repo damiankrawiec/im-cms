@@ -21,10 +21,10 @@ if(isset($field['option'])) {
             echo '<a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
 
             if($field['type'] == 'image')
-                echo '<img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="width: ' . $s_previewImage . '">';
+                echo '<br><img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="width: ' . $s_previewImage . '">';
 
             if($field['type'] == 'file')
-                echo $eventData['record']->url;
+                echo '<br>'.$eventData['record']->url;
 
             echo '</a>';
 
@@ -36,7 +36,7 @@ if(isset($field['option'])) {
 
     if (stristr($field['option'], 'add')) {
 
-        echo '<input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
+        echo ' <input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
 
         echo '<input type="hidden" name="path" value="'.$filePath.'">';
 

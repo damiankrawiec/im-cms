@@ -6,7 +6,7 @@ foreach ($eventData as $fix => $ed) {
 
     if (stristr($fix, 'fix')) {
 
-        $sql = 'select ' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, name from ' . $eventData[$fix]['collection']['table'];
+        $sql = 'select ' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, name, description from ' . $eventData[$fix]['collection']['table'];
 
         $db->prepare($sql);
 
@@ -45,7 +45,23 @@ foreach ($eventData as $fix => $ed) {
                     $selectedId .= $c['id'].',';
                 }
 
-                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] . '</option>';
+                $description = '';
+                if($c['description'] != '') {
+
+                    $lengthAllow = 30;
+                    if(strlen($c['description']) > $lengthAllow) {
+
+                        $description = ' ('.substr($c['description'], 0, $lengthAllow).'...)';
+
+                    }else{
+
+                        $description = ' ('.$c['description'].')';
+
+                    }
+
+                }
+
+                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] .$description.'</option>';
 
             }
 

@@ -68,6 +68,12 @@ $(function(){
 
     });
 
+    $('#add-cancel').click(function(){
+
+        $(this).parent().slideUp();
+
+    });
+
     if($('#current-system').length > 0) {
 
         dataTables();

@@ -49,9 +49,9 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
         echo '<div class="float-right im-hide">';
 
-            echo '<button class="btn btn-secondary" id="sort-cancel">' . $translation['button']['cancel'] . ' '.$icon['button']['cancel'].'</button>';
+            echo '<button class="btn btn-info" id="sort-save">' . $translation['button']['save'] .' '.$icon['button']['save'].'</button>';
 
-            echo '<button class="btn btn-info ml-1" id="sort-save">' . $translation['button']['save'] .' '.$icon['button']['save'].'</button>';
+            echo '<button class="btn btn-secondary ml-1" id="sort-cancel">' . $translation['button']['cancel'] . ' '.$icon['button']['cancel'].'</button>';
 
         echo '</div>';
 

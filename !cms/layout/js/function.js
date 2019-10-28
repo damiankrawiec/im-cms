@@ -296,7 +296,7 @@ function sortStatus($this) {
 
     var $sortable = document.getElementById('sortable');
 
-    $('.dataTables_length label, .data-table tbody a, .add-new, .filter-box').hide();
+    $('.dataTables_length label, .data-table tbody a, .add-new, .filter-box, .dataTables_filter').hide();
 
     $dataTableName.page.len(-1).draw();
 

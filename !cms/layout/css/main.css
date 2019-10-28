@@ -136,9 +136,6 @@ ul.pagination .page-link i {
   bottom: 50px;
   opacity: 0.9;
 }
-.button-event * {
-  margin: 1px;
-}
 .im-alert-top {
   width: 100%;
   background-color: #f8f9fa;
@@ -195,5 +192,8 @@ ul.pagination .page-link i {
 }
 .last-record {
   background-color: #fef8e7;
+}
+.modal-footer button:first-child {
+  margin: 0 !important;
 }
 /*# sourceMappingURL=main.css.map */
