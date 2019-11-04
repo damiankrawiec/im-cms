@@ -23,7 +23,7 @@ if($g_var1 != '') {
         t.property_id as property_id,
         tj.name as name,
         tj.system_name as system_name,
-        if(tj.description = \'\', \'-\', tj.description) as description,
+        if(t.description = \'\', \'-\', t.description) as description,
         t.class as class,
         t.class_field as class_field,
         t.date_create as date_create,

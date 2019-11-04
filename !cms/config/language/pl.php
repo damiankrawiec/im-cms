@@ -232,7 +232,8 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
         'class' => 'Klasa Bootstrap - otoczenie',
-        'class_field' => 'Klasa Bootstrap - pole'
+        'class_field' => 'Klasa Bootstrap - pole',
+        'description' => 'Opis techniczny'
     ),
     'im_property' => array(
         'name' => 'Nazwa',
