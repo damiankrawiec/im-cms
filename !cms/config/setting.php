@@ -74,6 +74,7 @@ $s_eventDefinition = array(
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_object'),
             'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'require' => 'validation :select', 'table' => 'im_object'),
             'link' => array('name' => $tableDefinitionEvent['im_object']['link'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object'),
+            'email' => array('name' => $tableDefinitionEvent['im_object']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_object'),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')

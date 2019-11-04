@@ -25,6 +25,7 @@ if($g_var1 != '') {
         name,
         section,
         link,
+        email,
         date,
         if(content = \'\', \'-\', content) as content,
         if(description = \'\', \'-\', description) as description,

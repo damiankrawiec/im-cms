@@ -296,6 +296,7 @@ create table im_object (
     name varchar(256) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
+    email varchar(64) collate utf8_polish_ci default '',-- e-mail address
     position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
