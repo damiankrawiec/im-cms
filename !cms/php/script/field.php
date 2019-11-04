@@ -40,6 +40,9 @@ $field = $db->run('all');
     if (!in_array('link', $fields))
         unset($eventData['field']['link']);
 
+    if (!in_array('email', $fields))
+        unset($eventData['field']['email']);
+
     if (!in_array('image', $fields))
         unset($eventData['fix-2']);
 
