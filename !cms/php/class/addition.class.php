@@ -142,6 +142,24 @@ class Addition
 
     }
 
+    public function implode3d($data, $index = false) {
+
+        if($index) {
+
+            $array2d = array();
+
+            foreach ($data as $d) {
+
+                array_push($array2d, $d[$index]);
+
+            }
+
+            return $array2d;
+
+        }else return array(0);
+
+    }
+
     public function getUrl($count = 0) {
 
         //Always: 0 = system, 1 = section
