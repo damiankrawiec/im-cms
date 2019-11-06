@@ -24,6 +24,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
             if($editDataOne == '-')
                 $editDataOne = '';
 
+            if(stristr($editDataOne, '"'))
+                $editDataOne = htmlentities($editDataOne);
+
             echo '<div class="form-group">';
 
                 echo '<label for="'.$i.'">'.$field['name'].'</label>';
