@@ -40,6 +40,8 @@ if(stristr($field['type'], 'select')) {
 
     }
 
+    $sql .= ' order by date_create desc';
+
     $db->prepare($sql);
 
     $property = $db->run('all');
