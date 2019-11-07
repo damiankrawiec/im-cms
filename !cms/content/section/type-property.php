@@ -78,13 +78,18 @@ if($g_var1 != '') {
                     'type_id' => $g_var1,
                     'position' => ($record ? (count($record) + 1) : 1)
                 )
-            ),
-            'restriction' => array(
+            )
+        );
+
+        if($record) {
+
+            $eventData['restriction'] = array(
                 'select' => array(
                     'data' => array('table' => 'im_type_property', 'get' => 'property_id', 'field' => 'type_id', 'value' => $g_var1)
                 )
-            )
-        );
+            );
+
+        }
 
         require_once 'content/box/event/add.php';
 

@@ -36,11 +36,29 @@ if(stristr($field['type'], 'select')) {
 
         }
 
-        $sql .= ' where '.$eventData['restriction']['select']['data']['get'].' not in('.implode(',', $propertyNotDisplay).')';
+        $countPropertyNotDisplay = count($propertyNotDisplay);
+
+        if($countPropertyNotDisplay > 0) {
+
+            if($countPropertyNotDisplay > 1) {
+
+                $notIn = implode(',', $propertyNotDisplay);
+
+            }else{
+
+                $notIn = $propertyNotDisplay[0];
+
+            }
+
+            $sql .= ' where ' . $eventData['restriction']['select']['data']['get'] . ' not in(' . $notIn . ')';
+
+        }
 
     }
 
     $sql .= ' order by date_create desc';
+
+    //echo $sql;
 
     $db->prepare($sql);
 
