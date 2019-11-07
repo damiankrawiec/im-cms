@@ -46,7 +46,9 @@ if(stristr($field['type'], 'select')) {
 
             }else{
 
-                $notIn = $propertyNotDisplay[0];
+                //reset($propertyNotDisplay);
+
+                $notIn = current($propertyNotDisplay);
 
             }
 
@@ -57,8 +59,6 @@ if(stristr($field['type'], 'select')) {
     }
 
     $sql .= ' order by date_create desc';
-
-    //echo $sql;
 
     $db->prepare($sql);
 
