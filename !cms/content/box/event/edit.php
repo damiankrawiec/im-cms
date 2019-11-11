@@ -49,6 +49,14 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if($field['type'] == 'text')
                     echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'"'.$readonly.'>';
 
+                if($field['type'] == 'icon') {
+
+                    echo ': <i class="'.$editDataOne.'"></i>';
+
+                    echo '<input type="text" name="form_' . $i . '" class="form-control' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" value="' . $editDataOne . '"' . $readonly . '>';
+
+                }
+
                 if(stristr($field['type'], 'textarea')) {
 
                     $editorDisplayNow = '';

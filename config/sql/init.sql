@@ -297,6 +297,7 @@ create table im_object (
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     email varchar(64) collate utf8_polish_ci default '',-- e-mail address
+    icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
@@ -770,3 +771,19 @@ create trigger im_translation_update_date_modify
     set new.date_modify = now();
 
 -- TRANSLATION SYSTEM END --
+
+-- INSERT PROPERTY (the same records for all systems) --
+
+-- record, property of type of object
+
+insert into im_property values (null, 'Nazwa', 'name', '', null, null);
+insert into im_property values (null, 'Tekst', 'content', '', null, null);
+insert into im_property values (null, 'Data', 'date', '', null, null);
+insert into im_property values (null, 'Zdjęcie', 'image', '', null, null);
+insert into im_property values (null, 'Link wewnętrzny', 'section', '', null, null);
+insert into im_property values (null, 'Plik', 'file', '', null, null);
+insert into im_property values (null, 'Menu', 'menu', '', null, null);
+insert into im_property values (null, 'Link zewnętrzny', 'link', '', null, null);
+insert into im_property values (null, 'Adres e-mail', 'email', '', null, null);
+insert into im_property values (null, 'Film', 'movie', '', null, null);
+insert into im_property values (null, 'Ikona', 'icon', '', null, null);

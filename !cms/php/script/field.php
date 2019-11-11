@@ -43,6 +43,9 @@ if (!in_array('link', $fields))
 if (!in_array('email', $fields))
     unset($eventData['field']['email']);
 
+if (!in_array('icon', $fields))
+    unset($eventData['field']['icon']);
+
 if (!in_array('image', $fields))
     unset($eventData['fix-2']);
 

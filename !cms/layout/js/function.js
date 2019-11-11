@@ -25,6 +25,9 @@ function validation($form){
             if($typeValidation === 'email')
                 $check = email($(this).val());
 
+            if($typeValidation === 'icon')
+                $check = icon($(this).val());
+
             if($typeValidation === 'password')
                 $check = password($(this).val());
 
@@ -241,7 +244,7 @@ function editor() {
             menubar: false,
             plugins: "code emoticons lists table wordcount link image preview",
             toolbar: 'undo redo | fontsizeselect | bold italic underline strikethrough superscript subscript forecolor backcolor bullist | alignleft aligncenter alignright alignjustify | image link table emoticons | code | wordcount | preview',
-
+            valid_elements : '*[*]'
         });
 
     }

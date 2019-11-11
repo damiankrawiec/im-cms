@@ -248,6 +248,7 @@ $tableDefinitionEvent = array(
         'section' => 'Przekierowanie do sekcji',
         'link' => 'Odsyłacz zewnętrzny',
         'email' => 'Adres e-mail',
+        'icon' => 'Ikona (Fontawesome)',
         'date' => 'Data',
         'content' => 'Treść',
         'description' => 'Opis techniczny'

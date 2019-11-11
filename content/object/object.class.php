@@ -81,7 +81,16 @@ class ObjectContent extends Language {
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select o.object_id as id, o.name as name, o.date as date, o.type_id as type, o.content as content, o.section as section, o.link as link, o.email as email';
+        $sql = 'select 
+            o.object_id as id, 
+            o.name as name, 
+            o.date as date, 
+            o.type_id as type, 
+            o.content as content, 
+            o.section as section, 
+            o.link as link, 
+            o.email as email, 
+            o.icon as icon';
 
         //Field from joining tables
         //if($isParameter) {}
@@ -193,7 +202,7 @@ class ObjectContent extends Language {
 
                         echo '<div'.$class.'>';
 
-                        require $path;
+                            require $path;
 
                         echo '</div>';
 
