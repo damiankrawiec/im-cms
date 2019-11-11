@@ -28,6 +28,8 @@ $(function(){
 
     });
 
+    editor();
+
     scrollEvent();
 
     niceSelect();

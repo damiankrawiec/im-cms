@@ -48,6 +48,8 @@ drop table if exists im_label_section;
 
 drop table if exists im_movie;
 
+drop table if exists im_form;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -141,6 +143,8 @@ drop trigger if exists im_label_section_insert_date_create;
 drop trigger if exists im_label_section_insert_date_modify;
 
 drop trigger if exists im_label_section_update_date_modify;
+
+drop trigger if exists im_form_insert_date_create;
 
 -- end prepare database --
 
@@ -297,6 +301,7 @@ create table im_object (
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     email varchar(64) collate utf8_polish_ci default '',-- e-mail address
+    form varchar(64) collate utf8_polish_ci default '',-- form address
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     position int default 0,
     status varchar(3) default 'on',
@@ -772,6 +777,30 @@ create trigger im_translation_update_date_modify
 
 -- TRANSLATION SYSTEM END --
 
+-- FORM MESSAGE START --
+
+-- send message via form
+
+create table im_form (
+    form_id int not null auto_increment,
+    name varchar(128) collate utf8_polish_ci default '',-- name message
+    receive varchar(128) collate utf8_polish_ci default '',-- who send
+    content varchar(1024) collate utf8_polish_ci default '',-- content of message
+    status varchar(3) default 'on',-- is read (on - unread, off- read)
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    primary key (form_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_form_insert_date_create
+    before insert on im_form
+    for each row
+    set new.date_create = now();
+
+-- FORM MESSAGE END --
+
 -- INSERT PROPERTY (the same records for all systems) --
 
 -- record, property of type of object
@@ -785,5 +814,6 @@ insert into im_property values (null, 'Plik', 'file', '', null, null);
 insert into im_property values (null, 'Menu', 'menu', '', null, null);
 insert into im_property values (null, 'Link zewnętrzny', 'link', '', null, null);
 insert into im_property values (null, 'Adres e-mail', 'email', '', null, null);
+insert into im_property values (null, 'Adres formularza kontaktowego', 'form', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 insert into im_property values (null, 'Ikona', 'icon', '', null, null);

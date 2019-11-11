@@ -2,12 +2,13 @@
 if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
     $lastId = 0;
-    require_once 'php/script/last.php';
+    if(!isset($tableData['no-last']))
+        require_once 'php/script/last.php';
 
     if(isset($tableData['filter'])) {
 
         $sql = 'select '.
-            $addition->cleanText($tableData['filter']['table'], 'im_').'_id as id,
+                $addition->cleanText($tableData['filter']['table'], 'im_').'_id as id,
                 name
                 from ' . $tableData['filter']['table'];
 
@@ -131,8 +132,17 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                     }
 
                     //Edit
-                    if(stristr($tableData['event'], 'edit'))
-                        echo '<a href="'.$tableData['url'].',edit,'.$currentId.'" class="btn btn-light">'.$icon['button']['edit'].'</a>';
+                    if(stristr($tableData['event'], 'edit')) {
+
+                        if(stristr($tableData['event'], ':preview')) {
+
+                            $editIcon = $icon['button']['preview'];
+
+                        }else $editIcon = $icon['button']['edit'];
+
+                        echo '<a href="' . $tableData['url'] . ',edit,' . $currentId . '" class="btn btn-light">' . $editIcon . '</a>';
+
+                    }
 
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {

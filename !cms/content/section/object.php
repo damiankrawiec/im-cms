@@ -26,6 +26,7 @@ if($g_var1 != '') {
         section,
         link,
         email,
+        form,
         icon,
         date,
         content,

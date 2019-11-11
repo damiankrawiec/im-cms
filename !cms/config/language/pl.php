@@ -48,7 +48,8 @@ $translation = array(
         'file' => 'Pliki',
         'movie' => 'Filmy',
         'setting' => 'Ustawienia',
-        'label-property' => 'Właściwości etykiet'
+        'label-property' => 'Właściwości etykiet',
+        'service' => 'Obsługa'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania', 'all' => 'wszystkie'),
     'edit' => array(
@@ -59,6 +60,7 @@ $translation = array(
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
         'link' => 'Pole na odsyłacz zewnętrzny (otwarcie w nowym oknie)',
         'email' => 'Pole na adres e-mail',
+        'form' => 'Pole na adres formularza kontaktowego',
         'date' => 'Pole data w dowolnym formacie',
         'content' => 'Pole na treść',
         'name_url' => 'Pole url to nazwa w pasku adresu',
@@ -66,7 +68,8 @@ $translation = array(
         'image' => 'Obecne obrazy',
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
-        'language_id' => 'Definicja języka'
+        'language_id' => 'Definicja języka',
+        'receive' => 'Pole nadawcy'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -221,7 +224,14 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany'
-    )
+    ),
+    'im_form' => array(
+        'name' => 'Nazwa',
+        'receive' => 'Nadawca',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'status' => 'Nowa wiadomość'
+    ),
 );
 $tableDefinitionEvent = array(
     'im_type' => array(
@@ -248,6 +258,7 @@ $tableDefinitionEvent = array(
         'section' => 'Przekierowanie do sekcji',
         'link' => 'Odsyłacz zewnętrzny',
         'email' => 'Adres e-mail',
+        'form' => 'Adres formularza kontaktowego',
         'icon' => 'Ikona (Fontawesome)',
         'date' => 'Data',
         'content' => 'Treść',
@@ -320,6 +331,12 @@ $tableDefinitionEvent = array(
         'name_event' => 'Zastosowanie w sekcji (gdy nie wybierzesz nic ustawienie zostanie nadane dla wszystkich sekcji)',
         'label' => 'Etykieta',
         'class' => 'Właściwości',
+        'description' => 'Opis techniczny'
+    ),
+    'im_form' => array(
+        'name' => 'Nazwa',
+        'receive' => 'Nadawca',
+        'content' => 'Treść',
         'description' => 'Opis techniczny'
     )
 );

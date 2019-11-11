@@ -26,7 +26,8 @@ $icon = array(
         'move' => '<i class="fal fa-arrow-alt-right pt-1"></i>',
         'copy' => '<i class="fal fa-copy"></i>',
         'translation' => '<i class="fal fa-language fa-2x"></i>',
-        'back' => '<i class="fal fa-reply"></i>'
+        'back' => '<i class="fal fa-reply"></i>',
+        'preview' => '<i class="fal fa-eye"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',
@@ -46,7 +47,8 @@ $icon = array(
         'file' => '<i class="fal fa-file"></i>',
         'movie' => '<i class="fal fa-video"></i>',
         'setting' => '<i class="fal fa-cog"></i>',
-        'label-property' => '<i class="fal fa-project-diagram"></i>'
+        'label-property' => '<i class="fal fa-project-diagram"></i>',
+        'service' => '<i class="fal fa-headset"></i>'
     ),
     'php' => array('version' => '<i class="fal fa-code"></i>'),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),

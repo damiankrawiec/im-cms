@@ -234,9 +234,10 @@ function datepicker() {
     $('.im-datepicker').val($('.im-datepicker').next().val());
 
 }
+
 function editor() {
 
-    if($('.editor').length > 0) {
+    if ($('.editor').length > 0) {
 
         tinymce.init({
             selector: '.editor',
@@ -244,7 +245,7 @@ function editor() {
             menubar: false,
             plugins: "code emoticons lists table wordcount link image preview",
             toolbar: 'undo redo | fontsizeselect | bold italic underline strikethrough superscript subscript forecolor backcolor bullist | alignleft aligncenter alignright alignjustify | image link table emoticons | code | wordcount | preview',
-            valid_elements : '*[*]'
+            valid_elements: '*[*]'
         });
 
     }

@@ -45,13 +45,13 @@ echo '<div class="container-fluid" id="content-top">';
 
     echo '<div class="row bg-dark">';
 
-    echo '<div class="col-12 col-lg-8">';
+    echo '<div class="col-12 col-lg-10">';
 
         require_once 'content/box/menu.php';
 
     echo '</div>';
 
-    echo '<div class="col-12 col-lg-4">';
+    echo '<div class="col-12 col-lg-2">';
 
         //Select domain system
         require_once 'content/box/select-system.php';

@@ -89,7 +89,8 @@ class ObjectContent extends Language {
             o.content as content, 
             o.section as section, 
             o.link as link, 
-            o.email as email, 
+            o.email as email,
+            o.form as form, 
             o.icon as icon';
 
         //Field from joining tables
