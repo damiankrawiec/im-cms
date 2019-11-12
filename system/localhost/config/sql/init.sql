@@ -97,7 +97,6 @@ insert into im_object_image values (null, 6, 3, 1);
 insert into im_object_movie values (null, 2, 1, 1);
 
 insert into im_setting values (null, 'Music/Event service', 'name', 'IM-CMS Engine', '', null, null);
-insert into im_setting values (null, 'Logo', 'logo', 'logo.png', '', null, null);
 
 insert into im_language values (null, 'Polish language', 'pl', 'pl.png', 1, 'on', 'on', '', null, null);
 insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'off', 'on', '', null, null);

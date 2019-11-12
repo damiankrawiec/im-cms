@@ -14,8 +14,6 @@ $label = $object->getAllLabel();
 
     <?php require_once $this->system.'/content/language.php'; ?>
 
-    <?php require_once $this->system.'/content/logo.php'; ?>
-
 </div>
 
 <div class="container-fluid">

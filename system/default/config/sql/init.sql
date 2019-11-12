@@ -118,7 +118,6 @@ insert into im_object_category values (null, 5, 2);
 insert into im_object_category values (null, 6, 3);
 
 insert into im_setting values (null, 'System name', 'name', 'IM-CMS Engine', '', null, null);
-insert into im_setting values (null, 'Logo', 'logo', 'logo.png', '', null, null);
 
 insert into im_language values (null, 'Polish language', 'pl', 'pl.png', 1, 'on', 'on', '', null, null);
 insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'off', 'on', '', null, null);
