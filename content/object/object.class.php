@@ -808,13 +808,41 @@ class ObjectContent extends Language {
 
         if(is_dir($this->systemName.'/static')) {
 
-            $sectionName = $this->getSectionUrl($sectionId);
+            $files = scandir($this->systemName.'/static');
 
-            $fileStatic = $this->systemName.'/static/'.$sectionName.'.php';
+            $fileStatic = false;
+            if(count($files) > 2) {
 
-            if(file_exists($fileStatic)) {
+                $sectionName = $this->getSectionUrl($sectionId);
 
-                require_once $fileStatic;
+                foreach ($files as $f) {
+
+                    if ($f == '.' or $f == '..')
+                        continue;
+
+                    if(stristr($f, $sectionName)) {
+
+                        $fileStatic = $this->systemName.'/static/'.$f;
+
+                        break;
+
+                    }
+
+                }
+
+            }
+
+            if($fileStatic) {
+
+                if(stristr($fileStatic, '.php')) {
+
+                    require_once $fileStatic;
+
+                }else{
+
+                    echo file_get_contents($fileStatic);
+
+                }
 
             }
 
