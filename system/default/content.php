@@ -40,6 +40,14 @@ $label = $object->getAllLabel();
 
     <?php $object->display($sectionId, $label['company-skill'], 'end,pagination:1'); ?>
 
+    <?php
+
+    //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
+    //In static file should be defined class, rows, col, etc. - content fix to rest page box
+    $object->displayStatic($sectionId);
+
+    ?>
+
 </div>
 
 <div class="container-fluid">

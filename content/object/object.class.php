@@ -804,4 +804,22 @@ class ObjectContent extends Language {
 
     }
 
+    public function displayStatic($sectionId) {
+
+        if(is_dir($this->systemName.'/static')) {
+
+            $sectionName = $this->getSectionUrl($sectionId);
+
+            $fileStatic = $this->systemName.'/static/'.$sectionName.'.php';
+
+            if(file_exists($fileStatic)) {
+
+                require_once $fileStatic;
+
+            }
+
+        }
+
+    }
+
 }
