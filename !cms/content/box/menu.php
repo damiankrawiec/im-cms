@@ -69,37 +69,41 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                 }
 
-                                foreach ($submenuData as $sd) {
+                                if($submenuData) {
 
-                                    $submenuUrl = $g_system;
-                                    if(isset($sd['url'])) {
+                                    foreach ($submenuData as $sd) {
 
-                                        $currentId = $sd['url'];
-                                        if(stristr($sd['url'], ',')) {
+                                        $submenuUrl = $g_system;
+                                        if (isset($sd['url'])) {
 
-                                            $sdUrl = explode(',', $sd['url']);
+                                            $currentId = $sd['url'];
+                                            if (stristr($sd['url'], ',')) {
 
-                                            $currentId = $sdUrl[0];
+                                                $sdUrl = explode(',', $sd['url']);
+
+                                                $currentId = $sdUrl[0];
+
+                                            }
+
+                                            $submenuUrl .= ',' . $sd['url'];
+                                            $aId = ' id="' . $currentId . '"';
+
+                                        } else {
+
+                                            $submenuUrl .= ',' . $i . ',' . $sd['id'];
+                                            $aId = '';
 
                                         }
 
-                                        $submenuUrl .= ',' . $sd['url'];
-                                        $aId = ' id="'.$currentId.'"';
+                                        $submenuIcon = $icon['link']['internal'] . ' ';
+                                        if (isset($sd['icon']))
+                                            $submenuIcon = $sd['icon'] . ' ';
 
-                                    }else{
-
-                                        $submenuUrl .= ','.$i.',' . $sd['id'];
-                                        $aId = '';
+                                        echo '<a class="dropdown-item" href = "' . $submenuUrl . '"' . $aId . '>' . $submenuIcon . $sd['name'] . '</a>';
 
                                     }
 
-                                    $submenuIcon = $icon['link']['internal'].' ';
-                                    if(isset($sd['icon']))
-                                        $submenuIcon = $sd['icon'].' ';
-
-                                    echo '<a class="dropdown-item" href = "'.$submenuUrl.'"'.$aId.'>'.$submenuIcon.$sd['name'].'</a>';
-                                    
-                                }
+                                }else echo $addition->message($translation['message']['no-data'], $icon['message']['alert']);
 
                             echo '</div>';
 
