@@ -44,6 +44,7 @@ $label = $object->getAllLabel();
 
     //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
     //In static file should be defined class, rows, col, etc. - content fix to rest page box
+    //Name of files may only string section - check in foreach(dir) and stristr()
     $object->displayStatic($sectionId);
 
     ?>
