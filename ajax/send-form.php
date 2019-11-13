@@ -1,13 +1,46 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 require_once '../php/script/post.php';
 
 if($p_sendForm) {
 
-    //Tools like sand email, alert, etc.
-    //require_once 'php/class/functions.class.php';
+    require_once '../app/composer/vendor/autoload.php'; // Autoload files using Composer autoload
 
-    //$functions = new Functions();
+    $mailer = new PHPMailer(true);
+
+    $from = array('name' => 'example', 'address' => 'example@example.pl');
+
+    try {
+        //Server settings
+        $mailer->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mailer->isSMTP();
+        $mailer->Host = '';
+        $mailer->SMTPAuth = true;
+        $mailer->Username = $from['address'];
+        $mailer->Password = '';
+        $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mailer->Port = 587;
+
+        //Recipients
+        $mailer->setFrom($from['address'], $from['name']);
+        $mailer->addAddress($p_sendForm['destination'], $p_sendForm['destination']);
+
+        // Content
+        $mailer->isHTML(true);
+        $mailer->Subject = $p_sendForm['name'];
+        $mailer->Body = $p_sendForm['source'].': '.$p_sendForm['content'];
+
+        $mailer->send();
+
+    } catch (Exception $e) {
+
+        echo $mailer->ErrorInfo;
+
+    }
 
     require_once '../'.$p_sendForm['system'].'/setting.php';
 
