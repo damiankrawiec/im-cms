@@ -18,6 +18,8 @@
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/components/jquery" />
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/tinymce/tinymce" />
       <path value="D:/wamp64/www/im-cms/app/composer/vendor/phpmailer/phpmailer" />
+      <path value="D:/wamp64/www/im-cms/app/composer/vendor/symfony/finder" />
+      <path value="D:/wamp64/www/im-cms/app/composer/vendor/gregwar/captcha" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

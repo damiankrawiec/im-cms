@@ -11,18 +11,10 @@ class ComposerStaticInit6ea0a5b034386b5b1fbdf7efeeefa882
         array (
             'Whoops\\' => 7,
         ),
-        'S' => 
-        array (
-            'Symfony\\Component\\Finder\\' => 25,
-        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
             'PHPMailer\\PHPMailer\\' => 20,
-        ),
-        'G' => 
-        array (
-            'Gregwar\\' => 8,
         ),
     );
 
@@ -31,10 +23,6 @@ class ComposerStaticInit6ea0a5b034386b5b1fbdf7efeeefa882
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
         ),
-        'Symfony\\Component\\Finder\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/finder',
-        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -42,10 +30,6 @@ class ComposerStaticInit6ea0a5b034386b5b1fbdf7efeeefa882
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
-        'Gregwar\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/gregwar/captcha/src/Gregwar',
         ),
     );
 
