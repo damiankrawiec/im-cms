@@ -84,8 +84,6 @@ function sendForm($dataJson, $form) {
         }
     }).done(function() {
 
-        $form.next().children('.im-hide').hide();
-
         $form.next().children('.alert1').fadeIn();
 
         $form.addClass('animated zoomOutUp');

@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once '../php/script/post.php';
 
-if($p_sendForm) {
+if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
 
     require_once '../app/composer/vendor/autoload.php'; // Autoload files using Composer autoload
 
@@ -62,6 +62,7 @@ if($p_sendForm) {
     $db->bind($parameter);
 
     $db->run();
+
 }
 
 exit();

@@ -37,21 +37,37 @@ $(function(){
         var $destination = $this.find('.im-destination').val();
         var $content = tinyMCE.activeEditor.getContent();
 
+        $this.next().children('.im-hide').hide();
+
         if ($name !== '' && $source !== '' && $destination !== '' && $content !== '') {
 
-            var $sendData = {
-                "name": $name,
-                "source": $source,
-                "destination": $destination,
-                "content": $content,
-                "system": $('#system-name').val()
-            };
+            var $captcha = $this.find('.im-captcha').text();
+            $captcha = $captcha.toLowerCase();
 
-            sendForm($sendData, $this);
+            var $captchaText = $this.find('.im-captcha-text').val();
+            $captchaText = $captchaText.toLowerCase();
+
+            if($captcha === $captchaText) {
+
+                var $sendData = {
+                    "name": $name,
+                    "source": $source,
+                    "destination": $destination,
+                    "content": $content,
+                    "system": $('#system-name').val(),
+                    "captcha": $captcha,
+                    "captchaText": $captchaText
+                };
+
+                sendForm($sendData, $this);
+
+            }else{
+
+                $this.next().children('.alert-captcha').fadeIn();
+
+            }
 
         }else{
-
-            $this.next().children('.im-hide').hide();
 
             $this.next().children('.alert0').fadeIn();
 

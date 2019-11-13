@@ -841,3 +841,7 @@ insert into im_translation_system values (null, 1,  'Formularz błąd', 'form-er
 insert into im_translation_system values (null, 1,  'Formularz poprawny', 'form-ok', 'Wiadomość wysłana', '', null, null);
 insert into im_translation_system values (null, 2,  'Form error', 'form-error', 'Error sending form', '', null, null);
 insert into im_translation_system values (null, 2,  'Form ok', 'form-ok', 'Form send', '', null, null);
+insert into im_translation_system values (null, 1,  'Błąd captcha', 'captcha-error', 'Błąd obrazka', '', null, null);
+insert into im_translation_system values (null, 2,  'Captcha error', 'captcha-error', 'Captcha error', '', null, null);
+insert into im_translation_system values (null, 1,  'Captcha', 'captcha-text', 'Wpisz znaki', '', null, null);
+insert into im_translation_system values (null, 2,  'Captcha', 'captcha-text', 'Insert captcha', '', null, null);
