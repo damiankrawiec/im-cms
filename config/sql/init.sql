@@ -784,9 +784,9 @@ create trigger im_translation_update_date_modify
 create table im_form (
     form_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',-- name message
-    receive varchar(128) collate utf8_polish_ci default '',-- who send
     content varchar(1024) collate utf8_polish_ci default '',-- content of message
-    status varchar(3) default 'on',-- is read (on - unread, off- read)
+    source varchar(128) collate utf8_polish_ci default '',-- who send
+    destination varchar(128) collate utf8_polish_ci default '',-- who receive
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     primary key (form_id)
@@ -801,7 +801,7 @@ create trigger im_form_insert_date_create
 
 -- FORM MESSAGE END --
 
--- INSERT PROPERTY (the same records for all systems) --
+-- INSERT (the same records for all systems) --
 
 -- record, property of type of object
 
@@ -817,3 +817,27 @@ insert into im_property values (null, 'Adres e-mail', 'email', '', null, null);
 insert into im_property values (null, 'Adres formularza kontaktowego', 'form', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 insert into im_property values (null, 'Ikona', 'icon', '', null, null);
+
+-- language definition
+
+insert into im_language values (null, 'Polish language', 'pl', 'pl.png', 1, 'on', 'on', '', null, null);
+insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'off', 'on', '', null, null);
+
+-- translation system
+
+insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż wszystko', '', null, null);
+insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
+insert into im_translation_system values (null, 1,  'More', 'more', 'Więcej...', '', null, null);
+insert into im_translation_system values (null, 2,  'More', 'more', 'More...', '', null, null);
+insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
+insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
+insert into im_translation_system values (null, 1,  'Przycisk wyślij', 'send', 'Wyślij', '', null, null);
+insert into im_translation_system values (null, 1,  'Nazwa', 'name', 'Nazwa', '', null, null);
+insert into im_translation_system values (null, 1,  'Nadawca', 'source', 'Nadawca', '', null, null);
+insert into im_translation_system values (null, 2,  'Send button', 'send', 'Send now', '', null, null);
+insert into im_translation_system values (null, 2,  'Name', 'name', 'name', '', null, null);
+insert into im_translation_system values (null, 2,  'From', 'source', 'from', '', null, null);
+insert into im_translation_system values (null, 1,  'Formularz błąd', 'form-error', 'Błąd wysyłania wiadomości', '', null, null);
+insert into im_translation_system values (null, 1,  'Formularz poprawny', 'form-ok', 'Wiadomość wysłana', '', null, null);
+insert into im_translation_system values (null, 2,  'Form error', 'form-error', 'Error sending form', '', null, null);
+insert into im_translation_system values (null, 2,  'Form ok', 'form-ok', 'Form send', '', null, null);

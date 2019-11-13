@@ -119,16 +119,6 @@ insert into im_object_category values (null, 6, 3);
 
 insert into im_setting values (null, 'System name', 'name', 'IM-CMS Engine', '', null, null);
 
-insert into im_language values (null, 'Polish language', 'pl', 'pl.png', 1, 'on', 'on', '', null, null);
-insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'off', 'on', '', null, null);
-
-insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż wszystko', '', null, null);
-insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
-insert into im_translation_system values (null, 1,  'More', 'more', 'Więcej...', '', null, null);
-insert into im_translation_system values (null, 2,  'More', 'more', 'More...', '', null, null);
-insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
-insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
-
 insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'In english image', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);

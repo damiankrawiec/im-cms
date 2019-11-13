@@ -152,7 +152,8 @@ $s_eventDefinition = array(
         ),
         'im_form' => array(
             'name' => array('name' => $tableDefinitionEvent['im_form']['name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form'),
-            'receive' => array('name' => $tableDefinitionEvent['im_form']['receive'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form'),
+            'source' => array('name' => $tableDefinitionEvent['im_form']['source'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form'),
+            'destination' => array('name' => $tableDefinitionEvent['im_form']['destination'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form'),
             'content' => array('name' => $tableDefinitionEvent['im_form']['content'], 'type' => 'preview', 'table' => 'im_form'),
             'description' => array('name' => $tableDefinitionEvent['im_form']['description'], 'type' => 'textarea', 'table' => 'im_form')
         )

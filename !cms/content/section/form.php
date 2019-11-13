@@ -13,9 +13,9 @@ require_once 'php/script/one-data-display.php';
 $sql = 'select 
         form_id,
         name,
-        receive,
         content,
-        status,
+        source,
+        destination,
         if(description = \'\', \'-\', description) as description,
         date_create
         from ' . $table;

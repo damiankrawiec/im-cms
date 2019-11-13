@@ -98,15 +98,5 @@ insert into im_object_movie values (null, 2, 1, 1);
 
 insert into im_setting values (null, 'Music/Event service', 'name', 'IM-CMS Engine', '', null, null);
 
-insert into im_language values (null, 'Polish language', 'pl', 'pl.png', 1, 'on', 'on', '', null, null);
-insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'off', 'on', '', null, null);
-
-insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż wszystko', '', null, null);
-insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
-insert into im_translation_system values (null, 1,  'More', 'more', 'Więcej...', '', null, null);
-insert into im_translation_system values (null, 2,  'More', 'more', 'More...', '', null, null);
-insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
-insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
-
 insert into im_translation values (null, 2,  'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
 insert into im_translation values (null, 2,  'Dance floor', 'im_section', 'name', 7, 'Dance floor', '', null, null);

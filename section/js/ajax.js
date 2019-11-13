@@ -63,3 +63,35 @@ function refreshSession($label, $type) {
     });
 
 }
+
+function sendForm($dataJson, $form) {
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/send-form.php",
+        data: {
+            sendForm: $dataJson
+        },
+        beforeSend: function(){
+
+            $('#process').show();
+
+        },
+        complete: function(){
+
+            $('#process').fadeOut(1000);
+
+        }
+    }).done(function() {
+
+        $form.next().children('.im-hide').hide();
+
+        $form.next().children('.alert1').fadeIn();
+
+        $form.addClass('animated zoomOutUp');
+
+        setTimeout(function(){$form.slideUp()}, 700);
+
+    });
+
+}
