@@ -1,5 +1,7 @@
 <?php
 
+//Captcha generator
+
 $image = imagecreatetruecolor(200, 50);
 
 $white = imagecolorallocate($image, 255, 255, 255);
