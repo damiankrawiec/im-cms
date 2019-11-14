@@ -27,7 +27,7 @@ $icon = array(
         'copy' => '<i class="fal fa-copy"></i>',
         'translation' => '<i class="fal fa-language fa-2x"></i>',
         'back' => '<i class="fal fa-reply"></i>',
-        'preview' => '<i class="fal fa-eye"></i>'
+        'preview' => '<i class="fal fa-eye pt-1"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

@@ -56,7 +56,8 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit:preview',
+            'event' => 'edit:preview,delete',
+            'table_delete' => array('main' => $table),
             'url' => $baseUrl,
             'no-last' => true
         );
