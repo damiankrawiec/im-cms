@@ -45,23 +45,7 @@ foreach ($eventData as $fix => $ed) {
                     $selectedId .= $c['id'].',';
                 }
 
-                $description = '';
-                if($c['description'] != '') {
-
-                    $lengthAllow = 30;
-                    if(strlen($c['description']) > $lengthAllow) {
-
-                        $description = ' ('.substr($c['description'], 0, $lengthAllow).'...)';
-
-                    }else{
-
-                        $description = ' ('.$c['description'].')';
-
-                    }
-
-                }
-
-                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] .$description.'</option>';
+                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] .$addition->cutDescription($c['description'], 30).'</option>';
 
             }
 

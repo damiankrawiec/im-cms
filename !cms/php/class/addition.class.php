@@ -304,5 +304,25 @@ class Addition
         return $string;
 
     }
+    public function cutDescription($descriptionWhole, $lengthAllow) {
+
+        $description = '';
+        if($descriptionWhole != '') {
+
+            if(strlen($descriptionWhole) > $lengthAllow) {
+
+                $description = ' ('.substr($descriptionWhole, 0, $lengthAllow).'...)';
+
+            }else{
+
+                $description = ' ('.$descriptionWhole.')';
+
+            }
+
+        }
+
+        return $description;
+
+    }
 
 }
