@@ -288,7 +288,7 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'content' => 'Opis',
         'url' => 'Obraz',
-        'section' => 'Przekierowanie',
+        'section' => 'Przekierowanie (gdy nie wybierzesz nic obraz po kliknięciu będzie powiększany)',
         'description' => 'Opis techniczny'
     ),
     'im_file' => array(
