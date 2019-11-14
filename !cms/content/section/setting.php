@@ -68,12 +68,6 @@ if ($record) {
             'record' => $record,
             'event' => 'edit,delete',
             'table_delete' => array('main' => $table),
-            'restriction' => array(
-                'delete' => array(
-                    'im_object' => 'type_id',
-                    'im_type_property' => 'type_id'
-                )
-            ),
             'url' => $baseUrl
         );
 
