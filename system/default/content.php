@@ -10,10 +10,14 @@ $sectionId = $this->getSection()->id;
 $label = $object->getAllLabel();
 
 ?>
-<div class="container-fluid">
-
-    <?php require_once $this->system.'/content/language.php'; ?>
-
+<div class="im-language">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <?php $object->displayLanguage(); ?>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container-fluid">
@@ -49,8 +53,10 @@ $label = $object->getAllLabel();
 
 </div>
 
-<div class="container-fluid">
-
-    <?php require_once $this->system.'/content/footer.php'; ?>
-
+<div class="im-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </div>
 </div>
