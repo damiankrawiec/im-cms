@@ -175,9 +175,11 @@ function move($direction, $paginationData) {
 
     if($object.length > 0) {
 
-        $first.addClass('im-hide-pagination');
+        $('.' + $label + ' .object').each(function(){
 
-        $last.addClass('im-hide-pagination');
+            $(this).addClass('im-hide-pagination');
+
+        });
 
         $object.each(function($i){
 
@@ -237,7 +239,7 @@ function scrollEvent() {
 
     $window.scroll(function() {
 
-        if($window.scrollTop() > 200){
+        if($window.scrollTop() > 300){
 
             $('#scroll-top').fadeIn();
 
