@@ -163,13 +163,13 @@ function move($direction, $paginationData) {
 
     if($direction === 'im-left') {
 
-        $object = $first.prevAll('.im-hide-pagination');
+        $object = $first.prevAll('.im-hide-pagination:not(.im-hide-category)');
 
     }
 
     if($direction === 'im-right') {
 
-        $object = $last.nextAll('.im-hide-pagination');
+        $object = $last.nextAll('.im-hide-pagination:not(.im-hide-category)');
 
     }
 
@@ -181,11 +181,18 @@ function move($direction, $paginationData) {
 
         });
 
-        $object.each(function($i){
+        var $count = 0;
+        $object.each(function(){
 
-            if($i < $number) {
+            if($(this).attr('class').indexOf('im-hide-category') === -1) {
 
-                $(this).removeClass('im-hide-pagination');
+                if ($count < $number) {
+
+                    $(this).removeClass('im-hide-pagination');
+
+                    $count++;
+
+                }
 
             }
 
