@@ -288,6 +288,7 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'content' => 'Opis',
         'url' => 'Obraz',
+        'url-edit' => 'Obraz (dodaj nowy obraz tylko w przypadku gdy chcesz zmienić bieżący)',
         'section' => 'Przekierowanie (gdy nie wybierzesz nic obraz po kliknięciu będzie powiększany)',
         'description' => 'Opis techniczny'
     ),
@@ -295,6 +296,7 @@ $tableDefinitionEvent = array(
         'name' => 'Nazwa',
         'content' => 'Opis',
         'url' => 'Plik',
+        'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
         'description' => 'Opis techniczny'
     ),
     'im_movie' => array(
