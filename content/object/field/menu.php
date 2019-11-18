@@ -12,7 +12,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
     if($expand) {
 
         echo '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown' . $this->objectCounter . '" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        '.$this->icon['hamburger']['standard'].$this->icon['hamburger']['close'].'
         </button>';
 
         echo '<div class="collapse navbar-collapse" id="navbarNavDropdown' . $this->objectCounter . '">';
