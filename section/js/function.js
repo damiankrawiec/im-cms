@@ -161,9 +161,13 @@ function move($direction, $paginationData) {
 
     var $object = false;
 
+    var $slideShow = '';
+
     if($direction === 'im-left') {
 
         $object = $first.prevAll('.im-hide-pagination:not(.im-hide-category)');
+
+        $slideShow = ' fadeInLeft';
 
     }
 
@@ -171,13 +175,17 @@ function move($direction, $paginationData) {
 
         $object = $last.nextAll('.im-hide-pagination:not(.im-hide-category)');
 
+        $slideShow = ' fadeInRight';
+
     }
 
     if($object.length > 0) {
 
         $('.' + $label + ' .object').each(function(){
 
-            $(this).addClass('im-hide-pagination');
+            $(this).removeClass('fadeInLeft fadeInRight');
+
+            $(this).addClass('im-hide-pagination animated' + $slideShow);
 
         });
 
