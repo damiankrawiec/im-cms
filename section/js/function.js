@@ -206,6 +206,8 @@ function move($direction, $paginationData) {
 
         });
 
+        $('#scroll-top').trigger('click');
+
     }
 
 }
