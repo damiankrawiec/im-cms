@@ -10,7 +10,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
         echo '<input type="text" class="form-control im-source" placeholder="'.$this->translationSystem['source'].'">';
         echo '<textarea class="editor"></textarea>';
         echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->translationSystem['captcha-text'].'">';
-        echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto"><br>';
+        echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
         echo '<input type="button" class="btn btn-light im-send" value="'.$this->translationSystem['send'].'">';
         echo '<input type="hidden" class="im-destination" value="'.$dataDisplay.'">';
         echo '<div class="im-hide im-captcha">'.$captcha.'</div>';
