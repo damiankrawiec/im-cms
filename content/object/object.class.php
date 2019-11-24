@@ -656,6 +656,18 @@ class ObjectContent extends Language {
 
                         $this->displayCategory();
 
+                        if($pagination) {
+
+                            echo '<div class="col-12 pagination-arrow" id="'.$label.':'.$number.'">';
+
+                            echo $this->icon['arrow']['light-left'];
+
+                            echo $this->icon['arrow']['light-right'];
+
+                            echo '</div>';
+
+                        }
+
                         foreach ($objectRecord as $i => $or) {
 
                             $classAdd = $this->getTypeClass($or['type'])->class;
@@ -739,18 +751,6 @@ class ObjectContent extends Language {
                         }
 
                         echo '<div class="im-hide col-12 no-data">'.$this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'].'</div>';
-
-                        if($pagination) {
-
-                            echo '<div class="col-12 pagination-arrow" id="'.$label.':'.$number.'">';
-
-                                echo $this->icon['arrow']['light-left'];
-
-                                echo $this->icon['arrow']['light-right'];
-
-                            echo '</div>';
-
-                        }
 
                     echo '</div>';
 
