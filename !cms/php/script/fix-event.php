@@ -10,12 +10,13 @@ foreach ($eventData as $fix => $ed) {
 
         $sql = 'select distinct
             t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, 
-            t.name, 
-            t.description
-            from ' . $eventData[$fix]['collection']['table'] . ' t
-            left outer join ' . $eventData[$fix]['table']['name'] . ' tj on(tj.'.$eventData[$fix]['table']['id'].' = t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id)';
+            t.name as name, 
+            t.description as description
+            from ' . $eventData[$fix]['collection']['table'] . ' t';
 
         $sqlRest = $sql;
+
+        $sql .= ' left outer join ' . $eventData[$fix]['table']['name'] . ' tj on(tj.'.$eventData[$fix]['table']['id'].' = t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id)';
 
         if(isset($eventData[$fix]['table']['sort'])) {
 
@@ -29,15 +30,36 @@ foreach ($eventData as $fix => $ed) {
 
         $collection = $db->run('all');
 
-        if(isset($eventData[$fix]['table']['sort'])) {
+        if(isset($eventData[$fix]['table']['sort']) and $collection) {
 
-            $sqlRest .= ' where tj.' . $eventData[$fix]['id']['name'].' != '.$eventData[$fix]['id']['value'];
+            $selectedIdArray = array(0);
+            foreach ($collection as $cRest) {
+
+                array_push($selectedIdArray, $cRest['id']);
+
+            }
+
+            $selectedIdString = implode(',', $selectedIdArray);
+
+            $sqlRest .= ' where  t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id not in ('.$selectedIdString.')';
 
             $db->prepare($sqlRest);
 
             $collectionRest = $db->run('all');
 
-            $collection = array_merge($collection, $collectionRest);
+            if($collectionRest) {
+
+                $collection = array_merge($collection, $collectionRest);
+
+            }
+
+        }
+
+        if(!$collection) {
+
+            $db->prepare($sqlRest);
+
+            $collection = $db->run('all');
 
         }
 
