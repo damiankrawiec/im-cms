@@ -82,6 +82,9 @@ ul.pagination .page-link i {
 .multi-wrapper .item {
   color: #343a40;
 }
+.selected-wrapper .header {
+  display: none;
+}
 #process {
   position: fixed;
   bottom: 30px;

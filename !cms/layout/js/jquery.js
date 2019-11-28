@@ -118,7 +118,29 @@ $(function(){
 
             fix();
 
+            $('.fix-box .order').each(function(){
+
+                fixSort($(this));
+
+            });
+
         }
+
+        $('.selected-wrapper').change(function(){
+
+            var $this = $(this);
+
+            var $idArray = [];
+            $this.children('a').each(function(){
+
+                $idArray.push($(this).attr('data-value'));
+
+            });
+
+            $this.parent().next().val($idArray.join());
+
+        });
+
         $('.translation-move').click(function(){
 
             translationMove($(this).attr('id'));

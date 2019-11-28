@@ -2,15 +2,44 @@
 
 $collectionCount = 0;
 
+echo '<div class="fix-box">';
+
 foreach ($eventData as $fix => $ed) {
 
     if (stristr($fix, 'fix')) {
 
-        $sql = 'select ' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, name, description from ' . $eventData[$fix]['collection']['table'];
+        $sql = 'select distinct
+            t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, 
+            t.name, 
+            t.description
+            from ' . $eventData[$fix]['collection']['table'] . ' t
+            left outer join ' . $eventData[$fix]['table']['name'] . ' tj on(tj.'.$eventData[$fix]['table']['id'].' = t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id)';
+
+        $sqlRest = $sql;
+
+        if(isset($eventData[$fix]['table']['sort'])) {
+
+            $sql .= ' where tj.' . $eventData[$fix]['id']['name'].' = '.$eventData[$fix]['id']['value'];
+
+            $sql .= ' order by tj.' . $eventData[$fix]['table']['sort'];
+
+        }
 
         $db->prepare($sql);
 
         $collection = $db->run('all');
+
+        if(isset($eventData[$fix]['table']['sort'])) {
+
+            $sqlRest .= ' where tj.' . $eventData[$fix]['id']['name'].' != '.$eventData[$fix]['id']['value'];
+
+            $db->prepare($sqlRest);
+
+            $collectionRest = $db->run('all');
+
+            $collection = array_merge($collection, $collectionRest);
+
+        }
 
         $sql = 'select ' . $eventData[$fix]['table']['id'] . ' as id from ' . $eventData[$fix]['table']['name'] . ' where ' . $eventData[$fix]['id']['name'] . ' = ' . $eventData[$fix]['id']['value'];
 
@@ -34,7 +63,11 @@ foreach ($eventData as $fix => $ed) {
 
             echo '<label for="collection-'.$collectionCount.'" class="collection-label">'.$eventData[$fix]['collection']['name'].'</label>';
 
-            echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
+            $classOrder = '';
+            if(isset($eventData[$fix]['table']['sort']))
+                $classOrder = ' order';
+
+            echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection'.$classOrder.'" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
             $selectedId = '';
             foreach ($collection as $c) {
@@ -55,7 +88,12 @@ foreach ($eventData as $fix => $ed) {
 
             echo '<input type="hidden" name="collection_'.$eventData[$fix]['table']['id'].'" value="'.$selectedId.'">';
 
-            array_push($fixArray, array('table' => $eventData[$fix]['table']['name'], 'one' => $eventData[$fix]['id']['name'], 'all' => $eventData[$fix]['table']['id']));
+            $fixArrayOne = array('table' => $eventData[$fix]['table']['name'], 'one' => $eventData[$fix]['id']['name'], 'all' => $eventData[$fix]['table']['id']);
+
+            if(isset($eventData[$fix]['table']['sort']))
+                $fixArrayOne['sort'] = $eventData[$fix]['table']['sort'];
+
+            array_push($fixArray, $fixArrayOne);
 
         }
 
@@ -64,3 +102,5 @@ foreach ($eventData as $fix => $ed) {
     $collectionCount++;
 
 }
+
+echo '</div>';

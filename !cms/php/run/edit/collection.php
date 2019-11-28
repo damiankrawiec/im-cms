@@ -20,7 +20,12 @@ foreach ($eventData['collection'] as $ec) {
 
         $selectedId = $collectionData[$ec->all];
 
-        $sql = 'insert into ' . $ec->table.' (' . $ec->one . ', '.$ec->all.') values ';
+        $sql = 'insert into ' . $ec->table.' (' . $ec->one . ', '.$ec->all;
+
+        if(isset($ec->sort))
+            $sql .= ', '.$ec->sort;
+
+        $sql .= ') values ';
 
         if (stristr($selectedId, ',')) {
 
@@ -37,11 +42,18 @@ foreach ($eventData['collection'] as $ec) {
         $parameter = array();
         foreach ($selectedIdArray as $i => $sia) {
 
-            $sqlValue .= '(:'.$ec->one.$i.', :'.$ec->all.$i.'),';
+            $sqlValue .= '(:'.$ec->one.$i.', :'.$ec->all.$i;
+
+            if(isset($ec->sort))
+                $sqlValue .= ', :'.$ec->sort.$i;
+
+            $sqlValue .= '),';
 
             array_push($parameter, array('name' => ':'.$ec->one.$i, 'value' => $eventData['id']->$idName, 'type' => 'int'));
             array_push($parameter, array('name' => ':'.$ec->all.$i, 'value' => $sia, 'type' => 'int'));
 
+            if(isset($ec->sort))
+                array_push($parameter, array('name' => ':'.$ec->sort.$i, 'value' => ($i + 1), 'type' => 'int'));
 
         }
 

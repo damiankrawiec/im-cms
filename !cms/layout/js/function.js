@@ -354,6 +354,21 @@ function fix() {
     });
 
 }
+function fixSort($this) {
+
+    var $id = $this.attr('id') + '-fix';
+
+    var $next = $this.next().find('.selected-wrapper');
+
+    $next.attr('id', $id);
+
+    var $sortable = document.getElementById($id);
+
+    new Sortable($sortable, {
+        animation: 150
+    });
+
+}
 function collection() {
 
     $('.edit .multi-wrapper').each(function() {
