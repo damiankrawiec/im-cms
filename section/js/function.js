@@ -254,9 +254,17 @@ function scrollEvent() {
 
     var $window = $(window);
 
+    var $position = $window.scrollTop();
+
+    var $labelScroll = labelScroll();
+
+    var $direction = '';
+
     $window.scroll(function() {
 
-        if($window.scrollTop() > 300){
+        clearTimeout($.data(this, 'scrollTimer'));
+
+        if($window.scrollTop() > 300) {
 
             $('#scroll-top').fadeIn();
 
@@ -265,6 +273,26 @@ function scrollEvent() {
             $('#scroll-top').fadeOut();
 
         }
+
+        var $scroll = $window.scrollTop();
+
+        if($scroll > $position) {
+
+            $direction = 'down';
+
+        } else {
+
+            $direction = 'up';
+
+        }
+
+        $position = $scroll;
+
+        $.data(this, 'scrollTimer', setTimeout(function() {
+
+            nextScroll($labelScroll, $position, $direction);
+
+        }, 250));
 
     });
 
@@ -304,5 +332,55 @@ function gallery() {
 function datepicker() {
 
     $('.datepicker-here').datepicker();
+
+}
+function nextScroll($currentTop, $scrollArray, $direction) {
+
+        var $scrollCount = $scrollArray.length;
+
+        var $up = 0;
+        var $down = 0;
+        var $i;
+        for($i = 0; $i < $scrollCount; $i++){
+
+            if($scrollArray[$i][1] < $currentTop) {
+
+                $up = $scrollArray[$i][0];
+
+            }
+
+            if($scrollArray[$i][1] > $currentTop && $down !== 0) {
+
+                $down = $scrollArray[$i][0];
+
+            }
+
+        }
+
+        if($direction === 'up')
+            $directionLabel = $up;
+
+        if($direction === 'down')
+            $directionLabel = $down;
+
+        $('body').scrollTo($directionLabel);
+
+
+}
+function labelScroll() {
+
+    var $labelScroll = [];
+
+    $('body .scroll').each(function () {
+
+        var $this = $(this);
+
+        var $offset = $this.offset();
+
+        $labelScroll.push([$this.attr('title'), $offset.top]);
+
+    });
+
+    return $labelScroll;
 
 }
