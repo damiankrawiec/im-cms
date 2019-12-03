@@ -272,27 +272,29 @@ function scrollEvent() {
 
         }
 
-        if($scroll > $position) {
+        if($('.scroll').length > 0) {
 
-            $direction = 'down';
+            if ($scroll > $position) {
 
-        } else {
+                $direction = 'down';
 
-            $direction = 'up';
+            } else {
+
+                $direction = 'up';
+
+            }
+
+            $position = $scroll;
+
+            clearTimeout($.data(this, 'scrollTimer'));
+
+            $.data(this, 'scrollTimer', setTimeout(function () {
+
+                nextScroll(labelScroll(), $position, $direction);
+
+            }, 250));
 
         }
-
-        $position = $scroll;
-
-        var $labelScroll = labelScroll();
-
-        clearTimeout($.data(this, 'scrollTimer'));
-
-        $.data(this, 'scrollTimer', setTimeout(function() {
-
-            nextScroll($labelScroll, $position, $direction);
-
-        }, 250));
 
     });
 
