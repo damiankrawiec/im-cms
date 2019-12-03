@@ -7,8 +7,6 @@ $object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $t
 
 $sectionData = $this->getSection();
 
-$sectionId = $sectionData->id;
-
 $label = $object->getAllLabel();
 
 ?>
@@ -35,22 +33,22 @@ $label = $object->getAllLabel();
 
     ?>
 
-    <?php $object->display($sectionId, $label['menu']); ?>
+    <?php $object->display($sectionData->id, $label['menu']); ?>
 
-    <?php $object->display($sectionId, $label['submenu'], 'parent,begin'); ?>
+    <?php $object->display($sectionData->id, $label['submenu'], 'parent,begin'); ?>
 
-    <?php $object->display($sectionId, $label['slider'], 'end'); ?>
+    <?php $object->display($sectionData->id, $label['slider'], 'end'); ?>
 
-    <?php $object->display($sectionId, $label['news'], 'begin'); ?>
+    <?php $object->display($sectionData->id, $label['news'], 'begin'); ?>
 
-    <?php $object->display($sectionId, $label['company-skill'], 'end,pagination:1,scroll'); ?>
+    <?php $object->display($sectionData->id, $label['company-skill'], 'end,pagination:1,scroll'); ?>
 
     <?php
 
     //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display
     //In static file should be defined class, rows, col, etc. - content fix to rest page box
     //Name of files may only string section - check in foreach(dir) and stristr()
-    $object->displayStatic($sectionId);
+    $object->displayStatic($sectionData->id);
 
     ?>
 
