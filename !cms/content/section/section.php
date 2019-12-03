@@ -17,6 +17,7 @@ if($g_var1 != '') {
         name_url,
         meta,
         if(icon = \'\', \'-\', icon) as icon,
+        class,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,

@@ -270,6 +270,7 @@ $tableDefinitionEvent = array(
         'name_url' => 'Nazwa url',
         'meta' => 'Opis strony (meta)',
         'icon' => 'Ikona (Fontawesome)',
+        'class' => 'Właściwości',
         'description' => 'Opis techniczny'
     ),
     'im_category' => array(

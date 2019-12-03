@@ -5,7 +5,9 @@ require_once 'content/object/object.class.php';
 
 $object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin);
 
-$sectionId = $this->getSection()->id;
+$sectionData = $this->getSection();
+
+$sectionId = $sectionData->id;
 
 $label = $object->getAllLabel();
 
@@ -20,7 +22,7 @@ $label = $object->getAllLabel();
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?>">
 
     <?php
 

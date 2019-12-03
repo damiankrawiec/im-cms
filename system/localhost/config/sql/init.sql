@@ -1,12 +1,12 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', 2, 'on', '', null, null);
-insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', 1, 'on', '', null, null);
-insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', 2, 'on', '', null, null);
-insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', 3, 'on', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', null, 1, 'on', '', null, null);
+insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', null, 2, 'on', '', null, null);
+insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', null, 3, 'on', '', null, null);
+insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', null, 1, 'on', '', null, null);
+insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', null, 2, 'on', '', null, null);
+insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', null, 3, 'on', '', null, null);
+insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', null, 3, 'on', '', null, null);
 
 -- record, object label
 

@@ -161,6 +161,7 @@ create table im_section (
     name_url varchar(128) default '',-- url name, like as name, it could be change
     meta varchar(512) default '',-- meta description
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
+    class varchar(128) collate utf8_polish_ci default 'container',-- class of content in section
     position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management

@@ -193,7 +193,7 @@ class System extends Setting
 
         $this->currentSection = $url;
 
-        $sql = 'select section_id as id, name, meta
+        $sql = 'select section_id as id, name, name_url as url, meta, class
                 from im_section
                 where name_url = :url';
 
