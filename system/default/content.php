@@ -29,6 +29,7 @@ $label = $object->getAllLabel();
     //    //- begin, end (must be together) - connected 2 or more label group in one row
     //    //- pagination always with :X on the right (number of objects show on one page of paging)
     //    //- submenu show section name and his children via dropdown
+    //    //- scroll insert a scroll tag (animate scrolling)
 
     ?>
 
@@ -40,7 +41,7 @@ $label = $object->getAllLabel();
 
     <?php $object->display($sectionId, $label['news'], 'begin'); ?>
 
-    <?php $object->display($sectionId, $label['company-skill'], 'end,pagination:1'); ?>
+    <?php $object->display($sectionId, $label['company-skill'], 'end,pagination:1,scroll'); ?>
 
     <?php
 

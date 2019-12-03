@@ -256,15 +256,13 @@ function scrollEvent() {
 
     var $position = $window.scrollTop();
 
-    var $labelScroll = labelScroll();
-
     var $direction = '';
 
     $window.scroll(function() {
 
-        clearTimeout($.data(this, 'scrollTimer'));
+        var $scroll = $window.scrollTop();
 
-        if($window.scrollTop() > 300) {
+        if($scroll > 300) {
 
             $('#scroll-top').fadeIn();
 
@@ -273,8 +271,6 @@ function scrollEvent() {
             $('#scroll-top').fadeOut();
 
         }
-
-        var $scroll = $window.scrollTop();
 
         if($scroll > $position) {
 
@@ -287,6 +283,10 @@ function scrollEvent() {
         }
 
         $position = $scroll;
+
+        var $labelScroll = labelScroll();
+
+        clearTimeout($.data(this, 'scrollTimer'));
 
         $.data(this, 'scrollTimer', setTimeout(function() {
 
@@ -334,37 +334,49 @@ function datepicker() {
     $('.datepicker-here').datepicker();
 
 }
-function nextScroll($currentTop, $scrollArray, $direction) {
+function nextScroll($scrollArray, $currentTop, $direction, $correct) {
 
-        var $scrollCount = $scrollArray.length;
+    var $scrollCount = $scrollArray.length;
 
-        var $up = 0;
-        var $down = 0;
-        var $i;
-        for($i = 0; $i < $scrollCount; $i++){
+    if($scrollCount > 0 && $currentTop > 0) {
 
-            if($scrollArray[$i][1] < $currentTop) {
+        var $nextUp = 0;
+        var $nextDown = 0;
+        for ($i = 0; $i < $scrollCount; $i++) {
 
-                $up = $scrollArray[$i][0];
+            if ($scrollArray[$i] < $currentTop) {
+
+                $nextUp = $scrollArray[$i];
 
             }
 
-            if($scrollArray[$i][1] > $currentTop && $down !== 0) {
+            if ($scrollArray[$i] > $currentTop && $nextDown === 0) {
 
-                $down = $scrollArray[$i][0];
+                $nextDown = $scrollArray[$i];
 
             }
 
         }
 
         if($direction === 'up')
-            $directionLabel = $up;
+            $directionLabel = 0;
 
         if($direction === 'down')
-            $directionLabel = $down;
+            $directionLabel = $nextDown;
 
-        $('body').scrollTo($directionLabel);
+        if($directionLabel > 0) {
 
+            $('html').animate({
+                scrollTop: $directionLabel
+            }, 500, function () {
+
+                $('html').stop();
+
+            });
+
+        };
+
+    }
 
 }
 function labelScroll() {
@@ -377,7 +389,7 @@ function labelScroll() {
 
         var $offset = $this.offset();
 
-        $labelScroll.push([$this.attr('title'), $offset.top]);
+        $labelScroll.push($offset.top);
 
     });
 

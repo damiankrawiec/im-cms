@@ -651,7 +651,7 @@ class ObjectContent extends Language {
                 }
 
                 if($this->checkDisplayOption($option, 'scroll'))
-                    echo '<a class="scroll" title="'.$label.'"></a>';
+                    echo '<a class="scroll"></a>';
 
                 echo '<div class="'.$classLabelDisplay.'objects '.$label.'">';
 
