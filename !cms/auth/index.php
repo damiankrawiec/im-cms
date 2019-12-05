@@ -21,6 +21,8 @@ require_once 'validation/init.php';
 
     <title><?php echo $s_systemName.' - '.$translation['authorization']['singular']; ?></title>
 
+    <link rel="icon" type="image/png" href="../layout/graphic/favicon.png">
+
     <?php require_once '../layout/font/init.php'; ?>
 
     <link rel="stylesheet" href="../layout/css/auth/main.css">
