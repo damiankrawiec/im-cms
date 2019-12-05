@@ -9,6 +9,8 @@
 
     <?php $system->getHead(); ?>
 
+    <?php require_once 'section/favicon.php'; ?>
+
     <?php require_once 'section/font.php'; ?>
 
 </head>

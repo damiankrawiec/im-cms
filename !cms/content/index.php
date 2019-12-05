@@ -11,6 +11,8 @@ require_once 'php/init.php';
 
     <title><?php echo $s_systemName.' - '.$system->getSystemName(); ?></title>
 
+    <link rel="icon" type="image/png" href="layout/graphic/favicon.png">
+
     <?php require_once 'layout/font/init.php'; ?>
 
     <link rel="stylesheet" href="layout/css/main.css">
