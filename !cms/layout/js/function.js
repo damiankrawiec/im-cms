@@ -406,13 +406,13 @@ function scrollEvent() {
 
         if($window.scrollTop() > 200){
 
-            $('#content-top').addClass('position-fixed');
+            //$('#content-top').addClass('position-fixed');
 
             $('#scroll-top').fadeIn();
 
         }else{
 
-            $('#content-top').removeClass('position-fixed');
+            //$('#content-top').removeClass('position-fixed');
 
             $('#scroll-top').fadeOut();
 

@@ -117,6 +117,12 @@ if($g_var1 != '') {
 
             }
 
+            $objectProperty = $g_system.',type-property,'.$g_var1.','.$g_var3;
+            require_once 'php/script/object-property.php';
+
+            $objectType = $g_system.',type,edit,'.$g_var1.','.$g_var3;
+            require_once 'php/script/object-type.php';
+
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,

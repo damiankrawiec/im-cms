@@ -241,7 +241,7 @@ function translation() {
 
             for($t in $translation) {
 
-                $('#' + $t).append($translation[$t]);
+                $('#' + $t).html($translation[$t]);
 
             }
 

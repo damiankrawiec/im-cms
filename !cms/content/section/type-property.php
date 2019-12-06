@@ -58,6 +58,13 @@ if($g_var1 != '') {
 
     if($displayCount == 'all') {
 
+        if($g_var2 != '') {
+
+            $objectBack = $g_system.',object,'.$g_var1.',edit,'.$g_var2;
+            require_once 'php/script/object-back.php';
+
+        }
+
         $lastData = array('sql' => $sql);
 
         $lastData['parameter'] = $parameter;

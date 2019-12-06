@@ -31,6 +31,13 @@ $db->prepare($sql);
 
 if($displayCount == 'one') {
 
+    if($g_var3 != '') {
+
+        $objectBack = $g_system.',object,'.$g_var2.',edit,'.$g_var3;
+        require_once 'php/script/object-back.php';
+
+    }
+
     $parameter = array(
         array('name' => ':id', 'value' => $g_var2, 'type' => 'int')
     );
