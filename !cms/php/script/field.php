@@ -55,5 +55,5 @@ if (!in_array('image', $fields))
 if (!in_array('file', $fields))
     unset($eventData['fix-3']);
 
-if (!in_array('movie', $fields))
+if (!in_array('source', $fields))
     unset($eventData['fix-4']);
