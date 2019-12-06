@@ -20,7 +20,8 @@ $translation = array(
         'off' => 'Wyłącz',
         'reset-view' => 'Resetuj widok',
         'back' => 'Powrót',
-        'close' => 'Zamknij'
+        'close' => 'Zamknij',
+        'one' => array('type' => 'Typ')
     ),
     'message' => array(
         'no-data' => 'Brak danych',
