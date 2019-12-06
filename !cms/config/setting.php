@@ -13,10 +13,10 @@ $s_dashboard = array(
     array('name' => $translation['dashboard']['label'], 'icon' => $icon['menu']['label'], 'table' => 'im_label', 'title' => 'name, description'),
     array('name' => $translation['dashboard']['image'], 'icon' => $icon['menu']['image'], 'table' => 'im_image', 'title' => 'name, description'),
     array('name' => $translation['dashboard']['file'], 'icon' => $icon['menu']['file'], 'table' => 'im_file', 'title' => 'name, description'),
-    array('name' => $translation['dashboard']['movie'], 'icon' => $icon['menu']['movie'], 'table' => 'im_movie', 'title' => 'name, description')
+    array('name' => $translation['dashboard']['source'], 'icon' => $icon['menu']['source'], 'table' => 'im_source', 'title' => 'name, description')
 );
 //In what table can be translate in other languages
-$s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_movie');
+$s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_source');
 //If 'submenu' is string, that mean it is the name of table from database, and data will generated dynamic
 //If 'submenu' is array, that mean it is data from this array
 //If submenu is exists, that mean the url index is no need
@@ -38,7 +38,7 @@ $s_menuDefinition = array(
         'submenu' => array(
             array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
             array('icon' => $icon['menu']['file'], 'name' => $translation['menu']['file'], 'url' => 'file'),
-            array('icon' => $icon['menu']['movie'], 'name' => $translation['menu']['movie'], 'url' => 'movie')
+            array('icon' => $icon['menu']['source'], 'name' => $translation['menu']['source'], 'url' => 'source')
         )
     ),
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
@@ -115,11 +115,11 @@ $s_eventDefinition = array(
             'url' => array('name' => $tableDefinitionEvent['im_file']['url-edit'], 'type' => 'file', 'option' => 'preview,add', 'table' => 'im_file'),
             'description' => array('name' => $tableDefinitionEvent['im_file']['description'], 'type' => 'textarea', 'table' => 'im_file')
         ),
-        'im_movie' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie'),
-            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_movie'),
-            'link' => array('name' => $tableDefinitionEvent['im_movie']['link'], 'type' => 'text', 'table' => 'im_movie'),
-            'description' => array('name' => $tableDefinitionEvent['im_movie']['description'], 'type' => 'textarea', 'table' => 'im_movie')
+        'im_source' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_source']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_source'),
+            'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source'),
+            'link' => array('name' => $tableDefinitionEvent['im_source']['link'], 'type' => 'text', 'table' => 'im_source'),
+            'description' => array('name' => $tableDefinitionEvent['im_source']['description'], 'type' => 'textarea', 'table' => 'im_source')
         ),
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),
@@ -195,9 +195,9 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_file']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_file'),
             'url' => array('name' => $tableDefinitionEvent['im_file']['url'], 'type' => 'file', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_file'),
         ),
-        'im_movie' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie'),
-            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_movie')
+        'im_source' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_source']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_source'),
+            'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source')
         ),
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting'),

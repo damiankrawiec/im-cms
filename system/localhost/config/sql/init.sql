@@ -56,9 +56,9 @@ insert into im_image values (null, 0, 'Vinyl classic', 'Classic form of listenin
 insert into im_image values (null, 0, 'Type of headphones', '', '3.jpg', 'on', '', null, null);
 insert into im_image values (null, 0, 'Sheet music', '', '4.jpg', 'on', '', null, null);
 
--- record, object movie
+-- record, object source
 
-insert into im_movie values (null, 'Dancing', '<iframe width="100%" height="315" src="https://www.youtube.com/embed/y2voZ3BH3L0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'https://www.youtube.com/watch?v=y2voZ3BH3L0', 'on', '', null, null);
+insert into im_source values (null, 'Dancing', '<iframe width="100%" height="315" src="https://www.youtube.com/embed/y2voZ3BH3L0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'https://www.youtube.com/watch?v=y2voZ3BH3L0', 'on', '', null, null);
 
 -- record, connect object with section
 
@@ -92,9 +92,9 @@ insert into im_object_image values (null, 6, 1, 3);
 insert into im_object_image values (null, 6, 2, 1);
 insert into im_object_image values (null, 6, 3, 1);
 
--- record, connect movies with object
+-- record, connect source with object
 
-insert into im_object_movie values (null, 2, 1, 1);
+insert into im_object_source values (null, 2, 1, 1);
 
 insert into im_setting values (null, 'Music/Event service', 'name', 'IM-CMS Engine', '', null, null);
 

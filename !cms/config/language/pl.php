@@ -46,7 +46,7 @@ $translation = array(
         'multimedia' => 'Multimedia',
         'image' => 'Obrazy',
         'file' => 'Pliki',
-        'movie' => 'Filmy',
+        'source' => 'Źródła',
         'setting' => 'Ustawienia',
         'label-property' => 'Właściwości etykiet',
         'service' => 'Obsługa'
@@ -80,7 +80,7 @@ $translation = array(
         'section' => 'Sekcje wyświetlające',
         'image' => 'Obrazy podłączone',
         'file' => 'Pliki podłączone',
-        'movie' => 'Filmy podłączone',
+        'source' => 'Źródła podłączone',
         'category' => 'Kategorie występowania'
     ),
     'validation' => array(
@@ -99,7 +99,7 @@ $translation = array(
         'label' => 'Etykiety (ostatnio dodane lub zmodyfikowane)',
         'image' => 'Obrazy (ostatnio dodane lub zmodyfikowane)',
         'file' => 'Pliki (ostatnio dodane lub zmodyfikowane)',
-        'movie' => 'Filmy (ostatnio dodane lub zmodyfikowane)'
+        'source' => 'Źródła (ostatnio dodane lub zmodyfikowane)'
     ),
     'php' => array(
         'version' => 'Wersja interpretera PHP',
@@ -181,7 +181,7 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
     ),
-    'im_movie' => array(
+    'im_source' => array(
         'name' => 'Nazwa',
         'link' => 'Odsyłacz zewnętrzny',
         'date_create' => 'Utworzony',
@@ -300,7 +300,7 @@ $tableDefinitionEvent = array(
         'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
         'description' => 'Opis techniczny'
     ),
-    'im_movie' => array(
+    'im_source' => array(
         'name' => 'Nazwa',
         'content' => 'Źródło',
         'link' => 'Odsyłacz zewnętrzny',

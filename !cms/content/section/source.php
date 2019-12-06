@@ -1,17 +1,17 @@
 <?php
 //Table definition init in this file
-$table = 'im_movie';
+$table = 'im_source';
 //---
 //Base url definition in this file
 $baseUrl = $addition->getUrl(2);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['movie']);
+$oneData = (object) array('value' => $translation['menu']['source']);
 
 require_once 'php/script/one-data-display.php';
 
 $sql = 'select 
-        movie_id,
+        source_id,
         name,
         content,
         link,

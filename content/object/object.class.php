@@ -303,14 +303,14 @@ class ObjectContent extends Language {
 
     }
 
-    private function getObjectMovie($objectId) {
+    private function getObjectSource($objectId) {
 
-        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.link as url
-                from im_movie m
-                join im_object_movie obm on (obm.movie_id = m.movie_id)
-                where obm.object_id = :object
-                and m.status like "on"
-                order by obm.position';
+        $sql = 'select s.source_id as id, s.name as name, s.content as content, s.link as url
+                from im_source s
+                join im_object_source obs on (obs.source_id = s.source_id)
+                where obs.object_id = :object
+                and s.status like "on"
+                order by obs.position';
 
         $this->db->prepare($sql);
 
@@ -716,9 +716,9 @@ class ObjectContent extends Language {
                                     $displayPropertyData['file'] = $this->getObjectFile($or['id']);
 
                                 }
-                                if ($p['name'] == 'movie') {
+                                if ($p['name'] == 'source') {
 
-                                    $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
+                                    $displayPropertyData['source'] = $this->getObjectSource($or['id']);
 
                                 }
                                 if ($p['name'] == 'menu') {
