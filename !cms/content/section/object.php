@@ -100,7 +100,7 @@ if($g_var1 != '') {
                 'table' => $tableDefinition[$table],
                 'record' => $record,
                 'event' => 'edit,delete',
-                'table_delete' => array('im_section_object', 'im_object_category', 'im_object_movie', 'im_object_image', 'im_object_file', 'main' => $table),
+                'table_delete' => array('im_section_object', 'im_object_category', 'im_object_source', 'im_object_image', 'im_object_file', 'main' => $table),
                 'sort' => true,
                 'url' => $baseUrl
             );
