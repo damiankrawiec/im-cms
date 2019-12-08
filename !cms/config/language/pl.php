@@ -115,6 +115,7 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
+        'status_copy' => 'Powielany do sekcji',
         'status' => 'Status'
     ),
     'im_type_property' => array(

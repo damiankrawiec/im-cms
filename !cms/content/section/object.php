@@ -33,6 +33,7 @@ if($g_var1 != '') {
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,
+        status_copy,
         status
         from ' . $table;
 

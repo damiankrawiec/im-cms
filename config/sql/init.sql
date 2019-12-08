@@ -305,6 +305,7 @@ create table im_object (
     form varchar(64) collate utf8_polish_ci default '',-- form address
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     position int default 0,
+    status_copy varchar(3) default 'off',
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
