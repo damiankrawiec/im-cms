@@ -48,7 +48,7 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
 
     $db = new Database();
 
-    $sql = 'insert into im_form (name, source, destination, content) values(:name, :source, :destination, :content)';
+    $sql = 'insert into im_form (name, email_source, email_destination, content) values(:name, :source, :destination, :content)';
 
     $db->prepare($sql);
 

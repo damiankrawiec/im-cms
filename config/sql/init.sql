@@ -787,8 +787,8 @@ create table im_form (
     form_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',-- name message
     content varchar(1024) collate utf8_polish_ci default '',-- content of message
-    source varchar(128) collate utf8_polish_ci default '',-- who send
-    destination varchar(128) collate utf8_polish_ci default '',-- who receive
+    email_source varchar(128) collate utf8_polish_ci default '',-- who send
+    email_destination varchar(128) collate utf8_polish_ci default '',-- who receive
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     primary key (form_id)

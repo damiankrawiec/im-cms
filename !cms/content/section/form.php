@@ -14,8 +14,8 @@ $sql = 'select
         form_id,
         name,
         content,
-        source,
-        destination,
+        email_source,
+        email_destination,
         if(description = \'\', \'-\', description) as description,
         date_create
         from ' . $table;

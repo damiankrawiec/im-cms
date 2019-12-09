@@ -70,8 +70,8 @@ $translation = array(
         'source' => 'Pole na źródło',
         'icon' => 'Pole tekstowe ikony',
         'language_id' => 'Definicja języka',
-        'source' => 'Pole nadawcy',
-        'destination' => 'Pole odbiorcy'
+        'email_source' => 'Pole nadawcy',
+        'email_destination' => 'Pole odbiorcy'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -230,8 +230,8 @@ $tableDefinition = array(
     ),
     'im_form' => array(
         'name' => 'Nazwa',
-        'source' => 'Nadawca',
-        'destination' => 'Odbiorca',
+        'email_source' => 'Nadawca',
+        'email_destination' => 'Odbiorca',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony'
     ),
@@ -343,8 +343,8 @@ $tableDefinitionEvent = array(
     'im_form' => array(
         'name' => 'Nazwa',
         'content' => 'Treść',
-        'source' => 'Nadawca',
-        'destination' => 'Odbiorca',
+        'email_source' => 'Nadawca',
+        'email_destination' => 'Odbiorca',
         'description' => 'Opis techniczny'
     )
 );
