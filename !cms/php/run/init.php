@@ -29,6 +29,9 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_event_supplement)
                 $eventData['supplement'] = $p_event_supplement;
 
+            if($p_field_supplement)
+                $eventData['field_supplement'] = $p_field_supplement;
+
             if($p_restriction)
                 $eventData['restriction'] = $p_restriction;
 

@@ -115,7 +115,7 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status_copy' => 'Powielany do sekcji',
+        'status_copy' => 'Powielany',
         'status' => 'Status'
     ),
     'im_type_property' => array(
@@ -273,7 +273,8 @@ $tableDefinitionEvent = array(
         'meta' => 'Opis strony (meta)',
         'icon' => 'Ikona (Fontawesome)',
         'class' => 'Właściwości',
-        'description' => 'Opis techniczny'
+        'description' => 'Opis techniczny',
+        'status_copy' => 'Przypisz do sekcji obiekty ze statusem "Powielany"'
     ),
     'im_category' => array(
         'name' => 'Nazwa',

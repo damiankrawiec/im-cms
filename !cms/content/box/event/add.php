@@ -44,13 +44,27 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         }
 
+        if(isset($eventData['field_supplement'])) {
+
+            $fieldSupplement = '';
+
+            if($eventData['field_supplement']['checkbox']) {
+
+                echo '<label for="checkbox">'.$eventData['field_supplement']['checkbox']['name'].'</label>';
+
+                echo '<input type="checkbox" name="field_supplement" value="'.$addition->arrayJson($eventData['field_supplement']['checkbox']).'" id="checkbox">';
+
+            }
+
+        }
+
         //All event need table
         echo '<input type="hidden" name="event_table" value="'.$addition->arrayJson($eventData['table_add']).'">';
 
         if(isset($eventData['supplement']))
             echo '<input type="hidden" name="event_supplement" value="'.$addition->arrayJson($eventData['supplement']).'">';
 
-        echo '<input type="hidden" name="event" value="add">';
+        echo '<input type="hidden" name="event" value="add"> ';
 
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
 

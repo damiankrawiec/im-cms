@@ -63,7 +63,13 @@ foreach($eventData['table'] as $table) {
 
     $db->bind($parameter);
 
-    $db->run();
+    $lastInsertId = $db->run();
+
+    if(isset($eventData['field_supplement'])) {
+
+        require_once 'php/run/add/field-supplement.php';
+
+    }
 
 }
 

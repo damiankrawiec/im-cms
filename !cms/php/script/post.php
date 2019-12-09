@@ -70,6 +70,10 @@ $p_event_supplement = false;
 if(isset($_POST['event_supplement']))
     $p_event_supplement = $addition->jsonArray($_POST['event_supplement']);
 
+$p_field_supplement = false;
+if(isset($_POST['field_supplement']))
+    $p_field_supplement = $addition->jsonArray($_POST['field_supplement']);
+
 $formData = array();
 if(isset($_POST)) {
 
