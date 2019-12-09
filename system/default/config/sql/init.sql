@@ -1,9 +1,9 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głownej', 'fal fa-home', null, 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Kontakt', 'kontakt', 'Opis kontaktowy', 'fal fa-phone-alt', null, 2, 'on', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', '', '', null, 1, 'on', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', '', null, 2, 'on', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głownej', 'fal fa-home', null, 1, 'on', 'off', '', null, null);
+insert into im_section values (null, 0, 'Kontakt', 'kontakt', 'Opis kontaktowy', 'fal fa-phone-alt', null, 2, 'on', 'off', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', '', '', null, 1, 'on', 'off', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', '', null, 2, 'on', 'off', '', null, null);
 
 -- record, object label
 
@@ -42,15 +42,15 @@ insert into im_type_property values (null, 5, 7, 'col-12', 'navbar navbar-dark',
 
 -- record, object
 
-insert into im_object values (null, 1, 1, 2, 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', '', '', '', '', '', '', 2, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', '', '', '', '', '', 3, '', 'off', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', 2, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', 3, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, 'Slider', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 4, 4, 0, 'Menu', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 5, 5, 0, 'Submenu', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
+insert into im_object values (null, 1, 1, 2, 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność druga na stronie głównej', '', '', '', '', '', '', 2, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Aktualność na stronie kontakt', '', '', '', '', '', 3, '', 'on', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', 2, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', 3, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, 'Slider', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Menu', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 5, 5, 0, 'Submenu', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 
 -- record, object image
 

@@ -33,8 +33,8 @@ if($g_var1 != '') {
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,
-        status_copy,
-        status
+        status,
+        status_copy
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {
@@ -85,6 +85,15 @@ if($g_var1 != '') {
                 'im_object' => array(
                     'type_id' => $g_var1,
                     'position' => ($record ? (count($record) + 1) : 1)
+                )
+            ),
+            'field_supplement' => array(
+                'checkbox' => array(
+                    'name' => $tableDefinitionEvent['im_object']['status_copy'],
+                    'table' => 'im_section_object',
+                    'new' => 'object_id',
+                    'field' => 'section_id',
+                    'from' => array('table' => 'im_section', 'where' => 'status_copy', 'value' => 'on')
                 )
             )
         );

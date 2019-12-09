@@ -115,8 +115,8 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status_copy' => 'Powielany',
-        'status' => 'Status'
+        'status' => 'Status',
+        'status_copy' => 'Powielany'
     ),
     'im_type_property' => array(
         'name' => 'Nazwa',
@@ -148,7 +148,8 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status' => 'Status'
+        'status' => 'Status',
+        'status_copy' => 'Powielana',
     ),
     'im_category' => array(
         'name' => 'Nazwa',
@@ -265,7 +266,8 @@ $tableDefinitionEvent = array(
         'icon' => 'Ikona (Fontawesome)',
         'date' => 'Data',
         'content' => 'Treść',
-        'description' => 'Opis techniczny'
+        'description' => 'Opis techniczny',
+        'status_copy' => 'Przypisz obiekt do sekcji ze statusem "Powielana"',
     ),
     'im_section' => array(
         'name' => 'Nazwa',

@@ -21,7 +21,8 @@ if($g_var1 != '') {
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,
-        status
+        status,
+        status_copy
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {

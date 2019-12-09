@@ -1,12 +1,12 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', null, 1, 'on', '', null, null);
-insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', null, 2, 'on', '', null, null);
-insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', null, 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', null, 1, 'on', '', null, null);
-insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', null, 2, 'on', '', null, null);
-insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', null, 3, 'on', '', null, null);
-insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', null, 3, 'on', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', null, 1, 'on', 'off', '', null, null);
+insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', null, 2, 'on', 'off', '', null, null);
+insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', null, 3, 'on', 'off', '', null, null);
+insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', null, 1, 'on', 'off', '', null, null);
+insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', null, 2, 'on', 'off', '', null, null);
+insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', null, 3, 'on', 'off', '', null, null);
+insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', null, 3, 'on', 'off', '', null, null);
 
 -- record, object label
 
@@ -41,13 +41,13 @@ insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand
 
 -- record, object
 
-insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 1', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 2', '', '', '', '', '', '', 2, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 3', '', '', '', '', '', '', 3, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, 'Impreza 4', '', '', '', '', '', '', 4, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, 'Slider', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, 'Menu', '', '', '', '', '', '', 1, 'off', 'on', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, 'Najbliższe wydarzenie', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 1', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 2', '', '', '', '', '', '', 2, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 3', '', '', '', '', '', '', 3, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, 'Impreza 4', '', '', '', '', '', '', 4, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, 'Slider', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, 'Menu', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 
 -- record, object image
 

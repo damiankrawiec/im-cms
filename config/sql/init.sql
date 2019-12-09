@@ -164,6 +164,7 @@ create table im_section (
     class varchar(128) collate utf8_polish_ci default 'container',-- class of content in section
     position int default 0,
     status varchar(3) default 'on',
+    status_copy varchar(3) default 'off',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -305,8 +306,8 @@ create table im_object (
     form varchar(64) collate utf8_polish_ci default '',-- form address
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     position int default 0,
-    status_copy varchar(3) default 'off',
     status varchar(3) default 'on',
+    status_copy varchar(3) default 'off',
     description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
     date_create datetime,-- create time
