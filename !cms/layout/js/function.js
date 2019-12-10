@@ -435,3 +435,19 @@ function translationMove($target) {
     $('#translation-move').submit();
 
 }
+
+function imageToOption($multiple) {
+
+    $multiple.find('a').each(function(){
+
+        var $text = $(this).text();
+
+        var $image = $text.substr($text.indexOf(':') + 2, $text.length);
+
+        var $imageDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $image + '" alt="' + $image + '" style="height: 50px">';
+
+        $(this).html($imageDom + ' ' + $text);
+
+    });
+
+}

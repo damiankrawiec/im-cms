@@ -126,6 +126,18 @@ $(function(){
 
         }
 
+        if($('.fix-image').length > 0) {
+
+            imageToOption($('.fix-image').next());
+
+            $('.fix-image').next().on('click', function(){
+
+                imageToOption($('.fix-image').next());
+
+            });
+
+        }
+
         $('.selected-wrapper').change(function(){
 
             var $this = $(this);

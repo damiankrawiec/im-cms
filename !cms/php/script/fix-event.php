@@ -11,8 +11,12 @@ foreach ($eventData as $fix => $ed) {
         $sql = 'select distinct
             t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id as id, 
             t.name as name, 
-            t.description as description
-            from ' . $eventData[$fix]['collection']['table'] . ' t';
+            t.description as description';
+
+        if($eventData[$fix]['collection']['table'] == 'im_image')
+            $sql .= ',t.url as url';
+
+        $sql .= ' from ' . $eventData[$fix]['collection']['table'] . ' t';
 
         $sqlRest = $sql;
 
@@ -89,7 +93,11 @@ foreach ($eventData as $fix => $ed) {
             if(isset($eventData[$fix]['table']['sort']))
                 $classOrder = ' order';
 
-            echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection'.$classOrder.'" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
+            $selectClass = '';
+            if($eventData[$fix]['collection']['table'] == 'im_image')
+                $selectClass = ' fix-image';
+
+            echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection'.$classOrder.''.$selectClass.'" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
             $selectedId = '';
             foreach ($collection as $c) {
@@ -100,7 +108,14 @@ foreach ($eventData as $fix => $ed) {
                     $selectedId .= $c['id'].',';
                 }
 
-                echo '<option value="' . $c['id'] . '"' . $selected . '>' . $c['name'] .$addition->cutDescription($c['description'], 30).'</option>';
+                echo '<option value="' . $c['id'] . '"' . $selected . '>';
+
+                echo $c['name'] .$addition->cutDescription($c['description'], 30);
+
+                if($eventData[$fix]['collection']['table'] == 'im_image')
+                    echo ': '.$c['url'].'';
+
+                echo '</option>';
 
             }
 

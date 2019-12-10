@@ -149,7 +149,7 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
-        'status_copy' => 'Powielana',
+        'status_copy' => 'Powielany',
     ),
     'im_category' => array(
         'name' => 'Nazwa',
@@ -267,7 +267,7 @@ $tableDefinitionEvent = array(
         'date' => 'Data',
         'content' => 'Treść',
         'description' => 'Opis techniczny',
-        'status_copy' => 'Przypisz obiekt do sekcji ze statusem "Powielana"',
+        'status_copy' => 'Przypisz obiekt do sekcji ze statusem "Powielany"',
     ),
     'im_section' => array(
         'name' => 'Nazwa',
