@@ -2,6 +2,8 @@
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
-    echo '<a href="'.$dataDisplay.'" title="'.$this->translationSystem['more'].'"'.$classField.'>' . $this->translationSystem['more'] . ' '.$this->icon['link']['external'].'</a>';
+    $dataDisplayArray = explode('|', $dataDisplay);
+
+    echo '<a href="'.$dataDisplayArray[0].'" title="'.$this->translationSystem['more'].'"'.$classField.'>'.$dataDisplayArray[1].'</a>';
 
 }

@@ -5,6 +5,8 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
     if(!stristr($dataDisplay, 'http'))
         $dataDisplay = 'http://'.$dataDisplay;
 
-    echo '<a href="'.$dataDisplay.'" target="_blank" title="'.$this->translationSystem['more'].'"'.$classField.'>' . $this->translationSystem['more'] . ' '.$this->icon['link']['external'].'</a>';
+    $dataDisplayArray = explode('|', $dataDisplay);
+
+    echo '<a href="'.$dataDisplayArray[0].'" target="_blank" title="'.$this->translationSystem['more'].'"'.$classField.'>' . $dataDisplayArray[1] . '</a>';
 
 }

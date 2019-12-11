@@ -87,8 +87,10 @@ class ObjectContent extends Language {
             o.date as date, 
             o.type_id as type, 
             o.content as content, 
-            o.section as section, 
-            o.link as link, 
+            o.section as section,
+            o.section_name as section_name, 
+            o.link as link,
+            o.link_name as link_name,
             o.email as email,
             o.form as form, 
             o.icon as icon';
@@ -189,6 +191,12 @@ class ObjectContent extends Language {
                 if(isset($data[$p['name']])) {
 
                     $dataDisplay = $data[$p['name']];
+
+                    if($p['name'] == 'section')
+                        $dataDisplay .= '|'.$data['section_name'];
+
+                    if($p['name'] == 'link')
+                        $dataDisplay .= '|'.$data['link_name'];
 
                     $dataId = $data['id'];
 
