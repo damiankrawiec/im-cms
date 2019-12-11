@@ -31,11 +31,24 @@ if (!in_array('name', $fields))
 if (!in_array('content', $fields))
     unset($eventData['field']['content']);
 
-if (!in_array('section', $fields))
+if (!in_array('section', $fields)) {
+
     unset($eventData['field']['section']);
+
+    unset($eventData['field']['section_name']);
+
+}
 
 if (!in_array('date', $fields))
     unset($eventData['field']['date']);
+
+if (!in_array('link', $fields)) {
+
+    unset($eventData['field']['link']);
+
+    unset($eventData['field']['link_name']);
+
+}
 
 if (!in_array('link', $fields))
     unset($eventData['field']['link']);
