@@ -13,7 +13,7 @@ foreach ($eventData as $fix => $ed) {
             t.name as name, 
             t.description as description';
 
-        if($eventData[$fix]['collection']['table'] == 'im_image')
+        if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file')
             $sql .= ',t.url as url';
 
         $sql .= ' from ' . $eventData[$fix]['collection']['table'] . ' t';
@@ -97,6 +97,9 @@ foreach ($eventData as $fix => $ed) {
             if($eventData[$fix]['collection']['table'] == 'im_image')
                 $selectClass = ' fix-image';
 
+            if($eventData[$fix]['collection']['table'] == 'im_file')
+                $selectClass = ' fix-file';
+
             echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection'.$classOrder.''.$selectClass.'" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
             $selectedId = '';
@@ -112,7 +115,7 @@ foreach ($eventData as $fix => $ed) {
 
                 echo $c['name'] .$addition->cutDescription($c['description'], 30);
 
-                if($eventData[$fix]['collection']['table'] == 'im_image')
+                if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file')
                     echo ': '.$c['url'].'';
 
                 echo '</option>';

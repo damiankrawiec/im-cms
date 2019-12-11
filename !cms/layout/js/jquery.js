@@ -128,11 +128,27 @@ $(function(){
 
         if($('.fix-image').length > 0) {
 
-            imageToOption($('.fix-image').next());
+            var $nextImage = $('.fix-image').next();
 
-            $('.fix-image').next().on('click', function(){
+            insertToOption($nextImage, 'image');
 
-                imageToOption($('.fix-image').next());
+            $nextImage.on('click', function(){
+
+                insertToOption($nextImage, 'image');
+
+            });
+
+        }
+
+        if($('.fix-file').length > 0) {
+
+            var $nextFile = $('.fix-file').next();
+
+            insertToOption($nextFile, 'file');
+
+            $nextFile.on('click', function(){
+
+                insertToOption($nextFile, 'file');
 
             });
 

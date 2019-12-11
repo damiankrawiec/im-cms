@@ -436,17 +436,22 @@ function translationMove($target) {
 
 }
 
-function imageToOption($multiple) {
+function insertToOption($multiple, $type) {
 
     $multiple.find('a').each(function(){
 
         var $text = $(this).text();
 
-        var $image = $text.substr($text.indexOf(':') + 2, $text.length);
+        var $file = $text.substr($text.indexOf(':') + 2, $text.length);
 
-        var $imageDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $image + '" alt="' + $image + '" style="height: 50px">';
+        var $fileDom;
+        if($type === 'image')
+            $fileDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $file + '" alt="' + $file + '" style="height: 50px">';
 
-        $(this).html($imageDom + ' ' + $text);
+        if($type === 'file')
+            $fileDom = '<a href="../system/' + $('#url-system').val() + '/public/' + $file + '" title="' + $file + '" download>' + $('#download-icon').html() + '</a>';
+
+        $(this).html($fileDom + ' ' + $text);
 
     });
 

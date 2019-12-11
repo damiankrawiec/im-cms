@@ -36,7 +36,7 @@ if(isset($field['option'])) {
 
     if (stristr($field['option'], 'add')) {
 
-        echo '<input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
+        echo ' <input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
 
         echo '<input type="hidden" name="path" value="'.$filePath.'">';
 
