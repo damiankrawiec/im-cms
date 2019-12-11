@@ -138,6 +138,12 @@ $(function(){
 
             });
 
+            $nextImage.children('input').on('keyup', function(){
+
+                insertToOption($nextImage, 'image');
+
+            });
+
         }
 
         if($('.fix-file').length > 0) {
@@ -149,6 +155,12 @@ $(function(){
             $nextFile.on('click', function(){
 
                 insertToOption($nextFile, 'file');
+
+            });
+
+            $nextFile.children('input').on('keyup', function(){
+
+                insertToOption($nextImage, 'file');
 
             });
 
