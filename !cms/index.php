@@ -24,9 +24,9 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
     require_once 'php/class/system.class.php';
 
     //Path is need because many files in structure call system class
-    $system = new System($g_system, '../');
+    $system = new System($addition->getSystemUrl($g_system), '../');
 
-    if($g_system === '' or $g_system !== $system->getSystemName()) {
+    if($g_system === '' or $addition->getSystemUrl($g_system) !== $system->getSystemName()) {
 
         $addition->link($system->getSystemName());
 

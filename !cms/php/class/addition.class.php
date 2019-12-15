@@ -5,6 +5,9 @@ class Addition
 
     private $url = '';
 
+    //system char (replace dot ".")
+    private $urlChar = '_';
+
     public function __construct() {
 
     }
@@ -322,6 +325,16 @@ class Addition
         }
 
         return $description;
+
+    }
+    public function setSystemUrl($systemName) {
+
+        return str_replace('.', $this->urlChar, $systemName);
+
+    }
+    public function getSystemUrl($systemName) {
+
+        return str_replace($this->urlChar, '.', $systemName);
 
     }
 

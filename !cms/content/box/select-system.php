@@ -16,7 +16,7 @@ if($system->getAllSystem()) {
                 if($as == $system->getSystemName())
                     $selected = ' selected';
 
-                echo '<option value="'.$as.'"'.$selected.'>'.$as.'</option>';
+                echo '<option value="'.$addition->setSystemUrl($as).'"'.$selected.'>'.$as.'</option>';
 
             }
 
