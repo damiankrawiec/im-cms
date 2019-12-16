@@ -120,9 +120,6 @@ class Addition
 
         $url = '';
 
-        if($g_system != '')
-            $url .= $g_system;
-
         if($g_section != '')
             $url .= ','.$g_section;
 
@@ -165,7 +162,7 @@ class Addition
 
     public function getUrl($count = 0) {
 
-        //Always: 0 = system, 1 = section
+        //Always: 0 = section
         if($count >= 2) {
 
             $urlArray = explode(',', $this->url);
@@ -325,16 +322,6 @@ class Addition
         }
 
         return $description;
-
-    }
-    public function setSystemUrl($systemName) {
-
-        return str_replace('.', $this->urlChar, $systemName);
-
-    }
-    public function getSystemUrl($systemName) {
-
-        return str_replace($this->urlChar, '.', $systemName);
 
     }
 

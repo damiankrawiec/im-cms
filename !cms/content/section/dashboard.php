@@ -21,7 +21,7 @@ foreach ($s_dashboard as $dashboard) {
             echo '<ul>';
             foreach ($dashboardRecord as $dr) {
 
-                    echo '<li><a href="'.$g_system.','.$addition->cleanText($dashboard['table'], 'im_').','.($dashboardField != '' ? $dr['field'].',' : '').'edit,'.$dr['id'].'" title="'.$dr['name'].'">'.$dr['name'].$addition->cutDescription($dr['description'], 50).'</a></li>';
+                    echo '<li><a href="'.$addition->cleanText($dashboard['table'], 'im_').','.($dashboardField != '' ? $dr['field'].',' : '').'edit,'.$dr['id'].'" title="'.$dr['name'].'">'.$dr['name'].$addition->cutDescription($dr['description'], 50).'</a></li>';
 
             }
             echo '</ul>';

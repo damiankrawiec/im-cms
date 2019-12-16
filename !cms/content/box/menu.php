@@ -44,7 +44,7 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                     }else{
 
                         $dropdown = '';
-                        $a = '<a class="nav-link" href="'.$g_system . ',' . $m['url'].'">';
+                        $a = '<a class="nav-link" href="' . $m['url'].'">';
 
                     }
 
@@ -73,7 +73,6 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                     foreach ($submenuData as $sd) {
 
-                                        $submenuUrl = $g_system;
                                         if (isset($sd['url'])) {
 
                                             $currentId = $sd['url'];
@@ -85,12 +84,12 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                             }
 
-                                            $submenuUrl .= ',' . $sd['url'];
+                                            $submenuUrl = $sd['url'];
                                             $aId = ' id="' . $currentId . '"';
 
                                         } else {
 
-                                            $submenuUrl .= ',' . $i . ',' . $sd['id'];
+                                            $submenuUrl = $i . ',' . $sd['id'];
                                             $aId = '';
 
                                         }

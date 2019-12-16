@@ -30,6 +30,10 @@ $p_system = false;
 if(isset($_POST['system']))
     $p_system = $_POST['system'];
 
+$p_currentSystem = false;
+if(isset($_POST['current_system']))
+    $p_currentSystem = $_POST['current_system'];
+
 $p_path = false;
 if(isset($_POST['path']))
     $p_path = $_POST['path'];

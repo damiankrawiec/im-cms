@@ -23,14 +23,16 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     require_once 'php/class/system.class.php';
 
+    if($p_currentSystem)
+        $tool->setSession('system', $p_currentSystem);
+
+    if($tool->getSession('system') == '')
+        $tool->setSession('system', 'default');
+
     //Path is need because many files in structure call system class
-    $system = new System($addition->getSystemUrl($g_system), '../');
+    $system = new System($tool->getSession('system'), '../');
 
-    if($g_system === '' or $addition->getSystemUrl($g_system) !== $system->getSystemName()) {
-
-        $addition->link($system->getSystemName());
-
-    }else{
+    if($tool->getSession('system') == $system->getSystemName()) {
 
         //Set current url
         $addition->setUrl();

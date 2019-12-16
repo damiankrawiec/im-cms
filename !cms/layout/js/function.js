@@ -157,9 +157,14 @@ function modalButton($this, $save, $cancel){
                     window.location = $this.val();
 
                 }
-                if ($save === 'submit-next-form') {
 
-                    $this.next().submit();
+                if ($save === 'submit-form-with-set-value') {
+
+                    console.log($this.val());
+
+                    $this.parent().find('.modal-form').children('input[type="hidden"]').val($this.val());
+
+                    $this.parent().find('.modal-form').submit();
 
                 }
 

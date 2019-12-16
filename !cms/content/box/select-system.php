@@ -16,13 +16,15 @@ if($system->getAllSystem()) {
                 if($as == $system->getSystemName())
                     $selected = ' selected';
 
-                echo '<option value="'.$addition->setSystemUrl($as).'"'.$selected.'>'.$as.'</option>';
+                echo '<option value="'.$as.'"'.$selected.'>'.$as.'</option>';
 
             }
 
         echo '</select>';
 
-        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['not-save'], 'save' => 'link-this-val', 'cancel' => 'this-option-reset')).'</div>';
+        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['not-save'], 'save' => 'submit-form-with-set-value', 'cancel' => 'this-option-reset')).'</div>';
+
+        echo '<form action="'.$addition->getUrl().'" method="post" class="im-hide modal-form"><input type="hidden" name="current_system"></form>';
 
     echo '</div>';
 
