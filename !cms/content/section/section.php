@@ -6,7 +6,7 @@ if($g_var1 != '') {
     $table = 'im_section';
 //---
 //Base url definition in this file
-    $baseUrl = $addition->getUrl(3);
+    $baseUrl = $addition->getUrl(2);
 //---
 
     require_once 'content/box/section/breadcrumb.php';

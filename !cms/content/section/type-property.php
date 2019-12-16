@@ -6,7 +6,7 @@ if($g_var1 != '') {
     $table = 'im_type_property';
 //---
 //Base url definition in this file
-    $baseUrl = $addition->getUrl(3);
+    $baseUrl = $addition->getUrl(2);
 //---
 
     $getData = array(
@@ -58,12 +58,7 @@ if($g_var1 != '') {
 
     if($displayCount == 'all') {
 
-        if($g_var2 != '') {
-
-            $objectBack = $g_system.',object,'.$g_var1.',edit,'.$g_var2;
-            require_once 'php/script/object-back.php';
-
-        }
+        require_once 'php/script/object-back.php';
 
         $lastData = array('sql' => $sql);
 

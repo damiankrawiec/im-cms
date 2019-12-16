@@ -3,7 +3,7 @@
 $table = 'im_image';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(2);
+$baseUrl = $addition->getUrl(1);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['image']);
@@ -59,7 +59,7 @@ if($displayCount == 'all') {
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
         'table_add' => array($table),
-        'system' => $g_system
+        'system' => $tool->getSession('system')
     );
 
     require_once 'content/box/event/add.php';
@@ -75,7 +75,7 @@ if ($record) {
             'record' => $record,
             'event' => 'edit,delete',
             'table_delete' => array('main' => $table),
-            'file_delete' => '../system/'.$g_system.'/public',
+            'file_delete' => '../system/'.$tool->getSession('system').'/public',
             'restriction' => array(
                 'delete' => array(
                     'im_object_image' => 'image_id'
@@ -94,7 +94,7 @@ if ($record) {
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
             'url' => $baseUrl,
-            'system' => $g_system
+            'system' => $tool->getSession('system')
         );
 
         require_once 'content/box/event/edit.php';

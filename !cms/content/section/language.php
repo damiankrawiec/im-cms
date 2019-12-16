@@ -3,7 +3,7 @@
 $table = 'im_language';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(2);
+$baseUrl = $addition->getUrl(1);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['definition']);
@@ -100,7 +100,7 @@ if ($record) {
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
             'url' => $baseUrl,
-            'system' => $g_system
+            'system' => $tool->getSession('system')
         );
 
         require_once 'content/box/event/edit.php';

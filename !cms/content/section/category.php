@@ -3,7 +3,7 @@
 $table = 'im_category';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(3);
+$baseUrl = $addition->getUrl(2);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['category']);

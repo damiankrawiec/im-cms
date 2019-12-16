@@ -3,7 +3,7 @@
 $table = 'im_source';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(2);
+$baseUrl = $addition->getUrl(1);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['source']);

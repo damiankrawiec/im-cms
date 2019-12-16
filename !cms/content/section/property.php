@@ -3,7 +3,7 @@
 $table = 'im_property';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(2);
+$baseUrl = $addition->getUrl(1);
 //---
 
 $sql = 'select 

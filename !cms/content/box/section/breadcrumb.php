@@ -20,7 +20,7 @@ if($g_var1 > 0 and $g_var2 == '') {
 
         $sectionCurrent = $db->run('one');
 
-        array_push($breadcrumb, '<a href="'.$addition->getUrl(2).',' . $sectionCurrent->parent . '" title="' . $sectionCurrent->name . '">' . $sectionCurrent->name . '</a>');
+        array_push($breadcrumb, '<a href="'.$addition->getUrl(1).',' . $sectionCurrent->parent . '" title="' . $sectionCurrent->name . '">' . $sectionCurrent->name . '</a>');
 
         $sectionId = $sectionCurrent->parent;
 

@@ -6,7 +6,7 @@ if($g_var1 != '') {
     $table = 'im_object';
 //---
 //Base url definition in this file
-    $baseUrl = $addition->getUrl(3);
+    $baseUrl = $addition->getUrl(2);
 //---
 
     $getData = array(
@@ -129,11 +129,7 @@ if($g_var1 != '') {
 
             }
 
-            $objectProperty = $g_system.',type-property,'.$g_var1.','.$g_var3;
-            require_once 'php/script/object-property.php';
-
-            $objectType = $g_system.',type,edit,'.$g_var1.','.$g_var3;
-            require_once 'php/script/object-type.php';
+            require_once 'php/script/object-move.php';
 
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],

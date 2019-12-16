@@ -4,14 +4,8 @@
 $table = 'im_translation';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(5);
+$baseUrl = $addition->getUrl(4);
 //---
-
-if($p_back)
-    $tool->setSession('back', $p_back);
-
-if($tool->getSession('back') != '')
-    echo '<a href="'.$tool->getSession('back').'" class="btn btn-outline-secondary m-1">'.$icon['button']['back'].' '.$translation['button']['back'].'</a>';
 
 $oneData = (object) array('value' => $translation['menu']['translation']);
 
@@ -83,6 +77,8 @@ if($displayCount == 'one')
 $db->bind($parameter);
 
 if($displayCount == 'all') {
+
+    require_once 'php/script/object-back.php';
 
     $lastData = array('sql' => $sql);
     if (count($parameter) > 0)

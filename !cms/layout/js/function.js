@@ -158,9 +158,13 @@ function modalButton($this, $save, $cancel){
 
                 }
 
-                if ($save === 'submit-form-with-set-value') {
+                if ($save === 'submit-next-form') {
 
-                    console.log($this.val());
+                    $this.next().submit();
+
+                }
+
+                if ($save === 'submit-form-with-set-value') {
 
                     $this.parent().find('.modal-form').children('input[type="hidden"]').val($this.val());
 
@@ -438,6 +442,14 @@ function translationMove($target) {
     $('#translation-move').attr('action', $target);
 
     $('#translation-move').submit();
+
+}
+
+function objectMove($target) {
+
+    $('#object-move').attr('action', $target);
+
+    $('#object-move').submit();
 
 }
 

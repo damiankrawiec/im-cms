@@ -571,15 +571,7 @@ class ObjectContent extends Language {
 
     private function getToolUrl($toolUrlRest) {
 
-        if(stristr($this->systemName, 'system/')) {
-
-            $systemUrl = str_replace('system/', '', $this->systemName);
-
-            $toolUrl = '!cms/' . $systemUrl . ','.$toolUrlRest;
-
-            return $toolUrl;
-
-        }else return '#';
+        return '!cms/'.$toolUrlRest;
 
     }
 

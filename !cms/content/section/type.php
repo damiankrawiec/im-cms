@@ -3,7 +3,7 @@
 $table = 'im_type';
 //---
 //Base url definition in this file
-$baseUrl = $addition->getUrl(2);
+$baseUrl = $addition->getUrl(1);
 //---
 
 $oneData = (object) array('value' => $translation['menu']['type']);
@@ -31,12 +31,7 @@ $db->prepare($sql);
 
 if($displayCount == 'one') {
 
-    if($g_var3 != '') {
-
-        $objectBack = $g_system.',object,'.$g_var2.',edit,'.$g_var3;
-        require_once 'php/script/object-back.php';
-
-    }
+    require_once 'php/script/object-back.php';
 
     $parameter = array(
         array('name' => ':id', 'value' => $g_var2, 'type' => 'int')

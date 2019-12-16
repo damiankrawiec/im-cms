@@ -186,6 +186,11 @@ $(function(){
             translationMove($(this).attr('id'));
 
         });
+        $('.object-move').click(function(){
+
+            objectMove($(this).attr('id'));
+
+        });
 
         currentShow();
 
