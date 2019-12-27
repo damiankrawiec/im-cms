@@ -2,13 +2,13 @@
 
 require_once '../php/script/post.php';
 
-if($p_language) {
+if($p_session) {
 
     require_once '../php/class/session.class.php';
 
     $session = new Session();
 
-    $session->setSession('language', $p_language);
+    $session->setSession($p_session['name'], $p_session['value']);
 
     exit();
 

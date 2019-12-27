@@ -21,6 +21,12 @@ $(function(){
 
     });
 
+    $('#cookie button').click(function(){
+
+        setCookie();
+
+    });
+
     $('.im-move').click(function(){
 
         //Direction (left, right), paginationData (label, number objects of one page)

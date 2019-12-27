@@ -4,9 +4,12 @@ function setLanguage($language = false){
 
         $.ajax({
             method: "POST",
-            url: "ajax/set-language.php",
+            url: "ajax/set-session.php",
             data: {
-                language: $language
+                session: {
+                    "name": "language",
+                    "value": $language
+                }
             },
             beforeSend: function(){
                 $('#process').show();
@@ -18,6 +21,30 @@ function setLanguage($language = false){
         });
 
     }
+
+}
+function setCookie(){
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/set-session.php",
+        data: {
+            session: {
+                "name": "cookie",
+                "value": "true"
+            }
+        },
+        beforeSend: function(){
+            $('#process').show();
+        }
+
+    }).done(function () {
+
+        $('#process').hide();
+
+        $('#cookie').fadeOut();
+
+    });
 
 }
 function setFilter($label, $category) {
