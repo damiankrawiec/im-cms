@@ -41,3 +41,8 @@ $label = $object->getAllLabel();
         
     </div>
 </div>
+
+<?php
+
+//if(!isset($session['cookie']))
+//    $object->display($sectionData->id, $label['cookie']);

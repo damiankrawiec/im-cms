@@ -20,8 +20,6 @@
 
     <?php require_once 'section/process.php'; ?>
 
-    <?php require_once 'section/cookie.php'; ?>
-
     <?php require_once 'section/body.php'; ?>
 
     <?php $system->getBody(); ?>
