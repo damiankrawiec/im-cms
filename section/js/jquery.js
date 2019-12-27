@@ -14,7 +14,7 @@ $(function(){
 
     });
 
-    $('#change-language li').click(function(){
+    $('.change-language ul li').click(function(){
 
         //system name of selected language
         setLanguage($(this).attr('id'));

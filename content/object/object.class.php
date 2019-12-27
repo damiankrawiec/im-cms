@@ -192,11 +192,8 @@ class ObjectContent extends Language {
 
                     $dataDisplay = $data[$p['name']];
 
-                    if($p['name'] == 'section')
-                        $dataDisplay .= '|'.$data['section_name'];
-
-                    if($p['name'] == 'link')
-                        $dataDisplay .= '|'.$data['link_name'];
+                    if($p['name'] == 'section' or $p['name'] == 'link')
+                        $dataDisplay .= '|'.$data[$p['name'].'_name'];
 
                     $dataId = $data['id'];
 
@@ -721,6 +718,11 @@ class ObjectContent extends Language {
                                     $displayPropertyData['source'] = $this->getObjectSource($or['id']);
 
                                 }
+                                if ($p['name'] == 'language') {
+
+                                    $displayPropertyData['language'] = $this->getLanguage($or['id']);
+
+                                }
                                 if ($p['name'] == 'menu') {
 
                                     $sectionParent = $submenu = false;
@@ -753,7 +755,7 @@ class ObjectContent extends Language {
 
                         }
 
-                        echo '<div class="im-hide col-12 no-data">'.$this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'].'</div>';
+                        echo '<div class="im-hide col-12 no-data">'.$this->icon['warning']['triangle'].' '.$this->makeTranslationSystem('no-data').'</div>';
 
                     echo '</div>';
 
@@ -787,7 +789,7 @@ class ObjectContent extends Language {
 
                     echo '<select class="select object-category" id="'.$this->label.'">';
 
-                        echo '<option value="0">'.$this->translationSystem['show-all'].'</option>';
+                        echo '<option value="0">'.$this->makeTranslationSystem('show-all').'</option>';
 
                         foreach ($category as $c) {
 

@@ -10,15 +10,6 @@ $sectionData = $this->getSection();
 $label = $object->getAllLabel();
 
 ?>
-<div class="im-language">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <?php $object->displayLanguage(); ?>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="<?php echo (!isset($sectionData->class) ? 'container' : $sectionData->class) ?>">
 
@@ -32,6 +23,8 @@ $label = $object->getAllLabel();
     //    //- scroll insert a scroll tag (animate scrolling)
 
     ?>
+
+    <?php $object->display($sectionData->id, $label['language']); ?>
 
     <?php $object->display($sectionData->id, $label['menu']); ?>
 

@@ -822,6 +822,7 @@ insert into im_property values (null, 'E-mail', 'email', '', null, null);
 insert into im_property values (null, 'Formularz kontaktowy', 'form', '', null, null);
 insert into im_property values (null, 'Źródło', 'source', '', null, null);
 insert into im_property values (null, 'Ikona', 'icon', '', null, null);
+insert into im_property values (null, 'Języki', 'language', '', null, null);
 
 -- language definition
 
@@ -832,8 +833,6 @@ insert into im_language values (null, 'English language', 'en', 'en.png', 2, 'of
 
 insert into im_translation_system values (null, 1,  'All', 'show-all', 'Pokaż wszystko', '', null, null);
 insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all', '', null, null);
-insert into im_translation_system values (null, 1,  'More', 'more', 'Więcej...', '', null, null);
-insert into im_translation_system values (null, 2,  'More', 'more', 'More...', '', null, null);
 insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
 insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
 insert into im_translation_system values (null, 1,  'Przycisk wyślij', 'send', 'Wyślij', '', null, null);

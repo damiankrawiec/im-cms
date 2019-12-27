@@ -3,11 +3,11 @@
 class Language extends Icon
 {
 
-    private $languageCurrent;
+    private $translationSystem;
 
     protected $db;
 
-    protected $translationSystem;
+    protected $languageCurrent;
 
     protected $translation;
 
@@ -141,13 +141,7 @@ class Language extends Icon
 
     }
 
-    public function getCurrentTranslation() {
-
-        return $this->translation;
-
-    }
-
-    public function displayLanguage() {
+    protected function getLanguage() {
 
         $sql = 'select name, system_name, url
                 from im_language
@@ -156,21 +150,27 @@ class Language extends Icon
 
         $this->db->prepare($sql);
 
-        $language = $this->db->run('all');
+        return $this->db->run('all');
 
-        echo '<ul id="change-language">';
+    }
 
-        foreach ($language as $l) {
+    protected function makeTranslationSystem($name) {
 
-            $active = '';
-            if($l['system_name'] == $this->languageCurrent)
-                $active = ' class="im-active"';
+        if(isset($this->translationSystem[$name])) {
 
-            echo '<li id="'.$l['system_name'].'"><a href="#" title="'.$l['name'].'"'.$active.'><img src="'.$this->systemName.'/public/'.$l['url'].'" alt="'.$l['name'].'"></a></li>';
+            return $this->translationSystem[$name];
+
+        }else{
+
+            return '-';
 
         }
 
-        echo '</ul>';
+    }
+
+    public function getCurrentTranslation() {
+
+        return $this->translation;
 
     }
 

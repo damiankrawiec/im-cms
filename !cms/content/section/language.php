@@ -30,6 +30,8 @@ if($g_var1 == 'edit' and $g_var2 != '') {
 
 }else $displayCount = 'all';
 
+$sql .= ' order by position';
+
 $db->prepare($sql);
 
 if($displayCount == 'one') {
@@ -87,6 +89,7 @@ if ($record) {
                     'im_translation_system' => 'language_id'
                 )
             ),
+            'sort' => true,
             'url' => $baseUrl
         );
 
