@@ -34,4 +34,16 @@
 .object .carousel i {
   font-size: 40px;
 }
+#cookie {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #fff;
+  opacity: 0.8;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+  color: #333;
+}
 /*# sourceMappingURL=main.css.map */

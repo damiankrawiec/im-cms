@@ -15,8 +15,7 @@ body {
   display: none;
 }
 .im-preview:hover {
-  border: 1px solid #a00000;
-  z-index: 1000;
+  outline: 1px solid #a00000;
 }
 .edit-tool {
   position: absolute;
@@ -34,17 +33,6 @@ body {
   font-size: 60px;
   padding: 10px;
   display: none;
-}
-#cookie {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 10px;
-  background-color: #fff;
-  opacity: 0.8;
-  width: 100%;
-  height: 60px;
-  z-index: 1;
 }
 #scroll-top {
   position: fixed;

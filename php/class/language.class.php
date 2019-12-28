@@ -137,7 +137,7 @@ class Language extends Icon
     //Add mark to elements on the body
     protected function translationMark($mark, $data) {
 
-        return '<div class="translation" id="'.$mark.'">'.$data.'</div>';
+        return '<section class="translation" id="'.$mark.'">'.$data.'</section>';
 
     }
 

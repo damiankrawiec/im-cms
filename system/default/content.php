@@ -55,5 +55,5 @@ $label = $object->getAllLabel();
 
 <?php
 
-//if(!isset($session['cookie']))
-//    $object->display($sectionData->id, $label['cookie']);
+if(!isset($session['cookie']))
+    $object->display($sectionData->id, $label['cookie']);

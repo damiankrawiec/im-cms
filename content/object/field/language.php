@@ -15,13 +15,15 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 echo '<a href="#" title="'.$l['name'].'">';
 
-                if($l['url'] == '') {
+                $imagePath = $this->systemName . '/public/' . $l['url'];
 
-                    echo $l['name'];
+                if($l['url'] != '' and file_exists($imagePath)) {
+
+                    echo '<img src="' . $this->systemName . '/public/' . $l['url'] . '" alt="' . $l['name'] . '">';
 
                 } else {
 
-                    echo '<img src="' . $this->systemName . '/public/' . $l['url'] . '" alt="' . $l['name'] . '">';
+                    echo $l['name'];
 
                 }
 

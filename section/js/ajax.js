@@ -42,7 +42,7 @@ function setCookie(){
 
         $('#process').hide();
 
-        $('#cookie').fadeOut();
+        $('#cookie').slideUp();
 
     });
 
