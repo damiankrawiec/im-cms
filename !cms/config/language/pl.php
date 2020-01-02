@@ -73,7 +73,9 @@ $translation = array(
         'icon' => 'Pole tekstowe ikony',
         'language_id' => 'Definicja języka',
         'email_source' => 'Pole nadawcy',
-        'email_destination' => 'Pole odbiorcy'
+        'email_destination' => 'Pole odbiorcy',
+        'file_delete' => 'Plik zostanie usunięty po kliknięciu "zapisz"',
+        'file_delete_cancel' => 'nie usuwaj'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(

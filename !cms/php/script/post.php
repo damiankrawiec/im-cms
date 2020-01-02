@@ -100,7 +100,6 @@ $fileData = false;
 if(isset($_FILES))
     $fileData = $_FILES;
 
-
 $collectionData = array();
 foreach ($keyPost as $post) {
 

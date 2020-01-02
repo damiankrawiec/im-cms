@@ -166,7 +166,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         //Check if there some content to remove
                         if(isset($tableData['file_delete']))
-                                echo '<input type="hidden" name="file_delete" value="' . $tableData['file_delete'].'/'.$r['url'] . '">';
+                            echo '<input type="hidden" name="file_delete" value="' . $tableData['file_delete'].'/'.$r['url'] . '">';
 
                         echo '<input type="hidden" name="event" value="delete">';
 

@@ -20,11 +20,16 @@ foreach ($eventData as $fix => $ed) {
 
         $sqlRest = $sql;
 
-        $sql .= ' left outer join ' . $eventData[$fix]['table']['name'] . ' tj on(tj.'.$eventData[$fix]['table']['id'].' = t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id)';
+        $sql .= ' left outer join ' . $eventData[$fix]['table']['name'] . ' tj on (tj.'.$eventData[$fix]['table']['id'].' = t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id)';
+
+        if(isset($eventData[$fix]['collection']['where']))
+            $sql .= ' where '.$eventData[$fix]['collection']['where'];
 
         if(isset($eventData[$fix]['table']['sort'])) {
 
-            $sql .= ' where tj.' . $eventData[$fix]['id']['name'].' = '.$eventData[$fix]['id']['value'];
+            $sql .= $addition->whereOrAnd($sql);
+
+            $sql .= ' tj.' . $eventData[$fix]['id']['name'].' = '.$eventData[$fix]['id']['value'];
 
             $sql .= ' order by tj.' . $eventData[$fix]['table']['sort'];
 
@@ -45,7 +50,7 @@ foreach ($eventData as $fix => $ed) {
 
             $selectedIdString = implode(',', $selectedIdArray);
 
-            $sqlRest .= ' where  t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id not in ('.$selectedIdString.')';
+            $sqlRest .= ' where t.' . $addition->cleanText($eventData[$fix]['collection']['table'], 'im_') . '_id not in ('.$selectedIdString.')';
 
             $db->prepare($sqlRest);
 
@@ -60,6 +65,14 @@ foreach ($eventData as $fix => $ed) {
         }
 
         if(!$collection) {
+
+            if(isset($eventData[$fix]['collection']['where'])) {
+
+                $sqlRest .= $addition->whereOrAnd($sqlRest);
+
+                $sqlRest .= ' '.$eventData[$fix]['collection']['where'];
+
+            }
 
             $db->prepare($sqlRest);
 

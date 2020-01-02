@@ -102,7 +102,7 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language'),
             'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_language'),
             'description' => array('name' => $tableDefinitionEvent['im_language']['description'], 'type' => 'textarea', 'table' => 'im_language'),
-            'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_language')
+            'url' => array('name' => $tableDefinitionEvent['im_language']['url'], 'type' => 'image', 'option' => 'preview,add,delete', 'table' => 'im_language')
         ),
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image'),

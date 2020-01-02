@@ -198,6 +198,8 @@ $(function(){
 
         scrollEvent();
 
+        fileDelete();
+
     }
 
 });

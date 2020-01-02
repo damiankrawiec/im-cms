@@ -7,6 +7,9 @@ foreach($eventData['table'] as $table => $field) {
     $parameter = array();
     foreach ($field as $f) {
 
+        if($f == 'url' and isset($eventData['file_delete']))
+            $fileName = '';
+
         if($f == 'url' and !$fileName)
             continue;
 
@@ -47,6 +50,9 @@ foreach($eventData['table'] as $table => $field) {
         require_once 'php/run/edit/collection.php';
 
     }
+
+    if(isset($eventData['file_delete']))
+        require_once 'php/run/edit/file.php';
 
 }
 

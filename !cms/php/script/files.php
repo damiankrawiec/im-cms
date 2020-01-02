@@ -21,7 +21,7 @@ if(isset($field['option'])) {
             echo '<a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
 
             if($field['type'] == 'image')
-                echo '<br><img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="width: ' . $s_previewImage . '">';
+                echo '<br><img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="max-width: ' . $s_previewImage . '">';
 
             if($field['type'] == 'file')
                 echo '<br>'.$eventData['record']->url;
@@ -34,8 +34,17 @@ if(isset($field['option'])) {
 
     }
 
+    if (stristr($field['option'], 'delete')) {
+
+        echo ' <a href="#" class="btn btn-light file-delete-status" id="true">'.$icon['button']['delete'].'</a>';
+
+        echo '<input type="hidden" id="file-delete" name="file_delete" value="' . $filePathAll . '" disabled>';
+
+    }
+
     if (stristr($field['option'], 'add')) {
 
+        //Space between current file and new file input
         echo ' <input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
 
         echo '<input type="hidden" name="path" value="'.$filePath.'">';
@@ -47,5 +56,7 @@ if(isset($field['option'])) {
             echo '<input type="hidden" name="current" value="'.$currentFile.'">';
 
     }
+
+    echo '<p class="delete-file-alert im-hide text-danger">'.$icon['message']['alert'].' '.$translation['edit']['file_delete'].' <a href="#" class="file-delete-status" id="false">'.$translation['edit']['file_delete_cancel'].'</a></p>';
 
 }

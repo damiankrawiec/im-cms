@@ -141,7 +141,7 @@ if($g_var1 != '') {
                     'table' => array('name' => 'im_section_object', 'id' => 'section_id')
                 ),
                 'fix-1' => array(
-                    'collection' => array('name' => $translation['fix']['category'], 'table' => 'im_category'),
+                    'collection' => array('name' => $translation['fix']['category'], 'table' => 'im_category', 'where' => 'label_id = '.$record->label_id),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_category', 'id' => 'category_id')
                 ),
