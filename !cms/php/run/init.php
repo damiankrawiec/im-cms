@@ -50,6 +50,7 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_event_collection)
                 $eventData['collection'] = $p_event_collection;
 
+            $fileName = false;
             if($fileData) {
 
                 $eventData['data']['url'] = $fileData['url']['name'];

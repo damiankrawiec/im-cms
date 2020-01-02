@@ -7,9 +7,6 @@ foreach($eventData['table'] as $table => $field) {
     $parameter = array();
     foreach ($field as $f) {
 
-        if($f == 'url' and isset($eventData['file_delete']))
-            $fileName = '';
-
         if($f == 'url' and !$fileName)
             continue;
 
@@ -51,8 +48,15 @@ foreach($eventData['table'] as $table => $field) {
 
     }
 
-    if(isset($eventData['file_delete']))
+    if(isset($eventData['file_delete'])) {
+
+        $fileDataEdit = array(
+            'table' => $table,
+            'id' => $eventData['id']->$tableId
+        );
         require_once 'php/run/edit/file.php';
+
+    }
 
 }
 

@@ -6,9 +6,9 @@ if(isset($field['option'])) {
 
     $filePath = '../system/' . $eventData['system'] . '/public/';
 
-    if (stristr($field['option'], 'preview')) {
+    $filePathAll = $filePath . $eventData['record']->url;
 
-        $filePathAll = $filePath . $eventData['record']->url;
+    if (stristr($field['option'], 'preview')) {
 
         if ($addition->fileExists($filePathAll)) {
 
@@ -34,7 +34,7 @@ if(isset($field['option'])) {
 
     }
 
-    if (stristr($field['option'], 'delete')) {
+    if (stristr($field['option'], 'delete') and $addition->fileExists($filePathAll)) {
 
         echo ' <a href="#" class="btn btn-light file-delete-status" id="true">'.$icon['button']['delete'].'</a>';
 

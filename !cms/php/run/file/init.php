@@ -1,7 +1,5 @@
 <?php
 
-$fileName = false;
-
 $newFile = $eventData['data']['url'];
 
 if($newFile != '') {

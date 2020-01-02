@@ -225,6 +225,8 @@ function fileDelete() {
 
             $('.delete-file-alert').show();
 
+            $('#url').prop('disabled', true);
+
             $('#file-delete').prop('disabled', false);
 
         }
@@ -232,6 +234,8 @@ function fileDelete() {
         if($currentStatus === 'false') {
 
             $('#url').show();
+
+            $('#url').prop('disabled', false);
 
             $('.delete-file-alert').hide();
 
