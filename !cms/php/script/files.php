@@ -6,7 +6,9 @@ if(isset($field['option'])) {
 
     $filePath = '../system/' . $eventData['system'] . '/public/';
 
-    $filePathAll = $filePath . $eventData['record']->url;
+    $filePathAll = $filePath;
+    if(isset($eventData['record']))
+        $filePathAll .= $eventData['record']->url;
 
     if (stristr($field['option'], 'preview')) {
 
