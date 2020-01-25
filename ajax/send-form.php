@@ -12,18 +12,18 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
 
     $mailer = new PHPMailer(true);
 
-    $from = array('name' => 'example', 'address' => 'example@example.pl');
+    $from = array('name' => 'Internet.Media', 'address' => 'poczta@internet.media.pl');
 
     try {
         //Server settings
         $mailer->SMTPDebug = SMTP::DEBUG_SERVER;
         $mailer->isSMTP();
-        $mailer->Host = '';
+        $mailer->Host = 's94.linuxpl.com';
         $mailer->SMTPAuth = true;
         $mailer->Username = $from['address'];
-        $mailer->Password = '';
+        $mailer->Password = 'B2#h3[cO43~O@2~';
         $mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mailer->Port = 587;
+        $mailer->Port = 25;
 
         //Recipients
         $mailer->setFrom($from['address'], $from['name']);

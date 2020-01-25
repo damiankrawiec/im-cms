@@ -37,7 +37,13 @@ echo '<div class="container-fluid" id="content-top">';
 
     echo '<div class="row bg-secondary">';
 
-    echo '<div class="col-12 text-right text-white">';
+    echo '<div class="col-1">';
+
+        require_once 'content/box/preview.php';
+
+    echo '</div>';
+
+    echo '<div class="col-11 text-right text-white">';
 
         require_once 'content/box/logged.php';
 
