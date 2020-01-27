@@ -46,7 +46,11 @@ $(function(){
         var $next = $this.nextAll('.' + $parameter[0]);
 
         //if($parameter[1] === 'slide')
-            $next.slideToggle();
+
+        $next.slideToggle();
+
+        if($parameter[0] === 'add-new')
+            $this.hide();
 
     });
 
@@ -70,7 +74,11 @@ $(function(){
 
     $('#add-cancel').click(function(){
 
-        $(this).parent().slideUp();
+        $(this).parent().slideUp(500, function() {
+
+            $('.show-next').show();
+
+        });
 
     });
 

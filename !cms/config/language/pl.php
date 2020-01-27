@@ -75,7 +75,8 @@ $translation = array(
         'email_source' => 'Pole nadawcy',
         'email_destination' => 'Pole odbiorcy',
         'file_delete' => 'Plik zostanie usunięty po kliknięciu "zapisz"',
-        'file_delete_cancel' => 'nie usuwaj'
+        'file_delete_cancel' => 'nie usuwaj',
+        'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -154,6 +155,7 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
         'status_copy' => 'Powielany',
+        'status_popup' => 'Wiadmość w oknie'
     ),
     'im_category' => array(
         'name' => 'Nazwa',
@@ -191,6 +193,7 @@ $tableDefinition = array(
     'im_source' => array(
         'name' => 'Nazwa',
         'link' => 'Odsyłacz zewnętrzny',
+        'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
@@ -281,6 +284,7 @@ $tableDefinitionEvent = array(
         'meta' => 'Opis strony (meta)',
         'icon' => 'Ikona (Fontawesome)',
         'class' => 'Właściwości',
+        'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
         'description' => 'Opis techniczny',
         'status_copy' => 'Przypisz do sekcji obiekty ze statusem "Powielany"'
     ),

@@ -90,6 +90,7 @@ $s_eventDefinition = array(
             'meta' => array('name' => $tableDefinitionEvent['im_section']['meta'], 'type' => 'textarea', 'table' => 'im_section'),
             'icon' => array('name' => $tableDefinitionEvent['im_section']['icon'], 'type' => 'text', 'table' => 'im_section'),
             'class' => array('name' => $tableDefinitionEvent['im_section']['class'], 'type' => 'text', 'table' => 'im_section'),
+            'popup' => array('name' => $tableDefinitionEvent['im_section']['popup'], 'type' => 'textarea:editor', 'table' => 'im_section'),
             'description' => array('name' => $tableDefinitionEvent['im_section']['description'], 'type' => 'textarea', 'table' => 'im_section')
         ),
         'im_category' => array(

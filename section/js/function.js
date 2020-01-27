@@ -313,8 +313,8 @@ function editor() {
             selector: '.editor',
             height: 300,
             menubar: false,
-            plugins: "emoticons lists",
-            toolbar: 'undo redo | fontsizeselect | bold italic underline strikethrough superscript subscript forecolor backcolor bullist | alignleft aligncenter alignright alignjustify | emoticons'
+            plugins: "lists",
+            toolbar: 'undo redo | fontsizeselect | bold italic underline strikethrough superscript subscript forecolor backcolor bullist | alignleft aligncenter alignright alignjustify'
         });
 
     }
@@ -334,6 +334,19 @@ function gallery() {
 function datepicker() {
 
     $('.datepicker-here').datepicker();
+
+}
+function popup() {
+
+    var $popup = $('#popup');
+
+    if($popup.length > 0) {
+
+        $popup.next().trigger('click');
+
+        $popup.hide();
+
+    }
 
 }
 function nextScroll($scrollArray, $currentTop, $direction, $correct) {

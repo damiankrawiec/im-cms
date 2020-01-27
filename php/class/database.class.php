@@ -183,7 +183,7 @@ class Database extends systemSetting
 
                 echo $this->sql;
 
-                echo $this->parameter;
+                var_dump($this->parameter);
 
                 exit();
             }

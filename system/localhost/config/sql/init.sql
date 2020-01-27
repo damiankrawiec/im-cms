@@ -1,12 +1,12 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', null, 1, 'on', 'off', '', null, null);
-insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', null, 2, 'on', 'off', '', null, null);
-insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', null, 3, 'on', 'off', '', null, null);
-insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', null, 1, 'on', 'off', '', null, null);
-insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', null, 2, 'on', 'off', '', null, null);
-insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', null, 3, 'on', 'off', '', null, null);
-insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', null, 3, 'on', 'off', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głównej', 'fad fa-home-heart', null, '', 1, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 0, 'Galeria zdjęć', 'galeria-zdjec', 'Opis galerii zdjęć', 'fad fa-camera-alt', null, '', 2, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 0, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', 'Opis wydarzeń muzycznych', 'fad fa-drum', null, '', 3, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 3, 'Koncerty', 'koncerty', 'Opis koncertowy', 'fad fa-guitar', null, '', 1, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 3, 'Eventy okolicznościowe', 'eventy-okolicznosciowe', '', 'fad fa-camera-alt', null, '', 2, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 3, 'Wydarzenia muzyczne', 'wydarzenia-muzyczne', '', 'fad fa-sliders-v-square', null, '', 3, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-headphones-alt', null, '', 3, 'on', 'off', 'off', '', null, null);
 
 -- record, object label
 

@@ -24,6 +24,8 @@
 
     <?php $system->getBody(); ?>
 
+    <?php require_once 'section/popup.php'; ?>
+
     <?php require_once 'section/variable.php'; ?>
 
 </body>

@@ -18,11 +18,13 @@ if($g_var1 != '') {
         meta,
         if(icon = \'\', \'-\', icon) as icon,
         class,
+        popup,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,
         status,
-        status_copy
+        status_copy,
+        status_popup
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {
