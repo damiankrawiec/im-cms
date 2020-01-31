@@ -76,7 +76,8 @@ $translation = array(
         'email_destination' => 'Pole odbiorcy',
         'file_delete' => 'Plik zostanie usunięty po kliknięciu "zapisz"',
         'file_delete_cancel' => 'nie usuwaj',
-        'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji'
+        'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
+        'style' => 'Pole do nadawania właściwości obiektom etykiety poprzez style CSS',
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
@@ -284,7 +285,7 @@ $tableDefinitionEvent = array(
         'meta' => 'Opis strony (meta)',
         'icon' => 'Ikona (Fontawesome)',
         'class' => 'Właściwości',
-        'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
+        'popup' => 'Treść wiadomości pojawiającej się w sekcji (od razu po wczytaniu)',
         'description' => 'Opis techniczny',
         'status_copy' => 'Przypisz do sekcji obiekty ze statusem "Powielany"'
     ),
@@ -343,6 +344,7 @@ $tableDefinitionEvent = array(
     'im_label' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
+        'style' => 'Style obiektów (zaawansowane)',
         'description' => 'Opis techniczny'
     ),
     'im_label_section' => array(

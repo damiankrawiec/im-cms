@@ -7,13 +7,13 @@ insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', '', null, 
 
 -- record, object label
 
-insert into im_label values (null, 'Aktualności', 'news', '', null, null);
-insert into im_label values (null, 'Zalety firmy', 'company-skill', '', null, null);
-insert into im_label values (null, 'Slider', 'slider', '', null, null);
-insert into im_label values (null, 'Menu', 'menu', '', null, null);
-insert into im_label values (null, 'Submenu', 'submenu', '', null, null);
-insert into im_label values (null, 'Języki', 'language', '', null, null);
-insert into im_label values (null, 'Ciasteczka', 'cookie', '', null, null);
+insert into im_label values (null, 'Aktualności', 'news', '', '', null, null);
+insert into im_label values (null, 'Zalety firmy', 'company-skill', '', '', null, null);
+insert into im_label values (null, 'Slider', 'slider', '', '', null, null);
+insert into im_label values (null, 'Menu', 'menu', '', '', null, null);
+insert into im_label values (null, 'Submenu', 'submenu', '', '', null, null);
+insert into im_label values (null, 'Języki', 'language', '', '', null, null);
+insert into im_label values (null, 'Ciasteczka', 'cookie', '', '', null, null);
 
 -- record, object type
 

@@ -98,7 +98,7 @@ if($g_var1 != '') {
             $tableData = array(
                 'table' => $tableDefinition[$table],
                 'record' => $record,
-                'event' => 'edit,delete,move',
+                'event' => 'edit,delete,move,url',
                 'table_delete' => array('im_section_object', 'main' => $table),
                 'sort' => true,
                 'url' => $baseUrl,

@@ -200,6 +200,7 @@ create table im_label (
     label_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',
     system_name varchar(128) collate utf8_polish_ci default '',
+    style text collate utf8_polish_ci default '',-- style of label's objects (css)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time

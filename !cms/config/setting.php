@@ -146,13 +146,14 @@ $s_eventDefinition = array(
         'im_label' => array(
             'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label'),
             'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_label'),
+            'style' => array('name' => $tableDefinitionEvent['im_label']['style'], 'type' => 'textarea', 'table' => 'im_label'),
             'description' => array('name' => $tableDefinitionEvent['im_label']['description'], 'type' => 'textarea', 'table' => 'im_label')
         ),
         'im_label_section' => array(
             'label_id' => array('name' => $tableDefinitionEvent['im_label_section']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_label_section'),
             'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section', 'table' => 'im_label_section'),
             'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label_section'),
-            'description' => array('name' => $tableDefinitionEvent['im_label_section']['description'], 'type' => 'textarea', 'table' => 'im_label', 'table' => 'im_label_section')
+            'description' => array('name' => $tableDefinitionEvent['im_label_section']['description'], 'type' => 'textarea', 'table' => 'im_label_section')
         ),
         'im_form' => array(
             'name' => array('name' => $tableDefinitionEvent['im_form']['name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form'),

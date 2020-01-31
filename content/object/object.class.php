@@ -527,6 +527,39 @@ class ObjectContent extends Language {
 
     }
 
+    private function displayStyleLabel($section)
+    {
+
+        $sql = 'select style
+                from im_label
+                where system_name = :label';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':label', 'value' => $this->label, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $labelProperty = $this->db->run('one');
+
+        if($labelProperty) {
+
+            echo '<style>';
+
+                echo '.'.$this->label.' .object {';
+
+                    echo $labelProperty->style;
+
+                echo '}';
+
+            echo '</style>';
+
+        }
+
+    }
+
     private function checkDisplayOption($option = false, $type = '') {
 
         if($option and is_string($option) and $option != '' and $type != '') {
@@ -687,11 +720,8 @@ class ObjectContent extends Language {
 
                                 echo '<div class="edit-tool">';
 
+                                    //edit object when login like admin. In edit status you can change rest property
                                     echo '<a href="' . $this->getToolUrl('object,'.$or['type'].',edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
-
-                                    //echo '<a href="' . $this->getToolUrl('type-property,'.$or['type'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
-
-                                    //echo '<a href="' . $this->getToolUrl('label,edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
 
                                 echo '</div>';
 
@@ -760,6 +790,8 @@ class ObjectContent extends Language {
                     echo '</div>';
 
                 echo '</div>';
+
+                $this->displayStyleLabel($section);
 
                 if($this->checkDisplayOption($option, 'end') and $this->row) {
 

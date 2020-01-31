@@ -129,6 +129,7 @@ if($g_var1 != '') {
 
             }
 
+            $labelId = $record->label_id;
             require_once 'php/script/object-move.php';
 
             $eventData = array(

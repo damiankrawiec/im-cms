@@ -14,6 +14,7 @@ $sql = 'select
         label_id,
         name,
         system_name,
+        style,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify
@@ -32,6 +33,8 @@ $sqlLast = $sql;
 $db->prepare($sql);
 
 if($displayCount == 'one') {
+
+    require_once 'php/script/object-back.php';
 
     $parameter = array(
         array('name' => ':id', 'value' => $g_var2, 'type' => 'int')
