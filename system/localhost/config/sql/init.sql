@@ -10,12 +10,12 @@ insert into im_section values (null, 3, 'Dyskoteki', 'dyskoteki', '', 'fad fa-he
 
 -- record, object label
 
-insert into im_label values (null, 'Ostatnie wydarzenia', 'last-events', '', null, null);
-insert into im_label values (null, 'Slider', 'slider', '', null, null);
-insert into im_label values (null, 'Menu', 'menu', '', null, null);
-insert into im_label values (null, 'Najbliższe wydarzenie', 'soon-one-event', '', null, null);
-insert into im_label values (null, 'Języki', 'language', '', null, null);
-insert into im_label values (null, 'Ciasteczka', 'cookie', '', null, null);
+insert into im_label values (null, 'Ostatnie wydarzenia', 'last-events', '', '', null, null);
+insert into im_label values (null, 'Slider', 'slider', '', '', null, null);
+insert into im_label values (null, 'Menu', 'menu', '', '', null, null);
+insert into im_label values (null, 'Najbliższe wydarzenie', 'soon-one-event', '', '', null, null);
+insert into im_label values (null, 'Języki', 'language', '', '', null, null);
+insert into im_label values (null, 'Ciasteczka', 'cookie', '', '', null, null);
 
 -- record, object type
 
