@@ -116,9 +116,9 @@ if($g_var1 != '') {
                 'sort' => true,
                 'url' => $baseUrl,
                 'copy' => array(
-                    'form_fix' => array('checkbox' => $translation['copy']['fix']),
-                    'form_outer_data' => array('checkbox' => $translation['copy']['outer-data']),
-                    'form_translation' => array('checkbox' => $translation['copy']['translation'])
+                    'form_fix' => array('type' => 'checkbox', 'display' => $translation['copy']['fix'], 'table' => 'im_section_object,im_object_category'),
+                    'form_outer_data' => array('type' => 'checkbox', 'display' => $translation['copy']['outer-data'], 'table' => 'im_object_file,im_object_image,im_object_source'),
+                    'form_translation' => array('type' => 'checkbox', 'display' => $translation['copy']['translation'], 'table' => 'im_translation')
                 )
             );
 

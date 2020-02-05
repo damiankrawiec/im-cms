@@ -164,11 +164,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                             foreach ($tableData['copy'] as $i => $c) {
 
-                                foreach ($c as $j => $cc) {
-
-                                    echo '<input type="' . $j . '" name="' . $i . '"> ' . $cc . '<br>';
-
-                                }
+                                echo '<input type="' . $c['type'] . '" name="' . $i . '" value="'.$c['table'].'"> ' . $c['display'] . '<br>';
 
                             }
                         }
