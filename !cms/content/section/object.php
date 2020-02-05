@@ -111,10 +111,15 @@ if($g_var1 != '') {
             $tableData = array(
                 'table' => $tableDefinition[$table],
                 'record' => $record,
-                'event' => 'edit,delete',
+                'event' => 'edit,delete,copy',
                 'table_delete' => array('im_section_object', 'im_object_category', 'im_object_source', 'im_object_image', 'im_object_file', 'main' => $table),
                 'sort' => true,
-                'url' => $baseUrl
+                'url' => $baseUrl,
+                'copy' => array(
+                    'form_fix' => array('checkbox' => $translation['copy']['fix']),
+                    'form_outer_data' => array('checkbox' => $translation['copy']['outer-data']),
+                    'form_translation' => array('checkbox' => $translation['copy']['translation'])
+                )
             );
 
             require_once 'content/box/table/init.php';

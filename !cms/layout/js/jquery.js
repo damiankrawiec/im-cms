@@ -54,6 +54,43 @@ $(function(){
 
     });
 
+    $('.show-next-row').click(function() {
+
+        var $this = $(this);
+
+        var $currentRow = $this.parents('tr');
+
+        if($currentRow.next('.next-row').length > 0) {
+
+            $this.removeClass('btn-secondary');
+
+            $this.addClass('btn-light');
+
+            $currentRow.next('.next-row').remove();
+
+        }else {
+
+            $this.removeClass('btn-light');
+
+            $this.addClass('btn-secondary');
+
+            var $column = $this.attr('title');
+
+            var $nextRow = '<tr class="next-row"><td colspan="' + $column + '">' + $this.next().html() + '</td></tr>';
+
+            $($nextRow).insertAfter($currentRow);
+
+        }
+
+        //if($parameter[1] === 'slide')
+
+        // $next.slideToggle();
+        //
+        // if($parameter[0] === 'add-new')
+        //     $this.hide();
+
+    });
+
     $('input[type="password"]').keyup(function(){
 
         $('input[name="password"]').val(sha1($(this).val()));

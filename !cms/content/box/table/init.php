@@ -151,6 +151,44 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     }
 
+                    //Copy
+                    if(stristr($tableData['event'], 'copy')) {
+
+                        echo '<a href="#" class="btn btn-light show-next-row" title="' . $countColumn . '">' . $icon['button']['copy'] . '</a>';
+
+                        echo '<div class="im-hide">';
+
+                        echo '<form action="'.$tableData['url'].'" method="post">';
+
+                        if(isset($tableData['copy'])) {
+
+                            foreach ($tableData['copy'] as $i => $c) {
+
+                                foreach ($c as $j => $cc) {
+
+                                    echo '<input type="' . $j . '" name="' . $i . '"> ' . $cc . '<br>';
+
+                                }
+
+                            }
+                        }
+
+                        echo '<input type="submit" value="'.$translation['button']['save'].'" class="btn btn-info">';
+
+                        echo '<input type="hidden" name="table" value="'.$table.'">';
+
+                        echo '<input type="hidden" name="id" value="'.$currentId.'">';
+
+                        echo '<input type="hidden" name="event" value="copy"> ';
+
+                        echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
+
+                        echo '</form>';
+
+                        echo '</div>';
+
+                    }
+
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {
 

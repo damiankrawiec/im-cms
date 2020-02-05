@@ -90,6 +90,11 @@ $translation = array(
         'source' => 'Źródła podłączone',
         'category' => 'Kategorie występowania'
     ),
+    'copy' => array(
+        'fix' => 'Kopiuj przypisania do sekcji i kategorii',
+        'outer-data' => 'Kopiuj dane zawnętrzne (obrazy, pliki, źródła)',
+        'translation' => 'Kopiuj wszystkie tłumaczenia (dla każdego języka)'
+    ),
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',
         'delete-file-fail' => 'Nieudane usunięcie bieżącego pliku'
