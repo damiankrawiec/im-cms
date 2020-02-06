@@ -59,7 +59,7 @@ if($recordSource) {
             foreach($tableArray as $ta) {
 
                 $fieldIdTable = $fieldId;
-                if($p_table == 'im_translation')
+                if($ta == 'im_translation')
                     $fieldIdTable = 'target_record';
 
                 $sql = 'select * from '.$ta.' where '.$fieldIdTable.' = :id';
@@ -94,11 +94,21 @@ if($recordSource) {
 
                             if(!is_int($j)) {
 
+                                if($fieldIdTable == $j) {
+
+                                    $newValue = $copyId;
+
+                                }else{
+
+                                    $newValue = $rsrd;
+
+                                }
+
                                 $bindType = 'string';
-                                if(is_numeric($rsrd))
+                                if(is_numeric($newValue))
                                     $bindType = 'int';
 
-                                array_push($parameter, array('name' => ':' . $j . $n, 'value' => $rsrd, 'type' => $bindType));
+                                array_push($parameter, array('name' => ':' . $j . $n, 'value' => $newValue, 'type' => $bindType));
 
                             }
 
@@ -119,6 +129,8 @@ if($recordSource) {
 
                     $db->prepare($sql);
 
+                    $db->bind($parameter);
+
                     $db->run();
 
                 }
@@ -129,6 +141,8 @@ if($recordSource) {
 
     }
 
-}
+    $addition->link($addition->getUrl().',edit,'.$copyId);
 
-$alert1 = $translation['message']['save-success'];
+    //$alert1 = $translation['message']['save-success'];
+
+}
