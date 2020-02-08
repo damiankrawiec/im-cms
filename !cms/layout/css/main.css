@@ -208,4 +208,16 @@ ul.pagination .page-link i {
 #style {
   font-family: "Courier New";
 }
+#top li {
+  color: #ffc107;
+  display: inline;
+  padding: 0 5px 0;
+}
+#top li a {
+  color: #fff;
+}
+#top li a:hover {
+  text-decoration: none;
+  color: #ffc107;
+}
 /*# sourceMappingURL=main.css.map */

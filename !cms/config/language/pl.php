@@ -9,7 +9,8 @@ $translation = array(
     'modal' => array(
         'title' => 'Informacja',
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
-        'confirm-delete' => 'Potwierdź usunięcie pozycji'
+        'confirm-delete' => 'Potwierdź usunięcie pozycji',
+        'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. tłumaczenia), a także pliki cache i obrazy captcha'
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -29,6 +30,10 @@ $translation = array(
         'save-success' => 'Dane zostały zapisane poprawnie',
         'delete-success' => 'Pozycja została usunięta poprawnie',
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych pól',
+    ),
+    'top' => array(
+        'preview' => 'Podgląd',
+        'clean-system' => 'Uporządkuj dane'
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',

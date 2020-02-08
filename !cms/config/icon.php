@@ -4,7 +4,7 @@ $icon = array(
     'email' => array('at' => '<i class="fal fa-at"></i>'),
     'security' => array('header' => '<i class="fad fa-shield-check fa-3x"></i>', 'password' => '<i class="fal fa-lock-alt"></i>'),
     'login' => array('standard' => '<i class="fal fa-sign-in"></i>', 'end' => '<i class="fal fa-power-off"></i>'),
-    'link' => array('internal' => '<i class="fal fa-angle-right"></i>', 'external' => '<i class="fal fa-external-link-square"></i>', 'preview' => '<i class="fal fa-eye"></i>'),
+    'link' => array('internal' => '<i class="fal fa-angle-right"></i>', 'external' => '<i class="fal fa-external-link-square"></i>', 'preview' => '<i class="fal fa-search fa-flip-horizontal"></i>'),
     'empty-triangle' => array('right' => '<i class="fal fa-caret-right"></i>'),
     'warning' => array('validation' => '<i class="fad fa-exclamation-triangle text-danger" style="font-size:27px;margin:5px"></i>', 'empty' => '<i class="fad fa-empty-set" style="font-size:26px;margin:5px"></i>'),
     'process' => array('standard' => '<i class="fas fa-cog fa-spin" style="font-size:13px;margin-left:5px"></i>'),
@@ -50,6 +50,9 @@ $icon = array(
         'setting' => '<i class="fal fa-cog"></i>',
         'label-property' => '<i class="fal fa-project-diagram"></i>',
         'service' => '<i class="fal fa-headset"></i>'
+    ),
+    'top' => array(
+        'clean' => '<i class="fal fa-broom"></i>'
     ),
     'php' => array('version' => '<i class="fal fa-code"></i>'),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),
