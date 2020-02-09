@@ -10,7 +10,7 @@ $translation = array(
         'title' => 'Informacja',
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
-        'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. tłumaczenia), a także pliki cache i obrazy captcha'
+        'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha'
     ),
     'button' => array(
         'save' => 'Zapisz',

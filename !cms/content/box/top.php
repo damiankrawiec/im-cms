@@ -7,6 +7,14 @@ echo '<ul id="top">';
 
     //Form
 
+    echo '<form action="' . $addition->getUrl() . '" method="post">';
+
+        echo '<input type="hidden" name="event" value="clean">';
+
+        echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
+
+    echo '</form>';
+
     //---
 
     echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-clear'], 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
