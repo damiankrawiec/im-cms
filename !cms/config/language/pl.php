@@ -22,7 +22,8 @@ $translation = array(
         'reset-view' => 'Resetuj widok',
         'back' => 'Powrót',
         'close' => 'Zamknij',
-        'one' => array('type' => 'Typ')
+        'one' => array('type' => 'Typ'),
+        'leave-edit' => 'Opuść tryb edycji'
     ),
     'message' => array(
         'no-data' => 'Brak danych',
@@ -30,6 +31,9 @@ $translation = array(
         'save-success' => 'Dane zostały zapisane poprawnie',
         'delete-success' => 'Pozycja została usunięta poprawnie',
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych pól',
+        'clean-success' => 'Dane zostały uporzątkowane',
+        'deleted-records' => 'Usuniętych rekordów',
+        'deleted-files' => 'Usuniętych plików'
     ),
     'top' => array(
         'preview' => 'Podgląd',

@@ -3,22 +3,13 @@
 //Table from database which must be scanning and getting ID (primary key), after that check table translation (target_table, target_record)
 $checkTableClean = array('im_section', 'im_object', 'im_image', 'im_file', 'im_source', 'im_category');
 
-//Reset parameter ?
-
 $ctcArray = array();
 foreach ($checkTableClean as $ctc) {
 
     $sql = 'select '.
-            $addition->cleanText($ctc, 'im_').'_id as id from '.$ctc.'
-            where name != :name';
+            $addition->cleanText($ctc, 'im_').'_id as id from '.$ctc;
 
     $db->prepare($sql);
-
-//    $parameter = array(
-//        array('name' => ':name', 'value' => '', 'type' => 'string')
-//    );
-//
-//    $db->bind($parameter);
 
     $ctcRecord = $db->run('all');
 
@@ -29,6 +20,7 @@ foreach ($checkTableClean as $ctc) {
 
 if(count($ctcArray) > 0) {
 
+    $countRecordRemove = 0;
     foreach ($ctcArray as $ctcTable => $ctcId) {
 
         $countIds = count($ctcId);
@@ -45,7 +37,7 @@ if(count($ctcArray) > 0) {
         if ($ctcIdString != '') {
 
             $checkTableRemove = array(
-                'im_translation' => array('where' => 'target_table = :target_table and target_record not in('.$ctcIdString.')', 'parameter' => 'target_table')
+                'im_translation' => array('where' => 'target_table = :target_table and target_record not in('.$ctcIdString.')', 'parameter' => ':target_table')
             );
 
             foreach ($checkTableRemove as $ctrTable => $ctr) {
@@ -55,12 +47,12 @@ if(count($ctcArray) > 0) {
                     where '.$ctr['where'];
 
                 $parameter = array(
-                    array('name' => ':'.$ctr['parameter'], 'value' => $ctrTable, 'type' => 'string')
+                    array('name' => $ctr['parameter'], 'value' => $ctcTable, 'type' => 'string')
                 );
 
-                $db->bind($parameter);
-
                 $db->prepare($sql);
+
+                $db->bind($parameter);
 
                 //This records are to be prepare to remove
                 $ctcIdRecord = $db->run('all');
@@ -75,18 +67,55 @@ if(count($ctcArray) > 0) {
 
                         $db->run();
 
-                    }
+                        $countRecordRemove++;
 
-                    $alert1 = $translation['message']['save-success'];
+                    }
 
                 }
 
             }
 
-        }else $alert0 = $translation['message']['no-data'];
+        }
 
     }
 
 }
 
 //After clean database remove files in "cms/auth/stamp" "system/[all-names]/public/captcha" (Attention! filemtime() must be equal or early than yesterday - e.g. current admin session)
+
+$dirToClean = array(
+    'auth' => 'auth/stamp',
+    'captcha' => '../system/'.$tool->getSession('system').'/public/captcha'
+);
+
+$countFileRemove = 0;
+foreach ($dirToClean as $dtc) {
+
+    $dir = scandir($dtc);
+
+    if(count($dir) > 0) {
+
+        foreach ($dir as $d) {
+
+            if($d == '.' or $d == '..')
+                continue;
+
+            $today = date('Y-m-d');
+
+            $dateCreate = date('Y-m-d', filemtime($dtc.'/'.$d));
+
+            if($today != $dateCreate) {
+
+                $addition->removeFile($dtc . '/' . $d);
+
+                $countFileRemove++;
+
+            }
+
+        }
+
+    }
+
+}
+
+$alert1 = $translation['message']['clean-success'].'<br>['.$translation['message']['deleted-records'].': '.$countRecordRemove.']<br>['.$translation['message']['deleted-files'].': '.$countFileRemove.']';
