@@ -23,7 +23,10 @@ $translation = array(
         'back' => 'Powrót',
         'close' => 'Zamknij',
         'one' => array('type' => 'Typ'),
-        'leave-edit' => 'Opuść tryb edycji'
+        'leave-edit' => 'Opuść tryb edycji',
+        'update' => 'Uaktualnij',
+        'status' => 'Status',
+        'status-copy' => 'Powielany'
     ),
     'message' => array(
         'no-data' => 'Brak danych',

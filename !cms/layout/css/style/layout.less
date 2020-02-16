@@ -36,6 +36,11 @@
   .btn{
     margin: 0 1px 0;
   }
+  tr{
+    td:not(:nth-child(1)){
+      text-align: center;
+    }
+  }
 }
 .button-event{
   position: fixed;
@@ -62,6 +67,21 @@
 }
 .edit{
   padding: 10px 10px 80px;
+}
+#object-move-box{
+  a{
+    color: @white;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  i{
+    color: @white !important;
+    font-size: 18px;
+    float: right;
+    margin-top: 3px;
+    margin-left: 5px;
+  }
 }
 #scroll-top{
   position: fixed;
