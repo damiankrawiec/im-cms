@@ -7,7 +7,7 @@ require_once '../php/class/addition.class.php';
 $addition = new Addition();
 
 $minHeadBody = true;
-$hashPage = true;
+$hashPage = true;//section with sha1 encoding (input type password)
 $sectionPath = '../../';
 $sectionPathAdmin = '../';
 require_once '../php/init.php';

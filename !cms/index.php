@@ -12,6 +12,9 @@ $addition = new Addition();
 
 $tool = new Tool();
 
+//Set current url
+$addition->setUrl();
+
 if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     //In addition class use get to build url
@@ -34,14 +37,23 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
     if($tool->getSession('system') == $system->getSystemName()) {
 
-        //Set current url
-        $addition->setUrl();
+        if($tool->getSession('url')) {
+
+            $currentUrl = $tool->getSession('url');
+
+            $tool->setSession('url', 0);
+
+            $addition->link($currentUrl);
+
+        }
 
         require_once 'content/index.php';
 
     }
 
 }else{
+
+    $tool->setSession('url', $addition->getUrl());
 
     $addition->link('auth');
 
