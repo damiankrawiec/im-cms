@@ -20,13 +20,13 @@ if(isset($field['option'])) {
             if($field['type'] == 'file')
                 $aAttribute = ' download='. $eventData['record']->url;
 
-            echo '<a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
+            echo '<br><a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
 
             if($field['type'] == 'image')
-                echo '<br><img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="max-width: ' . $s_previewImage . '">';
+                echo '<img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="max-width: ' . $s_previewImage . '">';
 
             if($field['type'] == 'file')
-                echo '<br>'.$eventData['record']->url;
+                echo $eventData['record']->url;
 
             echo '</a>';
 

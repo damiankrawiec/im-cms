@@ -80,7 +80,9 @@ if ($record) {
                     'im_object_file' => 'file_id'
                 )
             ),
-            'url' => $baseUrl
+            'url' => $baseUrl,
+            'system' => $tool->getSession('system'),
+            'preview' => 'file'
         );
 
         require_once 'content/box/table/init.php';

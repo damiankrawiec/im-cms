@@ -103,7 +103,22 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                     if($f == 'icon' and $r[$f] != '-')
                         echo '<i class="';
 
-                    echo $r[$f];
+                    if(isset($tableData['preview']) and $f == 'url') {
+
+                        $filePath = '../system/' . $tableData['system'] . '/public/' . $r[$f];
+
+                        if($addition->fileExists($filePath)) {
+
+                            if($tableData['preview'] == 'image')
+                                echo '<img src="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" title="' . $r[$f] . '" style="max-width: ' . $s_previewImage . '">';
+
+                            if($tableData['preview'] == 'file')
+                                echo '<a href="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" title="' . $r[$f] . '" download="'.$r[$f].'">'.$icon['button']['download'].' '.$r[$f].'</a>';
+
+
+                        }else echo $icon['warning']['empty'];
+
+                    }else echo $r[$f];
 
                     if($f == 'icon' and $r[$f] != '-')
                         echo ' fa-2x"></i>';

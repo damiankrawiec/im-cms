@@ -86,7 +86,7 @@ $translation = array(
         'language_id' => 'Definicja języka',
         'email_source' => 'Pole nadawcy',
         'email_destination' => 'Pole odbiorcy',
-        'file_delete' => 'Plik zostanie usunięty po kliknięciu "zapisz"',
+        'file_delete' => 'Plik zostanie usunięty po kliknięciu "uaktualnij"',
         'file_delete_cancel' => 'nie usuwaj',
         'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
         'style' => 'Pole do nadawania właściwości obiektom etykiety poprzez style CSS',
@@ -185,6 +185,7 @@ $tableDefinition = array(
     ),
     'im_language' => array(
         'name' => 'Nazwa',
+        'url' => 'Obraz',
         'system_name' => 'Nazwa systemowa',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
@@ -194,6 +195,7 @@ $tableDefinition = array(
     ),
     'im_image' => array(
         'name' => 'Nazwa',
+        'url' => 'Obraz',
         'content' => 'Opis',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
@@ -202,6 +204,7 @@ $tableDefinition = array(
     ),
     'im_file' => array(
         'name' => 'Nazwa',
+        'url' => 'Plik',
         'content' => 'Opis',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
