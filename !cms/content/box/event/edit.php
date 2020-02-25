@@ -35,7 +35,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                     require 'php/script/translation.php';
 
                 if(isset($tooltip[$i]))
-                    echo '<a href="#" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="'.$tooltip[$i].'">'.$icon['button']['question'].'</a>';
+                    echo '<span href="#" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="'.$tooltip[$i].'">'.$icon['button']['question'].'</span>';
 
                 $require = '';
                 if(isset($field['require']))

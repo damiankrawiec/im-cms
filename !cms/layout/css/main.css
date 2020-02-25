@@ -236,4 +236,7 @@ ul.pagination .page-link i {
   text-decoration: none;
   color: #ffc107;
 }
+[data-toggle="tooltip"] {
+  margin: 5px;
+}
 /*# sourceMappingURL=main.css.map */
