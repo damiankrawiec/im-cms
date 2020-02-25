@@ -245,6 +245,8 @@ $(function(){
 
         fileDelete();
 
+        $('[data-toggle="tooltip"]').tooltip()
+
     }
 
 });

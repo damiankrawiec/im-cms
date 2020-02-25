@@ -29,7 +29,8 @@ $icon = array(
         'back' => '<i class="fal fa-reply"></i>',
         'preview' => '<i class="fal fa-eye pt-1"></i>',
         'download' => '<i class="fal fa-download"></i>',
-        'close' => '<i class="fal fa-times-circle" style="font-size:20px; float:right;margin:1px 0 0 5px"></i>'
+        'close' => '<i class="fal fa-times-circle" style="font-size:20px; float:right;margin:1px 0 0 5px"></i>',
+        'question' => '<i class="fal fa-question"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

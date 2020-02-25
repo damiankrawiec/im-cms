@@ -110,6 +110,8 @@ insert into im_object_image values (null, 6, 3, 1);
 insert into im_object_source values (null, 2, 1, 1);
 
 insert into im_setting values (null, 'Music/Event service', 'name', 'IM-CMS Engine', '', null, null);
+insert into im_setting values (null, 'Favicon', 'favicon', 'favicon.png', '', null, null);
+insert into im_setting values (null, 'Font', 'font', 'Lato', '', null, null);
 
 insert into im_translation values (null, 2,  'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
 insert into im_translation values (null, 2,  'Dance floor', 'im_section', 'name', 7, 'Dance floor', '', null, null);

@@ -382,3 +382,8 @@ $tableDefinitionEvent = array(
         'description' => 'Opis techniczny'
     )
 );
+//Display tooltip
+$tooltip = array(
+    'system_name' => 'Ta wartość będzie służyć jedynie do interpretacji nazwy w systemie, czyli nigdzie, poza systemem CMS nie będzie wyświetlana',
+    'description' => 'Te dane będą służyły jedynie, aby wyjaśnić, czym jest to pole, czy te dane mają jakieś powiązania, czy np. ich zmiana będzie miała wpływ na inne dane'
+);
