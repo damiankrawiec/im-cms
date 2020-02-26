@@ -382,8 +382,49 @@ $tableDefinitionEvent = array(
         'description' => 'Opis techniczny'
     )
 );
-//Display tooltip
+//Display tooltip (in selected table)
 $tooltip = array(
-    'system_name' => 'Ta wartość będzie służyć jedynie do interpretacji nazwy w systemie, czyli nigdzie, poza systemem CMS nie będzie wyświetlana',
-    'description' => 'Te dane będą służyły jedynie, aby wyjaśnić, czym jest to pole, czy te dane mają jakieś powiązania, czy np. ich zmiana będzie miała wpływ na inne dane'
+    'im_object' => array(
+        'system_name' => 'To pole jest widoczne tylko w Panelu Administratora. Najlepiej aby jednoznacznie wskazywało czego dotyczy obiekt, np. [Wydarzenie opisujące imprezę karnawałową w styczniu 2020]',
+        'name' => 'To pole jest publikowane, z reguły jako tytuł lub nazwa. Dlatego powinno być ono w miarę możliwości krótkie, np. [Impreza karnawałowa 2020] ',
+        'label_id' => 'To pole wskazuje gdzie przyczepiony, w strukturze strony, jest obiekt (np. nagłówek, treść, stopka). Sugerujemy, aby NIE zmieniać tej wartości!',
+        'date' => 'To pole jest publikowane, z reguły jako data jakiegoś wydarzenia, itp. Kliknij w pole, a pojawi się interaktywny kalendarz',
+        'content' => 'To pole jest publikowane jako treść obiektu, z regóły opis tego co przedstawia nazwa, np. [W roku 2020 karnawał okazał się wyjątkowo...]',
+        'form' => 'W tym polu należy wskazać adres e-mail, na który będą przychodziły wiadomości po wysłaniu formularza znajdującego się w obiekcie',
+        'email' => 'To pole jest publikowane, należy w nim określić adres e-mail',
+        'icon' => 'To pole jest publikowane jako ikona Fontawesome (zaawansowane)',
+        'section' => 'Pole, w którym należy określić do jakiej sekcji w serwisie ma prowadzić odsyłacz w obiekcie',
+        'section_name' => 'To pole jest publikowane, nazwa odsyłacza do sekcji w serwisie. Nazwę można zastąpić bądź usupełnić ikony Fontawesome (zaawansowane)',
+        'link' => 'Pole, w którym należy określić do jakiego adresu zewnętrznego ma prowadzić odsyłacz w obiekcie, np. [nazwa-domeny.pl] - otwarcie strony nastąpi w nowym oknie',
+        'link_name' => 'To pole jest publikowane, nazwa odsyłacza do adresu zewnętrznego. Nazwę można zastąpić bądź usupełnić ikony Fontawesome (zaawansowane)',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    ),
+    'im_section' => array(
+        'name' => 'To pole jest to nazwą sekcji, która również będzie wyświetlana w elemencie [title] sekcji. To pole ma wpływ na pozycjonowanie w wyszukiwarce Google',
+        'name_url' => 'Pole to adres sekcji, który jest wyświetlany w elemencie URL przeglądarki internetowej. Bez polskich znaków, małe listery, dozwolony znak to tylko myślnik. Pole ma wpływ na pozycjonowanie w wyszukiwarce Google. Aby wypełnić adres nazwą sekcji - kliknij ikonę kopiowania powyżej',
+        'meta' => 'Tutaj znajduje się opis strony przygotowany dla wyszukiwarki Google (pozycjonowanie). Treść nie będzie publikowana dla użytkowników, odczyta ją tylko robot. Najlepiej aby był zwięzły, mówiący tylko to o czym jest dana sekcja, ewt. co się w niej znajduje',
+        'popup' => 'To pole jest publikowane jako treść okna modalnego. Musi być aktywny status pojawiającego się okna modalnego w sekcji',
+        'icon' => 'To pole jest publikowane jako ikona Fontawesome przy odsyłaczu do sekcji, czyli w menu serwisu (zaawansowane)',
+        'class' => 'To pole określa właściwość odpowiedzialną za to czy treść sekcji ma wypełniać całą szerokość ekranu, czy być wycentrowana (zaawansowane)',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    ),
+    'im_image' => array(
+        'name' => 'To pole jest nazwą obrazu, która również będzie wyświetlana w momencie powiększenia obrazu, jak również może się wyświetlać obok obrazu (zależne od konfiguracji)',
+        'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się obraz jest również miejsce na jego opis (zależne od konfiguracji)',
+        'url' => 'W tym polu należy fizycznie dodać plik obrazu, w formacie: jpg, png lub gif. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'section' => 'Pole, w którym można określić do jakiej sekcji w serwisie ma prowadzić odsyłacz. Jeżeli nie będzie ustawionej wartości to obraz będzie powiększany',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    ),
+    'im_file' => array(
+        'name' => 'To pole jest nazwą pliku, która będzie wyświetlana jako odsyłacz do pliku',
+        'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się plik jest również miejsce na jego opis (zależne od konfiguracji)',
+        'url' => 'W tym polu należy fizycznie dodać plik, w dowolnym formacie. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    ),
+    'im_source' => array(
+        'name' => 'To pole jest nazwą źródła, która z reguły nie jest publikowana (zależna od konfiguracji)',
+        'content' => 'To pole jest publikowane, w postaci źródła, najczęściej w języku HTML. Źródło powoduje wyświetlenie interaktywnego elementu z innego serwisu np. YouTube (player video)',
+        'link' => 'Pole, w którym można określić do jakiego adresu zewnętrznego ma prowadzić odsyłacz obok źródła (tzw. oryginalna publikacja) - otwarcie strony nastąpi w nowym oknie',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    )
 );

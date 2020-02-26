@@ -29,17 +29,12 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
             echo '<div class="form-group">';
 
-                echo '<label for="'.$i.'">'.$field['name'].'</label>';
+                require 'php/script/field-option.php';
+
+                echo '<label class="font-weight-bold" for="'.$i.'">'.$field['name'].'</label>';
 
                 if(in_array($table, $s_translationTable))
                     require 'php/script/translation.php';
-
-                if(isset($tooltip[$i]))
-                    echo '<span href="#" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="'.$tooltip[$i].'">'.$icon['button']['question'].'</span>';
-
-                $require = '';
-                if(isset($field['require']))
-                    $require = ' '.$field['require'];
 
                 $readonly = '';
                 if(isset($field['readonly']))
@@ -143,9 +138,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="button-event">';
 
-        echo '<button class="btn btn-info submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['update'] .'</button>';
+        echo '<button class="btn btn-success submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['update'] .'</button>';
 
-        echo '<a class="btn btn-secondary ml-1" href="' . $eventData['url'] . '">' . $translation['button']['leave-edit'] . ' '.$icon['button']['close'].'</a>';
+        echo '<a class="btn btn-danger ml-1" href="' . $eventData['url'] . '">' . $translation['button']['leave-edit'] . ' '.$icon['button']['close'].'</a>';
 
     echo '</div>';
 

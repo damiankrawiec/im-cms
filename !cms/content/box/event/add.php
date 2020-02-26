@@ -12,11 +12,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
             echo '<div class="form-group">';
 
-                echo '<label for="'.$i.'">'.$field['name'].'</label>';
+            require 'php/script/field-option.php';
 
-                $require = '';
-                if(isset($field['require']))
-                    $require = ' '.$field['require'];
+                echo '<label for="'.$i.'">'.$field['name'].'</label>';
 
                 if($field['type'] == 'text')
                     echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="">';
