@@ -34,7 +34,7 @@ $translation = array(
         'save-success' => 'Dane zostały zapisane poprawnie',
         'delete-success' => 'Pozycja została usunięta poprawnie',
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych pól',
-        'clean-success' => 'Dane zostały uporzątkowane',
+        'clean-success' => 'Dane zostały uporządkowane',
         'deleted-records' => 'Usuniętych rekordów',
         'deleted-files' => 'Usuniętych plików'
     ),
