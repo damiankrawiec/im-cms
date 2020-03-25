@@ -93,4 +93,6 @@ $(function(){
 
     popup();
 
+    $('.no-data').hide();
+
 });
