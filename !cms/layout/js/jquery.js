@@ -49,8 +49,13 @@ $(function(){
 
         $next.slideToggle();
 
-        if($parameter[0] === 'add-new')
+        if($parameter[0] === 'add-new') {
+
             $this.hide();
+
+            $('.sort-status').hide();
+
+        }
 
     });
 
@@ -114,6 +119,8 @@ $(function(){
         $(this).parent().slideUp(500, function() {
 
             $('.show-next').show();
+
+            $('.sort-status').show();
 
         });
 
