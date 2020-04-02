@@ -234,6 +234,7 @@ create table im_type (
     type_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object
+    status varchar(3) default 'on',-- show type in menu "object", cms
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time

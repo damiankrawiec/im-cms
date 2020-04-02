@@ -61,7 +61,12 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                 }else if(is_string($m['submenu']) and stristr($m['submenu'], 'im_')){
 
-                                    $sql = 'select '.$addition->cleanText($m['submenu'], 'im_').'_id as id, name from '.$m['submenu'].' order by date_create desc';
+                                    $sql = 'select '.$addition->cleanText($m['submenu'], 'im_').'_id as id, name from '.$m['submenu'];
+
+                                    if(isset($m['where']))
+                                        $sql .= ' where '.$m['where'];
+
+                                    $sql .= ' order by date_create desc';
 
                                     $db->prepare($sql);
 

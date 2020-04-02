@@ -184,7 +184,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                             }
                         }
 
-                        echo '<input type="submit" value="'.$translation['button']['save'].'" class="btn btn-info">';
+                        echo '<input type="submit" value="'.$translation['button']['copy'].'" class="btn btn-info">';
 
                         echo '<input type="hidden" name="table" value="'.$table.'">';
 
@@ -197,6 +197,17 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                         echo '</form>';
 
                         echo '</div>';
+
+                    }
+
+                    //Preview (go to another section in cms)
+                    if(stristr($tableData['event'], 'go') and isset($tableData['go'])) {
+
+                        foreach ($tableData['go'] as $go) {
+
+                            echo '<a href="'.$go['url'].','.$currentId.'" class="btn btn-light">' . $go['name'] . '</a>';
+
+                        }
 
                     }
 

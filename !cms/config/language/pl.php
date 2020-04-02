@@ -26,7 +26,9 @@ $translation = array(
         'leave-edit' => 'Opuść tryb edycji',
         'update' => 'Uaktualnij',
         'status' => 'Status',
-        'status-copy' => 'Powielany'
+        'status-copy' => 'Powielany',
+        'copy' => 'Skopiuj',
+        'confirm' => 'Potwierdź'
     ),
     'message' => array(
         'no-data' => 'Brak danych',
@@ -155,7 +157,8 @@ $tableDefinition = array(
         'class' => 'Klasa',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
-        'date_modify' => 'Zmodyfikowany'
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status w menu "obiekty"',
     ),
     'im_property' => array(
         'name' => 'Nazwa',

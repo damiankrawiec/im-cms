@@ -19,12 +19,12 @@ insert into im_label values (null, 'Ciasteczka', 'cookie', '', '', null, null);
 
 -- record, object type
 
-insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', '', null, null);
-insert into im_type values (null, 'Slider', 'col-12', '', null, null);
-insert into im_type values (null, 'Menu', 'col-12', '', null, null);
-insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12', '', null, null);
-insert into im_type values (null, 'Języki', 'col-12', '', null, null);
-insert into im_type values (null, 'Ciasteczka', 'col-12', '', null, null);
+insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Slider', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Menu', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Najbliższe wydarzenie', 'on', 'col-12', '', null, null);
+insert into im_type values (null, 'Języki', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
 
 -- record, set property in type
 

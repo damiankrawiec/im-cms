@@ -16,7 +16,8 @@ $sql = 'select
         class,
         if(description = \'\', \'-\', description) as description,
         date_create,
-        date_modify
+        date_modify,
+        status
         from ' . $table;
 
 if($g_var1 == 'edit' and $g_var2 != '') {
@@ -71,7 +72,7 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit,delete',
+            'event' => 'edit,delete,go',
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(
@@ -79,7 +80,11 @@ if ($record) {
                     'im_type_property' => 'type_id'
                 )
             ),
-            'url' => $baseUrl
+            'url' => $baseUrl,
+            'go' => array(
+                array('name' => $icon['menu']['object'], 'url' => 'object'),
+                array('name' => $icon['menu']['type-property'], 'url' => 'type-property')
+            )
         );
 
         require_once 'content/box/table/init.php';
