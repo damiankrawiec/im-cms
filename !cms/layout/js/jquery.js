@@ -87,12 +87,12 @@ $(function(){
 
         }
 
+        //What i have to do after fire event (kinds of events)
         //if($parameter[1] === 'slide')
-
-        // $next.slideToggle();
+        //  $next.slideToggle();
         //
-        // if($parameter[0] === 'add-new')
-        //     $this.hide();
+        //if($parameter[0] === 'add-new')
+        //  $this.hide();
 
     });
 
@@ -245,6 +245,8 @@ $(function(){
         });
 
         currentShow();
+
+        checkSubmenuIsEmpty()
 
         $('select.form-control').chosen();
 

@@ -28,6 +28,8 @@ function changeStatus($this) {
 
         $this.parents('tr').addClass('last-record');
 
+        eventAfterStatus($this.attr('id'), $this.children().attr('class'));
+
     });
 
 }

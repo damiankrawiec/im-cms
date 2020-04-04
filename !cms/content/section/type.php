@@ -72,7 +72,7 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit,delete,go',
+            'event' => 'edit,delete,go',//When is "go" attr defined, then must be defined too array with "go" index (below)
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(

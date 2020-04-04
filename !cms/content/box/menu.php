@@ -48,7 +48,11 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                     }
 
-                    echo '<li class="nav-item'.$active.$dropdown.'">'.$a.$m['icon'].' '.$m['name'].'</a>';
+                    $menuId = '';
+                    if($i == 'object')
+                        $menuId = ' id="menu-'.$i.'"';
+
+                    echo '<li class="nav-item'.$active.$dropdown.'"'.$menuId.'>'.$a.$m['icon'].' '.$m['name'].'</a>';
 
                         if($dropdown != '') {
 
@@ -61,12 +65,12 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                 }else if(is_string($m['submenu']) and stristr($m['submenu'], 'im_')){
 
-                                    $sql = 'select '.$addition->cleanText($m['submenu'], 'im_').'_id as id, name from '.$m['submenu'];
+                                    $sql = 'select '.$addition->cleanText($m['submenu'], 'im_').'_id as id, name';
 
-                                    if(isset($m['where']))
-                                        $sql .= ' where '.$m['where'];
+                                    if(isset($m['column']))
+                                        $sql .= ', '.$m['column'];
 
-                                    $sql .= ' order by date_create desc';
+                                    $sql .= ' from '.$m['submenu'].' order by date_create desc';
 
                                     $db->prepare($sql);
 
@@ -78,6 +82,7 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
                                     foreach ($submenuData as $sd) {
 
+                                        $aId = '';
                                         if (isset($sd['url'])) {
 
                                             $currentId = $sd['url'];
@@ -95,19 +100,25 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                         } else {
 
                                             $submenuUrl = $i . ',' . $sd['id'];
-                                            $aId = '';
+
+                                            if($i == 'object')
+                                                $aId = ' id="'.$m['submenu'].'status'.$sd['id'].'"';
 
                                         }
+
+                                        $aHide = '';
+                                        if (isset($sd['status']) and $sd['status'] == 'off')
+                                            $aHide = ' im-hide';
 
                                         $submenuIcon = $icon['link']['internal'] . ' ';
                                         if (isset($sd['icon']))
                                             $submenuIcon = $sd['icon'] . ' ';
 
-                                        echo '<a class="dropdown-item" href = "' . $submenuUrl . '"' . $aId . '>' . $submenuIcon . $sd['name'] . '</a>';
+                                        echo '<a class="dropdown-item'.$aHide.'" href = "' . $submenuUrl . '"' . $aId . '>' . $submenuIcon . $sd['name'] . '</a>';
 
                                     }
 
-                                }else echo $addition->message($translation['message']['no-data'], $icon['message']['alert']);
+                                }else echo $icon['warning']['validation'];
 
                             echo '</div>';
 

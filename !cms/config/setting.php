@@ -2,7 +2,7 @@
 //System name in all system structure
 $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
-$s_previewImage = '200px';
+$s_previewImage = '150px';
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'icon' => $icon['menu']['section'], 'table' => 'im_section', 'title' => 'name, description', 'field' => 'parent'),
@@ -23,7 +23,7 @@ $s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image'
 $s_menuDefinition = array(
     'dashboard' => array('icon' => $icon['menu']['dashboard'], 'name' => $translation['menu']['dashboard'], 'url' => 'dashboard'),
     'section' => array('icon' => $icon['menu']['section'], 'name' => $translation['menu']['section'], 'url' => 'section,0'),
-    'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type', 'where' => 'status like "on"'),
+    'object' => array('icon' => $icon['menu']['object'], 'name' => $translation['menu']['object'], 'submenu' => 'im_type', 'column' => 'status'),
     'type-property' => array('icon' => $icon['menu']['type-property'], 'name' => $translation['menu']['type-property'], 'submenu' => 'im_type'),
     'definition-object' => array('icon' => $icon['menu']['definition-object'], 'name' => $translation['menu']['definition-object'],
         'submenu' => array(

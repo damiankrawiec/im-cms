@@ -506,3 +506,44 @@ function insertToOption($multiple, $type) {
     });
 
 }
+
+function eventAfterStatus($target, $status) {
+
+    if($('table#im_type').length > 0) {
+
+        var $targetObject = $target.replace(/:/g, '');
+
+        if($status.indexOf('on') > -1)
+            $('#' + $targetObject).removeClass('im-hide');
+
+        if($status.indexOf('off') > -1)
+            $('#' + $targetObject).addClass('im-hide');
+
+        checkSubmenuIsEmpty();
+
+    }
+
+}
+
+function checkSubmenuIsEmpty() {
+
+    var $empty = true;
+    $('#menu-object .dropdown-menu a').each(function() {
+
+        if ($(this).attr('class').indexOf('im-hide') === -1) {
+
+            $empty = false;
+
+        }
+
+    });
+
+    $('#menu-object .dropdown-menu > i').remove();
+
+    if($empty) {
+
+        $('#menu-object .dropdown-menu').append($('#warning-icon').html());
+
+    }
+
+}
