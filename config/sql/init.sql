@@ -373,6 +373,7 @@ create table im_type_property (
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object fields
     class_field varchar(128) collate utf8_polish_ci default '',-- class of object fields
     position int default 0,
+    status varchar(3) default 'on',-- show property of object in section, everything in cms is still available
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time

@@ -73,4 +73,6 @@ foreach($eventData['table'] as $table) {
 
 }
 
-$alert1 = $translation['message']['save-success'];
+$addition->link($addition->getUrl().',edit,'.$lastInsertId);
+
+//$alert1 = $translation['message']['save-success'];

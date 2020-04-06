@@ -27,7 +27,8 @@ if($g_var1 != '') {
         t.class as class,
         t.class_field as class_field,
         t.date_create as date_create,
-        t.date_modify as date_modify
+        t.date_modify as date_modify,
+        t.status as status
         from ' . $table . ' t
         join im_property tj on(tj.property_id = t.property_id)';
 

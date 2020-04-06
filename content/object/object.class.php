@@ -145,7 +145,7 @@ class ObjectContent extends Language {
 
     private function getPropertyFromType($type) {
 
-        $sql = 'select property_id as id, class, class_field from im_type_property where type_id = :type order by position';
+        $sql = 'select property_id as id, class, class_field from im_type_property where type_id = :type and status like "on" order by position';
 
         $this->db->prepare($sql);
 

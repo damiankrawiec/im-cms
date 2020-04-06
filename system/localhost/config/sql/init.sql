@@ -28,24 +28,24 @@ insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
 
 -- record, set property in type
 
-insert into im_type_property values (null, 1, 1, 'col-12', 'h2', 2, '', null, null);
-insert into im_type_property values (null, 1, 2, 'col-12', '', 4, '', null, null);
-insert into im_type_property values (null, 1, 3, 'col-12', '', 1, '', null, null);
-insert into im_type_property values (null, 1, 4, 'col-12', '', 3, '', null, null);
-insert into im_type_property values (null, 1, 8, 'col-12', '', 5, '', null, null);
+insert into im_type_property values (null, 1, 1, 'col-12', 'h2', 2, 'on', '', null, null);
+insert into im_type_property values (null, 1, 2, 'col-12', '', 4, 'on', '', null, null);
+insert into im_type_property values (null, 1, 3, 'col-12', '', 1, 'on', '', null, null);
+insert into im_type_property values (null, 1, 4, 'col-12', '', 3, 'on', '', null, null);
+insert into im_type_property values (null, 1, 8, 'col-12', '', 5, 'on', '', null, null);
 
-insert into im_type_property values (null, 4, 1, 'col-12', 'h4', 2, '', null, null);
-insert into im_type_property values (null, 4, 3, 'col-12', '', 1, '', null, null);
-insert into im_type_property values (null, 4, 4, 'col-12', '', 3, '', null, null);
-insert into im_type_property values (null, 4, 2, 'col-12 text-justify', '', 4, '', null, null);
+insert into im_type_property values (null, 4, 1, 'col-12', 'h4', 2, 'on', '', null, null);
+insert into im_type_property values (null, 4, 3, 'col-12', '', 1, 'on', '', null, null);
+insert into im_type_property values (null, 4, 4, 'col-12', '', 3, 'on', '', null, null);
+insert into im_type_property values (null, 4, 2, 'col-12 text-justify', '', 4, 'on', '', null, null);
 
-insert into im_type_property values (null, 2, 4, 'col-12', '', 1, '', null, null);
+insert into im_type_property values (null, 2, 4, 'col-12', '', 1, 'on', '', null, null);
 
-insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand-lg navbar-dark bg-dark', 1, '', null, null);
+insert into im_type_property values (null, 3, 7, 'col-12', 'navbar navbar-expand-lg navbar-dark bg-dark', 1, 'on', '', null, null);
 
-insert into im_type_property values (null, 5, 13, 'col-12', '', 1, '', null, null);
+insert into im_type_property values (null, 5, 13, 'col-12', '', 1, 'on', '', null, null);
 
-insert into im_type_property values (null, 6, 2, 'col-12', '', 1, '', null, null);
+insert into im_type_property values (null, 6, 2, 'col-12', '', 1, 'on', '', null, null);
 
 -- record, object
 

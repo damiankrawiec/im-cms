@@ -150,7 +150,8 @@ $tableDefinition = array(
         'class' => 'Klasa - otoczenie',
         'class_field' => 'Klasa - pole',
         'date_create' => 'Utworzony',
-        'date_modify' => 'Zmodyfikowany'
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status',
     ),
     'im_type' => array(
         'name' => 'Nazwa',
