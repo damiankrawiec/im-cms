@@ -1,6 +1,6 @@
 <?php
 
-
+//Setting system is under the system dir
 class Setting
 {
     //Required structure of files (it might be more dirs and files)
