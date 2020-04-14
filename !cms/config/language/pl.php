@@ -404,7 +404,7 @@ $tooltip = array(
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_section' => array(
-        'name' => 'To pole jest to nazwą sekcji, która również będzie wyświetlana w elemencie [title] sekcji. To pole ma wpływ na pozycjonowanie w wyszukiwarce Google',
+        'name' => 'To pole jest nazwą sekcji, która również będzie wyświetlana w elemencie [title] sekcji. Powinno ono być unikalne w ramach całego systemu. To pole ma wpływ na pozycjonowanie w wyszukiwarce Google',
         'name_url' => 'Pole to adres sekcji, który jest wyświetlany w elemencie URL przeglądarki internetowej. Bez polskich znaków, małe listery, dozwolony znak to tylko myślnik. Pole ma wpływ na pozycjonowanie w wyszukiwarce Google. Aby wypełnić adres nazwą sekcji - kliknij ikonę kopiowania powyżej',
         'meta' => 'Tutaj znajduje się opis strony przygotowany dla wyszukiwarki Google (pozycjonowanie). Treść nie będzie publikowana dla użytkowników, odczyta ją tylko robot. Najlepiej aby był zwięzły, mówiący tylko to o czym jest dana sekcja, ewt. co się w niej znajduje',
         'popup' => 'To pole jest publikowane jako treść okna modalnego. Musi być aktywny status pojawiającego się okna modalnego w sekcji',

@@ -78,7 +78,8 @@ if ($record) {
             'table_delete' => array('im_label_section', 'main' => $table),
             'restriction' => array(
                 'delete' => array(
-                    'im_object' => 'label_id'
+                    'im_object' => 'label_id',
+                    'im_category' => 'label_id'
                 )
             ),
             'url' => $baseUrl

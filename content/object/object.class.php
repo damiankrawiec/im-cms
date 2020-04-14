@@ -353,7 +353,7 @@ class ObjectContent extends Language {
         $sectionData = $this->db->run('all');
 
         $sectionDataArray = array();
-        if(count($sectionData) > 0) {
+        if($sectionData) {
 
             foreach ($sectionData as $i => $sd) {
 

@@ -70,6 +70,6 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
 }else{
 
-    echo $this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'];
+    //echo $this->icon['warning']['triangle'].' '.$this->translationSystem['no-data'];
 
 }
