@@ -189,23 +189,36 @@ class System extends Setting
 
     }
 
+    private function implode3d($data, $index = false) {
+
+        if($index) {
+
+            $array2d = array();
+
+            foreach ($data as $d) {
+
+                $array2d[$d[$index]] = $d;
+
+            }
+
+            return $array2d;
+
+        }else return array(0);
+
+    }
+
     public function setSection($url, $db) {
 
         $this->currentSection = $url;
 
         $sql = 'select section_id as id, parent, name, name_url as url, meta, icon, class, popup, status_popup
-                from im_section
-                where name_url = :url';
+                from im_section';
 
         $db->prepare($sql);
 
-        $parameter = array(
-            array('name' => ':url', 'value' => $this->currentSection, 'type' => 'string')
-        );
+        $sectionRecord = $db->run('all');
 
-        $db->bind($parameter);
-
-        $this->section = $db->run('one');
+        $this->section = $this->implode3d($sectionRecord, 'url');
 
     }
 
@@ -215,9 +228,18 @@ class System extends Setting
 
     }
 
-    public function getSection() {
+    public function getSection($url = false, $field = false) {
 
-        return $this->section;
+        if($url and !$field)
+            $returnSection = $this->section[$url];
+
+        if($url and $field)
+            $returnSection = $this->section[$url][$field];
+
+        if(!$url and !$field)
+            $returnSection = $this->section;
+
+        return $returnSection;
 
     }
 
