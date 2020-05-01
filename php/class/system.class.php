@@ -243,6 +243,42 @@ class System extends Setting
 
     }
 
+    //Checking url (when type = true then is contain, when type = false then is not contain)
+    public function checkSection($url = false, $urls = false, $type = true) {
+
+        if($url and $urls and is_bool($type)) {
+
+            if($type === true) {
+
+                if(stristr($urls, $url)) {
+
+                    return true;
+
+                }else{
+
+                    return false;
+
+                }
+
+            }
+            if($type === false) {
+
+                if(!stristr($urls, $url)) {
+
+                    return true;
+
+                }else{
+
+                    return false;
+
+                }
+
+            }
+
+        }
+
+    }
+
     public function systemName() {
 
         return $this->system;
