@@ -1,7 +1,5 @@
 $(function(){
 
-    initSection(100, 300);
-
     currentSystem(3000);
 
     $('.submit').click(function(){

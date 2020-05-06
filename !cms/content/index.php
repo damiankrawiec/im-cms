@@ -70,7 +70,7 @@ echo '<div class="container-fluid" id="content-top">';
 
 echo '</div>';
 
-echo '<div class="container-fluid" id="container">';
+echo '<div class="container-fluid animated fadeIn" id="container">';
 
 //Content
 require_once 'content/box/content.php';

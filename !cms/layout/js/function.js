@@ -74,23 +74,6 @@ function currentSystem($interval){
     }, $interval);
 
 }
-function initSection($start, $time) {
-
-    $('#process').show();
-
-    setTimeout(function() {
-
-        $('body').animate({
-            opacity: 1
-        }, $time, function () {
-
-            $('#process').fadeOut();
-
-        });
-
-    }, $start);
-
-}
 
 function modalInit($this){
 

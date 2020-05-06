@@ -163,7 +163,7 @@ create table im_section (
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
     class varchar(128) collate utf8_polish_ci default 'container',-- class of content in section
     popup text collate utf8_polish_ci default '',-- popup content
-    position int default 0,
+position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
     status_popup varchar(3) default 'off',
@@ -444,7 +444,7 @@ create table im_image (
     image_id int not null auto_increment,
     section int default 0,-- direction to section, 0 - not direction (this in not foreign key)
     name varchar(64) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
     url varchar(128) collate utf8_polish_ci default '',
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
@@ -598,7 +598,7 @@ create table im_category (
     category_id int not null auto_increment,
     label_id int not null,
     name varchar(64) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
     position int default 0,
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
@@ -650,7 +650,7 @@ create table im_setting (
     setting_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',
     system_name varchar(128) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -722,7 +722,7 @@ create table im_translation_system (
     language_id int not null,
     name varchar(128) collate utf8_polish_ci default '',-- name to human
     system_name varchar(32) collate utf8_polish_ci default '',-- var name in code
-    content varchar(128) collate utf8_polish_ci default '',-- translation
+    content text collate utf8_polish_ci default '',-- translation
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -760,7 +760,7 @@ create table im_translation (
     target_table varchar(32) collate utf8_polish_ci default '',-- name of table (string)
     target_column varchar(32) collate utf8_polish_ci default '',-- name of column in table (string)
     target_record int not null,-- record in table (int)
-    content varchar(128) collate utf8_polish_ci default '',-- translation
+    content text collate utf8_polish_ci default '',-- translation
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -794,7 +794,7 @@ create trigger im_translation_update_date_modify
 create table im_form (
     form_id int not null auto_increment,
     name varchar(128) collate utf8_polish_ci default '',-- name message
-    content varchar(1024) collate utf8_polish_ci default '',-- content of message
+    content text collate utf8_polish_ci default '',-- content of message
     email_source varchar(128) collate utf8_polish_ci default '',-- who send
     email_destination varchar(128) collate utf8_polish_ci default '',-- who receive
     description text collate utf8_polish_ci default '',-- description, management

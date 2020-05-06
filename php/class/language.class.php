@@ -162,7 +162,7 @@ class Language extends Icon
 
         }else{
 
-            return '-';
+            return '';
 
         }
 

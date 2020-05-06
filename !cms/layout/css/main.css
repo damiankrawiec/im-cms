@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  opacity: 0;
   font-size: 14px;
   background-color: #ddd;
 }
@@ -94,7 +93,6 @@ ul.pagination .page-link i {
   right: 20px;
   font-size: 60px;
   padding: 10px;
-  display: none;
   color: #fff;
 }
 .window-background {

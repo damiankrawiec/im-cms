@@ -1,7 +1,5 @@
 $(function(){
 
-    initSection(50, 300);
-
     translation();
 
     labelProperty('all');

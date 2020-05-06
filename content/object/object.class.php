@@ -819,17 +819,20 @@ class ObjectContent extends Language {
 
                     echo '<div class="form-group">';
 
-                    echo '<select class="select object-category" id="'.$this->label.'">';
+                        if($this->makeTranslationSystem($this->label) != '')
+                            echo '<label>'.$this->makeTranslationSystem($this->label).'</label>';
 
-                        echo '<option value="0">'.$this->makeTranslationSystem('show-all').'</option>';
+                        echo '<select class="select object-category" id="'.$this->label.'">';
 
-                        foreach ($category as $c) {
+                            echo '<option value="0">'.$this->makeTranslationSystem('show-all').'</option>';
 
-                            echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
+                            foreach ($category as $c) {
 
-                        }
+                                echo '<option value="'.$c['id'].'">' . $c['name'] . '</option>';
 
-                    echo '</select>';
+                            }
+
+                        echo '</select>';
 
                     echo '</div>';
 

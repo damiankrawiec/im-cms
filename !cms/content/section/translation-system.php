@@ -80,7 +80,7 @@ if($displayCount == 'all') {
 }
 
 if($g_var1 > 0 and !$record)
-    echo '<a href="'.$addition->getUrl(2).',0'.'" class="btn btn-light float-right mb-1">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
+    echo '<a href="'.$addition->getUrl(1).',0'.'" class="btn btn-light float-right mb-1">'.$translation['button']['reset-view'].'</a><div class="clearfix"></div>';
 
 
 if ($record) {
