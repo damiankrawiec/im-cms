@@ -527,7 +527,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function displayStyleLabel($section)
+    private function displayStyleLabel()
     {
 
         $sql = 'select style
@@ -544,7 +544,7 @@ class ObjectContent extends Language {
 
         $labelProperty = $this->db->run('one');
 
-        if($labelProperty) {
+        if($labelProperty->style !== '') {
 
             echo '<style>';
 
@@ -791,7 +791,7 @@ class ObjectContent extends Language {
 
                 echo '</div>';
 
-                $this->displayStyleLabel($section);
+                $this->displayStyleLabel();
 
                 if($this->checkDisplayOption($option, 'end') and $this->row) {
 

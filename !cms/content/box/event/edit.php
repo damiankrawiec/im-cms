@@ -44,7 +44,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                     echo ' <a href="#" class="copy btn btn-light p-1 m-1 pt-2" title="'.$i.':'.$field['copy'].'">'.$icon['button']['copy'].'</a>';
 
                 if($field['type'] == 'text')
-                    echo '<input type="text" name="form_'.$i.'" class="form-control'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" value="'.$editDataOne.'"'.$readonly.'>';
+                    echo '<input type="text" name="form_'.$i.'" class="form-control size'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" size="'.(isset($field['size']) ? $field['size'] : 0).'" value="'.$editDataOne.'"'.$readonly.'>';
 
                 if($field['type'] == 'icon') {
 

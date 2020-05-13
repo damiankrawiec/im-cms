@@ -87,3 +87,13 @@ function textarea($string = '') {
     return $check;
 
 }
+function size($string = '', $size = 0) {
+
+    var $check = true;
+
+    if($string.length > parseInt($size))
+        $check = false;
+
+    return $check;
+
+}

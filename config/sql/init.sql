@@ -159,7 +159,7 @@ create table im_section (
     parent int default 0,-- parent, when 0 then root section
     name varchar(128) collate utf8_polish_ci default '',
     name_url varchar(128) default '',-- url name, like as name, it could be change
-    meta varchar(512) default '',-- meta description
+    meta text collate utf8_polish_ci default '',-- meta description
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
     class varchar(128) collate utf8_polish_ci default 'container',-- class of content in section
     popup text collate utf8_polish_ci default '',-- popup content
@@ -479,7 +479,7 @@ create trigger im_image_update_date_modify
 create table im_file (
     file_id int not null auto_increment,
     name varchar(64) collate utf8_polish_ci default '',
-    content varchar(128) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
     url varchar(128) collate utf8_polish_ci default '',
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management

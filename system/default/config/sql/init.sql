@@ -1,9 +1,9 @@
 -- record, section
 
-insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głownej', 'fal fa-home', null, '', 1, 'on', 'off', 'off', '', null, null);
-insert into im_section values (null, 0, 'Kontakt', 'kontakt', 'Opis kontaktowy', 'fal fa-phone-alt', null, '', 2, 'on', 'off', 'off', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', '', '', null, '', 1, 'on', 'off', 'off', '', null, null);
-insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', '', null, '', 2, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 0, 'Strona główna', 'strona-glowna', 'Opis strony głownej', 'fal fa-home', '', '', 1, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 0, 'Kontakt', 'kontakt', 'Opis kontaktowy', 'fal fa-phone-alt', '', '', 2, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 1', 'kontakt-1', '', '', '', '', 1, 'on', 'off', 'off', '', null, null);
+insert into im_section values (null, 2, 'Kontakt 2', 'kontakt-2', '', '', '', '', 2, 'on', 'off', 'off', '', null, null);
 
 -- record, object label
 
