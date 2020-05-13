@@ -163,7 +163,7 @@ create table im_section (
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
     class varchar(128) collate utf8_polish_ci default 'container',-- class of content in section
     popup text collate utf8_polish_ci default '',-- popup content
-position int default 0,
+    position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
     status_popup varchar(3) default 'off',

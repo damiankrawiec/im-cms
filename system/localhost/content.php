@@ -11,7 +11,7 @@ $label = $object->getAllLabel();
 
 ?>
 
-<div class="<?php echo (!isset($sectionData['class']) ? 'container' : $sectionData['class']) ?>" id="<?php echo $this->currentSection; ?>">
+<div class="<?php echo ($sectionData['class'] === '' ? 'container' : $sectionData['class']) ?>" id="<?php echo $this->currentSection; ?>">
 
     <?php
 
