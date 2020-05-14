@@ -43,8 +43,13 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
                 if(isset($field['copy']))
                     echo ' <a href="#" class="copy btn btn-light p-1 m-1 pt-2" title="'.$i.':'.$field['copy'].'">'.$icon['button']['copy'].'</a>';
 
-                if($field['type'] == 'text')
-                    echo '<input type="text" name="form_'.$i.'" class="form-control size'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" size="'.(isset($field['size']) ? $field['size'] : 0).'" value="'.$editDataOne.'"'.$readonly.'>';
+                if($field['type'] == 'text') {
+
+                    echo '<input type="text" name="form_' . $i . '" class="form-control size' . $require . '" id="' . $i . '" placeholder="' . $translation['edit'][$i] . '" size="' . (isset($field['size']) ? $field['size'] : 0) . '" value="' . $editDataOne . '"' . $readonly . '>';
+
+                    echo $translation['edit']['left-char'].': <span class="badge badge-info">-</span>';
+
+                }
 
                 if($field['type'] == 'icon') {
 

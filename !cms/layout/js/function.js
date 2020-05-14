@@ -547,3 +547,34 @@ function checkSubmenuIsEmpty() {
     }
 
 }
+
+function inputLength($this) {
+
+    $('.' + $this.attr('id') + ' .size').each(function(){
+
+        inputLengthOneField($(this));
+
+    });
+
+}
+function inputLengthOneField($thisSize) {
+
+    var $leftChar = parseInt($thisSize.attr('size')) - $thisSize.val().length;
+
+    var $nextSpan = $thisSize.next('span');
+
+    $nextSpan.text($leftChar);
+
+    if($leftChar < 0) {
+
+        $nextSpan.removeClass('badge-info');
+        $nextSpan.addClass('badge-warning');
+
+    }else{
+
+        $nextSpan.removeClass('badge-warning');
+        $nextSpan.addClass('badge-info');
+
+    }
+
+}

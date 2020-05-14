@@ -242,6 +242,18 @@ $(function(){
 
         });
 
+        if($('.validation-run').length > 0) {
+
+            inputLength($('.validation-run'));
+
+        }
+
+        $('.size').on('keyup click focusout', function() {
+
+            inputLengthOneField($(this));
+
+        });
+
         currentShow();
 
         checkSubmenuIsEmpty()

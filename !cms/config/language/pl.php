@@ -92,6 +92,7 @@ $translation = array(
         'file_delete_cancel' => 'nie usuwaj',
         'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
         'style' => 'Pole do nadawania właściwości obiektom etykiety poprzez style CSS',
+        'left-char' => 'Pozostało znaków do wprowadzenia'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(
