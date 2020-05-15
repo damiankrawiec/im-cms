@@ -371,7 +371,15 @@ function copyField($this) {
 
     var $places = $this.split(':');
 
-    $('#' + $places[1]).val($('#' + $places[0]).val());
+    var $places1 = $('#' + $places[1]);
+
+    $places1.val($('#' + $places[0]).val());
+
+    if($places1.hasClass('size')) {
+
+        inputLengthOneField($places1);
+
+    }
 
 }
 function fix() {
@@ -561,7 +569,7 @@ function inputLengthOneField($thisSize) {
 
     var $leftChar = parseInt($thisSize.attr('size')) - $thisSize.val().length;
 
-    var $nextSpan = $thisSize.next('span');
+    var $nextSpan = $thisSize.nextAll('span');
 
     $nextSpan.text($leftChar);
 
