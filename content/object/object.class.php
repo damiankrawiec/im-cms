@@ -599,6 +599,64 @@ class ObjectContent extends Language {
 
     }
 
+    private function setBreadcrumb($currentSectionId) {
+
+        $breadcrumbArray = array();
+
+        $sql = 'select name, name_url, parent
+                from im_section
+                where section_id = :section';
+
+        $currentSection = true;
+        do {
+
+            $this->db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':section', 'value' => $currentSectionId, 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+            $currentSectionBreadcrumb = $this->db->run('one');
+
+            $breadcrumbSection = '<a href="'.$currentSectionBreadcrumb->name_url.'" title="'.$currentSectionBreadcrumb->name.'">'.$currentSectionBreadcrumb->name.'</a>';
+            if($currentSection)
+                $breadcrumbSection = strip_tags($breadcrumbSection);
+
+            array_push($breadcrumbArray, $breadcrumbSection);
+
+            $currentSectionId = $currentSectionBreadcrumb->parent;
+
+            $currentSection = false;
+
+        }while($currentSectionBreadcrumb->parent > 0);
+
+        $sql = 'select name, name_url
+        from im_section
+        where position = :position and parent = :parent';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':position', 'value' => 1, 'type' => 'int'),
+            array('name' => ':parent', 'value' => 0, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        $startSection = $this->db->run('one');
+
+        array_push($breadcrumbArray, '<a href="'.$startSection->name_url.'" title="'.$startSection->name.'">'.$startSection->name.'</a>');
+
+        $returnBreadcrumb = '';
+        if(count($breadcrumbArray) > 1)
+            $returnBreadcrumb = implode($this->icon['arrow']['light-right'], array_reverse($breadcrumbArray));
+
+        return $returnBreadcrumb;
+
+    }
+
     private function getToolUrl($toolUrlRest) {
 
         return '!cms/'.$toolUrlRest;
@@ -765,13 +823,18 @@ class ObjectContent extends Language {
                                     $displayPropertyData['menu'] = $this->getSection($sectionParent, $submenu);
 
                                 }
-                                if($p['name'] == 'section') {
+                                if ($p['name'] == 'section') {
 
                                     if(is_numeric($or['section']) and $or['section'] > 0) {
 
                                         $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
 
                                     }else $displayPropertyData['section'] = false;
+
+                                }
+                                if ($p['name'] == 'breadcrumb') {
+
+                                    $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
 
                                 }
 

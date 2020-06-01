@@ -14,6 +14,7 @@ insert into im_label values (null, 'Menu', 'menu', '', '', null, null);
 insert into im_label values (null, 'Submenu', 'submenu', '', '', null, null);
 insert into im_label values (null, 'Języki', 'language', '', '', null, null);
 insert into im_label values (null, 'Ciasteczka', 'cookie', '', '', null, null);
+insert into im_label values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', '', null, null);
 
 -- record, object type
 
@@ -24,6 +25,7 @@ insert into im_type values (null, 'Menu', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Submenu', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Języki', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', '', null, null);
 
 -- record, set property in type
 
@@ -48,6 +50,8 @@ insert into im_type_property values (null, 6, 13, 'col-12', '', 1, 'on', '', nul
 
 insert into im_type_property values (null, 7, 2, 'col-12', '', 1, 'on', '', null, null);
 
+insert into im_type_property values (null, 8, 14, 'col-12', '', 1, 'on', '', null, null);
+
 -- record, object
 
 insert into im_object values (null, 1, 1, 2, 'Przekierowanie na kontakt', 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', '',  '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
@@ -61,6 +65,7 @@ insert into im_object values (null, 4, 4, 0, '', 'Menu', '', '', '', '', '', '',
 insert into im_object values (null, 5, 5, 0, '', 'Submenu', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 insert into im_object values (null, 6, 6, 0, '', 'Języki', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 insert into im_object values (null, 7, 7, 0, '', 'Ciasteczka', '', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 8, 8, 0, '', 'Nawigacja okruszkowa', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 
 -- record, object image
 
@@ -94,6 +99,7 @@ insert into im_section_object values (null, 2, 9);
 insert into im_section_object values (null, 2, 8);
 insert into im_section_object values (null, 1, 10);
 insert into im_section_object values (null, 1, 11);
+insert into im_section_object values (null, 1, 12);
 
 -- record, label class in section
 
