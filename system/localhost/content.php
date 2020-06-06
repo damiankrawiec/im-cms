@@ -11,6 +11,8 @@ $label = $object->getAllLabel();
 
 ?>
 
+<?php $this->parallax(); ?>
+
 <div class="<?php echo ($sectionData['class'] === '' ? 'container' : $sectionData['class']) ?>" id="<?php echo $this->currentSection; ?>">
 
     <?php

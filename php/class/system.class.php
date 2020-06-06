@@ -20,6 +20,10 @@ class System extends Setting
 
     private $admin = false;//Is admin logged
 
+    private $parallax = array();//Is parallax view on section
+
+    private $parallaxPointer = 0;//Pointer in parallax array
+
     public function __construct() {
 
         $this->section = false;
@@ -191,19 +195,38 @@ class System extends Setting
 
     private function implode3d($data, $index = false) {
 
-        if($index) {
+        $array2d = array();
 
-            $array2d = array();
+        foreach ($data as $i => $d) {
 
-            foreach ($data as $d) {
+            $array2d[($index ? $d[$index] : $i)] = $d;
 
-                $array2d[$d[$index]] = $d;
+        }
+
+        return $array2d;
+
+    }
+
+    private function parallax() {
+
+        //Init modules
+        if(count($this->parallax) > 0) {
+
+            if(isset($this->parallax[$this->parallaxPointer])) {
+
+                echo '<div class="parallax-window" data-parallax="scroll" data-image-src="' . $this->system . '/public/' . $this->parallax[$this->parallaxPointer]['url'] . '">';
+
+                if($this->parallax[$this->parallaxPointer]['content'] != '')
+                    echo '<span>'.$this->parallax[$this->parallaxPointer]['content'].'</span>';
+
+                echo '</div>';
+
+                $this->parallaxPointer++;
 
             }
 
-            return $array2d;
-
-        }else return array(0);
+        }
+        //--
 
     }
 
@@ -211,7 +234,7 @@ class System extends Setting
 
         $this->currentSection = $url;
 
-        $sql = 'select section_id as id, parent, name, name_url as url, meta, icon, class, popup, status_popup
+        $sql = 'select section_id as id, parent, name, name_url as url, meta, icon, class, popup, status_popup, status_parallax
                 from im_section';
 
         $db->prepare($sql);
@@ -219,6 +242,27 @@ class System extends Setting
         $sectionRecord = $db->run('all');
 
         $this->section = $this->implode3d($sectionRecord, 'url');
+
+        if($this->section[$this->currentSection]['status_parallax'] == 'on') {
+
+            $sql = 'select i.name as name, i.content as content, i.url as url
+                from im_section_image si
+                join im_image i on (si.image_id = i.image_id)
+                where si.section_id = '.$this->section[$this->currentSection]['id'].'
+                and i.status = "on"
+                order by si.position';
+
+            $db->prepare($sql);
+
+            $imageSectionRecord = $db->run('all');
+
+            if($imageSectionRecord) {
+
+                $this->parallax = $this->implode3d($imageSectionRecord);
+
+            }
+
+        }
 
     }
 
@@ -324,6 +368,14 @@ class System extends Setting
             $fileGlobal = scandir('section/js');
 
             $fileLocal = scandir($this->system . '/js');
+
+            //Init modules
+            if(count($this->parallax) > 0) {
+
+                echo '<script src="module/parallax/parallax.min.js"></script>';
+
+            }
+            //--
 
             if (count($fileGlobal) > 2) {
 

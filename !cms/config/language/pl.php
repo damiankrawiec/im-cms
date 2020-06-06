@@ -178,7 +178,8 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
         'status_copy' => 'Powielany',
-        'status_popup' => 'Wiadmość w oknie'
+        'status_popup' => 'Wiadmość w oknie',
+        'status_parallax' => 'Paralaksa'
     ),
     'im_category' => array(
         'name' => 'Nazwa',

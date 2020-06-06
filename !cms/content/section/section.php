@@ -24,7 +24,8 @@ if($g_var1 != '') {
         date_modify,
         status,
         status_copy,
-        status_popup
+        status_popup,
+        status_parallax
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {
@@ -119,6 +120,17 @@ if($g_var1 != '') {
                 'record' => $record,
                 'url' => $baseUrl
             );
+
+            if($record->status_parallax == 'on'){
+
+                $eventData['fix-0'] = array(
+                    'collection' => array('name' => $translation['fix']['image'], 'table' => 'im_image'),
+                    'id' => array('name' => 'section_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_section_image', 'id' => 'image_id', 'sort' => 'position')
+                );
+
+            }
+
 
             require_once 'content/box/event/edit.php';
 

@@ -30,6 +30,8 @@ drop table if exists im_object_file;
 
 drop table if exists im_object_source;
 
+drop table if exists im_section_image;
+
 drop table if exists im_category;
 
 drop table if exists im_label_category;
@@ -167,6 +169,7 @@ create table im_section (
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
     status_popup varchar(3) default 'off',
+    status_parallax varchar(3) default 'off',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -589,6 +592,22 @@ create table im_object_source (
 ) engine = InnoDB;
 
 -- OBJECT-FILE END --
+
+-- OBJECT-IMAGE START --
+
+-- connecting images with section to parallax view on section (m:n relationship), table
+
+create table im_section_image (
+    section_image_id int not null auto_increment,
+    section_id int not null,
+    image_id int not null,
+    position int default 0,
+    primary key (section_image_id),
+    foreign key (section_id) references im_section(section_id),
+    foreign key (image_id) references im_image(image_id)
+) engine = InnoDB;
+
+-- OBJECT-IMAGE END --
 
 -- CATEGORY START --
 

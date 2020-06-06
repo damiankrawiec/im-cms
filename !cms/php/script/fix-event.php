@@ -103,7 +103,7 @@ foreach ($eventData as $fix => $ed) {
 
         if ($collection) {
 
-            echo '<label for="collection-'.$collectionCount.'" class="collection-label">'.$eventData[$fix]['collection']['name'].'</label>';
+            echo '<label for="collection-'.$collectionCount.'" class="collection-label font-weight-bold">'.$eventData[$fix]['collection']['name'].'</label>';
 
             $classOrder = '';
             if(isset($eventData[$fix]['table']['sort']))
