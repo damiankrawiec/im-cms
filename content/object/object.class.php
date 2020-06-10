@@ -544,7 +544,7 @@ class ObjectContent extends Language {
 
         $labelProperty = $this->db->run('one');
 
-        if($labelProperty->style !== '') {
+        if($labelProperty->style != '') {
 
             echo '<style>';
 
