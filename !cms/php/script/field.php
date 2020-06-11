@@ -70,3 +70,6 @@ if (!in_array('file', $fields))
 
 if (!in_array('source', $fields))
     unset($eventData['fix-4']);
+
+if (!in_array('movie', $fields))
+    unset($eventData['fix-5']);

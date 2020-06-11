@@ -41,7 +41,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
-                if($field['type'] == 'image' or $field['type'] == 'file')
+                if($field['type'] == 'image' or $field['type'] == 'file' or $field['type'] == 'movie')
                     require_once 'php/script/files.php';
 
                 require 'php/script/select-event.php';

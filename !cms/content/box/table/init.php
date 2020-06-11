@@ -115,6 +115,8 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                             if($tableData['preview'] == 'file')
                                 echo '<a href="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" title="' . $r[$f] . '" download="'.$r[$f].'">'.$icon['button']['download'].' '.$r[$f].'</a>';
 
+                            if($tableData['preview'] == 'movie')
+                                echo '<video src="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" style="max-width: ' . $s_previewMovie . '" controls></video>';
 
                         }else echo $icon['warning']['empty'];
 

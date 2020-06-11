@@ -26,6 +26,8 @@ $label = $object->getAllLabel();
 
     ?>
 
+    <?php $object->display($sectionData['id'], $label['movie']); ?>
+
     <?php $object->display($sectionData['id'], $label['breadcrumb']); ?>
 
     <?php $object->display($sectionData['id'], $label['language']); ?>

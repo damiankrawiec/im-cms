@@ -24,11 +24,17 @@ drop table if exists im_image;
 
 drop table if exists im_file;
 
+drop table if exists im_source;
+
+drop table if exists im_movie;
+
 drop table if exists im_object_image;
 
 drop table if exists im_object_file;
 
 drop table if exists im_object_source;
+
+drop table if exists im_object_movie;
 
 drop table if exists im_section_image;
 
@@ -47,8 +53,6 @@ drop table if exists im_translation_system;
 drop table if exists im_translation;
 
 drop table if exists im_label_section;
-
-drop table if exists im_source;
 
 drop table if exists im_form;
 
@@ -133,6 +137,12 @@ drop trigger if exists im_source_insert_date_create;
 drop trigger if exists im_source_insert_date_modify;
 
 drop trigger if exists im_source_update_date_modify;
+
+drop trigger if exists im_movie_insert_date_create;
+
+drop trigger if exists im_movie_insert_date_modify;
+
+drop trigger if exists im_movie_update_date_modify;
 
 drop trigger if exists im_type_property_insert_date_create;
 
@@ -510,7 +520,7 @@ create trigger im_file_update_date_modify
 
 -- FILE END --
 
--- MOVIE START --
+-- SOURCE START --
 
 -- table
 
@@ -540,6 +550,44 @@ create trigger im_source_insert_date_modify
 
 create trigger im_source_update_date_modify
     before update on im_source
+    for each row
+    set new.date_modify = now();
+
+-- SOURCE END --
+
+-- MOVIE START --
+
+-- table
+
+create table im_movie (
+    movie_id int not null auto_increment,
+    name varchar(64) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
+    url varchar(128) collate utf8_polish_ci default '',
+    status varchar(3) default 'on',
+    status_loop varchar(3) default 'off',-- loop movie
+    status_controls varchar(3) default 'off',-- controls on the bottom
+    status_autoplay varchar(3) default 'off',-- movie play auto
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (movie_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_movie_insert_date_create
+    before insert on im_movie
+    for each row
+    set new.date_create = now();
+
+create trigger im_movie_insert_date_modify
+    before insert on im_movie
+    for each row
+    set new.date_modify = now();
+
+create trigger im_movie_update_date_modify
+    before update on im_movie
     for each row
     set new.date_modify = now();
 
@@ -577,7 +625,7 @@ create table im_object_file (
 
 -- OBJECT-FILE END --
 
--- OBJECT-FILE START --
+-- OBJECT-SOURCE START --
 
 -- connecting files with object (m:n relationship), table
 
@@ -591,7 +639,7 @@ create table im_object_source (
     foreign key (source_id) references im_source(source_id)
 ) engine = InnoDB;
 
--- OBJECT-FILE END --
+-- OBJECT-SOURCE END --
 
 -- OBJECT-IMAGE START --
 
@@ -608,6 +656,22 @@ create table im_section_image (
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --
+
+-- OBJECT-SOURCE START --
+
+-- connecting files with object (m:n relationship), table
+
+create table im_object_movie (
+    object_movie_id int not null auto_increment,
+    object_id int not null,
+    movie_id int not null,
+    position int default 0,
+    primary key (object_movie_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (movie_id) references im_movie(movie_id)
+) engine = InnoDB;
+
+-- OBJECT-SOURCE END --
 
 -- CATEGORY START --
 
@@ -848,6 +912,7 @@ insert into im_property values (null, 'Źródło', 'source', '', null, null);
 insert into im_property values (null, 'Ikona', 'icon', '', null, null);
 insert into im_property values (null, 'Języki', 'language', '', null, null);
 insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', null, null);
+insert into im_property values (null, 'Film', 'movie', '', null, null);
 
 -- language definition
 

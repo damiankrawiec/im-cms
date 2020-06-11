@@ -216,6 +216,26 @@ $(function(){
 
         }
 
+        if($('.fix-movie').length > 0) {
+
+            var $nextMovie = $('.fix-movie').next();
+
+            insertToOption($nextMovie, 'movie');
+
+            $nextMovie.on('click', function(){
+
+                insertToOption($nextMovie, 'movie');
+
+            });
+
+            $nextMovie.children('input').on('keyup', function(){
+
+                insertToOption($nextMovie, 'movie');
+
+            });
+
+        }
+
         $('.selected-wrapper').change(function(){
 
             var $this = $(this);

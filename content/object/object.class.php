@@ -329,6 +329,27 @@ class ObjectContent extends Language {
 
     }
 
+    private function getObjectMovie($objectId) {
+
+        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.url as url, m.status_loop as status_loop, m.status_controls as status_controls, m.status_autoplay as status_autoplay
+                from im_movie m
+                join im_object_movie obm on (obm.movie_id = m.movie_id)
+                where obm.object_id = :object
+                and m.status like "on"
+                order by obm.position';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $objectId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
     private function getSection($parent, $submenu) {
 
         $sql = 'select section_id as id, name, icon, name_url
@@ -804,6 +825,11 @@ class ObjectContent extends Language {
                                 if ($p['name'] == 'source') {
 
                                     $displayPropertyData['source'] = $this->getObjectSource($or['id']);
+
+                                }
+                                if ($p['name'] == 'movie') {
+
+                                    $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
 
                                 }
                                 if ($p['name'] == 'language') {

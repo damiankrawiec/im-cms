@@ -13,7 +13,7 @@ foreach ($eventData as $fix => $ed) {
             t.name as name, 
             t.description as description';
 
-        if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file')
+        if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file' or $eventData[$fix]['collection']['table'] == 'im_movie')
             $sql .= ',t.url as url';
 
         if($eventData[$fix]['collection']['table'] == 'im_section')
@@ -116,6 +116,9 @@ foreach ($eventData as $fix => $ed) {
             if($eventData[$fix]['collection']['table'] == 'im_file')
                 $selectClass = ' fix-file';
 
+            if($eventData[$fix]['collection']['table'] == 'im_movie')
+                $selectClass = ' fix-movie';
+
             echo '<select multiple="multiple" name="" id="collection-' . $collectionCount . '" class="collection'.$classOrder.''.$selectClass.'" title="' . $translation['fix']['available'] . ':' . $translation['fix']['selected'] . '">';
 
             $selectedId = '';
@@ -131,7 +134,7 @@ foreach ($eventData as $fix => $ed) {
 
                 echo $c['name'] .$addition->cutDescription($c['description'], 30);
 
-                if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file')
+                if($eventData[$fix]['collection']['table'] == 'im_image' or $eventData[$fix]['collection']['table'] == 'im_file' or $eventData[$fix]['collection']['table'] == 'im_movie')
                     echo ': '.$c['url'].'';
 
                 if($eventData[$fix]['collection']['table'] == 'im_section')

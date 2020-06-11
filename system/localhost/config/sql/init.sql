@@ -17,16 +17,18 @@ insert into im_label values (null, 'Najbliższe wydarzenie', 'soon-one-event', '
 insert into im_label values (null, 'Języki', 'language', '', '', null, null);
 insert into im_label values (null, 'Ciasteczka', 'cookie', '', '', null, null);
 insert into im_label values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', '', null, null);
+insert into im_label values (null, 'Film', 'movie', '', '', null, null);
 
 -- record, object type
 
 insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Slider', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Menu', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Najbliższe wydarzenie', 'on', 'col-12', '', null, null);
+insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Języki', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Film', 'col-12', 'on', '', null, null);
 
 -- record, set property in type
 
@@ -51,6 +53,8 @@ insert into im_type_property values (null, 6, 2, 'col-12', '', 1, 'on', '', null
 
 insert into im_type_property values (null, 7, 14, 'col-12', '', 1, 'on', '', null, null);
 
+insert into im_type_property values (null, 8, 15, 'col-12', '', 1, 'on', '', null, null);
+
 
 -- record, object
 
@@ -64,6 +68,7 @@ insert into im_object values (null, 3, 3, 0, '', 'Menu', '', '', '', '', '', '',
 insert into im_object values (null, 5, 5, 0, '', 'Języki', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 insert into im_object values (null, 6, 6, 0, '', 'Ciasteczka', '', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 insert into im_object values (null, 7, 7, 0, '', 'Menu', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 8, 8, 0, '', 'Film', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
 
 -- record, object image
 
@@ -88,6 +93,7 @@ insert into im_section_object values (null, 1, 7);
 insert into im_section_object values (null, 1, 8);
 insert into im_section_object values (null, 1, 9);
 insert into im_section_object values (null, 1, 10);
+insert into im_section_object values (null, 1, 11);
 
 -- record, label class in section
 

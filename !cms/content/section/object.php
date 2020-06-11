@@ -112,7 +112,7 @@ if($g_var1 != '') {
                 'table' => $tableDefinition[$table],
                 'record' => $record,
                 'event' => 'edit,delete,copy',
-                'table_delete' => array('im_section_object', 'im_object_category', 'im_object_source', 'im_object_image', 'im_object_file', 'main' => $table),
+                'table_delete' => array('im_section_object', 'im_object_category', 'im_object_source', 'im_object_image', 'im_object_file', 'im_object_movie', 'main' => $table),
                 'sort' => true,
                 'url' => $baseUrl,
                 'copy' => array(
@@ -165,6 +165,11 @@ if($g_var1 != '') {
                     'collection' => array('name' => $translation['fix']['source'], 'table' => 'im_source'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_source', 'id' => 'source_id', 'sort' => 'position')
+                ),
+                'fix-5' => array(
+                    'collection' => array('name' => $translation['fix']['movie'], 'table' => 'im_movie'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_movie', 'id' => 'movie_id', 'sort' => 'position')
                 )
             );
 

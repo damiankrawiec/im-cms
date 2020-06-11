@@ -3,6 +3,9 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+video {
+  width: 100%;
+}
 .translation {
   font-style: unset;
 }

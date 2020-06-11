@@ -62,6 +62,7 @@ $translation = array(
         'image' => 'Obrazy',
         'file' => 'Pliki',
         'source' => 'Źródła',
+        'movie' => 'Filmy',
         'setting' => 'Ustawienia',
         'label-property' => 'Właściwości etykiet',
         'service' => 'Obsługa'
@@ -103,7 +104,8 @@ $translation = array(
         'image' => 'Obrazy podłączone',
         'file' => 'Pliki podłączone',
         'source' => 'Źródła podłączone',
-        'category' => 'Kategorie występowania'
+        'category' => 'Kategorie występowania',
+        'movie' => 'Filmy podłączone',
     ),
     'copy' => array(
         'fix' => 'Kopiuj przypisania do sekcji i kategorii',
@@ -126,7 +128,10 @@ $translation = array(
         'label' => 'Etykiety (ostatnio dodane lub zmodyfikowane)',
         'image' => 'Obrazy (ostatnio dodane lub zmodyfikowane)',
         'file' => 'Pliki (ostatnio dodane lub zmodyfikowane)',
-        'source' => 'Źródła (ostatnio dodane lub zmodyfikowane)'
+        'source' => 'Źródła (ostatnio dodane lub zmodyfikowane)',
+        'movie' => 'Filmy (ostatnio dodane lub zmodyfikowane)',
+        'translation-system' => 'Tłumaczenia systemowe (ostatnio dodane lub zmodyfikowane)',
+        'translation' => 'Tłumaczenia (ostatnio dodane lub zmodyfikowane)'
     ),
     'php' => array(
         'version' => 'Wersja interpretera PHP',
@@ -224,6 +229,18 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status'
+    ),
+    'im_movie' => array(
+        'name' => 'Nazwa',
+        'url' => 'Film',
+        'content' => 'Opis',
+        'description' => 'Opis techniczny',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany',
+        'status' => 'Status',
+        'status_loop' => 'Odtwarzanie w pętli',
+        'status_controls' => 'Tryb odtwarzacza',
+        'status_autoplay' => 'Automatyczne uruchomienie'
     ),
     'im_setting' => array(
         'name' => 'Nazwa',
@@ -348,6 +365,13 @@ $tableDefinitionEvent = array(
         'link' => 'Odsyłacz zewnętrzny',
         'description' => 'Opis techniczny'
     ),
+    'im_movie' => array(
+        'name' => 'Nazwa',
+        'content' => 'Opis',
+        'url' => 'Film',
+        'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
+        'description' => 'Opis techniczny'
+    ),
     'im_setting' => array(
         'name' => 'Nazwa',
         'system_name' => 'Nazwa systemowa',
@@ -432,5 +456,11 @@ $tooltip = array(
         'content' => 'To pole jest publikowane, w postaci źródła, najczęściej w języku HTML. Źródło powoduje wyświetlenie interaktywnego elementu z innego serwisu np. YouTube (player video)',
         'link' => 'Pole, w którym można określić do jakiego adresu zewnętrznego ma prowadzić odsyłacz obok źródła (tzw. oryginalna publikacja) - otwarcie strony nastąpi w nowym oknie',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
-    )
+    ),
+    'im_movie' => array(
+        'name' => 'To pole jest nazwą filmu, z reguły nie będzie wyświetlane (służy identyfikacji)',
+        'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się plik jest również miejsce na jego opis (zależne od konfiguracji)',
+        'url' => 'W tym polu należy fizycznie dodać plik, sugerujemy w formacie MP4 (kodek H.264). UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
+    ),
 );

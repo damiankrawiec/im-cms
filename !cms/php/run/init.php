@@ -12,7 +12,7 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
         if($addition->fileExists($eventPath)) {
 
-            //Alert top default set to not display (to showing success - 1 or fail - 0, init $alert0 or $alert1 variable)
+            //Alert top default set to not display (to show success - 1 or fail - 0, init $alert0 or $alert1 variable)
             $alert0 = $alert1 = false;
 
             $eventData = array();

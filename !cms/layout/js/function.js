@@ -509,6 +509,9 @@ function insertToOption($multiple, $type) {
         if($type === 'file')
             $fileDom = '<a href="../system/' + $('#url-system').val() + '/public/' + $file + '" title="' + $file + '" download>' + $('#download-icon').html() + '</a>';
 
+        if($type === 'movie')
+            $fileDom = '<video src="../system/' + $('#url-system').val() + '/public/' + $file + '" style="height: 100px" controls></video><br>';
+
         $(this).html($fileDom + ' ' + $text);
 
     });

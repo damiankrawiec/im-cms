@@ -2,7 +2,9 @@
 //System name in all system structure
 $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
-$s_previewImage = '150px';
+$s_permittedMovie = 'mp4';
+$s_previewImage = '120px';
+$s_previewMovie = '200px';
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'icon' => $icon['menu']['section'], 'table' => 'im_section', 'title' => 'name, description', 'field' => 'parent'),
@@ -13,7 +15,10 @@ $s_dashboard = array(
     array('name' => $translation['dashboard']['label'], 'icon' => $icon['menu']['label'], 'table' => 'im_label', 'title' => 'name, description'),
     array('name' => $translation['dashboard']['image'], 'icon' => $icon['menu']['image'], 'table' => 'im_image', 'title' => 'name, description'),
     array('name' => $translation['dashboard']['file'], 'icon' => $icon['menu']['file'], 'table' => 'im_file', 'title' => 'name, description'),
-    array('name' => $translation['dashboard']['source'], 'icon' => $icon['menu']['source'], 'table' => 'im_source', 'title' => 'name, description')
+    array('name' => $translation['dashboard']['source'], 'icon' => $icon['menu']['source'], 'table' => 'im_source', 'title' => 'name, description'),
+    array('name' => $translation['dashboard']['movie'], 'icon' => $icon['menu']['movie'], 'table' => 'im_movie', 'title' => 'name, description'),
+    array('name' => $translation['dashboard']['translation-system'], 'icon' => $icon['menu']['translation'], 'table' => 'im_translation_system', 'title' => 'name, description'),
+    array('name' => $translation['dashboard']['translation'], 'icon' => $icon['menu']['translation'], 'table' => 'im_translation', 'title' => 'name, description')
 );
 //In what table can be translate in other languages
 $s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_source');
@@ -38,7 +43,8 @@ $s_menuDefinition = array(
         'submenu' => array(
             array('icon' => $icon['menu']['image'], 'name' => $translation['menu']['image'], 'url' => 'image'),
             array('icon' => $icon['menu']['file'], 'name' => $translation['menu']['file'], 'url' => 'file'),
-            array('icon' => $icon['menu']['source'], 'name' => $translation['menu']['source'], 'url' => 'source')
+            array('icon' => $icon['menu']['source'], 'name' => $translation['menu']['source'], 'url' => 'source'),
+            array('icon' => $icon['menu']['movie'], 'name' => $translation['menu']['movie'], 'url' => 'movie')
         )
     ),
     'language' => array('icon' => $icon['menu']['language'], 'name' => $translation['menu']['language'],
@@ -124,6 +130,12 @@ $s_eventDefinition = array(
             'link' => array('name' => $tableDefinitionEvent['im_source']['link'], 'type' => 'text', 'table' => 'im_source', 'size' => 128),
             'description' => array('name' => $tableDefinitionEvent['im_source']['description'], 'type' => 'textarea', 'table' => 'im_source')
         ),
+        'im_movie' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie', 'size' => 64),
+            'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea:editor', 'table' => 'im_movie'),
+            'url' => array('name' => $tableDefinitionEvent['im_movie']['url-edit'], 'type' => 'movie', 'option' => 'preview,add', 'table' => 'im_movie'),
+            'description' => array('name' => $tableDefinitionEvent['im_movie']['description'], 'type' => 'textarea', 'table' => 'im_movie')
+        ),
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),
             'system_name' => array('name' => $tableDefinitionEvent['im_setting']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),
@@ -202,6 +214,10 @@ $s_eventDefinition = array(
         'im_source' => array(
             'name' => array('name' => $tableDefinitionEvent['im_source']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_source', 'size' => 64),
             'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source')
+        ),
+        'im_movie' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie', 'size' => 64),
+            'url' => array('name' => $tableDefinitionEvent['im_movie']['url'], 'type' => 'movie', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_movie'),
         ),
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),

@@ -14,13 +14,16 @@ if(isset($field['option'])) {
 
         if ($addition->fileExists($filePathAll)) {
 
+            $aAttribute = '';
+
             if($field['type'] == 'image')
                 $aAttribute = ' data-rel="lightcase:collection"';
 
             if($field['type'] == 'file')
                 $aAttribute = ' download='. $eventData['record']->url;
 
-            echo '<br><a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
+            if($field['type'] == 'image' or $field['type'] == 'file')
+                echo '<br><a href="' . $filePathAll . '" title="' . $eventData['record']->url . '"'.$aAttribute.'>';
 
             if($field['type'] == 'image')
                 echo '<img src="' . $filePathAll . '" alt="' . $eventData['record']->url . '" style="max-width: ' . $s_previewImage . '">';
@@ -28,7 +31,11 @@ if(isset($field['option'])) {
             if($field['type'] == 'file')
                 echo $eventData['record']->url;
 
-            echo '</a>';
+            if($field['type'] == 'movie')
+                echo '<br><video src="' . $filePathAll . '" style="max-width: ' . $s_previewMovie . '" controls></video><br>';
+
+            if($field['type'] == 'image' or $field['type'] == 'file')
+                echo '</a>';
 
             $currentFile =  $eventData['record']->url;
 
@@ -53,6 +60,9 @@ if(isset($field['option'])) {
 
         if($field['type'] == 'image')
             echo '<input type="hidden" name="permitted" value="'.$s_permittedImage.'">';
+
+        if($field['type'] == 'movie')
+            echo '<input type="hidden" name="permitted" value="'.$s_permittedMovie.'">';
 
         if ($currentFile)
             echo '<input type="hidden" name="current" value="'.$currentFile.'">';
