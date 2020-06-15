@@ -910,7 +910,7 @@ insert into im_property values (null, 'E-mail', 'email', '', null, null);
 insert into im_property values (null, 'Formularz kontaktowy', 'form', '', null, null);
 insert into im_property values (null, 'Źródło', 'source', '', null, null);
 insert into im_property values (null, 'Ikona', 'icon', '', null, null);
-insert into im_property values (null, 'Języki', 'language', '', null, null);
+insert into im_property values (null, 'Język', 'language', '', null, null);
 insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 
