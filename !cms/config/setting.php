@@ -200,7 +200,7 @@ $s_eventDefinition = array(
         ),
         'im_language' => array(
             'name' => array('name' => $tableDefinitionEvent['im_language']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language', 'size' => 128),
-            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language')
+            'system_name' => array('name' => $tableDefinitionEvent['im_language']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_language', 'size' => 4)
         ),
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image', 'size' => 64),
