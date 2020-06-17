@@ -15,6 +15,7 @@ if($g_var1 != '') {
         section_id,
         name,
         name_url,
+        name_second,
         meta,
         if(icon = \'\', \'-\', icon) as icon,
         class,

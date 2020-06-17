@@ -28,5 +28,7 @@
 
     <?php require_once 'section/variable.php'; ?>
 
+    <?php require_once 'section/map.php'; ?>
+
 </body>
 </html>

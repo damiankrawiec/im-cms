@@ -30,6 +30,7 @@ if($g_var1 != '') {
         email,
         form,
         icon,
+        map,
         date,
         content,
         if(description = \'\', \'-\', description) as description,

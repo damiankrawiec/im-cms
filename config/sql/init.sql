@@ -170,6 +170,7 @@ create table im_section (
     section_id int not null auto_increment,
     parent int default 0,-- parent, when 0 then root section
     name varchar(128) collate utf8_polish_ci default '',
+    name_second varchar(128) collate utf8_polish_ci default '',-- second line in main menu
     name_url varchar(128) default '',-- url name, like as name, it could be change
     meta text collate utf8_polish_ci default '',-- meta description
     icon varchar(128) collate utf8_polish_ci default '',-- fontawesome icon
@@ -324,6 +325,7 @@ create table im_object (
     email varchar(64) collate utf8_polish_ci default '',-- e-mail address
     form varchar(64) collate utf8_polish_ci default '',-- form address
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
+    map varchar(64) collate utf8_polish_ci default '',-- coordinates
     position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
@@ -913,6 +915,7 @@ insert into im_property values (null, 'Ikona', 'icon', '', null, null);
 insert into im_property values (null, 'Język', 'language', '', null, null);
 insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
+insert into im_property values (null, 'Mapa', 'map', '', null, null);
 
 -- language definition
 

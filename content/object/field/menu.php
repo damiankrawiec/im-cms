@@ -39,7 +39,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 if(isset($m['submenu']) and $m['submenu']) {
 
-                    echo '<a href="#" title="'.$m['name'].'" class="nav-link" id="navbarDropdown'.$this->objectCounter.'" data-toggle="dropdown">'.$icon.$this->translationMark('im_section-name-'.$m['id'], $m['name']).' '.$this->icon['arrow']['light-down'].'</a>';
+                    echo '<a href="#" title="'.$m['name'].'" class="nav-link" id="navbarDropdown'.$this->objectCounter.'" data-toggle="dropdown">'.$icon.$this->translationMark('im_section-name-'.$m['id'], $this->getSectionName($m)).' '.$this->icon['arrow']['light-down'].'</a>';
 
                     echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown'.$this->objectCounter.'">';
                         foreach ($m['submenu'] as $ms) {
@@ -48,13 +48,14 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
                             if($ms['icon'] != '')
                                 $iconSub = '<i class="'.$ms['icon'].'"></i> ';
 
-                            echo '<a class="dropdown-item" href="'.$ms['url'].'">'.$iconSub.$this->translationMark('im_section-name-'.$ms['id'], $ms['name']) .'</a>';
+                            echo '<a class="dropdown-item" href="'.$ms['url'].'">'.$iconSub.$this->translationMark('im_section-name-'.$ms['id'], $this->getSectionName($ms)) .'</a>';
 
                         }
                     echo '</div>';
+
                 }else {
 
-                    echo '<a href="' . $m['url'] . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $this->translationMark('im_section-name-'.$m['id'], $m['name']) . '</a>';
+                    echo '<a href="' . $m['url'] . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $this->translationMark('im_section-name-'.$m['id'], $this->getSectionName($m)) . '</a>';
 
                 }
 

@@ -18,9 +18,13 @@ class ObjectContent extends Language {
 
     private $admin;
 
+    private $setting = false;
+
+    public $mapArray;
+
     protected $systemName;
 
-    public function __construct($systemName, $db, $languageCurrent, $admin) {
+    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false) {
 
         parent::__construct($db, $languageCurrent);
 
@@ -35,6 +39,11 @@ class ObjectContent extends Language {
         $this->row = false;
 
         $this->admin = $admin;
+
+        $this->mapArray = array();
+
+        if($setting)
+            $this->setting = $setting;
 
     }
 
@@ -93,7 +102,8 @@ class ObjectContent extends Language {
             o.link_name as link_name,
             o.email as email,
             o.form as form, 
-            o.icon as icon';
+            o.icon as icon,
+            o.map as map';
 
         //Field from joining tables
         //if($isParameter) {}
@@ -352,7 +362,7 @@ class ObjectContent extends Language {
 
     private function getSection($parent, $submenu) {
 
-        $sql = 'select section_id as id, name, icon, name_url
+        $sql = 'select section_id as id, name, name_second, name_url, icon
                 from im_section
                 where status like "on"
                 and parent = :parent';
@@ -378,7 +388,7 @@ class ObjectContent extends Language {
 
             foreach ($sectionData as $i => $sd) {
 
-                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'icon' => $sd['icon'], 'url' => $sd['name_url']);
+                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'name_second' => $sd['name_second'], 'icon' => $sd['icon'], 'url' => $sd['name_url']);
 
                 if($submenu) {
 
@@ -396,7 +406,7 @@ class ObjectContent extends Language {
 
                         foreach ($sectionDataSubmenu as $j => $sds) {
 
-                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'icon' => $sds['icon'], 'url' => $sds['name_url']);
+                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'name_second' => $sds['name_second'], 'icon' => $sds['icon'], 'url' => $sds['name_url']);
 
                         }
 
@@ -681,6 +691,17 @@ class ObjectContent extends Language {
     private function getToolUrl($toolUrlRest) {
 
         return '!cms/'.$toolUrlRest;
+
+    }
+
+    //Build section's name to menu
+    private function getSectionName($sectionData) {
+
+        $sectionName = $sectionData['name'];
+        if($sectionData['name_second'] != '')
+            $sectionName .= '<p>'.$sectionData['name_second'].'</p>';
+
+        return $sectionName;
 
     }
 

@@ -234,7 +234,7 @@ class System extends Setting
 
         $this->currentSection = $url;
 
-        $sql = 'select section_id as id, parent, name, name_url as url, meta, icon, class, popup, status_popup, status_parallax
+        $sql = 'select section_id as id, parent, name, name_second, name_url as url, meta, icon, class, popup, status_popup, status_parallax
                 from im_section';
 
         $db->prepare($sql);
@@ -353,7 +353,7 @@ class System extends Setting
 
                 require_once $this->system . '/content.php';
 
-                return array('label' => $label, 'translation' => $object->getCurrentTranslation());
+                return array('label' => $label, 'translation' => $object->getCurrentTranslation(), 'map-array' => $object->mapArray);
 
             }else return false;
 

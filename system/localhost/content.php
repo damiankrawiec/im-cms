@@ -3,7 +3,7 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin);
+$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin, $this->setting);
 
 $sectionData = $this->getSection($this->currentSection);
 
@@ -39,6 +39,8 @@ $label = $object->getAllLabel();
     <?php $object->display($sectionData['id'], $label['slider'], 'end'); ?>
 
     <?php $object->display($sectionData['id'], $label['last-events'], 'pagination:1,scroll'); ?>
+
+    <?php $object->display($sectionData['id'], $label['map']); ?>
 
     <?php
 

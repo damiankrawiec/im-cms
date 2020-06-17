@@ -86,6 +86,7 @@ $s_eventDefinition = array(
             'email' => array('name' => $tableDefinitionEvent['im_object']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_object', 'size' => 64),
             'form' => array('name' => $tableDefinitionEvent['im_object']['form'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_object', 'size' => 64),
             'icon' => array('name' => $tableDefinitionEvent['im_object']['icon'], 'type' => 'icon', 'require' => 'validation :icon', 'table' => 'im_object'),
+            'map' => array('name' => $tableDefinitionEvent['im_object']['map'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 64),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')
@@ -93,6 +94,7 @@ $s_eventDefinition = array(
         'im_section' => array(
             'name' => array('name' => $tableDefinitionEvent['im_section']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_section', 'copy' => 'name_url', 'size' => 128),
             'name_url' => array('name' => $tableDefinitionEvent['im_section']['name_url'], 'type' => 'text', 'table' => 'im_section', 'require' => 'validation :text', 'size' => 128),
+            'name_second' => array('name' => $tableDefinitionEvent['im_section']['name_second'], 'type' => 'text', 'table' => 'im_section', 'size' => 128),
             'meta' => array('name' => $tableDefinitionEvent['im_section']['meta'], 'type' => 'textarea', 'table' => 'im_section'),
             'icon' => array('name' => $tableDefinitionEvent['im_section']['icon'], 'type' => 'icon', 'table' => 'im_section'),
             'class' => array('name' => $tableDefinitionEvent['im_section']['class'], 'type' => 'text', 'table' => 'im_section', 'size' => 128),
