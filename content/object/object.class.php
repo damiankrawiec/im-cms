@@ -207,7 +207,7 @@ class ObjectContent extends Language {
 
                     $dataId = $data['id'];
 
-                    if (isset($dataDisplay) and isset($dataId)) {
+                    if ($this->checkDataDisplay($dataDisplay) and isset($dataId)) {
 
                         $class = $classField = '';
                         if($p['class'] != '')
@@ -235,22 +235,30 @@ class ObjectContent extends Language {
     }
 
     //Do not remove! Check data in in field files
-    private function checkDataDisplay($dataDisplay, $type) {
+    private function checkDataDisplay($dataDisplay, $type = false) {
 
         $check = false;
         if(isset($dataDisplay) and $dataDisplay and $dataDisplay != '') {
 
-            if($type == 'string') {
+            if($type) {
 
-                if(is_string($dataDisplay))
-                    $check = true;
+                if ($type == 'string') {
 
-            }
+                    if (is_string($dataDisplay))
+                        $check = true;
 
-            if($type == 'array') {
+                }
 
-                if(is_array($dataDisplay) and count($dataDisplay) > 0)
-                    $check = true;
+                if ($type == 'array') {
+
+                    if (is_array($dataDisplay) and count($dataDisplay) > 0)
+                        $check = true;
+
+                }
+
+            }else{
+
+                $check = true;
 
             }
 
