@@ -690,7 +690,7 @@ class ObjectContent extends Language {
 
         $returnBreadcrumb = '';
         if(count($breadcrumbArray) > 1)
-            $returnBreadcrumb = implode($this->icon['arrow']['light-right'], array_reverse($breadcrumbArray));
+            $returnBreadcrumb = implode($this->icon['tool']['slash'], array_reverse($breadcrumbArray));
 
         return $returnBreadcrumb;
 
