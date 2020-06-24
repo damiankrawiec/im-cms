@@ -224,7 +224,7 @@ function translation() {
 
             for($t in $translation) {
 
-                $('#' + $t).html($translation[$t]);
+                baseDecode($('#' + $t), $translation[$t]);
 
             }
 

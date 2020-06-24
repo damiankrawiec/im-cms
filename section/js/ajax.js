@@ -120,3 +120,19 @@ function sendForm($dataJson, $form) {
     });
 
 }
+
+function baseDecode($object, $data) {
+
+     $.ajax({
+        method: "POST",
+        url: "ajax/base-decode.php",
+        data: {
+            string: $data
+        }
+    }).done(function($dataOut) {
+
+         $object.html($dataOut);
+
+    });
+
+}

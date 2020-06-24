@@ -20,3 +20,6 @@ if(isset($_POST['session']))
 
 if(isset($_POST['sendForm']))
     $p_sendForm = $_POST['sendForm'];
+
+if(isset($_POST['string']))
+    $p_string = $_POST['string'];
