@@ -62,3 +62,7 @@ $icon = array(
     'user' => array('standard' => '<i class="fal fa-user"></i>'),
     'status' => array('on' => '<i class="fal fa-toggle-on text-info"></i>', 'off' => '<i class="fal fa-toggle-off text-secondary"></i>')
 );
+
+$iconImage = array(
+    'gallery' => '<img src="layout/graphic/icon/gallery.png">'
+);

@@ -284,7 +284,14 @@ $(function(){
 
         fileDelete();
 
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip();
+
+        //Wait until editor has loaded
+        setTimeout(function() {
+
+            iconToEditor();
+
+        }, 1200);
 
     }
 

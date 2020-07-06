@@ -13,3 +13,16 @@ if(isset($g_section))
 //Get full url
 if(isset($g_section))
     echo '<input type="hidden" id="url-full" value="'.$g_section.$addition->varUrl().'">';
+
+//Custom editor icon
+if(is_array($iconImage) and count($iconImage) > 0) {
+
+    echo '<div id="icon-to-editor" class="im-hide">';
+    foreach ($iconImage as $i => $ii) {
+
+        echo '<div id="'.$i.'">' . $ii . '</div>';
+
+    }
+    echo '</div>';
+
+}
