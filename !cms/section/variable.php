@@ -15,12 +15,12 @@ if(isset($g_section))
     echo '<input type="hidden" id="url-full" value="'.$g_section.$addition->varUrl().'">';
 
 //Custom editor icon
-if(is_array($iconImage) and count($iconImage) > 0) {
+if(is_array($iconEditor) and count($iconEditor) > 0) {
 
     echo '<div id="icon-to-editor" class="im-hide">';
-    foreach ($iconImage as $i => $ii) {
+    foreach ($iconEditor as $i => $ie) {
 
-        echo '<div id="'.$i.'">' . $ii . '</div>';
+        echo '<div id="'.$i.'">' . $ie . '</div>';
 
     }
     echo '</div>';

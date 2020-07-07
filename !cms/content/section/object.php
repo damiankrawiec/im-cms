@@ -142,6 +142,7 @@ if($g_var1 != '') {
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
                 'url' => $baseUrl,
+                'system' => $tool->getSession('system'),
                 'fix-0' => array(
                     'collection' => array('name' => $translation['fix']['section'], 'table' => 'im_section'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),

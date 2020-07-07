@@ -147,3 +147,33 @@
     }
   }
 }
+.editor-data {
+  display: none;
+  position: fixed;
+  top: 100px;
+  width: 80%;
+  left: 10%;
+  background: @white;
+  max-height: 600px;
+  z-index: 1;
+  overflow-y: auto;
+  .box-shadow();
+  padding: 10px;
+  button {
+    float: right;
+    margin: 10px;
+  }
+  table{
+    .box-shadow-none();
+    tr{
+      td{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.tox-tinymce {
+  img{
+    width: 200px;
+  }
+}

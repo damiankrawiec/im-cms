@@ -119,7 +119,8 @@ if($g_var1 != '') {
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
-                'url' => $baseUrl
+                'url' => $baseUrl,
+                'system' => $tool->getSession('system'),
             );
 
             if($record->status_parallax == 'on'){

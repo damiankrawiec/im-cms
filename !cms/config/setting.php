@@ -4,6 +4,7 @@ $s_systemName = 'IM.CMS';
 $s_permittedImage = 'jpg,jpeg,png,gif';
 $s_permittedMovie = 'mp4';
 $s_previewImage = '120px';
+$s_previewImageBig = '220px';
 $s_previewMovie = '200px';
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(

@@ -2,6 +2,8 @@ $(function(){
 
     translation();
 
+    optimizeImage();
+
     labelProperty('all');
 
     //Filter object by category in label box of each section

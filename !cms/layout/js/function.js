@@ -633,10 +633,30 @@ function iconListener($iconArray) {
 
         $('#' + $iconArray[$i]).on('click', function() {
 
-            console.log('.' + $(this).attr('id'));
+            $('.' + $(this).attr('id')).fadeIn();
 
         });
 
     }
+
+    $('.editor-data > .im-close').click(function() {
+
+        $(this).parent().fadeOut();
+
+    });
+
+    $('.editor-data > table tr').click(function() {
+
+        var $this = $(this);
+
+        if($this.find('.img').length > 0) {
+
+            var $img = $this.find('.img img');
+
+            tinymce.activeEditor.selection.setContent(tinymce.activeEditor.dom.createHTML('img', {src: $img.attr('src'), title: $img.attr('title'), style: $img.attr('style'), class: 'content-img'}));
+
+        }
+
+    });
 
 }

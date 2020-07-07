@@ -75,7 +75,7 @@ if ($record) {
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(
-                    'im_object_movie' => 'movie_id'
+                    'im_object_source' => 'source_id'
                 )
             ),
             'url' => $baseUrl

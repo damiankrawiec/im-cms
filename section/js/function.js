@@ -394,3 +394,29 @@ function labelScroll() {
     return $labelScroll;
 
 }
+
+function optimizeImage() {
+
+    $('body .objects').each(function() {
+
+        var $this = $(this);
+
+        $this.find('section').find('img.content-img').each(function() {
+
+            var $thisImg = $(this);
+
+            $thisImg.css('max-width', 'unset');
+
+            var $src = $thisImg.attr('src').replace('../', '');
+
+            $thisImg.attr('src', $src);
+
+            $($thisImg).wrap('<a href="' + $src + '" data-rel="lightcase" title="' +  $thisImg.attr('title') + '"></a>');
+
+            $($thisImg).parent().after('<span>' + $thisImg.attr('title') + '</span>');
+
+        });
+
+    });
+
+}

@@ -66,3 +66,6 @@ $icon = array(
 $iconImage = array(
     'gallery' => '<img src="layout/graphic/icon/gallery.png">'
 );
+$iconEditor = array(
+    'editor-gallery' => $iconImage['gallery']
+);
