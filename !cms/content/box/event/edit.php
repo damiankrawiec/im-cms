@@ -110,7 +110,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
         }
 
         $idRecord = $eventData['record'];
-        require_once 'php/script/id-table.php';
+            require_once 'php/script/id-table.php';
 
         echo '<input type="hidden" name="event_table" value="'.$addition->arrayJson($fieldTable).'">';
 
@@ -134,8 +134,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     }
 
-
     echo '</div>';
+
+    require_once 'php/script/icon-editor.php';
 
     $collectionSubmit = '';
     if(count($fixArray) > 0)
