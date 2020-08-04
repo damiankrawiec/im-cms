@@ -55,15 +55,38 @@ $(function(){
 
             if($captcha === $captchaText) {
 
+                var $systemName = $('#system-name').val();
+
                 var $sendData = {
                     "name": $name,
                     "source": $source,
                     "destination": $destination,
                     "content": $content,
-                    "system": $('#system-name').val(),
+                    "system": $systemName,
                     "captcha": $captcha,
                     "captchaText": $captchaText
                 };
+
+                var $attachment = $this.find('.attachment');
+                if($attachment.length) {
+
+                    if($attachment.children('input[type="file"]').prop('files').length) {
+
+                        var $formData = new FormData();
+
+                        var $file = $attachment.children('input[type="file"]').prop('files')[0];
+
+                        $formData.append('file', $file);
+
+                        $formData.append('systemName', $attachment.children('input[type="hidden"]').val());
+
+                        $sendData['file'] = attachment($formData);
+
+                        $sendData['path'] = $attachment.children('input[type="hidden"]').val();
+
+                    }
+
+                }
 
                 sendForm($sendData, $this);
 

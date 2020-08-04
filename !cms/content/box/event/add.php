@@ -22,12 +22,12 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
             if($field['type'] == 'text') {
 
                 $size = ' size';
-                if($table == 'im_translation')
+                if($table == 'im_translation' or $table == 'im_form')
                     $size = '';
 
                 echo '<input type="text" name="form_'.$i.'" class="form-control'.$size . $require . '" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" size="' . (isset($field['size']) ? $field['size'] : 0) . '" value="">';
 
-                if($table != 'im_translation')
+                if($table != 'im_translation' and $table != 'im_form')
                     echo  $translation['edit']['left-char'].': <span class="badge badge-info">-</span>';
 
             }

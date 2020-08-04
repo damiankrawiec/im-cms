@@ -30,6 +30,8 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
         $mailer->addAddress($p_sendForm['destination'], $p_sendForm['destination']);
 
         //Attachment
+        if(isset($p_sendForm['file']))
+            $mailer->addAttachment($p_sendForm['path'].'/'.$p_sendForm['file'], $p_sendForm['file']);
 
         // Content
         $mailer->isHTML(true);
@@ -43,6 +45,10 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
         echo $mailer->ErrorInfo;
 
     }
+
+    $contentMail = $p_sendForm['content'];
+    if(isset($p_sendForm['file']))
+        $contentMail .= '<p><a href="'.$p_sendForm['path'].'/'.$p_sendForm['file'].'" download="'.$p_sendForm['file'].'">'.$p_sendForm['file'].'</a></p>';
 
     require_once '../'.$p_sendForm['system'].'/setting.php';
 
@@ -58,7 +64,7 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
         array('name' => ':name', 'value' => $p_sendForm['name'], 'type' => 'string'),
         array('name' => ':source', 'value' => $p_sendForm['source'], 'type' => 'string'),
         array('name' => ':destination', 'value' => $p_sendForm['destination'], 'type' => 'string'),
-        array('name' => ':content', 'value' => $p_sendForm['content'], 'type' => 'string')
+        array('name' => ':content', 'value' => $contentMail, 'type' => 'string')
     );
 
     $db->bind($parameter);

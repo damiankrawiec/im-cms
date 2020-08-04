@@ -94,8 +94,8 @@ function refreshSession($label, $type) {
 function sendForm($dataJson, $form) {
 
     $.ajax({
-        method: "POST",
         url: "ajax/send-form.php",
+        method: 'post',
         data: {
             sendForm: $dataJson
         },
@@ -118,6 +118,20 @@ function sendForm($dataJson, $form) {
         setTimeout(function(){$form.slideUp()}, 700);
 
     });
+
+}
+
+function attachment($fileData) {
+
+    return $.ajax({
+        url: "ajax/attachment.php",
+        method: 'post',
+        data: $fileData,
+        contentType: false,
+        processData: false,
+        dataType: 'text/html',
+        async: false
+    }).responseText;
 
 }
 

@@ -13,10 +13,11 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
         echo '<textarea class="editor"></textarea>';
 
         if($dataDisplayArray[1] != '') {
-            echo '<div class="attachment">';
+            echo '<form method="post" enctype="multipart/form-data" class="attachment">';
             echo '<label>'.$this->translationMark('im_object-attachment-'.$dataId, $dataDisplayArray[1]).'</label>';
-            echo '<input type="file" class="im-file">';
-            echo '</div>';
+            echo '<input type="file" name="file" class="im-file">';
+            echo '<input type="hidden" name="systemName" value="../'.$this->systemName.'/public/file">';
+            echo '</form>';
         }
 
         echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
