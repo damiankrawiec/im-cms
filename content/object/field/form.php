@@ -2,6 +2,8 @@
 
 if($this->checkDataDisplay($dataDisplay, 'string')) {
 
+    $dataDisplayArray = explode('|', $dataDisplay);
+
     $captchaData = array('system' => $this->systemName);
     require_once 'php/script/captcha.php';
 
@@ -9,10 +11,18 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
         echo '<input type="text" class="form-control im-name" placeholder="'.$this->makeTranslationSystem('name').'">';
         echo '<input type="text" class="form-control im-source" placeholder="'.$this->makeTranslationSystem('source').'">';
         echo '<textarea class="editor"></textarea>';
+
+        if($dataDisplayArray[1] != '') {
+            echo '<div class="attachment">';
+            echo '<label>'.$this->translationMark('im_object-attachment-'.$dataId, $dataDisplayArray[1]).'</label>';
+            echo '<input type="file" class="im-file">';
+            echo '</div>';
+        }
+
         echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
         echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
         echo '<input type="button" class="btn btn-light im-send" value="'.$this->makeTranslationSystem('send').'">';
-        echo '<input type="hidden" class="im-destination" value="'.$dataDisplay.'">';
+        echo '<input type="hidden" class="im-destination" value="'.$dataDisplayArray[0].'">';
         echo '<div class="im-hide im-captcha">'.$captcha.'</div>';
     echo '</div>';
     echo '<div>';

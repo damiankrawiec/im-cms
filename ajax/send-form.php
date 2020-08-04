@@ -29,6 +29,8 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
         $mailer->setFrom($from['address'], $from['name']);
         $mailer->addAddress($p_sendForm['destination'], $p_sendForm['destination']);
 
+        //Attachment
+
         // Content
         $mailer->isHTML(true);
         $mailer->Subject = $p_sendForm['name'];

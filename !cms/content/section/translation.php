@@ -88,7 +88,7 @@ if($displayCount == 'all') {
 
 $record = $db->run($displayCount);
 
-if($g_var2 == 'name') {
+if($g_var2 == 'name' or $g_var2 == 'name_second' or $g_var2 == 'section_name' or $g_var2 == 'link_name' or $g_var2 == 'attachment') {
 
     $s_eventDefinition['add'][$table]['content']['type'] = $s_eventDefinition['edit'][$table]['content']['type'] = 'text';
     $s_eventDefinition['add'][$table]['content']['require'] = $s_eventDefinition['edit'][$table]['content']['require'] = 'validation :text';

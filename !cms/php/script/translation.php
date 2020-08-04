@@ -1,6 +1,6 @@
 <?php
 
-if($i == 'name' or $i == 'section_name' or $i == 'link_name' or $i == 'content') {
+if($i == 'name' or $i == 'name_second' or $i == 'section_name' or $i == 'link_name' or $i == 'attachment' or $i == 'content') {
 
     $idName = $addition->cleanText($table, 'im_').'_id';
 

@@ -101,7 +101,8 @@ class ObjectContent extends Language {
             o.link as link,
             o.link_name as link_name,
             o.email as email,
-            o.form as form, 
+            o.form as form,
+            o.attachment as attachment, 
             o.icon as icon,
             o.map as map';
 
@@ -205,6 +206,10 @@ class ObjectContent extends Language {
                     if($p['name'] == 'section' or $p['name'] == 'link')
                         $dataDisplay .= '|'.$data[$p['name'].'_name'];
 
+                    if($p['name'] == 'form')
+                        $dataDisplay .= '|'.$data['attachment'];
+
+                    //id of current object
                     $dataId = $data['id'];
 
                     if ($this->checkDataDisplay($dataDisplay) and isset($dataId)) {
@@ -866,6 +871,11 @@ class ObjectContent extends Language {
                                     $displayPropertyData['language'] = $this->getLanguage($or['id']);
 
                                 }
+                                if ($p['name'] == 'breadcrumb') {
+
+                                    $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
+
+                                }
                                 if ($p['name'] == 'menu') {
 
                                     $sectionParent = $submenu = false;
@@ -885,11 +895,6 @@ class ObjectContent extends Language {
                                         $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
 
                                     }else $displayPropertyData['section'] = false;
-
-                                }
-                                if ($p['name'] == 'breadcrumb') {
-
-                                    $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
 
                                 }
 

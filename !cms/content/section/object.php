@@ -29,6 +29,7 @@ if($g_var1 != '') {
         link_name,
         email,
         form,
+        attachment,
         icon,
         map,
         date,

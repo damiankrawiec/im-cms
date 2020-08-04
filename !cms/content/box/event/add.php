@@ -21,9 +21,14 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
             if($field['type'] == 'text') {
 
-                echo '<input type="text" name="form_'.$i.'" class="form-control size'.$require.'" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" size="' . (isset($field['size']) ? $field['size'] : 0) . '" value="">';
+                $size = ' size';
+                if($table == 'im_translation')
+                    $size = '';
 
-                echo  $translation['edit']['left-char'].': <span class="badge badge-info">-</span>';
+                echo '<input type="text" name="form_'.$i.'" class="form-control'.$size . $require . '" id="'.$i.'" placeholder="'.$translation['edit'][$i].'" size="' . (isset($field['size']) ? $field['size'] : 0) . '" value="">';
+
+                if($table != 'im_translation')
+                    echo  $translation['edit']['left-char'].': <span class="badge badge-info">-</span>';
 
             }
 

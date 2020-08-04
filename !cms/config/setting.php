@@ -86,6 +86,7 @@ $s_eventDefinition = array(
             'link_name' => array('name' => $tableDefinitionEvent['im_object']['link_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 256),
             'email' => array('name' => $tableDefinitionEvent['im_object']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_object', 'size' => 64),
             'form' => array('name' => $tableDefinitionEvent['im_object']['form'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_object', 'size' => 64),
+            'attachment' => array('name' => $tableDefinitionEvent['im_object']['attachment'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'icon' => array('name' => $tableDefinitionEvent['im_object']['icon'], 'type' => 'icon', 'require' => 'validation :icon', 'table' => 'im_object'),
             'map' => array('name' => $tableDefinitionEvent['im_object']['map'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 64),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),

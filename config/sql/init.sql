@@ -324,6 +324,7 @@ create table im_object (
     link_name varchar(256) collate utf8_polish_ci default '',-- name of outer url, in field may be e.g. fontawesome icon (html)
     email varchar(64) collate utf8_polish_ci default '',-- e-mail address
     form varchar(64) collate utf8_polish_ci default '',-- form address
+    attachment varchar(256) collate utf8_polish_ci default '',-- attachment text, like CV (if empty, there is no attachment)
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     map varchar(64) collate utf8_polish_ci default '',-- coordinates
     position int default 0,
