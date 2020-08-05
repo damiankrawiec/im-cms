@@ -648,10 +648,9 @@ class ObjectContent extends Language {
         $breadcrumbArray = array();
 
         $sql = 'select name, name_url, parent
-                from im_section
-                where section_id = :section';
+            from im_section
+            where section_id = :section';
 
-        $currentSection = true;
         do {
 
             $this->db->prepare($sql);
@@ -664,21 +663,15 @@ class ObjectContent extends Language {
 
             $currentSectionBreadcrumb = $this->db->run('one');
 
-            $breadcrumbSection = '<a href="'.$currentSectionBreadcrumb->name_url.'" title="'.$currentSectionBreadcrumb->name.'">'.$currentSectionBreadcrumb->name.'</a>';
-            if($currentSection)
-                $breadcrumbSection = strip_tags($breadcrumbSection);
-
-            array_push($breadcrumbArray, $breadcrumbSection);
+            array_push($breadcrumbArray, array('id' => $currentSectionId, 'url' => $currentSectionBreadcrumb->name_url, 'name' => $currentSectionBreadcrumb->name));
 
             $currentSectionId = $currentSectionBreadcrumb->parent;
 
-            $currentSection = false;
-
         }while($currentSectionBreadcrumb->parent > 0);
 
-        $sql = 'select name, name_url
-        from im_section
-        where position = :position and parent = :parent';
+        $sql = 'select section_id as id, name, name_url
+            from im_section
+            where position = :position and parent = :parent';
 
         $this->db->prepare($sql);
 
@@ -691,11 +684,11 @@ class ObjectContent extends Language {
 
         $startSection = $this->db->run('one');
 
-        array_push($breadcrumbArray, '<a href="'.$startSection->name_url.'" title="'.$startSection->name.'">'.$startSection->name.'</a>');
+        array_push($breadcrumbArray, array('id' => $startSection->id, 'url' => $startSection->name_url, 'name' => $startSection->name));
 
         $returnBreadcrumb = '';
         if(count($breadcrumbArray) > 1)
-            $returnBreadcrumb = implode($this->icon['tool']['slash'], array_reverse($breadcrumbArray));
+            $returnBreadcrumb = array_reverse($breadcrumbArray);
 
         return $returnBreadcrumb;
 
