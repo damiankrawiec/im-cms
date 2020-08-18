@@ -2,7 +2,9 @@ $(function(){
 
     translation();
 
-    optimizeImage();
+    setTimeout(optimizeImage, 500);
+
+    setTimeout(gallery, 1000);
 
     labelProperty('all');
 
@@ -111,8 +113,6 @@ $(function(){
     niceSelect();
 
     datepicker();
-
-    gallery();
 
     popup();
 
