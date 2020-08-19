@@ -7,6 +7,6 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
     $dataDisplayArray = explode('|', $dataDisplay);
 
-    echo '<a href="'.$dataDisplayArray[0].'" target="_blank" title="'.$dataDisplayArray[0].'"'.$classField.'>' . $dataDisplayArray[1] . '</a>';
+    echo '<a href="'.$dataDisplayArray[0].'" target="_blank" title="'.$dataDisplayArray[0].'"'.$classField.'>' . $this->translationMark('im_object-link_name-'.$dataId, $dataDisplayArray[1]) . '</a>';
 
 }
