@@ -26,7 +26,8 @@ if($g_var1 != '') {
         status,
         status_copy,
         status_popup,
-        status_parallax
+        status_parallax,
+        status_link
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {

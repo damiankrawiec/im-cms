@@ -209,7 +209,7 @@ class ObjectContent extends Language {
                     if($p['name'] == 'form')
                         $dataDisplay .= '|'.$data['attachment'];
 
-                    //id of current object
+                    //id of current object (can be used in field file, e.g. in translation)
                     $dataId = $data['id'];
 
                     if ($this->checkDataDisplay($dataDisplay) and isset($dataId)) {
@@ -375,7 +375,7 @@ class ObjectContent extends Language {
 
     private function getSection($parent, $submenu) {
 
-        $sql = 'select section_id as id, name, name_second, name_url, icon
+        $sql = 'select section_id as id, name, name_second, name_url, icon, status_link
                 from im_section
                 where status like "on"
                 and parent = :parent';
@@ -401,7 +401,7 @@ class ObjectContent extends Language {
 
             foreach ($sectionData as $i => $sd) {
 
-                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'name_second' => $sd['name_second'], 'icon' => $sd['icon'], 'url' => $sd['name_url']);
+                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'name_second' => $sd['name_second'], 'icon' => $sd['icon'], 'url' => $sd['name_url'], 'status_link' => $sd['status_link']);
 
                 if($submenu) {
 
@@ -419,7 +419,7 @@ class ObjectContent extends Language {
 
                         foreach ($sectionDataSubmenu as $j => $sds) {
 
-                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'name_second' => $sds['name_second'], 'icon' => $sds['icon'], 'url' => $sds['name_url']);
+                            $sectionDataSubmenuArray[$j] = array('id' => $sds['id'], 'name' => $sds['name'], 'name_second' => $sds['name_second'], 'icon' => $sds['icon'], 'url' => $sds['name_url'], 'status_link' => $sds['status_link']);
 
                         }
 

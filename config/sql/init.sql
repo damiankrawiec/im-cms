@@ -181,6 +181,7 @@ create table im_section (
     status_copy varchar(3) default 'off',
     status_popup varchar(3) default 'off',
     status_parallax varchar(3) default 'off',
+    status_link varchar(3) default 'on',-- if is "on' click link direct to another section, if "off" then events must be prepared (e.g. jQuery event)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
