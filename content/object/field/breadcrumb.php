@@ -2,18 +2,31 @@
 
 if($this->checkDataDisplay($dataDisplay, 'array')) {
 
-    foreach ($dataDisplay as $i => $b) {
+    $dataDisplayCount = count($dataDisplay);
 
-        $href = '<a href="'.$b['url'].'" title="'.$b['name'].'" class="float-right">'.$this->translationMark('im_section-name-'.$b['id'], $b['name']).'</a>';
+    if($dataDisplayCount > 0) {
 
-        echo '<div class="float-left">';
+        foreach ($dataDisplay as $i => $b) {
 
-            if($i > 0)
+            $hrefUrl = $b['url'];
+            $hrefClass = '';
+            if ($i == $dataDisplayCount - 1) {
+                $hrefUrl = '#';
+                $hrefClass = ' font-weight-bold im-last';
+            }
+
+            $href = '<a href="' . $hrefUrl. '" title="' . $b['name'] . '" class="float-right'.$hrefClass.'">' . $this->translationMark('im_section-name-' . $b['id'], $b['name']) . '</a>';
+
+            echo '<div class="float-left">';
+
+            if ($i > 0)
                 echo $this->icon['tool']['slash'];
 
             echo $href;
 
-        echo '</div>';
+            echo '</div>';
+
+        }
 
     }
 

@@ -19,7 +19,11 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
     }
 
-    echo '<ul class="navbar-nav">';
+    $alignClass = '';
+    if(stristr($classField, 'im-right'))
+        $alignClass = ' ml-auto';
+
+    echo '<ul class="navbar-nav'.$alignClass.'">';
 
         foreach ($dataDisplay as $m) {
 
