@@ -225,8 +225,8 @@ ul.pagination .page-link i {
 }
 #top li {
   color: #ffc107;
-  display: inline;
   padding: 0 5px 0;
+  float: left;
 }
 #top li a {
   color: #fff;

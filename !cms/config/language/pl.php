@@ -10,7 +10,8 @@ $translation = array(
         'title' => 'Informacja',
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
-        'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha'
+        'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha',
+        'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu'
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -42,7 +43,8 @@ $translation = array(
     ),
     'top' => array(
         'preview' => 'Podgląd',
-        'clean-system' => 'Uporządkuj dane'
+        'clean-system' => 'Uporządkuj dane',
+        'update-system' => 'Aktualizuj system'
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',
