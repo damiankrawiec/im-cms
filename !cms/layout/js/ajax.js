@@ -67,3 +67,25 @@ function saveSort($dataTableName, $currentShow) {
     });
 
 }
+function update() {
+
+    let $displayInfo = $('#update div').children('span');
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/update.php",
+        data: {
+            event: 'update'
+        },
+        beforeSend: function(){
+
+            $displayInfo.text('...');
+
+        }
+    }).done(function($data) {
+
+        $displayInfo.text($data);
+
+    });
+
+}

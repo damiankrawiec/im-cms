@@ -29,21 +29,21 @@ echo '<ul id="top">';
 
     echo '<div class="modal-click">'.$icon['top']['update'].' <a href="#">'.$translation['top']['update-system'].'</a></div>';
 
-    //Form
+        //Form
 
-    echo '<form action="' . $addition->getUrl() . '" method="post">';
+        echo '<form action="' . $addition->getUrl() . '" method="post">';
 
-    echo '<input type="hidden" name="event" value="update">';
+        echo '<input type="hidden" name="event" value="update">';
 
-    echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
+        echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
 
-    echo '</form>';
+        echo '</form>';
 
-    //---
+        //---
 
-    //Form data
+        //Form data
 
-    echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-update'], 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
+        echo '<div class="im-hide modal-data">'.json_encode(array('text' => $translation['modal']['confirm-update'], 'save' => 'submit-next-form', 'cancel' => '')).'</div>';
 
     echo '</li>';
 

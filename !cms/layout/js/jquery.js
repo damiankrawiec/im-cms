@@ -284,6 +284,12 @@ $(function(){
 
         fileDelete();
 
+        if($('#update').length > 0) {
+
+            update();
+
+        }
+
         $('[data-toggle="tooltip"]').tooltip();
 
         //Wait until editor has loaded
