@@ -76,15 +76,10 @@ function update() {
         url: "ajax/update.php",
         data: {
             event: 'update'
-        },
-        beforeSend: function(){
-
-            $displayInfo.text('...');
-
         }
     }).done(function($data) {
 
-        $displayInfo.text($data);
+        $displayInfo.html($data);
 
     });
 

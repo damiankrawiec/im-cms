@@ -39,7 +39,9 @@ $translation = array(
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych pól',
         'clean-success' => 'Dane zostały uporządkowane',
         'deleted-records' => 'Usuniętych rekordów',
-        'deleted-files' => 'Usuniętych plików'
+        'deleted-files' => 'Usuniętych plików',
+        'update-data' => 'Zaktualizowane zasoby',
+        'update-progress' => 'Trwa aktualizacja (proszę nie wykonywać żadnych czynności w systemie)'
     ),
     'top' => array(
         'preview' => 'Podgląd',

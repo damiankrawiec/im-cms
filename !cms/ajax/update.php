@@ -10,29 +10,46 @@ if(isset($_POST['event'])) {
     $ftpConnect = ftp_connect($host);
     $login = ftp_login($ftpConnect, $user, $password);
 
-    // check connection
     if ($ftpConnect and $login) {
 
         $dir = 'im-cms/update/';
 
-        $data = ftp_nlist($ftpConnect, $dir);
+        $dirUpdate = array(
+            $dir.'ajax',
+            $dir.'config', $dir.'config/!doc', $dir.'config/sql',
+            $dir.'content', $dir.'content/object', $dir.'content/object/field',
+            $dir.'php', $dir.'php/class', $dir.'php/script',
+            $dir.'section', $dir.'section/css', $dir.'section/js'
+        );
 
-        foreach ($data as $d) {
+        foreach ($dirUpdate as $du) {
 
-            if($d == '.' or $d == '..')
-                continue;
+            $data = ftp_nlist($ftpConnect, $du);
 
-            if(stristr($d, '.php')) {
+            $fileCount = 0;
 
-                $updateData .= $d.', ';
+            foreach ($data as $d) {
 
-                ftp_get($ftpConnect, '../../'.str_replace( $dir, '', $d), $d);
+                if (stristr($d, '.php') or stristr($d, '.js') or stristr($d, '.css') or stristr($d, '.sql')) {
+
+                    $updateData .= '<br>'.$d;
+
+                    ftp_get($ftpConnect, '../../' . str_replace($dir, '', $d), $d);
+
+                    $fileCount++;
+
+                }
 
             }
 
+            if($fileCount == 0)
+                $updateData .= '<br>-';
+
+            $updateData .= '<div style="font-weight: bold; color: darkred">'.$d.' - update: '.$fileCount.'</div>';
+
         }
 
-        $updateData = substr($updateData, 0, -2);
+        $updateData .= '<div style="font-weight: bold; color: green">Update success!</div>';
 
     }
 

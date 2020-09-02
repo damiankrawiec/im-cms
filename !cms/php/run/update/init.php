@@ -2,10 +2,10 @@
 
 echo '<div id="update">';
 
-//In config/sql must be current sql file. This file will be compare with new version, then modify database model
+//Before update files, in config/sql must be current sql file. This file will be compare with new version, then modify database model
 
-echo '<div>Pobieram zasoby: <span>-</span></div>';
+echo '<div><strong>'.$translation['message']['update-data'].':</strong><span>'.$icon['process']['standard'].'</span></div>';
 
 echo '</div>';
 
-$alert1 = 'update ok';
+$alert1 = $translation['message']['update-progress'];
