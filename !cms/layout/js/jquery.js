@@ -290,6 +290,12 @@ $(function(){
 
         }
 
+        if($('#backup').length > 0) {
+
+            backup();
+
+        }
+
         $('[data-toggle="tooltip"]').tooltip();
 
         //Wait until editor has loaded

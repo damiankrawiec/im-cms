@@ -45,7 +45,7 @@ if(isset($_POST['event'])) {
             if($fileCount == 0)
                 $updateData .= '<br>-';
 
-            $updateData .= '<div style="font-weight: bold; color: darkred">'.$d.' - update: '.$fileCount.'</div>';
+            $updateData .= '<div style="font-weight: bold; color: darkred">'.$du.' - update: '.$fileCount.'</div>';
 
         }
 

@@ -11,7 +11,8 @@ $translation = array(
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
         'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha',
-        'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu'
+        'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu',
+        'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu'
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -41,12 +42,15 @@ $translation = array(
         'deleted-records' => 'Usuniętych rekordów',
         'deleted-files' => 'Usuniętych plików',
         'update-data' => 'Zaktualizowane zasoby',
-        'update-progress' => 'Trwa aktualizacja (proszę nie wykonywać żadnych czynności w systemie)'
+        'backup-data' => 'Skopiowane zasoby',
+        'update-progress' => 'Trwa aktualizacja (proszę nie wykonywać żadnych czynności w systemie)',
+        'backup-progress' => 'Trwa wykonywanie kopii (proszę nie wykonywać żadnych czynności w systemie)'
     ),
     'top' => array(
         'preview' => 'Podgląd',
         'clean-system' => 'Uporządkuj dane',
-        'update-system' => 'Aktualizuj system'
+        'update-system' => 'Aktualizuj system',
+        'backup-system' => 'Wykonaj kopię systemu'
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',

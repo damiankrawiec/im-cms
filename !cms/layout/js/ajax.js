@@ -84,3 +84,20 @@ function update() {
     });
 
 }
+function backup() {
+
+    let $displayInfo = $('#backup div').children('span');
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/backup.php",
+        data: {
+            event: 'backup'
+        }
+    }).done(function($data) {
+
+        $displayInfo.html($data);
+
+    });
+
+}

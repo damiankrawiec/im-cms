@@ -65,12 +65,12 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                     echo '<a href="' . $m['url'] . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $this->translationMark('im_section-name-' . $m['id'], $this->getSectionName($m)) . '</a>';
 
-                    if (isset($m['submenu']) and $m['submenu'])
-                        echo '<div class="dropdown-menu">'.$displaySubmenu.'</div>';
+                    if (isset($displaySubmenu))
+                        echo '<div class="dropdown-menu d-block">'.$displaySubmenu.'</div>';
 
                 }else {
 
-                    if (isset($m['submenu']) and $m['submenu']) {
+                    if (isset($displaySubmenu)) {
 
                         echo '<a href="#" title="' . $m['name'] . '" class="nav-link" id="navbarDropdown' . $this->objectCounter . '" data-toggle="dropdown">' . $icon . $this->translationMark('im_section-name-' . $m['id'], $this->getSectionName($m)) . ' ' . $this->icon['arrow']['light-down'] . '</a>';
 
