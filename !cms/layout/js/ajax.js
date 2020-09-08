@@ -67,37 +67,30 @@ function saveSort($dataTableName, $currentShow) {
     });
 
 }
-function update() {
+function system($event = false) {
 
-    let $displayInfo = $('#update div').children('span');
+    if($event) {
 
-    $.ajax({
-        method: "POST",
-        url: "ajax/update.php",
-        data: {
-            event: 'update'
-        }
-    }).done(function($data) {
+        let $path = '';
 
-        $displayInfo.html($data);
+        if($event === 'restore')
+            $path = $('#restore input').val();
 
-    });
+        let $displayInfo = $('#' + $event + ' div').children('span');
 
-}
-function backup() {
+        $.ajax({
+            method: "POST",
+            url: "ajax/" + $event + ".php",
+            data: {
+                event: $event,
+                path: $path
+            }
+        }).done(function ($data) {
 
-    let $displayInfo = $('#backup div').children('span');
+            $displayInfo.html($data);
 
-    $.ajax({
-        method: "POST",
-        url: "ajax/backup.php",
-        data: {
-            event: 'backup'
-        }
-    }).done(function($data) {
+        });
 
-        $displayInfo.html($data);
-
-    });
+    }
 
 }

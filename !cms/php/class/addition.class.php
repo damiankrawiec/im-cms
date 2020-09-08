@@ -332,5 +332,41 @@ class Addition
         return $description;
 
     }
+    public function getFromSource($source = false, $type = 'all') {
+
+        $sourceDataArray = array();
+        if($source) {
+
+            $sourceDataScan = scandir($source);
+
+            if(count($sourceDataScan) > 2) {
+
+                foreach ($sourceDataScan as $sd) {
+
+                    if ($sd == '.' or $sd == '..')
+                        continue;
+
+                    if ($type == 'dir' and is_dir($sd))
+                        array_push($sourceDataArray, $sd);
+
+                    if ($type == 'file' and is_file($sd))
+                        array_push($sourceDataArray, $sd);
+
+                    if ($type == 'all')
+                        array_push($sourceDataArray, $sd);
+
+                }
+
+            }
+
+        }
+
+        if(count($sourceDataArray) > 0) {
+
+            return $sourceDataArray;
+
+        }else return '';
+
+    }
 
 }

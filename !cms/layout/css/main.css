@@ -236,6 +236,17 @@ ul.pagination .page-link i {
   text-decoration: none;
   color: #ffc107;
 }
+#update,
+#backup,
+#restore {
+  width: 98%;
+  margin: 10px 1% 10px;
+  border: 2px solid #fff;
+  background: #343a40;
+  font-family: "Courier New";
+  color: #fff;
+  padding: 5px;
+}
 .editor-data {
   display: none;
   position: fixed;

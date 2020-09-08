@@ -284,17 +284,14 @@ $(function(){
 
         fileDelete();
 
-        if($('#update').length > 0) {
+        if($('#update').length)
+            system('update');
 
-            update();
+        if($('#backup').length > 0)
+            system('backup');
 
-        }
-
-        if($('#backup').length > 0) {
-
-            backup();
-
-        }
+        if($('#restore').length > 0)
+            system('restore');
 
         $('[data-toggle="tooltip"]').tooltip();
 

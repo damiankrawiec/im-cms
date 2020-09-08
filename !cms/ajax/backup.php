@@ -11,17 +11,12 @@ if(isset($_POST['event'])) {
 
     mkdir($dirCreate);
 
-    $dirBackup = array(
-        'ajax',
-        'config', 'config/!doc', 'config/sql',
-        'content', 'content/object', 'content/object/field',
-        'php', 'php/class', 'php/script',
-        'section', 'section/css', 'section/js'
-    );
+    $dirBackup = require_once('../config/system/path.php');
 
     foreach ($dirBackup as $dba) {
 
-        mkdir($dirCreate.'/'.$dba);
+        if($dba != '')
+            mkdir($dirCreate.'/'.$dba);
 
         $fileCount = 0;
 
@@ -33,7 +28,7 @@ if(isset($_POST['event'])) {
 
                 copy($dir.$dba.'/'.$dc, $dirCreate.'/'.$dba.'/'.$dc);
 
-                $backupData .= '<br>' . $now.'/'.$dba.'/'.$dc;
+                $backupData .= '<br>' . $now.($dba == '' ? '' : '/').$dba.'/'.$dc;
 
                 $fileCount++;
 
@@ -44,7 +39,7 @@ if(isset($_POST['event'])) {
         if($fileCount == 0)
             $backupData .= '<br>-';
 
-        $backupData .= '<div style="font-weight: bold; color: darkred">'.$now.'/'.$dba.' - backup: '.$fileCount.'</div>';
+        $backupData .= '<div style="font-weight: bold; color: darkred">'.$now.($dba == '' ? '' : '/').$dba.' - backup: '.$fileCount.'</div>';
 
     }
 

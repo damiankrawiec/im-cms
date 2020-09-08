@@ -57,7 +57,8 @@ $icon = array(
     'top' => array(
         'clean' => '<i class="fal fa-broom"></i>',
         'update' => '<i class="fal fa-download"></i>',
-        'backup' => '<i class="fal fa-save"></i>'
+        'backup' => '<i class="fal fa-save"></i>',
+        'restore' => '<i class="fal fa-history"></i>'
     ),
     'php' => array('version' => '<i class="fal fa-code"></i>'),
     'arrow' => array('first' => '<i class="fal fa-chevron-double-left"></i>', 'prev' => '<i class="fal fa-chevron-left"></i>', 'next' => '<i class="fal fa-chevron-right"></i>', 'last' => '<i class="fal fa-chevron-double-right"></i>'),

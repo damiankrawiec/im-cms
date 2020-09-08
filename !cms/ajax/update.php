@@ -14,17 +14,11 @@ if(isset($_POST['event'])) {
 
         $dir = 'im-cms/update/';
 
-        $dirUpdate = array(
-            $dir.'ajax',
-            $dir.'config', $dir.'config/!doc', $dir.'config/sql',
-            $dir.'content', $dir.'content/object', $dir.'content/object/field',
-            $dir.'php', $dir.'php/class', $dir.'php/script',
-            $dir.'section', $dir.'section/css', $dir.'section/js'
-        );
+        $dirUpdate = require_once('../config/system/path.php');
 
         foreach ($dirUpdate as $du) {
 
-            $data = ftp_nlist($ftpConnect, $du);
+            $data = ftp_nlist($ftpConnect, $dir.'/'.$du);
 
             $fileCount = 0;
 
@@ -45,7 +39,7 @@ if(isset($_POST['event'])) {
             if($fileCount == 0)
                 $updateData .= '<br>-';
 
-            $updateData .= '<div style="font-weight: bold; color: darkred">'.$du.' - update: '.$fileCount.'</div>';
+            $updateData .= '<div style="font-weight: bold; color: darkred">'.$du.($du == '' ? '' : ' - ').'update: '.$fileCount.'</div>';
 
         }
 

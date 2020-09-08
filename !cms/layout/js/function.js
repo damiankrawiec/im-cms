@@ -94,15 +94,46 @@ function currentSystem($interval){
 
 function modalInit($this){
 
-    var $modalData = $this.parent().find('.modal-data');
+    let $formParent = $this.parent();
 
-    if($modalData) {
+    if($formParent.find('.modal-data')) {
 
-        var $modalDataJson = $modalData.text();
+        let $modalDataJson = $formParent.find('.modal-data').text();
 
         $modalData = JSON.parse($modalDataJson);
 
         $('#modal .modal-body').text($modalData.text);
+
+        if($modalData.html) {
+
+            let $htmlData = '';
+
+            let $html = $modalData.html;
+
+            if($html.select) {
+
+                let $htmlSelect = $html.select;
+                let $htmlSelectCount = $htmlSelect.length;
+
+                $htmlData = '<select class="form-control"><option>' + $('#select-value').val() + '</option>';
+
+                let $i;
+                for($i = 0; $i < $htmlSelectCount; $i++) {
+
+                    $htmlData += '<option>' + $htmlSelect[$i] + '</option>';
+
+                }
+
+                $htmlData += '</select>';
+
+                modalSelect($formParent);
+
+            }
+
+            if($htmlData !== '')
+                $('#modal .modal-body').append($htmlData);
+
+        }
 
         $('#modal').modal();
 
@@ -175,6 +206,16 @@ function modalButton($this, $save, $cancel){
             }
 
         }
+
+    });
+
+}
+
+function modalSelect($parent){
+
+    $('#modal .modal-body').on('change', 'select', function() {
+
+        $parent.find('form').children(':first-child').val($(this).val());
 
     });
 

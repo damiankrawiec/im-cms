@@ -6,6 +6,7 @@ echo '<div id="download-icon" class="im-hide">'.$icon['button']['download'].'</d
 echo '<div id="process-button" class="im-hide">'.$icon['process']['standard'].'</div>';
 echo '<div id="arrow-type" class="im-hide">'.implode(",", $icon['arrow']).'</div>';
 echo '<input type="hidden" id="search-fix" value="'.$translation['fix']['search'].'">';
+echo '<input type="hidden" id="select-value" value="'.$translation['select']['no-set'].'">';
 if(!isset($minHeadBody))
     echo '<input type="hidden" id="url-system" value="'.$tool->getSession('system').'">';
 if(isset($g_section))

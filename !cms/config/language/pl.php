@@ -11,8 +11,9 @@ $translation = array(
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
         'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha',
-        'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu',
-        'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu'
+        'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu. UWAGA! Należy wykonać kopię systemu przed wykonaniem aktualizacji',
+        'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu',
+        'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii systemu), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu'
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -43,14 +44,18 @@ $translation = array(
         'deleted-files' => 'Usuniętych plików',
         'update-data' => 'Zaktualizowane zasoby',
         'backup-data' => 'Skopiowane zasoby',
+        'restore-data' => 'Przywrócone zasoby',
         'update-progress' => 'Trwa aktualizacja (proszę nie wykonywać żadnych czynności w systemie)',
-        'backup-progress' => 'Trwa wykonywanie kopii (proszę nie wykonywać żadnych czynności w systemie)'
+        'backup-progress' => 'Trwa wykonywanie kopii (proszę nie wykonywać żadnych czynności w systemie)',
+        'restore-progress' => 'Trwa przywracanie kopii (proszę nie wykonywać żadnych czynności w systemie)'
     ),
     'top' => array(
+        'event' => '<span class="text-warning">Trwa wykonanie procedury systemowej, po jej zakończeniu można <a href="" class="text-light">przeładować system</a></span>',
         'preview' => 'Podgląd',
         'clean-system' => 'Uporządkuj dane',
         'update-system' => 'Aktualizuj system',
-        'backup-system' => 'Wykonaj kopię systemu'
+        'backup-system' => 'Wykonaj kopię systemu',
+        'restore-system' => 'Przywróć kopię systemu'
     ),
     'menu' => array(
         'dashboard' => 'Pulpit',
