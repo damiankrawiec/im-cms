@@ -23,7 +23,7 @@ $(function(){
 
     });
 
-    $('#cookie button').click(function(){
+    $('.cookie').on('click', 'button', function(){
 
         setCookie();
 
