@@ -115,12 +115,12 @@ function modalInit($this){
                 let $htmlSelect = $html.select;
                 let $htmlSelectCount = $htmlSelect.length;
 
-                $htmlData = '<select class="form-control"><option>' + $('#select-value').val() + '</option>';
+                $htmlData = '<select class="form-control"><option value="0">' + $('#select-value').val() + '</option>';
 
                 let $i;
                 for($i = 0; $i < $htmlSelectCount; $i++) {
 
-                    $htmlData += '<option>' + $htmlSelect[$i] + '</option>';
+                    $htmlData += '<option value="' + $htmlSelect[$i].value + '">' + $htmlSelect[$i].name + '</option>';
 
                 }
 

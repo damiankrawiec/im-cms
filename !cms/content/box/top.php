@@ -92,7 +92,7 @@ if(!$p_event) {
 
     //Form data
 
-    $htmlSelect = $addition->getFromSource('../config/backup');
+    $htmlSelect = $addition->getFromSource('../config/backup', true);
 
     echo '<div class="im-hide modal-data">' . json_encode(array('text' => $translation['modal']['confirm-restore'], 'html' => array('select' => $htmlSelect), 'save' => 'submit-next-form', 'cancel' => '')) . '</div>';
 

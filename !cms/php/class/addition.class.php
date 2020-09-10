@@ -50,14 +50,14 @@ class Addition
 
     public function message($text = '', $icon = false) {
 
-        $message = '<p class="text-danger im-alert">';
+        $message = '<div class="text-danger im-alert">';
 
         if($icon)
             $message .= $icon.' ';
 
         $message .= $text;
 
-        $message .= '</p>';
+        $message .= '</div>';
 
         return $message;
 
@@ -332,7 +332,7 @@ class Addition
         return $description;
 
     }
-    public function getFromSource($source = false, $type = 'all') {
+    public function getFromSource($source = false, $index = false) {
 
         $sourceDataArray = array();
         if($source) {
@@ -346,14 +346,11 @@ class Addition
                     if ($sd == '.' or $sd == '..')
                         continue;
 
-                    if ($type == 'dir' and is_dir($sd))
-                        array_push($sourceDataArray, $sd);
+                    if($index) {
 
-                    if ($type == 'file' and is_file($sd))
-                        array_push($sourceDataArray, $sd);
+                        array_push($sourceDataArray, array('value' => $sd, 'name' => $sd));
 
-                    if ($type == 'all')
-                        array_push($sourceDataArray, $sd);
+                    }else array_push($sourceDataArray, $sd);
 
                 }
 
