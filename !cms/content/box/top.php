@@ -2,9 +2,15 @@
 
 if(!$p_event) {
 
+    if($tool->getSession('path') == '') {
+
+        $previewUrl = '';
+
+    }else $previewUrl = $tool->getSession('path');
+
     echo '<ul id="top">';
 
-    echo '<li>' . $icon['link']['preview'] . ' <a href="../" target="_blank">' . $translation['top']['preview'] . '</a></li>';
+    echo '<li>' . $icon['link']['preview'] . ' <a href="../'.$previewUrl.'">' . $translation['top']['preview'] . '</a></li>';
 
     echo '<li>';
 

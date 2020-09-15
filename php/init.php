@@ -44,4 +44,7 @@ $setting = $system->getSetting();
 
 $session = new Session();
 
+if($g_url)
+    $session->setSession('path', $g_url);
+
 $sessionVariable = $session->getSession();
