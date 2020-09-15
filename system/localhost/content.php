@@ -53,7 +53,7 @@ $label = $object->getAllLabel();
 
 </div>
 
-<div class="im-footer">
+<div class="im-footer <?php echo $this->setting['class-footer']; ?>">
     <div class="container-fluid">
         
     </div>

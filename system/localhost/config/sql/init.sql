@@ -133,6 +133,7 @@ insert into im_setting values (null, 'Font', 'font', 'Lato', '', null, null);
 insert into im_setting values (null, 'Font size', 'font-size', '15px', '', null, null);
 insert into im_setting values (null, 'Google API', 'google-api', '', '', null, null);
 insert into im_setting values (null, 'Style map', 'map-style', '', '', null, null);
+insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
 
 insert into im_translation values (null, 2,  'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
 insert into im_translation values (null, 2,  'Dance floor', 'im_section', 'name', 7, 'Dance floor', '', null, null);

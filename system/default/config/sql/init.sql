@@ -141,6 +141,7 @@ insert into im_setting values (null, 'Font', 'font', 'Lato', '', null, null);
 insert into im_setting values (null, 'Font size', 'font-size', '15px', '', null, null);
 insert into im_setting values (null, 'Google API', 'google-api', '', '', null, null);
 insert into im_setting values (null, 'Style map', 'map-style', '', '', null, null);
+insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
 
 insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
