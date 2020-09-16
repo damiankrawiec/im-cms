@@ -47,6 +47,8 @@ if($tool->getCheckAuth() and $tool->getCheckAuth() === $tool->getAuthToken()) {
 
         }
 
+        $tool->setSession('path-admin', $addition->getUrl());
+
         require_once 'content/index.php';
 
     }
