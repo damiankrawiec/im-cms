@@ -108,7 +108,8 @@ if($displayCount == 'all') {
 
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
-        'table_add' => array($table)
+        'table_add' => array($table),
+        'system' => $tool->getSession('system')
     );
 
     $supplement = array();
@@ -150,7 +151,8 @@ if ($record) {
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
-            'url' => $baseUrl
+            'url' => $baseUrl,
+            'system' => $tool->getSession('system')
         );
 
         require_once 'content/box/event/edit.php';
