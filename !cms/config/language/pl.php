@@ -197,7 +197,6 @@ $tableDefinition = array(
     'im_section' => array(
         'name' => 'Nazwa',
         'name_url' => 'Nazwa url',
-        'name_second' => 'Nazwa dodatkowa',
         'icon' => 'Ikona (Fontawesome)',
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',

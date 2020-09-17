@@ -31,7 +31,8 @@ $icon = array(
         'download' => '<i class="fal fa-download"></i>',
         'close' => '<i class="fal fa-times-circle" style="font-size:20px; float:right;margin:1px 0 0 5px"></i>',
         'question' => '<i class="fal fa-question-circle" style="margin-right: 3px; font-size:15px"></i>',
-        'change' => '<i class="fal fa-exchange"></i>'
+        'change' => '<i class="fal fa-exchange"></i>',
+        'slash' => '<i class="fal fa-slash fa-flip-horizontal"></i>'
     ),
     'menu' => array(
         'dashboard' => '<i class="fal fa-columns"></i>',

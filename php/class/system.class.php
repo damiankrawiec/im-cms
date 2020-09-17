@@ -362,7 +362,7 @@ class System extends Setting
 
                     }else $cmsUrl = $session['path-admin'];
 
-                    echo '<div style="position:fixed; left: 1px; top: 1px; width: 100%; height: 20px; z-index: 1000" class="text-danger"><a href="!cms/'.$cmsUrl.'"><i class="fal fa-search fa-flip-horizontal text-danger"></i></a></div>';
+                    echo '<div style="position:fixed; left: 1px; top: 1px; width: 100%; height: 20px; z-index: 1000; opacity:0.8"><a href="!cms/'.$cmsUrl.'" class="btn btn-light m-1"><i class="fal fa-search fa-flip-horizontal"></i></a></div>';
 
                 }
 

@@ -144,7 +144,21 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         $urlString = implode(',', $urlArray);
 
-                        echo '<a href="' . $urlString . ',' . $currentId . '" class="btn btn-light">' . $icon['button']['move'] . '</a>';
+                        if(stristr($tableData['event'], 'move:children-section')) {
+
+                            $db->prepare('select count(section_id) as count from im_section where parent = :id');
+
+                            $parameter = array(
+                                array('name' => ':id', 'value' => $r['section_id'], 'type' => 'int')
+                            );
+
+                            $db->bind($parameter);
+
+                            $allRecord = $db->run('one');
+
+                        }
+
+                        echo '<a href="' . $urlString . ',' . $currentId . '" class="btn btn-light"><span class="badge badge-light">'.$allRecord->count.'</span> '.$icon['button']['slash'].' ' . $icon['button']['move'] . '</a>';
 
                     }
 

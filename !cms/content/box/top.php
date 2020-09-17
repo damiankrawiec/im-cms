@@ -1,16 +1,16 @@
 <?php
 
+if($tool->getSession('path') == '') {
+
+    $previewUrl = '';
+
+}else $previewUrl = $tool->getSession('path');
+
+echo '<ul id="top">';
+
+echo '<li>' . $icon['link']['preview'] . ' <a href="../'.$previewUrl.'">' . $translation['top']['preview'] . '</a></li>';
+
 if(!$p_event) {
-
-    if($tool->getSession('path') == '') {
-
-        $previewUrl = '';
-
-    }else $previewUrl = $tool->getSession('path');
-
-    echo '<ul id="top">';
-
-    echo '<li>' . $icon['link']['preview'] . ' <a href="../'.$previewUrl.'">' . $translation['top']['preview'] . '</a></li>';
 
     echo '<li>';
 
@@ -109,6 +109,8 @@ if(!$p_event) {
 
 }else{
 
-    echo $translation['top']['event'];
+    echo '<li>'.$translation['top']['event'].'</li>';
 
 }
+
+echo '</ul>';
