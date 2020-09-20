@@ -42,6 +42,9 @@ $system->setting($db);
 //Get setting in array
 $setting = $system->getSetting();
 
+//Set default language from database (it may be replaced by language in session)
+$system->setDefaultLanguage($db);
+
 $session = new Session();
 
 if($g_url)

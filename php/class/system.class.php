@@ -28,8 +28,6 @@ class System extends Setting
 
         $this->section = false;
 
-        $this->currentLanguage = false;
-
         $this->domain = $this->getServer('HTTP_HOST');
 
         $this->system = $this->pathSystem('system/'.$this->domain);
@@ -232,6 +230,26 @@ class System extends Setting
 
         }
         //--
+
+    }
+
+    public function setDefaultLanguage($db) {
+
+        $sql = 'select system_name as name
+                from im_language
+                where status_default = :status';
+
+        $db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':status', 'value' => 'on', 'type' => 'string')
+        );
+
+        $db->bind($parameter);
+
+        $defaultLanguage = $db->run('one');
+
+        $this->currentLanguage = $defaultLanguage->name;
 
     }
 
