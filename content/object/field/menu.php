@@ -84,6 +84,9 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 }
 
+                if (isset($displaySubmenu))
+                    unset($displaySubmenu);
+
             echo '</li>';
         }
 
