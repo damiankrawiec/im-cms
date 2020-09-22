@@ -178,7 +178,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
                     //Preview (url redirect)
                     if(stristr($tableData['event'], 'url')) {
 
-                        echo '<a href="../'. $r['name_url'].'" class="btn btn-light" target="_blank">' . $icon['button']['preview'] . '</a>';
+                        echo '<a href="../'. $r['name_url'].'" class="btn btn-light">' . $icon['button']['preview'] . '</a>';
 
                     }
 
