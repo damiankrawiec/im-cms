@@ -103,8 +103,8 @@ insert into im_section_object values (null, 1, 12);
 
 -- record, label class in section
 
-insert into im_label_section values (null, 2, 1, 'col-sm-8 col-md-10 d-none d-sm-block', '', null, null);
-insert into im_label_section values (null, 4, 1, 'col-12 col-sm-4 col-md-2', '', null, null);
+insert into im_label_section values (null, 2, 1, 'col-sm-8 col-md-10 d-none d-sm-block', '', '', null, null);
+insert into im_label_section values (null, 4, 1, 'col-12 col-sm-4 col-md-2', '', '', null, null);
 
 -- record, connect images with object
 

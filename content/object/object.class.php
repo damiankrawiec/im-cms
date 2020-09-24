@@ -530,7 +530,7 @@ class ObjectContent extends Language {
 
         $labelOne = $this->db->run('one');
 
-        $sql = 'select class
+        $sql = 'select class, class_row
                 from im_label_section
                 where label_id = :label
                 and section = :section';
@@ -553,8 +553,8 @@ class ObjectContent extends Language {
         }else{
 
             $parameter = array(
+                array('name' => ':label', 'value' => $labelOne->id, 'type' => 'int'),
                 array('name' => ':section', 'value' => 0, 'type' => 'int'),
-                array('name' => ':label', 'value' => $labelOne->id, 'type' => 'string')
             );
 
             $this->db->bind($parameter);
@@ -758,13 +758,17 @@ class ObjectContent extends Language {
 
             if($objectRecord) {
 
-                $classLabelDisplay = '';
+                $classLabelDisplay = $classLabelRowDisplay = '';
 
                 $classLabel = $this->getClassLabel($section);
 
                 if($classLabel) {
 
-                    $classLabelDisplay = $classLabel->class.' ';
+                    if($classLabel->class != '')
+                        $classLabelDisplay = $classLabel->class.' ';
+
+                    if($classLabel->class_row != '')
+                        $classLabelRowDisplay = $classLabel->class_row.' ';
 
                     if(stristr($classLabel->class, 'col') and $this->checkDisplayOption($option, 'begin')) {
 
@@ -791,7 +795,7 @@ class ObjectContent extends Language {
 
                 echo '<div class="'.$classLabelDisplay.'objects '.$label.'">';
 
-                    echo '<div class="row">';
+                    echo '<div class="'.$classLabelRowDisplay.'row">';
 
                         $this->displayCategory();
 
