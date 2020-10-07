@@ -16,9 +16,9 @@
 </head>
 <body>
 
-    <?php $data = $system->getContent($db, $sessionVariable); ?>
+    <?php require_once 'section/loading-page.php'; ?>
 
-    <?php require_once 'section/process.php'; ?>
+    <?php $data = $system->getContent($db, $sessionVariable); ?>
 
     <?php require_once 'section/body.php'; ?>
 

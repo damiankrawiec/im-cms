@@ -1,5 +1,7 @@
 $(function(){
 
+    loadingPage();
+
     translation();
 
     setTimeout(optimizeImage, 500);

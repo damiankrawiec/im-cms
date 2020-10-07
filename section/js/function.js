@@ -1,3 +1,25 @@
+function loadingPage() {
+
+    if($('#loading-page').length) {
+
+        let $loadingPage = $('#loading-page');
+
+        setTimeout(function() {
+
+            setTimeout(function() {
+
+                $loadingPage.next().remove();
+
+                $loadingPage.remove();
+
+            }, 1000);
+
+            $loadingPage.addClass($loadingPage.attr('dir'));
+
+        }, $loadingPage.attr('rel'));
+
+    }
+}
 function filterObject($label, $category) {
 
     setFilter($label, $category);
