@@ -17,7 +17,13 @@ $label = $object->getAllLabel();
 
 //This setting must be defined in CMS (e.g. "class-content")
 
-//$sectionClass = ' class="'.($this->setting['class-content'] != '' ? $this->setting['class-content'].' ' : '').($sectionData['class'] === '' ? 'container' : $sectionData['class']).'" id="'.$this->currentSection.'"';
+//All in one
+//$class = ' class="'.($this->setting['class-content'] != '' ? $this->setting['class-content'].' ' : '').($sectionData['class'] === '' ? 'container' : $sectionData['class']).'" id="'.$this->currentSection.'"';
+
+//All in two dom element
+//$class = ($sectionData['class'] === '' ? 'container' : $sectionData['class']);
+
+//$class = ($this->setting['class-content'] != '' ? ' class="'.$this->setting['class-content'].'"' : '');
 
 ?>
 
