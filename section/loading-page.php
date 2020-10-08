@@ -1,5 +1,5 @@
 <?php
-if(isset($setting['loading-page']) and $setting['loading-page'] != '' and $setting['loading-page'] != 'false') {
+if(isset($setting['loading-page']) and $setting['loading-page'] != '') {
 
     if(stristr($setting['loading-page'], '|')) {
 

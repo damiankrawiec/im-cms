@@ -143,7 +143,7 @@ $s_eventDefinition = array(
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),
             'system_name' => array('name' => $tableDefinitionEvent['im_setting']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),
-            'content' => array('name' => $tableDefinitionEvent['im_setting']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_setting'),
+            'content' => array('name' => $tableDefinitionEvent['im_setting']['content'], 'type' => 'textarea', 'table' => 'im_setting'),
             'description' => array('name' => $tableDefinitionEvent['im_setting']['description'], 'type' => 'textarea', 'table' => 'im_setting')
         ),
         'im_translation_system' => array(

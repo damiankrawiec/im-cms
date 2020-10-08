@@ -11,6 +11,14 @@ $label = $object->getAllLabel();
 
 ?>
 
+<?php
+
+//This setting must be defined in CMS (e.g. "class-content")
+
+//$sectionClass = ' class="'.($this->setting['class-content'] != '' ? $this->setting['class-content'].' ' : '').($sectionData['class'] === '' ? 'container' : $sectionData['class']).'" id="'.$this->currentSection.'"';
+
+?>
+
 <div class="<?php echo ($sectionData['class'] === '' ? 'container' : $sectionData['class']) ?>" id="<?php echo $this->currentSection; ?>">
 
     <?php
