@@ -1,7 +1,7 @@
 <?php
 //System name in all system structure
 $s_systemName = 'IM.CMS';
-$s_permittedImage = 'jpg,jpeg,png,gif';
+$s_permittedImage = 'jpg,jpeg,png,gif,svg';
 $s_permittedMovie = 'mp4';
 $s_previewImage = '120px';
 $s_previewImageBig = '220px';
