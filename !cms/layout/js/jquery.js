@@ -284,6 +284,9 @@ $(function(){
 
         fileDelete();
 
+        if($('.edit').length > 0)
+            fileCheckbox($('.edit').find('input[type="file"]'));
+
         if($('#update').length)
             system('update');
 

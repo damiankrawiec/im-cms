@@ -42,6 +42,10 @@ $p_path = false;
 if(isset($_POST['path']))
     $p_path = $_POST['path'];
 
+$p_choose = false;
+if(isset($_POST['choose']))
+    $p_choose = $_POST['choose'];
+
 $p_permitted = false;
 if(isset($_POST['permitted']))
     $p_permitted = $_POST['permitted'];

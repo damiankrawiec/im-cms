@@ -114,7 +114,8 @@ $translation = array(
         'file_delete_cancel' => 'nie usuwaj',
         'popup' => 'Treść wiadomości pojawiającej się w oknie danej sekcji',
         'style' => 'Pole do nadawania właściwości obiektom etykiety poprzez style CSS',
-        'left-char' => 'Pozostało znaków do wprowadzenia'
+        'left-char' => 'Pozostało znaków do wprowadzenia',
+        'current-file-name' => 'Pozostaw bieżącą nazwę - opcja wskazana gdy plik został osadzony gdziekolwiek w treści sekcji (ścieżka)'
     ),
     'select' => array('no-set' => 'Wybierz wartość', 'all' => 'Wszystkie wartości'),
     'fix' => array(

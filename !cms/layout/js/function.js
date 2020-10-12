@@ -701,3 +701,17 @@ function iconListener($iconArray) {
     });
 
 }
+
+function fileCheckbox($file = false) {
+
+    if($file) {
+
+        $file.change(function() {
+
+            $file.next().show();
+
+        });
+
+    }
+
+}
