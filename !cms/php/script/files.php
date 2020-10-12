@@ -56,8 +56,7 @@ if(isset($field['option'])) {
         //Space between current file and new file input
         echo ' <input type="file" name="'.$i.'" class="'.$require.'" id="'.$i.'">';
 
-        if ($addition->fileExists($filePathAll))
-            echo '<div class="text-dark badge-light p-1 mt-1 im-hide"><input type="checkbox" name="choose" value="true">'.$translation['edit']['current-file-name'].': <span class="badge badge-warning">'.$eventData['record']->url.'</span></div>';
+        echo '<div class="text-dark badge-light p-1 mt-1 im-hide"><input type="checkbox" name="choose" value="true">'.$translation['edit']['current-file-name'].': <span class="badge badge-warning">'.$eventData['record']->url.'</span></div>';
 
         echo '<input type="hidden" name="path" value="'.$filePath.'">';
 

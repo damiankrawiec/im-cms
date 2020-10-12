@@ -122,6 +122,9 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     }else echo $r[$f];
 
+                    if($f == 'name' and isset($r['url']))
+                        echo ' <span class="copy-url" title="'.$r['url'].'">'.$icon['button']['copy'].'</span>';
+
                     if($f == 'icon' and $r[$f] != '-')
                         echo ' fa-2x"></i>';
 

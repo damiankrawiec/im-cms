@@ -284,6 +284,9 @@ $(function(){
 
         fileDelete();
 
+        if($('.copy-url').length > 0)
+            copyUrl();
+
         if($('.edit').length > 0)
             fileCheckbox($('.edit').find('input[type="file"]'));
 

@@ -123,6 +123,9 @@ ul.pagination .page-link i {
   -moz-box-shadow: 0px 14px 14px -16px rgba(0, 0, 0, 0.22);
   box-shadow: 0px 14px 14px -16px rgba(0, 0, 0, 0.22);
 }
+.table i {
+  cursor: pointer;
+}
 .table .status {
   font-size: 22px;
 }
