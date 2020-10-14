@@ -1,8 +1,4 @@
-<?php
-$sectionPath = '../';
-$sectionPathAdmin = '';
-require_once 'php/init.php';
-?>
+<?php require_once 'php/init.php'; ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>

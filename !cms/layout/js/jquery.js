@@ -9,6 +9,10 @@ $(function(){
         processButton($this);
 
         $targetForm = '.' + $this.attr('id');
+
+        if($this.hasClass('save-back'))
+            $($targetForm).find('input[name="save_back"]').prop('disabled', false);
+
         if($this.attr('class').indexOf('validation-run') > -1) {
 
             if(validation($targetForm)){

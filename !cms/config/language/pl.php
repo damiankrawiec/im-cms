@@ -29,6 +29,7 @@ $translation = array(
         'one' => array('type' => 'Typ', 'label' => 'Etykieta'),
         'leave-edit' => 'Opuść tryb edycji',
         'update' => 'Uaktualnij',
+        'save-back' => 'Zpisz i wróć do listy',
         'status' => 'Status',
         'status-copy' => 'Powielany',
         'copy' => 'Skopiuj',

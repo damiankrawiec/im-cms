@@ -127,6 +127,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
 
+        echo '<input type="hidden" name="save_back" value="true" disabled>';
+
     echo '</form>';
 
     if(isset($translationForm)) {
@@ -150,6 +152,8 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
     echo '<div class="button-event">';
 
         echo '<button class="btn btn-success submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['update'] .'</button>';
+
+        echo '<button class="btn btn-primary submit'.$collectionSubmit.' validation-run save-back ml-1" id="edit">' . $translation['button']['save-back'] .'</button>';
 
         echo '<a class="btn btn-danger ml-1" href="' . $eventData['url'] . '">' . $translation['button']['leave-edit'] . ' '.$icon['button']['close'].'</a>';
 

@@ -1,4 +1,11 @@
 <?php
+
+if(!isset($sectionPath))
+    $sectionPath = '../';
+
+if(!isset($sectionPathAdmin))
+    $sectionPathAdmin = '';
+
 if(isset($sectionPathAdmin)) {
 
     require_once $sectionPathAdmin.'config/icon.php';

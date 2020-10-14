@@ -195,6 +195,15 @@ class Addition
         }
 
     }
+    public function getUrlCount() {
+
+        $return = 1;
+        if(stristr($this->url, ','))
+            $return = count(explode(',', $this->url));
+
+        return $return;
+
+    }
     public function varUrl() {
 
         require 'php/script/get.php';

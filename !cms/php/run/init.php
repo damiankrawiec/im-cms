@@ -63,6 +63,10 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
             require_once $eventPath;
 
+            //If should back to the record list
+            if($p_save_back)
+                $addition->link($addition->getUrl($addition->getUrlCount() - 2));
+
             //Message top information (fail, success)
             if($alert1)
                 echo $addition->alert1($alert1, $icon['message']['success']);
