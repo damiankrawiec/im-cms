@@ -13,8 +13,8 @@ $translation = array(
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
         'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha',
         'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu. UWAGA! Należy wykonać kopię systemu przed wykonaniem aktualizacji',
-        'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu',
-        'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii systemu), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu'
+        'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu. UWAGA! System może być chwilowo niedostępny',
+        'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu. UWAGA! System może być chwilowo niedostępny'
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -375,7 +375,7 @@ $tableDefinitionEvent = array(
     'im_image' => array(
         'name' => 'Nazwa',
         'content' => 'Opis',
-        'url' => 'Obraz',
+        'url' => 'Obraz (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Obraz (dodaj nowy obraz tylko w przypadku gdy chcesz zmienić bieżący)',
         'section' => 'Przekierowanie (gdy nie wybierzesz nic obraz po kliknięciu będzie powiększany)',
         'description' => 'Opis techniczny'
@@ -383,7 +383,7 @@ $tableDefinitionEvent = array(
     'im_file' => array(
         'name' => 'Nazwa',
         'content' => 'Opis',
-        'url' => 'Plik',
+        'url' => 'Plik (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
         'description' => 'Opis techniczny'
     ),
@@ -396,7 +396,7 @@ $tableDefinitionEvent = array(
     'im_movie' => array(
         'name' => 'Nazwa',
         'content' => 'Opis',
-        'url' => 'Film',
+        'url' => 'Film (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
         'description' => 'Opis techniczny'
     ),
@@ -473,7 +473,7 @@ $tooltip = array(
     'im_image' => array(
         'name' => 'To pole jest nazwą obrazu, która również będzie wyświetlana w momencie powiększenia obrazu, jak również może się wyświetlać obok obrazu (zależne od konfiguracji)',
         'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się obraz jest również miejsce na jego opis (zależne od konfiguracji)',
-        'url' => 'W tym polu należy fizycznie dodać plik obrazu, w formacie: jpg, png lub gif. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'url' => 'W tym polu należy fizycznie dodać plik obrazu, w formacie: jpg, png, gif lub svg. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie lub nadpisanie bieżącego',
         'section' => 'Pole, w którym można określić do jakiej sekcji w serwisie ma prowadzić odsyłacz. Jeżeli nie będzie ustawionej wartości to obraz będzie powiększany',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),

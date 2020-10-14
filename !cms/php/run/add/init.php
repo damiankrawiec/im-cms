@@ -5,23 +5,10 @@ foreach($eventData['table'] as $table) {
     $sql = 'insert into ' . $table . ' (';
 
     $parameter = array();
-    $sqlValue = '(';
 
     foreach ($eventData['data'] as $e => $ed) {
 
-        $bindType = 'string';
-        if(stristr($e, 'id'))
-            $bindType = 'int';
-
         $sql .= $e . ', ';
-
-        $sqlValue .= ':' . $e . ', ';
-
-        $value = $ed;
-        if($e == 'url')
-            $value = $fileName;
-
-        array_push($parameter, array('name' => ':' . $e, 'value' => $value, 'type' => $bindType));
 
     }
 
@@ -29,35 +16,70 @@ foreach($eventData['table'] as $table) {
 
         foreach ($eventData['supplement']->$table as $s => $su) {
 
-            $bindType = 'string';
-            if(stristr($s, 'id') or $s == 'parent')
-                $bindType = 'int';
-
             $sql .= $s . ', ';
-
-            $sqlValue .= ':' . $s . ', ';
-
-            $value = $su;
-            if($su == 'create') {
-
-                if($s == 'name_url')
-                    $value = $addition->createUrl($eventData['data']['name']);
-
-            }
-
-            array_push($parameter, array('name' => ':' . $s, 'value' => $value, 'type' => $bindType));
 
         }
 
-    }
+        $sql = substr($sql, 0, -2);
 
-    $sql = substr($sql, 0, -2);
+    }else $sql = substr($sql, 0, -2);
+
+    $sql .= ')';
+
+    $sqlValue = '';
+    foreach ($eventCount as $ec => $item) {
+
+        $sqlValue .= '(';
+
+        foreach ($eventData['data'] as $e => $ed) {
+
+            $bindType = 'string';
+            if (stristr($e, 'id'))
+                $bindType = 'int';
+
+            $sqlValue .= ':' . $e.$ec . ', ';
+
+            $value = $ed;
+            if ($e == 'url')
+                $value = $item;
+
+            array_push($parameter, array('name' => ':' . $e.$ec, 'value' => $value, 'type' => $bindType));
+
+        }
+
+        if (isset($eventData['supplement']->$table)) {
+
+            foreach ($eventData['supplement']->$table as $s => $su) {
+
+                $bindType = 'string';
+                if (stristr($s, 'id') or $s == 'parent')
+                    $bindType = 'int';
+
+                $sqlValue .= ':' . $s.$ec . ', ';
+
+                $value = $su;
+                if ($su == 'create') {
+
+                    if ($s == 'name_url')
+                        $value = $addition->createUrl($eventData['data']['name']);
+
+                }
+
+                array_push($parameter, array('name' => ':' . $s.$ec, 'value' => $value, 'type' => $bindType));
+
+            }
+
+        }
+
+        $sqlValue = substr($sqlValue, 0, -2);
+
+        $sqlValue .= '), ';
+
+    }
 
     $sqlValue = substr($sqlValue, 0, -2);
 
-    $sqlValue .= ')';
-
-    $sql .= ') values ' . $sqlValue;
+    $sql .= ' values ' . $sqlValue;
 
     $db->prepare($sql);
 
@@ -72,7 +94,3 @@ foreach($eventData['table'] as $table) {
     }
 
 }
-
-$addition->link($addition->getUrl().',edit,'.$lastInsertId);
-
-//$alert1 = $translation['message']['save-success'];

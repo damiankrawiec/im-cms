@@ -51,21 +51,16 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
                 $eventData['collection'] = $p_event_collection;
 
             $fileName = false;
+            $eventCount = array('one');
             if($fileData) {
 
                 $eventData['data']['url'] = $fileData['url']['name'];
-
-                $tmpName = $fileData['url']['tmp_name'];
 
                 require_once 'php/run/file/init.php';
 
             }
 
             require_once $eventPath;
-
-            //If should back to the record list
-            if($p_save_back)
-                $addition->link($addition->getUrl($addition->getUrlCount() - 2));
 
             //Message top information (fail, success)
             if($alert1)
@@ -88,3 +83,16 @@ if(!in_array($p_transaction, $tool->getSession('transaction')))
 
 //---
 //Save to logs...
+
+//If should back to the record list
+if($p_save_back) {
+
+    if($p_event == 'edit')
+        $addition->link($addition->getUrl($addition->getUrlCount() - 2));
+
+}else{
+
+    if($p_event == 'add')
+        $addition->link($addition->getUrl().',edit,'.$lastInsertId);
+
+}

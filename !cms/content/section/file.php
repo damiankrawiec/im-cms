@@ -58,7 +58,8 @@ if($displayCount == 'all') {
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
         'table_add' => array($table),
-        'system' => $tool->getSession('system')
+        'system' => $tool->getSession('system'),
+        'multiple' => true
     );
 
     require_once 'content/box/event/add.php';
