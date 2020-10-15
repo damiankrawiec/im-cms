@@ -40,8 +40,15 @@ foreach($eventData['table'] as $table) {
             $sqlValue .= ':' . $e.$ec . ', ';
 
             $value = $ed;
-            if ($e == 'url')
-                $value = $item;
+            if ($e == 'url') {
+
+                if($item == 'one') {
+
+                    continue;
+
+                }else $value = $item;
+
+            }
 
             array_push($parameter, array('name' => ':' . $e.$ec, 'value' => $value, 'type' => $bindType));
 
@@ -81,16 +88,22 @@ foreach($eventData['table'] as $table) {
 
     $sql .= ' values ' . $sqlValue;
 
-    $db->prepare($sql);
+    if(count($parameter) > 0) {
 
-    $db->bind($parameter);
+        $db->prepare($sql);
 
-    $lastInsertId = $db->run();
+        $db->bind($parameter);
 
-    if(isset($eventData['field_supplement'])) {
+        $lastInsertId = $db->run();
 
-        require_once 'php/run/add/field-supplement.php';
+        if (isset($eventData['field_supplement'])) {
+
+            require_once 'php/run/add/field-supplement.php';
+
+        }
 
     }
 
 }
+
+$alert1 = $translation['message']['save-success'];

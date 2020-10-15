@@ -16,7 +16,6 @@ if(isset($newFile) and isset($tmpName) and $newFile != '') {
     if(isset($eventData['permitted']))
         $permitted = $eventData['permitted'];
 
-    $eventCount = array();
     foreach ($newFile as $i => $nf) {
 
         if ($fileName = $addition->setFileName($nf, $permitted)) {
@@ -41,7 +40,7 @@ if(isset($newFile) and isset($tmpName) and $newFile != '') {
 
     }
 
-    if($alert0)
-        $p_save_back = false;
+    if($eventCount > 1)
+        array_shift($eventCount);
 
 }

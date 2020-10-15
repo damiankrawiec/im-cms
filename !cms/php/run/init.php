@@ -92,7 +92,7 @@ if($p_save_back) {
 
 }else{
 
-    if($p_event == 'add')
+    if($p_event == 'add' and isset($lastInsertId))
         $addition->link($addition->getUrl().',edit,'.$lastInsertId);
 
 }
