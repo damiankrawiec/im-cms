@@ -79,16 +79,17 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';
 
-        if(isset($eventData['multiple']) and $eventData['multiple'])
-            echo '<input type="hidden" name="save_back" value="true" disabled>';
+        echo '<input type="hidden" name="save_back" value="true" disabled>';
 
     echo '</form>';
 
     require_once 'php/script/icon-editor.php';
 
-    echo '<button class="btn btn-info submit validation-run save-back" id="add">' . $translation['button']['add'] .'</button>';
+    echo '<button class="btn btn-success submit validation-run" id="add">' . $translation['button']['add'] .'</button>';
 
-    echo '<button class="btn btn-secondary ml-1" id="add-cancel">' . $translation['button']['cancel'] .'</button>';
+    echo '<button class="btn btn-primary submit validation-run save-back ml-1" id="add">' . $translation['button']['add-stay'] .'</button>';
+
+    echo '<button class="btn btn-danger ml-1" id="add-cancel">' . $translation['button']['cancel'] .' '.$icon['button']['close'].'</button>';
 
     echo '</div>';
 

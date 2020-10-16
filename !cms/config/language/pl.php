@@ -30,6 +30,7 @@ $translation = array(
         'leave-edit' => 'Opuść tryb edycji',
         'update' => 'Uaktualnij',
         'save-back' => 'Zpisz i wróć do listy',
+        'add-stay' => 'Dodaj i pozostań',
         'status' => 'Status',
         'status-copy' => 'Powielany',
         'copy' => 'Skopiuj',
