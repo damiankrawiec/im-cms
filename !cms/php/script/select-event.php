@@ -24,7 +24,12 @@ if(stristr($field['type'], 'select')) {
 
     }
 
-    $sql = 'select '.$addition->cleanText($select[1], 'im_').'_id as id, name from '.$select[1];
+    $sql = 'select '.$addition->cleanText($select[1], 'im_').'_id as id, name';
+
+    if($select[1] == 'im_section')
+        $sql .= ', name_url';
+
+    $sql .= ' from '.$select[1];
 
     if(isset($propertyNotDisplay)) {
 
@@ -76,7 +81,14 @@ if(stristr($field['type'], 'select')) {
             if(isset($eventData['record']) and $eventData['record']->$i == $p['id'])
                 $selected = ' selected';
 
-            echo '<option value="'.$p['id'].'"'.$selected.'>'.$p['name'].'</option>';
+            echo '<option value="'.$p['id'].'"'.$selected.'>';
+
+            echo $p['name'];
+
+            if($select[1] == 'im_section')
+                echo ' ('.$p['name_url'].')';
+
+            echo '</option>';
 
         }
 
