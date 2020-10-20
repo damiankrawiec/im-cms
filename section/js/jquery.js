@@ -4,9 +4,9 @@ $(function(){
 
     translation();
 
-    setTimeout(optimizeImage, 500);
+    setTimeout(optimizeImage, 2000);
 
-    setTimeout(gallery, 1000);
+    setTimeout(gallery, 3000);
 
     labelProperty('all');
 
