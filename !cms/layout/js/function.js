@@ -133,6 +133,8 @@ function modalInit($this){
             if($htmlData !== '')
                 $('#modal .modal-body').append($htmlData);
 
+            $('select.form-control').chosen();
+
         }
 
         $('#modal').modal();
