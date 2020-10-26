@@ -28,7 +28,7 @@ echo '<div class="float-left">';
 
     $allType = $db->run('all');
 
-    echo '<div class="im-hide modal-data">' . json_encode(array('text' => $translation['modal']['change-type'], 'html' => array('select' => $allType), 'save' => 'submit-next-form', 'cancel' => '')) . '</div>';
+    echo '<div class="im-hide modal-data">' . json_encode(array('text' => $translation['modal']['change-type'], 'header' => $translation['modal']['header']['chose-new-object-type'], 'html' => array('select' => $allType), 'save' => 'submit-next-form', 'cancel' => '')) . '</div>';
 
 echo '</div>';
 

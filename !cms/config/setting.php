@@ -25,7 +25,7 @@ $s_dashboard = array(
 $s_translationTable = array('im_object', 'im_section', 'im_category', 'im_image', 'im_file', 'im_source');
 //If 'submenu' is string, that mean it is the name of table from database, and data will generated dynamic
 //If 'submenu' is array, that mean it is data from this array
-//If submenu is exists, that mean the url index is no need
+//If 'submenu' is exists, that mean the url index is no need
 $s_menuDefinition = array(
     'dashboard' => array('icon' => $icon['menu']['dashboard'], 'name' => $translation['menu']['dashboard'], 'url' => 'dashboard'),
     'section' => array('icon' => $icon['menu']['section'], 'name' => $translation['menu']['section'], 'url' => 'section,0'),

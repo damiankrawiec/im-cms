@@ -10,11 +10,16 @@ $translation = array(
         'title' => 'Informacja',
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
         'change-type' => 'Wybierz nowy typ dla obiektu',
+        'change-parent' => 'Wybierz nową sekcję nadrzędną',
         'confirm-delete' => 'Potwierdź usunięcie pozycji',
         'confirm-clear' => 'Zostaną usunięte nadmiarowe, niewykorzystywane dane z bazy (np. nadmiarowe tłumaczenia), a także pliki cache i obrazy captcha',
         'confirm-update' => 'Potwierdź rozpoczęcie procesu aktalizacji systemu. UWAGA! Należy wykonać kopię systemu przed wykonaniem aktualizacji',
         'confirm-backup' => 'Potwierdź rozpoczęcie procesu wykonywania kopii systemu. UWAGA! System może być chwilowo niedostępny',
-        'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu. UWAGA! System może być chwilowo niedostępny'
+        'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu. UWAGA! System może być chwilowo niedostępny',
+        'header' => array(
+            'chose-new-object-type' => 'Wybierz nowy typ dla obiektu',
+            'set-section-as-main-or-choose-parent' => 'Ustaw sekcję jako główną lub wybierz nadrzędną'
+        )
     ),
     'button' => array(
         'save' => 'Zapisz',
@@ -36,7 +41,9 @@ $translation = array(
         'copy' => 'Skopiuj',
         'confirm' => 'Potwierdź',
         'change-type' => 'Zmień typ',
-        'go-object' => 'przejdź do obiektu'
+        'change-parent' => 'Zmień sekcję nadrzędną',
+        'go-object' => 'przejdź do obiektu',
+        'go-section' => 'przejdź do sekcji'
     ),
     'message' => array(
         'no-data' => 'Brak danych',
@@ -46,6 +53,8 @@ $translation = array(
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych właściwości',
         'clean-success' => 'Dane zostały uporządkowane',
         'change-type-success' => 'Typ obiektu został zmieniony poprawnie',
+        'change-parent-success' => 'Nadrzędna sekcja została zmieniona poprawnie',
+        'change-parent-main-success' => 'Bieżąca sekcja została ustawiona jako główna',
         'deleted-records' => 'Usuniętych rekordów',
         'deleted-files' => 'Usuniętych plików',
         'update-data' => 'Zaktualizowane zasoby',

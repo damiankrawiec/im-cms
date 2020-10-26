@@ -124,6 +124,8 @@ if($g_var1 != '') {
 
             }
 
+            require_once 'php/script/section-move.php';
+
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
