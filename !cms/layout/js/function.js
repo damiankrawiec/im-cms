@@ -133,7 +133,7 @@ function modalInit($this){
             if($htmlData !== '')
                 $('#modal .modal-body').append($htmlData);
 
-            $('select.form-control').chosen();
+            $('select.form-control').not('.form-control-sm').chosen();
 
         }
 

@@ -18,7 +18,8 @@ $translation = array(
         'confirm-restore' => 'Wybierz kopię systemu do przywrócenia (brak listy wyboru oznacza brak kopii), a następnie potwierdz rozpoczęcie procesu przywracania. Sugerujemy wykonać kopię obecnej wersji systemu. UWAGA! System może być chwilowo niedostępny',
         'header' => array(
             'chose-new-object-type' => 'Wybierz nowy typ dla obiektu',
-            'set-section-as-main-or-choose-parent' => 'Ustaw sekcję jako główną lub wybierz nadrzędną'
+            'set-section-as-main-or-choose-parent' => 'Ustaw sekcję jako główną lub wybierz nadrzędną',
+            'select-backup-to-restore' => 'Wybierz kopię do przywrócenia'
         )
     ),
     'button' => array(
