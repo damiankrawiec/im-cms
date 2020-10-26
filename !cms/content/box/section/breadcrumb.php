@@ -1,6 +1,6 @@
 <?php
 
-if($g_var1 > 0 and $g_var2 == '') {
+if($g_var1 > 0) {
 
     $sql = 'select name, name_url, parent from im_section where section_id = :id';
 
