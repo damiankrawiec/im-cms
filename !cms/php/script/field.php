@@ -25,7 +25,7 @@ if($field) {
 
 }else echo $addition->message($translation['message']['no-field'], $icon['button']['cancel']);
 
-if (!in_array('name', $fields))
+if (!in_array('name', $fields) and !in_array('menu', $fields))
     unset($eventData['field']['name']);
 
 if (!in_array('content', $fields))

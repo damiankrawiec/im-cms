@@ -11,9 +11,12 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
     if($expand) {
 
-        echo '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown' . $this->objectCounter . '" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        '.$this->icon['hamburger']['standard'].$this->icon['hamburger']['close'].'
-        </button>';
+        echo '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown' . $this->objectCounter . '" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">';
+
+            if($dataDisplay['name'] != '')
+                echo $dataDisplay['name'];
+
+        echo '</button>';
 
         echo '<div class="collapse navbar-collapse" id="navbarNavDropdown' . $this->objectCounter . '">';
 
@@ -25,7 +28,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
     echo '<ul class="navbar-nav'.$alignClass.'">';
 
-        foreach ($dataDisplay as $m) {
+        foreach ($dataDisplay['data'] as $m) {
 
             if (isset($m['submenu']) and $m['submenu']) {
 

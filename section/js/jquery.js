@@ -25,6 +25,29 @@ $(function(){
 
     });
 
+    $('.navbar-toggler').click(function() {
+
+        let $this = $(this);
+
+        let $children = $this.children();
+
+        if($this.attr('aria-expanded') === 'false') {
+
+            $children.hide();
+
+            $children.next().fadeIn();
+
+        }else{
+
+            $children.fadeIn();
+
+            $children.next().hide();
+
+        }
+
+
+    });
+
     $('.cookie').on('click', 'button', function(){
 
         setCookie();

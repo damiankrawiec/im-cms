@@ -239,7 +239,7 @@ class ObjectContent extends Language {
 
     }
 
-    //Do not remove! Check data in in field files
+    //Do not remove! Check data is in field files
     private function checkDataDisplay($dataDisplay, $type = false) {
 
         $check = false;
@@ -882,7 +882,9 @@ class ObjectContent extends Language {
                                     if($this->checkDisplayOption($option, 'submenu'))
                                         $submenu = true;
 
-                                    $displayPropertyData['menu'] = $this->getSection($sectionParent, $submenu);
+                                    $displayPropertyData['menu']['name'] = $or['name'];
+
+                                    $displayPropertyData['menu']['data'] = $this->getSection($sectionParent, $submenu);
 
                                 }
                                 if ($p['name'] == 'section') {
