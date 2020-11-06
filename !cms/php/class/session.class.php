@@ -34,6 +34,16 @@ class Session extends Security
 
     }
 
+    public function initSession($name = false) {
+
+        if($name) {
+
+            $_SESSION[$name] = array();
+
+        }
+
+    }
+
     public function setSession($name = false, $value) {
 
         if($name) {
@@ -79,6 +89,20 @@ class Session extends Security
         if($name) {
 
             array_push($_SESSION[$name], $value);
+
+        }
+
+    }
+
+    public function removeSession($name, $type = false) {
+
+        if($type) {
+
+            if($type == 'first')
+                array_pop($_SESSION[$name]);
+
+            if($type == 'last')
+                array_shift($_SESSION[$name]);
 
         }
 

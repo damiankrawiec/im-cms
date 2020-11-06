@@ -64,6 +64,17 @@ echo '<div class="container-fluid" id="content-top">';
 
     echo '</div>';
 
+    echo '<div class="row bg-light">';
+
+    echo '<div class="col-12">';
+
+        //History of urls
+        require_once 'content/box/breadcrumb.php';
+
+    echo '</div>';
+
+    echo '</div>';
+
 echo '</div>';
 
 echo '<div class="container-fluid animated fadeIn" id="container">';
