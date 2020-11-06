@@ -70,6 +70,9 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                     if(isset($m['column']))
                                         $sql .= ', '.$m['column'];
 
+                                    if(isset($m['description']))
+                                        $sql .= ', description';
+
                                     $sql .= ' from '.$m['submenu'].' order by date_create desc';
 
                                     $db->prepare($sql);
@@ -114,7 +117,13 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
                                         if (isset($sd['icon']))
                                             $submenuIcon = $sd['icon'] . ' ';
 
-                                        echo '<a class="dropdown-item'.$aHide.'" href = "' . $submenuUrl . '"' . $aId . '>' . $submenuIcon . $sd['name'] . '</a>';
+                                        echo '<a class="dropdown-item'.$aHide.'" href = "' . $submenuUrl . '"' . $aId . '>' . $submenuIcon . $sd['name'] . '<br>';
+
+                                            if(isset($m['description']) and $sd['description'] != '')
+                                                echo '<small>('.$sd['description'].')</small>';
+
+                                        echo '</a>';
+
 
                                     }
 
