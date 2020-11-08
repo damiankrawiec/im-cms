@@ -1,13 +1,13 @@
 <?php
 
-$breadcrumbArray = array_reverse($tool->getSession('breadcrumb'));
+if(is_array(($tool->getSession('breadcrumb'))) and count(($tool->getSession('breadcrumb'))) > 0) {
 
-if(is_array($breadcrumbArray) and count($breadcrumbArray) > 0) {
+    $breadcrumbArray = array_reverse($tool->getSession('breadcrumb'));
 
-    echo '<div class="clearfix">';
+    echo '<div class="clearfix p-1">';
     foreach($breadcrumbArray as $ba) {
 
-        echo '<a href="'.$ba.'" title="'.$ba.'" class="btn btn-default">'.$ba.'</a>';
+        echo '<a href="'.$ba.'" title="'.$ba.'" class="btn btn-secondary m-1">'.$ba.'</a>';
 
     }
     echo '</div>';

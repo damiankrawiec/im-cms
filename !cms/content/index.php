@@ -47,6 +47,9 @@ echo '<div class="container-fluid" id="content-top">';
 
     echo '</div>';
 
+//History of urls
+require_once 'content/box/breadcrumb.php';
+
     echo '<div class="row bg-dark">';
 
     echo '<div class="col-12 col-lg-10">';
@@ -59,17 +62,6 @@ echo '<div class="container-fluid" id="content-top">';
 
         //Select domain system
         require_once 'content/box/select-system.php';
-
-    echo '</div>';
-
-    echo '</div>';
-
-    echo '<div class="row bg-light">';
-
-    echo '<div class="col-12">';
-
-        //History of urls
-        require_once 'content/box/breadcrumb.php';
 
     echo '</div>';
 
