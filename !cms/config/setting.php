@@ -6,7 +6,7 @@ $s_permittedMovie = 'mp4';
 $s_previewImage = '120px';
 $s_previewImageBig = '220px';
 $s_previewMovie = '200px';
-$s_breadcrumbCount = 15; //max
+$s_breadcrumbCount = 10; //max
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'icon' => $icon['menu']['section'], 'table' => 'im_section', 'title' => 'name, description', 'field' => 'parent'),
@@ -56,7 +56,7 @@ $s_menuDefinition = array(
         )
     ),
     'setting' => array('icon' => $icon['menu']['setting'], 'name' => $translation['menu']['setting'], 'url' => 'setting'),
-    'service' => array('icon' => $icon['menu']['service'], 'name' => $translation['menu']['service'], 'url' => 'form')
+    'form' => array('icon' => $icon['menu']['form'], 'name' => $translation['menu']['form'], 'url' => 'form')
 );
 //This definitions are placed in form, and next that fields will be inside sql query, after form send
 $s_eventDefinition = array(

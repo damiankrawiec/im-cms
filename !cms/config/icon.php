@@ -54,7 +54,7 @@ $icon = array(
         'movie' => '<i class="fal fa-camera-movie"></i>',
         'setting' => '<i class="fal fa-cog"></i>',
         'label-property' => '<i class="fal fa-project-diagram"></i>',
-        'service' => '<i class="fal fa-headset"></i>'
+        'form' => '<i class="fal fa-headset"></i>'
     ),
     'top' => array(
         'clean' => '<i class="fal fa-broom"></i>',

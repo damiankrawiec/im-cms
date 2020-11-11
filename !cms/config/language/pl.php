@@ -94,7 +94,7 @@ $translation = array(
         'movie' => 'Filmy',
         'setting' => 'Ustawienia',
         'label-property' => 'Właściwości etykiet',
-        'service' => 'Obsługa'
+        'form' => 'Obsługa'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania', 'all' => 'wszystkie'),
     'edit' => array(

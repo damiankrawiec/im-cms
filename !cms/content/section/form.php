@@ -6,7 +6,7 @@ $table = 'im_form';
 $baseUrl = $addition->getUrl(1);
 //---
 
-$oneData = (object) array('value' => $translation['menu']['service']);
+$oneData = (object) array('value' => $translation['menu']['form']);
 
 require_once 'php/script/one-data-display.php';
 
