@@ -29,6 +29,9 @@ if($p_transaction)
 
 //---DO NOT REMOVE!!!
 
+//History of urls
+require_once 'content/box/breadcrumb.php';
+
 echo '<div class="container-fluid" id="content-top">';
 
     echo '<div class="row bg-secondary">';
@@ -46,9 +49,6 @@ echo '<div class="container-fluid" id="content-top">';
     echo '</div>';
 
     echo '</div>';
-
-//History of urls
-require_once 'content/box/breadcrumb.php';
 
     echo '<div class="row bg-dark">';
 
