@@ -328,6 +328,7 @@ create table im_object (
     attachment varchar(256) collate utf8_polish_ci default '',-- attachment text, like CV (if empty, there is no attachment)
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     map varchar(64) collate utf8_polish_ci default '',-- coordinates
+    class varchar(256) collate utf8_polish_ci default '',-- class of object
     position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',

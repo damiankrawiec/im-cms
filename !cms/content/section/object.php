@@ -32,6 +32,7 @@ if($g_var1 != '') {
         attachment,
         icon,
         map,
+        class,
         date,
         content,
         if(description = \'\', \'-\', description) as description,

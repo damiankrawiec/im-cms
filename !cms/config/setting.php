@@ -90,6 +90,7 @@ $s_eventDefinition = array(
             'attachment' => array('name' => $tableDefinitionEvent['im_object']['attachment'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'icon' => array('name' => $tableDefinitionEvent['im_object']['icon'], 'type' => 'icon', 'require' => 'validation :icon', 'table' => 'im_object'),
             'map' => array('name' => $tableDefinitionEvent['im_object']['map'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 64),
+            'class' => array('name' => $tableDefinitionEvent['im_object']['class'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')

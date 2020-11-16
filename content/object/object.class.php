@@ -289,6 +289,22 @@ class ObjectContent extends Language {
 
     }
 
+    private function getObjectClass($object) {
+
+        $sql = 'select class from im_object where object_id = :object';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $object, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('one');
+
+    }
+
     private function getObjectImage($objectId) {
 
         $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section
@@ -813,11 +829,16 @@ class ObjectContent extends Language {
 
                         foreach ($objectRecord as $i => $or) {
 
-                            $classAdd = $this->getTypeClass($or['type'])->class;
+                            $classType = $this->getTypeClass($or['type'])->class;
+
+                            $classObject = $this->getObjectClass($or['id'])->class;
 
                             $class = 'object';
-                            if ($classAdd != '')
-                                $class .= ' ' . $classAdd;
+                            if ($classType != '')
+                                $class .= ' ' . $classType;
+
+                            if ($classObject != '')
+                                $class .= ' ' . $classObject;
 
                             if ($this->admin)
                                 $class .= ' im-preview';
