@@ -541,13 +541,15 @@ function insertToOption($multiple, $type) {
 
     $multiple.find('a').each(function(){
 
-        var $text = $(this).text();
+        let $this = $(this);
+
+        let $text = $this.text();
 
         var $file = $text.substr($text.indexOf(':') + 2, $text.length);
 
         var $fileDom;
         if($type === 'image')
-            $fileDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $file + '" alt="' + $file + '" style="height: 50px">';
+            $fileDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $file + '" alt="' + $file + '" style="height: 50px" title="image,edit,' + $this.attr('data-value') + '">';
 
         if($type === 'file')
             $fileDom = '<a href="../system/' + $('#url-system').val() + '/public/' + $file + '" title="' + $file + '" download>' + $('#download-icon').html() + '</a>';
@@ -555,7 +557,7 @@ function insertToOption($multiple, $type) {
         if($type === 'movie')
             $fileDom = '<video src="../system/' + $('#url-system').val() + '/public/' + $file + '" style="height: 100px" controls></video><br>';
 
-        $(this).html($fileDom + ' ' + $text);
+        $this.html($fileDom + ' ' + $text);
 
     });
 
@@ -741,6 +743,26 @@ function copyUrl() {
             $this.removeClass('text-info');
 
         }, 500);
+
+    });
+
+}
+function editFix() {
+
+    $('.multi-wrapper').on('click', 'img', function() {
+
+        let $title = $(this).attr('title');
+
+        if ($title) {
+
+            //Form should help back
+            let $form = $('<form action="' + $title + '" method="post"><input name="back" value="' + $('#url-full').val() + '"></form>');
+
+            $('body').append($form);
+
+            $form.submit();
+
+        }
 
     });
 

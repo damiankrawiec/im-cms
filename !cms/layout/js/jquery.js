@@ -288,6 +288,8 @@ $(function(){
 
         fileDelete();
 
+        editFix();
+
         if($('.copy-url').length > 0)
             copyUrl();
 

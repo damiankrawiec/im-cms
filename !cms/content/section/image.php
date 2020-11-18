@@ -93,6 +93,8 @@ if ($record) {
 
     if($displayCount == 'one') {
 
+        require_once 'php/script/object-back.php';
+
         $eventData = array(
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
