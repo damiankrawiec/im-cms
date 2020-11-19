@@ -13,6 +13,9 @@ if ($sqlName and $sqlValue) {
     if($sqlName == 'type_property')
         $sql .= ' join im_property on(im_property.property_id = im_type_property.property_id)';
 
+    if($sqlName == 'label_section')
+        $sql .= ' join im_label on(im_label.label_id = im_label_section.label_id)';
+
     $sql .= ' where ' . $sqlName . '_id = :parameter';
 
     $db->prepare($sql);

@@ -50,6 +50,14 @@ if(is_array(($tool->getSession('breadcrumb'))) and count(($tool->getSession('bre
 
                     if($urlArray[2] > 0) {
 
+                        switch ($urlArray[0]) {
+
+                            case 'label-property':
+                                $sqlName = 'label_section';
+                                break;
+
+                        }
+
                         $sqlValue = $urlArray[2];
                         require 'php/script/breadcrumb-name.php';
 
