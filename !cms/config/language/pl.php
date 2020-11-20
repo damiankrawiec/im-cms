@@ -390,6 +390,7 @@ $tableDefinitionEvent = array(
         'url' => 'Obraz (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Obraz (dodaj nowy obraz tylko w przypadku gdy chcesz zmienić bieżący)',
         'section' => 'Przekierowanie (gdy nie wybierzesz nic obraz po kliknięciu będzie powiększany)',
+        'link' => 'Przekierowanie zewnętrzne (jeśli pole jest puste wówczas aktywne jest ustawienie z pola "przekierowanie")',
         'description' => 'Opis techniczny'
     ),
     'im_file' => array(
@@ -488,6 +489,7 @@ $tooltip = array(
         'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się obraz jest również miejsce na jego opis (zależne od konfiguracji)',
         'url' => 'W tym polu należy fizycznie dodać plik obrazu, w formacie: jpg, png, gif lub svg. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie lub nadpisanie bieżącego',
         'section' => 'Pole, w którym można określić do jakiej sekcji w serwisie ma prowadzić odsyłacz. Jeżeli nie będzie ustawionej wartości to obraz będzie powiększany',
+        'link' => 'Pole, w któym można określić adres zewnętrzny do którego będzie kierować zdjęcie (otwarcie w nowym oknie)',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_file' => array(

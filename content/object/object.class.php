@@ -307,7 +307,7 @@ class ObjectContent extends Language {
 
     private function getObjectImage($objectId) {
 
-        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section
+        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object

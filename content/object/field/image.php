@@ -24,17 +24,27 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         $active = ' active';
         foreach ($dataDisplay as $img) {
 
-            if($img['section'] > 0) {
+            if ($img['link'] == '') {
 
-                $dataRel = '';
+                if ($img['section'] > 0) {
 
-                $href = $this->getSectionUrl($img['section']);
+                    $dataRel = '';
+
+                    $href = $this->getSectionUrl($img['section']);
+
+                } else {
+
+                    $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
+
+                    $href = $this->systemName . '/public/' . $img['url'];
+
+                }
 
             }else{
 
-                $dataRel = ' data-rel="lightcase:collection-'.$this->objectCounter.'"';
+                $dataRel = ' target="_blank"';
 
-                $href = $this->systemName.'/public/'.$img['url'];
+                $href = $img['link'];
 
             }
 

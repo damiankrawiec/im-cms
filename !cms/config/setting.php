@@ -122,6 +122,7 @@ $s_eventDefinition = array(
             'content' => array('name' => $tableDefinitionEvent['im_image']['content'], 'type' => 'textarea:editor', 'table' => 'im_image'),
             'url' => array('name' => $tableDefinitionEvent['im_image']['url-edit'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_image'),
             'section' => array('name' => $tableDefinitionEvent['im_image']['section'], 'type' => 'select:im_section', 'table' => 'im_image'),
+            'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'text', 'table' => 'im_image', 'size' => 128),
             'description' => array('name' => $tableDefinitionEvent['im_image']['description'], 'type' => 'textarea', 'table' => 'im_image')
         ),
         'im_file' => array(

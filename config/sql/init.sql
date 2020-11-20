@@ -465,6 +465,7 @@ create table im_image (
     name varchar(64) collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
     url varchar(128) collate utf8_polish_ci default '',
+    link varchar(128) collate utf8_polish_ci default '',-- direction to outer url, if empty section field is used, but if != '' - section field is disable
     status varchar(3) default 'on',
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
