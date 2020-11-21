@@ -214,7 +214,7 @@ $(function(){
 
             $nextFile.children('input').on('keyup', function(){
 
-                insertToOption($nextImage, 'file');
+                insertToOption($nextFile, 'file');
 
             });
 
