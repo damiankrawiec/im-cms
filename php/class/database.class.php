@@ -63,7 +63,6 @@ class Database extends systemSetting
             default:
                 var_dump('Wrong binding type: '.$type);
                 exit();
-                break;
 
         }
 
@@ -181,7 +180,7 @@ class Database extends systemSetting
 
                 var_dump('Error execute() in run()');
 
-                echo $this->sql;
+                echo $this->sql.'<br>';
 
                 var_dump($this->parameter);
 
