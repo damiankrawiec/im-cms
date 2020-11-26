@@ -7,6 +7,24 @@ body {
   overflow-x: hidden;
   font-size: 14px;
   background-color: @light-gray;
+  .animated-icon {
+    position: fixed;
+    width: 10%;
+    left: 45%;
+    text-align: center;
+    top: 100px;
+    padding: 20px;
+    background: @black;
+    opacity: 0.8;
+    z-index: 1;
+    i {
+      font-size: 60px;
+      color: @white;
+    }
+  }
+  .animated-body {
+    display: none;
+  }
 }
 input[type="checkbox"]{
   margin-left: 3px;

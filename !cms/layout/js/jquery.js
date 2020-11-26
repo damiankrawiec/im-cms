@@ -1,5 +1,7 @@
 $(function(){
 
+    showContent('fadeIn');
+
     currentSystem(3000);
 
     $('.submit').click(function(){
@@ -16,6 +18,10 @@ $(function(){
         if($this.attr('class').indexOf('validation-run') > -1) {
 
             if(validation($targetForm)){
+
+                $('.animated-icon').show();
+
+                $('.animated-body').hide();
 
                 if($this.attr('class').indexOf('collection-run') > -1)
                     collection();
@@ -280,7 +286,7 @@ $(function(){
 
         currentShow();
 
-        checkSubmenuIsEmpty()
+        checkSubmenuIsEmpty();
 
         $('select.form-control').chosen();
 

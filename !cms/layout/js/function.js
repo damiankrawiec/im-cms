@@ -767,3 +767,29 @@ function editFix() {
     });
 
 }
+function showContent($animate = false) {
+
+    if ($animate) {
+
+        let $body = $('.animated-body');
+
+        setTimeout(function () {
+
+            $body.show();
+
+            $body.addClass($animate);
+
+        }, 300);
+
+        setTimeout(function () {
+
+            $('.animated-icon').hide();
+
+            $body.removeClass('animated '+ $animate);
+
+        }, 600);
+
+
+    }
+
+}
