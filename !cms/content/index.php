@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <div class="animated-icon"><?php echo $icon['process']['site']; ?></div>
+    <div class="animated-icon"><p class="text-secondary h5"><?php echo $translation['system']['name']; ?></p><?php echo $icon['process']['site']; ?></div>
     <div class="animated animated-body">
 
         <?php

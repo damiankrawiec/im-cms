@@ -5,7 +5,7 @@ $translation = array(
     'login' => array('singular' => 'Logowanie', 'imperatives' => 'Zaloguj', 'end' => 'Wyloguj', 'logged' => 'Zalogowany'),
     'email' => array('singular' => 'E-mail', 'imperatives' => 'Podaj adres e-mail', 'long' => 'Adres e-mail'),
     'password' => array('singular' => 'Hasło', 'imperatives' => 'Wprowadź hasło'),
-    'system' => array('current' => 'Bieżący system'),
+    'system' => array('current' => 'Bieżący system', 'name' => 'IM.CMS'),
     'modal' => array(
         'title' => 'Informacja',
         'not-save' => 'Ta operacja spowoduje utratę niezapisanych danych',
