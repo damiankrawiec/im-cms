@@ -9,24 +9,6 @@ body {
   font-size: 14px;
   background-color: #ddd;
 }
-body .animated-icon {
-  position: fixed;
-  width: 10%;
-  left: 45%;
-  text-align: center;
-  top: 100px;
-  padding: 20px;
-  background: #333;
-  opacity: 0.8;
-  z-index: 1;
-}
-body .animated-icon i {
-  font-size: 60px;
-  color: #fff;
-}
-body .animated-body {
-  display: none;
-}
 input[type="checkbox"] {
   margin-left: 3px;
 }
@@ -86,6 +68,7 @@ ul.pagination .page-link i {
 .nice-select {
   background-color: unset !important;
   color: #fff !important;
+  margin: 3px !important;
 }
 .nice-select ul {
   background-color: #6c757d !important;
@@ -119,6 +102,24 @@ ul.pagination .page-link i {
   -webkit-box-shadow: 0px 14px 14px -16px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 0px 14px 14px -16px rgba(0, 0, 0, 0.22);
   box-shadow: 0px 14px 14px -16px rgba(0, 0, 0, 0.22);
+}
+.animated-icon {
+  position: fixed;
+  width: 10%;
+  left: 45%;
+  text-align: center;
+  top: 100px;
+  padding: 20px;
+  background: #333;
+  opacity: 0.8;
+  z-index: 1;
+}
+.animated-icon i {
+  font-size: 60px;
+  color: #fff;
+}
+.animated-body {
+  display: none;
 }
 #current-system {
   position: fixed;
@@ -199,7 +200,7 @@ ul.pagination .page-link i {
 }
 #scroll-top {
   position: fixed;
-  bottom: 55px;
+  bottom: 100px;
   right: 50px;
   cursor: pointer;
   display: none;
@@ -298,5 +299,18 @@ ul.pagination .page-link i {
 }
 .tox-tinymce img {
   width: 200px;
+}
+.im-breadcrumb {
+  text-align: center;
+  clear: both;
+}
+.im-breadcrumb a {
+  margin: 1px;
+}
+@media (max-width: 1100px) {
+  .animated-icon {
+    width: 30%;
+    left: 35%;
+  }
 }
 /*# sourceMappingURL=main.css.map */

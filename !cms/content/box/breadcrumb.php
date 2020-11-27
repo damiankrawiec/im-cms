@@ -4,7 +4,7 @@ if(is_array(($tool->getSession('breadcrumb'))) and count(($tool->getSession('bre
 
     $breadcrumbArray = array_reverse($tool->getSession('breadcrumb'));
 
-    echo '<div class="clearfix p-1 text-center">';
+    echo '<div class="im-breadcrumb">';
 
     foreach($breadcrumbArray as $ba) {
 

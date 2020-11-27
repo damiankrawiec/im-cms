@@ -11,6 +11,24 @@
   padding: 10px;
   .box-shadow-light();
 }
+.animated-icon {
+  position: fixed;
+  width: 10%;
+  left: 45%;
+  text-align: center;
+  top: 100px;
+  padding: 20px;
+  background: @black;
+  opacity: 0.8;
+  z-index: 1;
+  i {
+    font-size: 60px;
+    color: @white;
+  }
+}
+.animated-body {
+  display: none;
+}
 //Admin (after successful login)
 #current-system{
   position: fixed;
@@ -89,7 +107,7 @@
 }
 #scroll-top{
   position: fixed;
-  bottom: 55px;
+  bottom: 100px;
   right: 50px;
   cursor: pointer;
   display: none;
@@ -189,5 +207,12 @@
 .tox-tinymce {
   img{
     width: 200px;
+  }
+}
+.im-breadcrumb {
+  text-align: center;
+  clear: both;
+  a {
+    margin: 1px;
   }
 }
