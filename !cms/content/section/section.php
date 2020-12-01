@@ -101,7 +101,7 @@ if($g_var1 != '') {
             $tableData = array(
                 'table' => $tableDefinition[$table],
                 'record' => $record,
-                'event' => 'edit,delete,move:children-section,url',
+                'event' => 'edit,delete,move:children-section,url,copy',
                 'table_delete' => array('im_section_object', 'main' => $table),
                 'sort' => true,
                 'url' => $baseUrl,
@@ -109,6 +109,9 @@ if($g_var1 != '') {
                     'delete' => array(
                         'im_section' => 'parent'
                     )
+                ),
+                'copy' => array(
+                    'form_section' => array('type' => 'checkbox', 'display' => $translation['copy']['section'], 'table' => 'im_section')
                 )
             );
 

@@ -72,15 +72,17 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit,delete,go',//When is "go" attr defined, then must be defined too array with "go" index (below)
-            'table_delete' => array('main' => $table),
+            'event' => 'edit,delete,go,copy',//When is "go" attr defined, then must be defined array with "go" index too (below)
+            'table_delete' => array('main' => $table, 'im_type_property'),
             'restriction' => array(
                 'delete' => array(
-                    'im_object' => 'type_id',
-                    'im_type_property' => 'type_id'
+                    'im_object' => 'type_id'
                 )
             ),
             'url' => $baseUrl,
+            'copy' => array(
+                'form_property' => array('type' => 'checkbox', 'display' => $translation['copy']['property'], 'table' => 'im_type_property')
+            ),
             'go' => array(
                 array('name' => $icon['menu']['object'], 'url' => 'object'),
                 array('name' => $icon['menu']['type-property'], 'url' => 'type-property')

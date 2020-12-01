@@ -144,7 +144,9 @@ $translation = array(
     'copy' => array(
         'fix' => 'Kopiuj przypisania do sekcji i kategorii',
         'outer-data' => 'Kopiuj dane zawnętrzne (obrazy, pliki, źródła)',
-        'translation' => 'Kopiuj wszystkie tłumaczenia (dla każdego języka)'
+        'translation' => 'Kopiuj wszystkie tłumaczenia (dla każdego języka)',
+        'property' => 'Kopiuj wszystkie przypisane właściwości',
+        'section' => 'Kopiuj całą strukturę przypisaną do sekcji'
     ),
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',

@@ -50,88 +50,96 @@ if($recordSource) {
 
         foreach($eventData['data'] as $table) {
 
-            if(stristr($table, ',')) {
+            if ($table == $p_table) {
 
-                $tableArray = explode(',', $table);
+                if ($table == 'im_section')
+                    require_once 'php/run/copy/section.php';
 
-            }else $tableArray = array($table);
+            }else{
 
-            foreach($tableArray as $ta) {
+                if (stristr($table, ',')) {
 
-                $fieldIdTable = $fieldId;
-                if($ta == 'im_translation')
-                    $fieldIdTable = 'target_record';
+                    $tableArray = explode(',', $table);
 
-                $sql = 'select * from '.$ta.' where '.$fieldIdTable.' = :id';
+                } else $tableArray = array($table);
+                foreach ($tableArray as $ta) {
 
-                $db->prepare($sql);
+                    $fieldIdTable = $fieldId;
+                    if ($ta == 'im_translation')
+                        $fieldIdTable = 'target_record';
 
-                $parameter = array(
-                    array('name' => ':id', 'value' => $p_id, 'type' => 'int')
-                );
-
-                $db->bind($parameter);
-
-                $recordSourceRest = $db->run('all');
-
-                if($recordSourceRest) {
-
-                    $parameter = array();
-                    $sqlField = $sqlValue = '';
-                    foreach ($recordSourceRest as $n => $rsr) {
-
-                        $sqlValue .= '(';
-                        foreach ($rsr as $j => $rsrd) {
-
-                            if ($j == $addition->cleanText($ta, 'im_') . '_id' or $j == 'date_create' or $j == 'date_modify')
-                                continue;
-
-                            if ($n == 0 and !is_int($j))
-                                $sqlField .= $j . ',';
-
-                            if(!is_int($j))
-                                $sqlValue .= ':'. $j . $n .',';
-
-                            if(!is_int($j)) {
-
-                                if($fieldIdTable == $j) {
-
-                                    $newValue = $copyId;
-
-                                }else{
-
-                                    $newValue = $rsrd;
-
-                                }
-
-                                $bindType = 'string';
-                                if(is_numeric($newValue))
-                                    $bindType = 'int';
-
-                                array_push($parameter, array('name' => ':' . $j . $n, 'value' => $newValue, 'type' => $bindType));
-
-                            }
-
-                        }
-                        if ($n == 0)
-                            $sqlField = substr($sqlField, 0, -1);
-
-                        $sqlValue = substr($sqlValue, 0, -1);
-
-                        $sqlValue .= '),';
-
-
-                    }
-
-                    $sqlValue = substr($sqlValue, 0, -1);
-
-                    $sql = 'insert into ' . $ta . ' ('.$sqlField.') values '.$sqlValue;
+                    $sql = 'select * from ' . $ta . ' where ' . $fieldIdTable . ' = :id';
 
                     $db->prepare($sql);
 
+                    $parameter = array(
+                        array('name' => ':id', 'value' => $p_id, 'type' => 'int')
+                    );
+
                     $db->bind($parameter);
 
-                    $db->run();
+                    $recordSourceRest = $db->run('all');
+
+                    if ($recordSourceRest) {
+
+                        $parameter = array();
+                        $sqlField = $sqlValue = '';
+                        foreach ($recordSourceRest as $n => $rsr) {
+
+                            $sqlValue .= '(';
+                            foreach ($rsr as $j => $rsrd) {
+
+                                if ($j == $addition->cleanText($ta, 'im_') . '_id' or $j == 'date_create' or $j == 'date_modify')
+                                    continue;
+
+                                if ($n == 0 and !is_int($j))
+                                    $sqlField .= $j . ',';
+
+                                if (!is_int($j))
+                                    $sqlValue .= ':' . $j . $n . ',';
+
+                                if (!is_int($j)) {
+
+                                    if ($fieldIdTable == $j) {
+
+                                        $newValue = $copyId;
+
+                                    } else {
+
+                                        $newValue = $rsrd;
+
+                                    }
+
+                                    $bindType = 'string';
+                                    if (is_numeric($newValue))
+                                        $bindType = 'int';
+
+                                    array_push($parameter, array('name' => ':' . $j . $n, 'value' => $newValue, 'type' => $bindType));
+
+                                }
+
+                            }
+                            if ($n == 0)
+                                $sqlField = substr($sqlField, 0, -1);
+
+                            $sqlValue = substr($sqlValue, 0, -1);
+
+                            $sqlValue .= '),';
+
+
+                        }
+
+                        $sqlValue = substr($sqlValue, 0, -1);
+
+                        $sql = 'insert into ' . $ta . ' (' . $sqlField . ') values ' . $sqlValue;
+
+                        $db->prepare($sql);
+
+                        $db->bind($parameter);
+
+                        $db->run();
+
+                    }
 
                 }
 
