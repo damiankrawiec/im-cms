@@ -15,6 +15,12 @@ $(function(){
         if($this.hasClass('save-back'))
             $($targetForm).find('input[name="save_back"]').prop('disabled', false);
 
+        if($this.hasClass('edit-prev'))
+            $($targetForm).find('input[name="edit_prev"]').prop('disabled', false);
+
+        if($this.hasClass('edit-next'))
+            $($targetForm).find('input[name="edit_next"]').prop('disabled', false);
+
         if($this.attr('class').indexOf('validation-run') > -1) {
 
             if(validation($targetForm)){
@@ -295,6 +301,12 @@ $(function(){
         fileDelete();
 
         editFix();
+
+        //insert visible record (after edit click) ids to navigation in edit view
+        editOne();
+
+        if($('#auto-submit').length)
+            $('#auto-submit').submit();
 
         if($('.copy-url').length > 0)
             copyUrl();

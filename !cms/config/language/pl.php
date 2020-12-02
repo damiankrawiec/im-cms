@@ -35,6 +35,8 @@ $translation = array(
         'one' => array('type' => 'Typ', 'label' => 'Etykieta'),
         'leave-edit' => 'Opuść tryb edycji',
         'update' => 'Uaktualnij',
+        'update-prev' => 'Uaktualnij i edytuj poprzedni',
+        'update-next' => 'Uaktualnij i edytuj następny',
         'save-back' => 'Zapisz i wróć do listy',
         'add-stay' => 'Dodaj i pozostań',
         'status' => 'Status',
@@ -145,8 +147,7 @@ $translation = array(
         'fix' => 'Kopiuj przypisania do sekcji i kategorii',
         'outer-data' => 'Kopiuj dane zawnętrzne (obrazy, pliki, źródła)',
         'translation' => 'Kopiuj wszystkie tłumaczenia (dla każdego języka)',
-        'property' => 'Kopiuj wszystkie przypisane właściwości',
-        'section' => 'Kopiuj całą strukturę przypisaną do sekcji'
+        'property' => 'Kopiuj wszystkie przypisane właściwości'
     ),
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',

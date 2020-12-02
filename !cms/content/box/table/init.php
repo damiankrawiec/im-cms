@@ -174,7 +174,7 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                         }else $editIcon = $icon['button']['edit'];
 
-                        echo '<a href="' . $tableData['url'] . ',edit,' . $currentId . '" class="btn btn-light">' . $editIcon . '</a>';
+                        echo '<button id="' . $tableData['url'] . ',edit,' . $currentId . '" class="btn btn-light edit-one">' . $editIcon . '</button>';
 
                     }
 

@@ -3,11 +3,9 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<div class="window-background">';
 
-    if(isset($eventData['record']->system_name)) {
-
+    $nameDisplay = 'name';
+    if(isset($eventData['record']->system_name))
         $nameDisplay = 'system_name';
-
-    }else $nameDisplay = 'name';
 
     echo '<h3>'.$nameDisplay = $eventData['record']->$nameDisplay.'</h3>';
 
@@ -129,6 +127,22 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
         echo '<input type="hidden" name="save_back" value="true" disabled>';
 
+        if($p_ids) {
+
+            $fieldId = $addition->cleanText($table, 'im_').'_id';
+
+            $currentKey = array_search($eventData['record']->$fieldId, $p_ids);
+
+            echo '<input type="hidden" name="ids" value="' . $addition->arrayJson($p_ids) . '">';
+
+            if(isset($p_ids[$currentKey - 1]))
+                echo '<input type="hidden" name="edit_prev" value="'.$p_ids[$currentKey - 1].'" disabled>';
+
+            if(isset($p_ids[$currentKey + 1]))
+                echo '<input type="hidden" name="edit_next" value="'.$p_ids[$currentKey + 1].'" disabled>';
+
+        }
+
     echo '</form>';
 
     if(isset($translationForm)) {
@@ -152,6 +166,17 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
     echo '<div class="button-event">';
 
         echo '<button class="btn btn-success submit'.$collectionSubmit.' validation-run" id="edit">' . $translation['button']['update'] .'</button>';
+
+        if ($p_ids) {
+
+            if(isset($p_ids[$currentKey - 1]))
+                echo '<button class="btn btn-success submit' . $collectionSubmit . ' validation-run ml-1 edit-prev" id="edit">' . $translation['button']['update-prev'] . '</button>';
+
+            if(isset($p_ids[$currentKey + 1]))
+                echo '<button class="btn btn-success submit' . $collectionSubmit . ' validation-run ml-1 edit-next" id="edit">' . $translation['button']['update-next'] . '</button>';
+
+
+        }
 
         echo '<button class="btn btn-primary submit'.$collectionSubmit.' validation-run save-back ml-1" id="edit">' . $translation['button']['save-back'] .'</button>';
 

@@ -793,3 +793,29 @@ function showContent($animate = false) {
     }
 
 }
+function editOne() {
+
+    $('.edit-one').click(function () {
+
+        let $this = $(this);
+
+        let $arrayId = [];
+        $('table.data-table tbody tr').each(function () {
+
+            $arrayId.push($(this).attr('id'));
+
+        });
+
+        let $arrayJson = JSON.stringify($arrayId);
+
+        $arrayJson = $arrayJson.replaceAll('"', '\'');
+
+        let $editOneForm = $('<form method="post" action="' + $this.attr('id') + '"><input type="hidden" name="ids" value="' + $arrayJson + '"></form>');
+
+        $('body').append($editOneForm);
+
+        $editOneForm.submit();
+
+    });
+
+}

@@ -62,13 +62,25 @@ $p_save_back = false;
 if(isset($_POST['save_back']))
     $p_save_back = $_POST['save_back'];
 
-$p_restriction = false;
-if(isset($_POST['restriction']))
-    $p_restriction = $addition->jsonArray($_POST['restriction']);
+$p_edit_prev = false;
+if(isset($_POST['edit_prev']))
+    $p_edit_prev = $_POST['edit_prev'];
+
+$p_edit_next = false;
+if(isset($_POST['edit_next']))
+    $p_edit_next = $_POST['edit_next'];
 
 $p_file_delete = false;
 if(isset($_POST['file_delete']))
     $p_file_delete = $_POST['file_delete'];
+
+$p_restriction = false;
+if(isset($_POST['restriction']))
+    $p_restriction = $addition->jsonArray($_POST['restriction']);
+
+$p_ids = false;
+if(isset($_POST['ids']))
+    $p_ids = $addition->jsonArray($_POST['ids']);
 
 $p_event_table = false;
 if(isset($_POST['event_table']))

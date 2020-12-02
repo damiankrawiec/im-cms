@@ -96,3 +96,15 @@ if($p_save_back) {
         $addition->link($addition->getUrl().',edit,'.$lastInsertId);
 
 }
+
+if ($p_ids and ($p_edit_prev or $p_edit_next)) {
+
+    if ($p_edit_prev)
+        $goUrl =  $p_edit_prev;
+
+    if ($p_edit_next)
+        $goUrl = $p_edit_next;
+
+    echo '<form method="post" action="'.$addition->getUrl($addition->getUrlCount() - 1) . ','.$goUrl.'" id="auto-submit"><input type="hidden" name="ids" value="' . $addition->arrayJson($p_ids) . '"></form>';
+
+}
