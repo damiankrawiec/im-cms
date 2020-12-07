@@ -109,6 +109,9 @@ if($g_var1 != '') {
                     'delete' => array(
                         'im_section' => 'parent'
                     )
+                ),
+                'copy' => array(
+                    'form_fix' => array('type' => 'checkbox', 'display' => $translation['copy']['section-object'], 'table' => 'im_section_object')
                 )
             );
 
