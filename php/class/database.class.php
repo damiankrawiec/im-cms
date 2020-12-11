@@ -61,12 +61,44 @@ class Database extends systemSetting
                 break;
 
             default:
-                var_dump('Wrong binding type: '.$type);
+                $this->error('Wrong binding type: '.$type);
                 exit();
 
         }
 
         return $typeReturn;
+
+    }
+    private function error($mainInfo, $mainInfoSupplement = false, $supplementInfo = false) {
+
+        echo '<div style="background-color: #fff; padding: 10px; border: 5px solid #aaa; margin-top: 10px">';
+
+            echo '<div style="color: #000; font-family: Courier; padding: 10px; background-color: #eee; font-weight: bold">'.$mainInfo.'</div>';
+
+            if($mainInfoSupplement)
+                echo '<p style="color: #bd3535; font-family: Courier">'.$mainInfoSupplement.'</p>';
+
+            if($supplementInfo)
+                var_dump($supplementInfo);
+
+            $debugArray = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+            foreach ($debugArray as $i => $d) {
+
+                echo '<br><strong>'.$i.':</strong>';
+                echo '<div style="padding: 10px; border: 1px solid red">';
+
+                    var_dump($d);
+
+                echo '</div>';
+
+
+
+            }
+
+        echo '</div>';
+
+        exit();
 
     }
 
@@ -100,7 +132,7 @@ class Database extends systemSetting
 
             }else{
 
-                var_dump('SQL query variables do not match: '.$this->sql);
+                $this->error('Error in bind(), sql query is set, prepare is set, number parameters in bind not match in parameters array: '.__LINE__, $this->sql, $this->parameter);
 
                 exit();
 
@@ -108,7 +140,7 @@ class Database extends systemSetting
 
         }else{
 
-            var_dump('Bind parameter must exists: '.$this->sql);
+            $this->error('Bind parameter must exists: '.$this->sql);
 
             exit();
 
@@ -157,8 +189,6 @@ class Database extends systemSetting
                     //Return "false" when count of row is 0
                     return $displayReturn;
 
-
-
                 //insert, update, delete query
                 }else{
 
@@ -178,13 +208,8 @@ class Database extends systemSetting
 
                 //Remove in "production environment"
 
-                var_dump('Error execute() in run()');
+                $this->error('Error in run(), sql query is set, prepare is set, parameters match, error is probably in query or in parameters (type, empty, etc.): ', $this->sql, $this->parameter);
 
-                echo $this->sql.'<br>';
-
-                var_dump($this->parameter);
-
-                exit();
             }
 
         }else{
