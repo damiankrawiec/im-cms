@@ -135,15 +135,6 @@ insert into im_object_category values (null, 3, 2);
 insert into im_object_category values (null, 5, 2);
 insert into im_object_category values (null, 6, 3);
 
-insert into im_setting values (null, 'System name', 'name', 'IM-CMS Engine', '', null, null);
-insert into im_setting values (null, 'Favicon', 'favicon', 'favicon.png', '', null, null);
-insert into im_setting values (null, 'Font', 'font', 'Lato', '', null, null);
-insert into im_setting values (null, 'Font size', 'font-size', '15px', '', null, null);
-insert into im_setting values (null, 'Google API', 'google-api', '', '', null, null);
-insert into im_setting values (null, 'Style map', 'map-style', '', '', null, null);
-insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
-insert into im_setting values (null, 'Loading page', 'loading-page', 'background: #000;|top:30%;|color:#fff;font-size: 150px;|fad fa-spinner-third fa-spin|fadeOutUp|1000', 'Background style, icon box style, icon style, icon class, animation, visible time', null, null);
-
 insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
 insert into im_translation values (null, 2,  'In english image', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);

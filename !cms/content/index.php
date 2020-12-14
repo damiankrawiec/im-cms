@@ -15,83 +15,89 @@
 
 </head>
 <body>
-    <div class="animated-icon"><p class="text-secondary h5"><?php echo $translation['system']['name']; ?></p><?php echo $icon['process']['site']; ?></div>
-    <div class="animated animated-body">
 
-        <?php
+<?php
 
-        //---DO NOT REMOVE!!!
+    if(!$s_debug) {
 
-        //Init setting and $db object
-        require_once 'php/script/system.php';
+        echo '<div class="animated-icon"><p class="text-secondary h5">'.$translation['system']['name'].'</p>'.$icon['process']['site'].'</div>';
 
-        //If detect "transaction" then /run
-        if($p_transaction)
-            require_once 'php/run/init.php';
+        echo '<div class="animated animated-body">';
 
-        //---DO NOT REMOVE!!!
+    }else echo '<div>';
 
-        //History of urls
-        require_once 'content/box/breadcrumb.php';
+    //---DO NOT REMOVE!!!
 
-        echo '<div class="container-fluid" id="content-top">';
+    //Init setting and $db object
+    require_once 'php/script/system.php';
 
-            echo '<div class="row bg-secondary">';
+    //If detect "transaction" then /run
+    if($p_transaction)
+        require_once 'php/run/init.php';
 
-            echo '<div class="col-6">';
+    //---DO NOT REMOVE!!!
 
-                require_once 'content/box/top.php';
+    //History of urls
+    require_once 'content/box/breadcrumb.php';
 
-            echo '</div>';
+    echo '<div class="container-fluid" id="content-top">';
 
-            echo '<div class="col-6 text-right text-white">';
+        echo '<div class="row bg-secondary">';
 
-                require_once 'content/box/logged.php';
+        echo '<div class="col-6">';
 
-            echo '</div>';
-
-            echo '</div>';
-
-            echo '<div class="row bg-dark">';
-
-            echo '<div class="col-12 col-lg-10">';
-
-                require_once 'content/box/menu.php';
-
-            echo '</div>';
-
-            echo '<div class="col-12 col-lg-2">';
-
-                //Select domain system
-                require_once 'content/box/select-system.php';
-
-            echo '</div>';
-
-            echo '</div>';
+            require_once 'content/box/top.php';
 
         echo '</div>';
 
-        echo '<div class="container-fluid animated fadeIn" id="container">';
+        echo '<div class="col-6 text-right text-white">';
 
-        //Content
-        require_once 'content/box/content.php';
+            require_once 'content/box/logged.php';
 
         echo '</div>';
 
-        //Display information about current system to be management
-        require_once $sectionPathAdmin.'content/box/current-system.php';
+        echo '</div>';
 
-        require_once $sectionPathAdmin.'content/box/process.php';
+        echo '<div class="row bg-dark">';
 
-        require_once $sectionPathAdmin.'content/box/modal.php';
+        echo '<div class="col-12 col-lg-10">';
 
-        require_once $sectionPath.'section/body.php';
+            require_once 'content/box/menu.php';
 
-        require_once $sectionPathAdmin.'layout/js/js.php';
+        echo '</div>';
 
-        require_once $sectionPathAdmin.'section/variable.php';
+        echo '<div class="col-12 col-lg-2">';
 
-        ?>
+            //Select domain system
+            require_once 'content/box/select-system.php';
+
+        echo '</div>';
+
+        echo '</div>';
+
+    echo '</div>';
+
+    echo '<div class="container-fluid animated fadeIn" id="container">';
+
+    //Content
+    require_once 'content/box/content.php';
+
+    echo '</div>';
+
+    //Display information about current system to be management
+    require_once $sectionPathAdmin.'content/box/current-system.php';
+
+    require_once $sectionPathAdmin.'content/box/process.php';
+
+    require_once $sectionPathAdmin.'content/box/modal.php';
+
+    require_once $sectionPath.'section/body.php';
+
+    require_once $sectionPathAdmin.'layout/js/js.php';
+
+    require_once $sectionPathAdmin.'section/variable.php';
+
+    ?>
 
     </div>
 </body>

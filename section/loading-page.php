@@ -7,7 +7,7 @@ if(isset($setting['loading-page']) and $setting['loading-page'] != '') {
 
         if(count($loadingPageStyle) == 6) {
 
-            if (!$g_debug) {
+            if ($setting['debug'] == 'disable') {
 
                 echo '<div id="loading-page" class="animated" rel="' . $loadingPageStyle[5] . '" dir="' . $loadingPageStyle[4] . '"><div><i class="' . $loadingPageStyle[3] . '"></i></div></div>';
 

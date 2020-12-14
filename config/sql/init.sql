@@ -947,3 +947,15 @@ insert into im_translation_system values (null, 1,  'Błąd captcha', 'captcha-e
 insert into im_translation_system values (null, 2,  'Captcha error', 'captcha-error', 'Captcha error', '', null, null);
 insert into im_translation_system values (null, 1,  'Captcha', 'captcha-text', 'Wpisz znaki', '', null, null);
 insert into im_translation_system values (null, 2,  'Captcha', 'captcha-text', 'Insert captcha', '', null, null);
+
+-- setting
+
+insert into im_setting values (null, 'System name', 'name', 'IM-CMS Engine', '', null, null);
+insert into im_setting values (null, 'Favicon', 'favicon', 'favicon.png', '', null, null);
+insert into im_setting values (null, 'Font', 'font', 'Lato', '', null, null);
+insert into im_setting values (null, 'Font size', 'font-size', '15px', '', null, null);
+insert into im_setting values (null, 'Google API', 'google-api', '', '', null, null);
+insert into im_setting values (null, 'Style map', 'map-style', '', '', null, null);
+insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
+insert into im_setting values (null, 'Loading page', 'loading-page', 'background: #000;|top:30%;|color:#fff;font-size: 150px;|fad fa-spinner-third fa-spin|fadeOutUp|1000', 'Background style, icon box style, icon style, icon class, animation, visible time', null, null);
+insert into im_setting values (null, 'Debug', 'debug', 'disable', 'enable/disable (status)', null, null);
