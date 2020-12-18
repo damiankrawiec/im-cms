@@ -90,26 +90,10 @@ class ObjectContent extends Language {
         }
 
         //Name of aliases need to be the same as system_name of property fixed to type of object
-        $sql = 'select 
-            o.object_id as id, 
-            o.name as name, 
-            o.date as date, 
-            o.type_id as type, 
-            o.content as content, 
-            o.section as section,
-            o.section_name as section_name, 
-            o.link as link,
-            o.link_name as link_name,
-            o.email as email,
-            o.form as form,
-            o.attachment as attachment, 
-            o.icon as icon,
-            o.map as map';
+        $sql = $this->getObjectSql();
 
         //Field from joining tables
         //if($isParameter) {}
-
-        $sql .= ' from im_object o';
 
         if($isParameter) {
 
@@ -154,6 +138,63 @@ class ObjectContent extends Language {
 
     }
 
+    private function getObjectFree() {
+
+        $this->db->prepare('select object_id as id from im_object where status like "on"');
+
+        $allObject = $this->db->run('all');
+
+        if($allObject) {
+
+            $freeObject = array();
+            foreach ($allObject as $ao) {
+
+                $this->db->prepare('select section_object_id from im_section_object where object_id = :object');
+
+                $this->db->bind(array(array('name' => ':object', 'value' => $ao['id'], 'type' => 'int')));
+
+                if (!$this->db->run('one'))
+                    array_push($freeObject, $ao['id']);
+
+            }
+
+            $sqlObjectFree = $this->getObjectSql();
+
+            //in not sorting!! - performance
+            $sqlObjectFree .= ' where o.object_id in ('.implode(',', $freeObject).')';
+
+            $sqlObjectFree .= ' order by o.position';
+
+            $this->db->prepare($sqlObjectFree);
+
+            return $this->db->run('all');
+
+        }
+
+    }
+
+    //Field of object, in getObject() and getObjectFree()
+    private function getObjectSql() {
+
+        return 'select 
+            o.object_id as id, 
+            o.name as name, 
+            o.date as date, 
+            o.type_id as type, 
+            o.content as content, 
+            o.section as section,
+            o.section_name as section_name, 
+            o.link as link,
+            o.link_name as link_name,
+            o.email as email,
+            o.form as form,
+            o.attachment as attachment, 
+            o.icon as icon,
+            o.map as map
+            from im_object o';
+
+    }
+
     private function getPropertyFromType($type) {
 
         $sql = 'select property_id as id, class, class_field from im_type_property where type_id = :type and status like "on" order by position';
@@ -189,7 +230,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function displayProperty($property, $data, $section) {
+    private function displayProperty($property, $data) {
 
         echo '<div class="row">';
 
@@ -761,14 +802,16 @@ class ObjectContent extends Language {
 
     public function display($section = false, $label = false, $option = false) {
 
-        if($section and $label) {
+        if($label) {
 
             $this->label = $label;
 
             $parameter = array(
-                array('name' => ':section', 'value' => $section, 'type' => 'int'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
             );
+
+            if ($section and $section > 0)
+                array_push($parameter, array('name' => ':section', 'value' => $section, 'type' => 'int'));
 
             $objectRecord = $this->getObject($parameter);
 
