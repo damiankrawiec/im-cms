@@ -36,9 +36,13 @@
 
     echo '<script>';
 
+    $zoomMap = 10;
+    if(isset($setting['zoom-map']) and $setting['zoom-map'] != '')
+        $zoomMap = $setting['zoom-map'];
+
     foreach($data['map-array'] as $m => $map) {
 
-        echo 'initMap("'.$m.'", "'.$map.'", 5);'."\n";
+        echo 'initMap("'.$m.'", "'.$map.'", '.$zoomMap.');'."\n";
 
     }
 

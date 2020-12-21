@@ -960,3 +960,4 @@ insert into im_setting values (null, 'Style map', 'map-style', '', '', null, nul
 insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
 insert into im_setting values (null, 'Loading page', 'loading-page', 'background: #000;|top:30%;|color:#fff;font-size: 150px;|fad fa-spinner-third fa-spin|fadeOutUp|1000', 'Background style, icon box style, icon style, icon class, animation, visible time', null, null);
 insert into im_setting values (null, 'Debug', 'debug', 'disable', 'enable/disable (status)', null, null);
+insert into im_setting values (null, 'Map zoom', 'zoom-map', '16', '15, 16, 17 - probably will be ok', null, null);
