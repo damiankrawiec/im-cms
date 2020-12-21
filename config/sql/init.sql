@@ -332,6 +332,7 @@ create table im_object (
     position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
+    status_free varchar(3) default 'off',
     description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
     date_create datetime,-- create time

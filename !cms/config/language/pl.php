@@ -185,7 +185,8 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
-        'status_copy' => 'Powielany'
+        'status_copy' => 'Powielany',
+        'status_free' => 'Wszystkie sekcje'
     ),
     'im_type_property' => array(
         'name' => 'Nazwa',

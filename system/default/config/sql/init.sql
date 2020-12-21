@@ -54,18 +54,18 @@ insert into im_type_property values (null, 8, 14, 'col-12', '', 1, 'on', '', nul
 
 -- record, object
 
-insert into im_object values (null, 1, 1, 2, 'Przekierowanie na kontakt', 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', '',  '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Aktualność druga na stronie głównej', '', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Aktualność na stronie kontakt', '', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, '', 'Slider', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 4, 4, 0, '', 'Menu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 5, 5, 0, '', 'Submenu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 6, 6, 0, '', 'Języki', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 7, 7, 0, '', 'Ciasteczka', '', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
-insert into im_object values (null, 8, 8, 0, '', 'Nawigacja okruszkowa', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 2, 'Przekierowanie na kontakt', 'Aktualność pierwsza na stronie głównej (prowadzi do sekcji "kontakt")', '',  '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Aktualność druga na stronie głównej', '', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Aktualność na stronie kontakt', '', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, '', 'Atrybut firmy na stronie głównej, kontakt', '', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, '', 'Slider', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, '', 'Menu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 5, 5, 0, '', 'Submenu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 6, 6, 0, '', 'Języki', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 7, 7, 0, '', 'Ciasteczka', '', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
+insert into im_object values (null, 8, 8, 0, '', 'Nawigacja okruszkowa', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off', '', null, null, null);
 
 -- record, object image
 

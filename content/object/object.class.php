@@ -121,6 +121,14 @@ class ObjectContent extends Language {
 
             }
 
+            if(in_array('free', $parameterArray)) {
+
+                $sql .= $this->whereOrAnd($sql);
+
+                $sql .= ' o.status_free = :free';
+
+            }
+
         }
 
         $sql .= $this->whereOrAnd($sql);
@@ -138,42 +146,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function getObjectFree() {
-
-        $this->db->prepare('select object_id as id from im_object where status like "on"');
-
-        $allObject = $this->db->run('all');
-
-        if($allObject) {
-
-            $freeObject = array();
-            foreach ($allObject as $ao) {
-
-                $this->db->prepare('select section_object_id from im_section_object where object_id = :object');
-
-                $this->db->bind(array(array('name' => ':object', 'value' => $ao['id'], 'type' => 'int')));
-
-                if (!$this->db->run('one'))
-                    array_push($freeObject, $ao['id']);
-
-            }
-
-            $sqlObjectFree = $this->getObjectSql();
-
-            //in not sorting!! - performance
-            $sqlObjectFree .= ' where o.object_id in ('.implode(',', $freeObject).')';
-
-            $sqlObjectFree .= ' order by o.position';
-
-            $this->db->prepare($sqlObjectFree);
-
-            return $this->db->run('all');
-
-        }
-
-    }
-
-    //Field of object, in getObject() and getObjectFree()
+    //Field of object in sql query - getObject()
     private function getObjectSql() {
 
         return 'select 
@@ -807,15 +780,32 @@ class ObjectContent extends Language {
             $this->label = $label;
 
             $parameter = array(
+                array('name' => ':free', 'value' => 'on', 'type' => 'string'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
             );
 
-            if ($section and $section > 0)
-                array_push($parameter, array('name' => ':section', 'value' => $section, 'type' => 'int'));
+            $objectRecordFree = $this->getObject($parameter);
 
-            $objectRecord = $this->getObject($parameter);
+            $parameter[0]['value'] = 'off';
+            array_push($parameter, array('name' => ':section', 'value' => $section, 'type' => 'int'));
 
-            if($objectRecord) {
+            $objectRecordSection = $this->getObject($parameter);
+
+            $objectRecord = array();
+            if($objectRecordFree) {
+
+                foreach ($objectRecordFree as $orf)
+                    array_push($objectRecord, $orf);
+
+            }
+            if($objectRecordSection) {
+
+                foreach ($objectRecordSection as $ors)
+                    array_push($objectRecord, $ors);
+
+            }
+
+            if(count($objectRecord) > 0) {
 
                 $classLabelDisplay = $classLabelRowDisplay = '';
 

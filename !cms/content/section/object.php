@@ -39,7 +39,8 @@ if($g_var1 != '') {
         date_create,
         date_modify,
         status,
-        status_copy
+        status_copy,
+        status_free
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {
@@ -176,6 +177,10 @@ if($g_var1 != '') {
                     'table' => array('name' => 'im_object_movie', 'id' => 'movie_id', 'sort' => 'position')
                 )
             );
+
+            //When object show in all section (status_free), then hide fix to section on edit
+            if($record->status_free == 'on')
+                unset($eventData['fix-0']);
 
             //Filter fields in type (hide)
             require_once 'php/script/field.php';
