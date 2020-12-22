@@ -12,19 +12,56 @@
 
     <script>
 
-        var $styles = <?php echo $styles; ?>
+        let $styles = <?php echo $styles; ?>
 
-        function initMap($object = false, $coordinates, $zoom = 4) {
+        function initMap($object = false, $coordinates, $zoom) {
 
             if($object && $coordinates.indexOf(",") > -1) {
 
-                var $coordinatesArray = $coordinates.split(",");
+                let $coordinatesArray = $coordinates.split(",");
 
-                var $uluru = {lat: parseFloat($coordinatesArray[0]), lng: parseFloat($coordinatesArray[1])};
+                let $uluru = {lat: parseFloat($coordinatesArray[0]), lng: parseFloat($coordinatesArray[1])};
 
-                var $map = new google.maps.Map(document.getElementById($object), {zoom: $zoom, center: $uluru, styles: $styles});
+                let $map = new google.maps.Map(document.getElementById($object), {zoom: $zoom, center: $uluru, styles: $styles});
 
-                new google.maps.Marker({position: $uluru, map: $map});
+                let $marker = new google.maps.Marker({position: $uluru, map: $map});
+
+                let $popup = popup($object);
+
+                if($popup) {
+
+                    let $window = new google.maps.InfoWindow({
+                        content: $popup
+                    });
+
+                    $window.open($map, $marker);
+
+                    $marker.addListener("click", () => {
+
+                        $window.open($map, $marker);
+
+                    });
+
+
+                }
+
+            }
+
+        }
+
+        function popup($object) {
+
+            if ($object) {
+
+                let $parent = document.getElementById($object).closest('.object');
+
+                let $popup = $parent.getElementsByClassName('map-popup')
+
+                if($popup.length) {
+
+                    return $popup[0].outerHTML;
+
+                }else return false;
 
             }
 

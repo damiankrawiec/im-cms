@@ -953,7 +953,7 @@ class ObjectContent extends Language {
 
                             }
 
-                            $this->displayProperty($property, $displayPropertyData, $section);
+                            $this->displayProperty($property, $displayPropertyData);
 
                             echo '</div>';
 
