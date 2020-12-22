@@ -106,7 +106,8 @@ $translation = array(
         'section_name' => 'Pole nazwa do której jest przekierowanie',
         'class' => 'Pole do nadawania właściwości poprzez klasę (zaawansowane, nie jest wymagane)',
         'class_field' => 'Pole wewnętrzne do nadawania właściwości poprzez klasę (zaawansowane)',
-        'class_row' => 'Pole do nadawania właściwości otoczeniu obiektów w etykiecie poprzez klasę (zaawansowane, nie jest wymagane)',
+        'class_row' => 'Pole do nadawania właściwości otoczeniu obiektów w rzędzie pierwszym w etykiecie poprzez klasę (zaawansowane, nie jest wymagane)',
+        'class_row_second' => 'Pole do nadawania właściwości otoczeniu obiektów w rzędzie drugim w etykiecie poprzez klasę (zaawansowane, nie jest wymagane)',
         'description' => 'Pole widoczne tylko dla administratora (nie jest wymagane)',
         'link' => 'Pole na odsyłacz zewnętrzny (otwarcie w nowym oknie)',
         'link_name' => 'Pole na nazwę odsyłacza zewnętrznego',
@@ -449,6 +450,7 @@ $tableDefinitionEvent = array(
         'label' => 'Etykieta',
         'class' => 'Właściwości',
         'class_row' => 'Właściwości otoczenia (pierwszy wiersz)',
+        'class_row_second' => 'Właściwości otoczenia (drugi wiersz)',
         'description' => 'Opis techniczny'
     ),
     'im_form' => array(

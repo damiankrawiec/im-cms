@@ -19,6 +19,7 @@ $sql = 'select
         ifnull((select name from im_section where section_id = t.section), "'.$translation['table']['all'].'") as name,-- the section is not in relation
         t.class as class,
         t.class_row as class_row,
+        t.class_row_second as class_row_second,
         if(t.description = \'\', \'-\', t.description) as description,
         t.date_create as date_create,
         t.date_modify as date_modify

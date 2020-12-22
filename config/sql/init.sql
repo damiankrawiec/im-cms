@@ -430,6 +430,7 @@ create table im_label_section (
     section int not null,-- section id, but it is not key (relationship)
     class varchar(256) collate utf8_polish_ci default '',-- class of label (may be in section)
     class_row varchar(256) collate utf8_polish_ci default '',-- class of first row in label (may be in section)
+    class_row_second varchar(256) collate utf8_polish_ci default '',-- class of second row in label (may be in section)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time

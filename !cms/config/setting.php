@@ -174,6 +174,7 @@ $s_eventDefinition = array(
             'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section', 'table' => 'im_label_section'),
             'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256),
             'class_row' => array('name' => $tableDefinitionEvent['im_label_section']['class_row'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256),
+            'class_row_second' => array('name' => $tableDefinitionEvent['im_label_section']['class_row_second'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256),
             'description' => array('name' => $tableDefinitionEvent['im_label_section']['description'], 'type' => 'textarea', 'table' => 'im_label_section')
         ),
         'im_form' => array(
@@ -252,7 +253,8 @@ $s_eventDefinition = array(
             'label_id' => array('name' => $tableDefinitionEvent['im_label_section']['label'], 'type' => 'select:im_label', 'require' => 'validation :select'),
             'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section'),
             'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'size' => 256),
-            'class_row' => array('name' => $tableDefinitionEvent['im_label_section']['class_row'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256)
+            'class_row' => array('name' => $tableDefinitionEvent['im_label_section']['class_row'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256),
+            'class_row_second' => array('name' => $tableDefinitionEvent['im_label_section']['class_row_second'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256)
         )
     )
 );

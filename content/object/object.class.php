@@ -203,9 +203,10 @@ class ObjectContent extends Language {
 
     }
 
-    private function displayProperty($property, $data, $section) {
+    //Section is used in require (do not remove)
+    private function displayProperty($property, $data, $section, $classRow) {
 
-        echo '<div class="row">';
+        echo '<div class="'.$classRow.'row">';
 
         foreach ($property as $p) {
 
@@ -560,7 +561,7 @@ class ObjectContent extends Language {
 
         $labelOne = $this->db->run('one');
 
-        $sql = 'select class, class_row
+        $sql = 'select class, class_row, class_row_second
                 from im_label_section
                 where label_id = :label
                 and section = :section';
@@ -807,7 +808,7 @@ class ObjectContent extends Language {
 
             if(count($objectRecord) > 0) {
 
-                $classLabelDisplay = $classLabelRowDisplay = '';
+                $classLabelDisplay = $classLabelRowDisplay = $classLabelRowSecondDisplay = '';
 
                 $classLabel = $this->getClassLabel($section);
 
@@ -818,6 +819,9 @@ class ObjectContent extends Language {
 
                     if($classLabel->class_row != '')
                         $classLabelRowDisplay = $classLabel->class_row.' ';
+
+                    if($classLabel->class_row_second != '')
+                        $classLabelRowSecondDisplay = $classLabel->class_row_second.' ';
 
                     if(stristr($classLabel->class, 'col') and $this->checkDisplayOption($option, 'begin')) {
 
@@ -953,7 +957,7 @@ class ObjectContent extends Language {
 
                             }
 
-                            $this->displayProperty($property, $displayPropertyData, $section);
+                            $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay);
 
                             echo '</div>';
 
