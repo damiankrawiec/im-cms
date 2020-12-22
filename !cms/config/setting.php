@@ -251,7 +251,7 @@ $s_eventDefinition = array(
         'im_label_section' => array(
             'label_id' => array('name' => $tableDefinitionEvent['im_label_section']['label'], 'type' => 'select:im_label', 'require' => 'validation :select'),
             'section' => array('name' => $tableDefinitionEvent['im_label_section']['name_event'], 'type' => 'select:im_section'),
-            'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'require' => 'validation :text', 'size' => 256),
+            'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'size' => 256),
             'class_row' => array('name' => $tableDefinitionEvent['im_label_section']['class_row'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256)
         )
     )
