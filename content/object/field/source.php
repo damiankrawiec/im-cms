@@ -12,9 +12,11 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
         if($m['url'] != '') {
 
-            echo '<div class="badge-light">' . $this->translationMark('im_source-name-' . $m['id'], $m['name']) . '</div>';
+            echo '<div class="badge-light clearfix p-1"><div class="float-left">' . $this->translationMark('im_source-name-' . $m['id'], $m['name']).'</div>';
 
-            echo '<a href="' . $m['url'] . '" title="' . $this->translationSystem['more'] . '" target="_blank" class="btn btn-dark">' . $this->translationSystem['more'] . ' ' . $this->icon['link']['external'] . '</a>';
+                echo ' <a href="' . $m['url'] . '" title="' . $this->makeTranslationSystem('more') . '" target="_blank" class="btn btn-dark float-right">' . $this->makeTranslationSystem('more') . ' ' . $this->icon['link']['external'] . '</a>';
+
+            echo '</div>';
 
         }
 

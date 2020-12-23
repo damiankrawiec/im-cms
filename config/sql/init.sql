@@ -949,6 +949,8 @@ insert into im_translation_system values (null, 1,  'Błąd captcha', 'captcha-e
 insert into im_translation_system values (null, 2,  'Captcha error', 'captcha-error', 'Captcha error', '', null, null);
 insert into im_translation_system values (null, 1,  'Captcha', 'captcha-text', 'Wpisz znaki', '', null, null);
 insert into im_translation_system values (null, 2,  'Captcha', 'captcha-text', 'Insert captcha', '', null, null);
+insert into im_translation_system values (null, 1,  'Więcej', 'more', 'Więcej...', '', null, null);
+insert into im_translation_system values (null, 2,  'Więcej', 'more', 'More...', '', null, null);
 
 -- setting
 
