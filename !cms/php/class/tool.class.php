@@ -12,7 +12,11 @@ class Tool extends Session
 
     private function checkAuth() {
 
-        $this->hashEmail = sha1($this->getSession('admin')['email'].$this->getSalt().$this->date);
+        $adminSession = $this->getSession('admin');
+        if($adminSession != '')
+            $adminSession = $this->getSession('admin')['email'];
+
+        $this->hashEmail = sha1($adminSession.$this->getSalt().$this->date);
 
         $pathHashFile = 'auth/stamp/'.$this->hashEmail.'.txt';
 
