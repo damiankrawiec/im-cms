@@ -1,4 +1,8 @@
 -- Prepare database --
+/*
+Version 3.0 (01.2021)
+In this version there is possible to login users which are in database (in all system there are different)
+*/
 
 -- without check keys
 
@@ -55,6 +59,10 @@ drop table if exists im_translation;
 drop table if exists im_label_section;
 
 drop table if exists im_form;
+
+-- Version 3.0 (01.2021)
+
+drop table if exists im_user;
 
 -- triggers
 
@@ -157,6 +165,14 @@ drop trigger if exists im_label_section_insert_date_modify;
 drop trigger if exists im_label_section_update_date_modify;
 
 drop trigger if exists im_form_insert_date_create;
+
+-- Version 3.0 (01.2021)
+
+drop trigger if exists im_user_insert_date_create;
+
+drop trigger if exists im_user_insert_date_modify;
+
+drop trigger if exists im_user_update_date_modify;
 
 -- end prepare database --
 
@@ -902,6 +918,46 @@ create trigger im_form_insert_date_create
     set new.date_create = now();
 
 -- FORM MESSAGE END --
+
+-- PROPERTIES START --
+
+-- table
+
+create table im_user (
+    user_id int not null auto_increment,
+    first_name varchar(128) collate utf8_polish_ci default '',
+    last_name varchar(128) collate utf8_polish_ci default '',
+    email varchar(128) collate utf8_polish_ci default '',
+    password varchar(256) collate utf8_polish_ci default '',-- password_hash() with salt may be different length
+    date_login datetime default null,-- last login time (if null that means user was not login)
+    token varchar(32) collate utf8_polish_ci default '',-- specially hash for single session (one session in the same time)
+    timestamp varchar(32) collate utf8_polish_ci default '',-- specially hash of current time for session
+    status_confirmation varchar(3) default 'off',-- by e-mail or another way
+    status varchar(3) default 'on',-- is user active
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time (modify by admin, user or last login too)
+    primary key (user_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_user_insert_date_create
+    before insert on im_user
+    for each row
+    set new.date_create = now();
+
+create trigger im_user_insert_date_modify
+    before insert on im_user
+    for each row
+    set new.date_modify = now();
+
+create trigger im_user_update_date_modify
+    before update on im_user
+    for each row
+    set new.date_modify = now();
+
+-- PROPERTY END --
 
 -- INSERT (the same records for all systems) --
 
