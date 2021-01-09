@@ -36,6 +36,8 @@ echo '<button class="btn btn-secondary m-1"><a href="#" class="status" id="'.$ta
 
 echo '<button class="btn btn-secondary m-1"><a href="#" class="status" id="'.$table.':status_copy:'.$g_var3.'">'.$translation['button']['status-copy'].': '.$icon['status'][$record->status_copy].'</a></button>';
 
+echo '<button class="btn btn-secondary m-1"><a href="#" class="status" id="'.$table.':status_protected:'.$g_var3.'">'.$translation['button']['status-protected'].': '.$icon['status'][$record->status_protected].'</a></button>';
+
 echo '<a href="#" class="btn btn-secondary m-1 object-move" id="type-property,'.$g_var1.','.$g_var3.'">' . $icon['menu']['type-property'] . ' ' . $translation['menu']['property'] . '</a>';
 
 echo '<a href="#" class="btn btn-secondary m-1 object-move" id="type,edit,'.$g_var1.','.$g_var3 . '">' . $icon['menu']['type'] . ' ' . $translation['button']['one']['type'] . '</a>';

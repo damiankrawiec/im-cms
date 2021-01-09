@@ -56,6 +56,8 @@ $label = $object->getAllLabel();
 
     <?php $object->display($sectionData['id'], $label['map']); ?>
 
+    <?php $object->display($sectionData['id'], $label['auth']); ?>
+
     <?php
 
     //Static content (when in system is "static" dir, and file is named like current url section) - if both are false static content is not display

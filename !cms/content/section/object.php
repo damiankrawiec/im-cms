@@ -40,7 +40,8 @@ if($g_var1 != '') {
         date_modify,
         status,
         status_copy,
-        status_free
+        status_free,
+        status_protected
         from ' . $table;
 
     if($g_var2 == 'edit' and $g_var3 != '') {

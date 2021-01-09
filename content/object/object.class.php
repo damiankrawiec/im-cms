@@ -163,7 +163,8 @@ class ObjectContent extends Language {
             o.form as form,
             o.attachment as attachment, 
             o.icon as icon,
-            o.map as map
+            o.map as map,
+            o.status_protected as status_protected
             from im_object o';
 
     }
@@ -792,6 +793,7 @@ class ObjectContent extends Language {
 
             $objectRecordSection = $this->getObject($parameter);
 
+            //Join array of objects free and hook to section (first free)
             $objectRecord = array();
             if($objectRecordFree) {
 
@@ -866,102 +868,102 @@ class ObjectContent extends Language {
 
                         foreach ($objectRecord as $i => $or) {
 
-                            $classType = $this->getTypeClass($or['type'])->class;
+                            if ($or['status_protected'] == 'off' or ($or['status_protected'] == 'on' and isset($userAuth))) {
 
-                            $classObject = $this->getObjectClass($or['id'])->class;
+                                $classType = $this->getTypeClass($or['type'])->class;
+                                $classObject = $this->getObjectClass($or['id'])->class;
+                                $class = 'object';
+                                if ($classType != '')
+                                    $class .= ' ' . $classType;
+                                if ($classObject != '')
+                                    $class .= ' ' . $classObject;
+                                if ($this->admin)
+                                    $class .= ' im-preview';
+                                echo '<div class="' . $this->getCategoryObject($or['id']) . $class . '">';
+                                if ($this->admin) {
 
-                            $class = 'object';
-                            if ($classType != '')
-                                $class .= ' ' . $classType;
+                                    //Many different methods to get from object to cms section
 
-                            if ($classObject != '')
-                                $class .= ' ' . $classObject;
-
-                            if ($this->admin)
-                                $class .= ' im-preview';
-
-                            echo '<div class="'.$this->getCategoryObject($or['id']).$class.'">';
-
-                            if($this->admin) {
-
-                                //Many different methods to get from object to cms section
-
-                                echo '<div class="edit-tool">';
+                                    echo '<div class="edit-tool">';
 
                                     //edit object when login like admin. In edit status you can change rest property
-                                    echo '<a href="' . $this->getToolUrl('object,'.$or['type'].',edit,'.$or['id'].','.$this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
+                                    echo '<a href="' . $this->getToolUrl('object,' . $or['type'] . ',edit,' . $or['id'] . ',' . $this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
+
+                                    echo '</div>';
+
+                                }
+                                $property = $this->getPropertyFromType($or['type']);
+                                $displayPropertyData = $or;
+                                foreach ($property as $p) {
+
+                                    if ($p['name'] == 'image') {
+
+                                        $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'file') {
+
+                                        $displayPropertyData['file'] = $this->getObjectFile($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'source') {
+
+                                        $displayPropertyData['source'] = $this->getObjectSource($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'movie') {
+
+                                        $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'language') {
+
+                                        $displayPropertyData['language'] = $this->getLanguage($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'breadcrumb') {
+
+                                        $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
+
+                                    }
+                                    if ($p['name'] == 'form-auth') {
+
+                                        $displayPropertyData['form-auth'] = $or['name'];
+
+                                    }
+                                    if ($p['name'] == 'menu') {
+
+                                        $sectionParent = $submenu = false;
+                                        if ($this->checkDisplayOption($option, 'parent'))
+                                            $sectionParent = $section;
+
+                                        if ($this->checkDisplayOption($option, 'submenu'))
+                                            $submenu = true;
+
+                                        $displayPropertyData['menu']['name'] = $or['name'];
+
+                                        $displayPropertyData['menu']['data'] = $this->getSection($sectionParent, $submenu);
+
+                                    }
+                                    if ($p['name'] == 'section') {
+
+                                        if (is_numeric($or['section']) and $or['section'] > 0) {
+
+                                            $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
+
+                                        } else $displayPropertyData['section'] = false;
+
+                                    }
+
+                                }
+
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay);
 
                                 echo '</div>';
 
-                            }
-
-                            $property = $this->getPropertyFromType($or['type']);
-
-                            $displayPropertyData = $or;
-
-                            foreach ($property as $p) {
-
-                                if ($p['name'] == 'image') {
-
-                                    $displayPropertyData['image'] = $this->getObjectImage($or['id']);
-
-                                }
-                                if ($p['name'] == 'file') {
-
-                                    $displayPropertyData['file'] = $this->getObjectFile($or['id']);
-
-                                }
-                                if ($p['name'] == 'source') {
-
-                                    $displayPropertyData['source'] = $this->getObjectSource($or['id']);
-
-                                }
-                                if ($p['name'] == 'movie') {
-
-                                    $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
-
-                                }
-                                if ($p['name'] == 'language') {
-
-                                    $displayPropertyData['language'] = $this->getLanguage($or['id']);
-
-                                }
-                                if ($p['name'] == 'breadcrumb') {
-
-                                    $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
-
-                                }
-                                if ($p['name'] == 'menu') {
-
-                                    $sectionParent = $submenu = false;
-                                    if($this->checkDisplayOption($option, 'parent'))
-                                        $sectionParent = $section;
-
-                                    if($this->checkDisplayOption($option, 'submenu'))
-                                        $submenu = true;
-
-                                    $displayPropertyData['menu']['name'] = $or['name'];
-
-                                    $displayPropertyData['menu']['data'] = $this->getSection($sectionParent, $submenu);
-
-                                }
-                                if ($p['name'] == 'section') {
-
-                                    if(is_numeric($or['section']) and $or['section'] > 0) {
-
-                                        $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
-
-                                    }else $displayPropertyData['section'] = false;
-
-                                }
+                                $this->objectCounter++;
 
                             }
-
-                            $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay);
-
-                            echo '</div>';
-
-                            $this->objectCounter++;
 
                         }
 

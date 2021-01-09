@@ -64,6 +64,8 @@ drop table if exists im_form;
 
 drop table if exists im_user;
 
+drop table if exists im_user_object;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -349,6 +351,7 @@ create table im_object (
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
     status_free varchar(3) default 'off',
+    status_protected varchar(3) default 'off',-- object for login user (user_object table)
     description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
     date_create datetime,-- create time
@@ -919,7 +922,7 @@ create trigger im_form_insert_date_create
 
 -- FORM MESSAGE END --
 
--- PROPERTIES START --
+-- USER START --
 
 -- table
 
@@ -957,7 +960,20 @@ create trigger im_user_update_date_modify
     for each row
     set new.date_modify = now();
 
--- PROPERTY END --
+-- USER END --
+
+-- USER-OBJECT START --
+--
+-- table
+
+create table im_user_object (
+    user_object_id int not null auto_increment,
+    user_id int not null,
+    object_id int not null,
+    primary key (user_object_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- USER-OBJECT END --
 
 -- INSERT (the same records for all systems) --
 
@@ -979,6 +995,7 @@ insert into im_property values (null, 'Język', 'language', '', null, null);
 insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', null, null);
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 insert into im_property values (null, 'Mapa', 'map', '', null, null);
+insert into im_property values (null, 'Formularz logowania', 'form-auth', '', null, null);
 
 -- language definition
 
@@ -1007,6 +1024,12 @@ insert into im_translation_system values (null, 1,  'Captcha', 'captcha-text', '
 insert into im_translation_system values (null, 2,  'Captcha', 'captcha-text', 'Insert captcha', '', null, null);
 insert into im_translation_system values (null, 1,  'Więcej', 'more', 'Więcej...', '', null, null);
 insert into im_translation_system values (null, 2,  'Więcej', 'more', 'More...', '', null, null);
+insert into im_translation_system values (null, 1,  'E-mail', 'email', 'Adres E-mail', '', null, null);
+insert into im_translation_system values (null, 2,  'E-mail', 'email', 'E-mail address', '', null, null);
+insert into im_translation_system values (null, 1,  'Hasło', 'password', 'Hasło', '', null, null);
+insert into im_translation_system values (null, 2,  'Hasło', 'password', 'Password', '', null, null);
+insert into im_translation_system values (null, 1,  'Zaloguj', 'login', 'Zaloguj', '', null, null);
+insert into im_translation_system values (null, 2,  'Zaloguj', 'login', 'Login', '', null, null);
 
 -- setting
 

@@ -41,6 +41,7 @@ $translation = array(
         'add-stay' => 'Dodaj i pozostań',
         'status' => 'Status',
         'status-copy' => 'Powielany',
+        'status-protected' => 'Chroniony',
         'copy' => 'Skopiuj',
         'confirm' => 'Potwierdź',
         'change-type' => 'Zmień typ',
@@ -187,7 +188,8 @@ $tableDefinition = array(
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status',
         'status_copy' => 'Powielany',
-        'status_free' => 'Wszystkie sekcje'
+        'status_free' => 'Wszystkie sekcje',
+        'status_protected' => 'Obiekt chroniony'
     ),
     'im_type_property' => array(
         'name' => 'Nazwa',

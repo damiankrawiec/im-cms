@@ -5,7 +5,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
     $dataDisplayArray = explode('|', $dataDisplay);
 
     $captchaData = array('system' => $this->systemName);
-    require_once 'php/script/captcha.php';
+    require 'php/script/captcha.php';
 
     echo '<div'.$classField.'>';
         echo '<input type="text" class="form-control im-name" placeholder="'.$this->makeTranslationSystem('name').'">';
