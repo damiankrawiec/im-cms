@@ -442,3 +442,51 @@ function optimizeImage() {
     });
 
 }
+
+function hashPage() {
+
+    if ($('input[type="password"]').length) {
+
+        $('input[type="password"]').keyup(function () {
+
+            $('input[name="password"]').val(sha1($(this).val()));
+
+        });
+
+    }
+
+}
+
+function validationRun() {
+
+    $('.submit').click(function(){
+
+        let $this = $(this);
+
+        processButton($this);
+
+        let $targetForm = '.' + $this.attr('id');
+
+        if($this.attr('class').indexOf('validation-run') > -1) {
+
+            $($targetForm).nextAll('.alert0').hide();
+
+            if(validation($targetForm)){
+
+                $($targetForm).submit();
+
+            }else{
+
+                $($targetForm).nextAll('.alert0').show();
+
+            }
+
+        }else{
+
+            $($targetForm).submit();
+
+        }
+
+    });
+
+}

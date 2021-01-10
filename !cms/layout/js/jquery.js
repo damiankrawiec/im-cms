@@ -6,11 +6,11 @@ $(function(){
 
     $('.submit').click(function(){
 
-        $this = $(this);
+        let $this = $(this);
 
         processButton($this);
 
-        $targetForm = '.' + $this.attr('id');
+        let $targetForm = '.' + $this.attr('id');
 
         if($this.hasClass('save-back'))
             $($targetForm).find('input[name="save_back"]').prop('disabled', false);

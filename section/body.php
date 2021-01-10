@@ -22,3 +22,8 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/multijs/multi.min.js"></script>
             ';
 }
+
+if(isset($GLOBALS['hash']))
+    echo '<script src="' . $sectionPath . 'module/sha1/sha1.min.js"></script>';
+
+echo '<script src="' . $sectionPath . 'section/js/validation.js"></script>';

@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS['hash'] = true;//section with sha1 encoding (input type password)
+
 require_once '../php/script/post.php';
 
 require_once '../php/class/addition.class.php';
@@ -7,7 +9,6 @@ require_once '../php/class/addition.class.php';
 $addition = new Addition();
 
 $minHeadBody = true;
-$hashPage = true;//section with sha1 encoding (input type password)
 $sectionPath = '../../';
 $sectionPathAdmin = '../';
 require_once '../php/init.php';

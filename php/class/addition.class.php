@@ -78,5 +78,19 @@ class Addition
         }else return false;
 
     }
+    public function message($text = '', $icon = false) {
+
+        $message = '<div class="text-danger im-alert">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
+
+        return $message;
+
+    }
 
 }

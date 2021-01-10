@@ -10,9 +10,9 @@ if($p_email and $p_password) {
 
     $run = new Run($p_email, $p_password);
 
+    unset($p_password);
+
     if($run->getRun())
         $addition->link('../');
-
-    unset($p_password);
 
 }
