@@ -18,7 +18,7 @@
 
     <?php require_once 'section/loading-page.php'; ?>
 
-    <?php $data = $system->getContent($db, $sessionVariable); ?>
+    <?php $data = $system->getContent($db, $sessionVariable, $addition, $auth); ?>
 
     <?php require_once 'section/body.php'; ?>
 

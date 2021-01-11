@@ -20,11 +20,15 @@ class ObjectContent extends Language {
 
     private $setting = false;
 
-    public $mapArray;
+    private $addition;
+
+    private $auth;
 
     protected $systemName;
 
-    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false) {
+    public $mapArray;
+
+    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false, $addition, $auth) {
 
         parent::__construct($db, $languageCurrent);
 
@@ -41,6 +45,10 @@ class ObjectContent extends Language {
         $this->admin = $admin;
 
         $this->mapArray = array();
+
+        $this->addition = $addition;
+
+        $this->auth = $auth;
 
         if($setting)
             $this->setting = $setting;
@@ -1067,6 +1075,20 @@ class ObjectContent extends Language {
                 }
 
             }
+
+        }
+
+    }
+
+    public function auth($session) {
+
+        if(isset($session['email'])) {
+
+            echo '<form method="post" class="logout">';
+            echo '<input type="hidden" name="event" value="logout"> ';
+            echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
+            echo '</form>';
+            echo '<button class="btn btn-secondary submit" id="logout">' . $session['email'] . '</button>';
 
         }
 

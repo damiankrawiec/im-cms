@@ -6,7 +6,13 @@ require_once 'config/setting.class.php';
 
 require_once 'php/class/system.class.php';
 
+require_once 'php/class/security.class.php';
+
 require_once 'php/class/session.class.php';
+
+require_once 'php/class/addition.class.php';
+
+$addition = new Addition();
 
 //If there is no "domain system", switch on "default", when default is not exists then stop app
 
@@ -47,7 +53,15 @@ $system->setDefaultLanguage($db);
 
 $session = new Session();
 
+require_once 'php/class/auth.class.php';
+
+$auth = new Auth();
+
+//Operation in server side (before grab all session variables, because in run are set session variables)
+require_once 'php/run/init.php';
+
 if($g_url)
     $session->setSession('path', $g_url);
 
-$sessionVariable = $session->getSession();
+$sessionVariable = $session->grabSession();
+

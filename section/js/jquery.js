@@ -4,6 +4,8 @@ $(function(){
 
     translation();
 
+    closeAlertTop();
+
     setTimeout(optimizeImage, 2000);
 
     setTimeout(gallery, 3000);

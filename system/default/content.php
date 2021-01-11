@@ -3,7 +3,7 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin, $this->setting);
+$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin, $this->setting, $addition, $auth);
 
 $sectionData = $this->getSection($this->currentSection);
 

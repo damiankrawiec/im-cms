@@ -449,9 +449,25 @@ function hashPage() {
 
         $('input[type="password"]').keyup(function () {
 
-            $('input[name="password"]').val(sha1($(this).val()));
+            $('input[name="form_password"]').val(sha1($(this).val()));
 
         });
+
+    }
+
+}
+
+function closeAlertTop() {
+
+    if($('.im-alert-top').length > 0) {
+
+        var $alert = $('.im-alert-top');
+
+        setTimeout(function(){
+
+            $alert.slideUp();
+
+        }, 10000);
 
     }
 

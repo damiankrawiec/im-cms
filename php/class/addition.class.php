@@ -3,27 +3,15 @@
 class Addition
 {
 
+    private $url = '';
+
+    //system char (replace dot ".")
+    private $urlChar = '_';
+
     public function __construct() {
 
     }
 
-    private function createUrl($string) {
-
-        $string = str_replace(' ','-', $string);
-
-        $chars = array('!','#','$','%','^','&','*','(',')','+','[',']','{','}','/',';',':','\'','|','~','`','"','.',',');
-
-        $string = str_replace($chars,'', $string);
-
-        $string = $this->removePol($string);
-
-        $string = strtolower($string);
-
-        $string = str_replace(' ', '-', $string);
-
-        return $string;
-
-    }
     private function removePol($string) {
 
         $from = array(
@@ -47,9 +35,269 @@ class Addition
         return $string;
 
     }
-    private function transaction() {
+
+    public function link($location = false) {
+
+        if($location) {
+
+            header('Location:' . $location);
+
+            exit();
+
+        }
+
+    }
+
+    public function message($text = '', $icon = false) {
+
+        $message = '<div class="text-danger im-alert">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
+
+        return $message;
+
+    }
+
+    public function alert0($text = '', $icon = false) {
+
+        $message = '<div class="im-alert-top">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
+
+        return $message;
+
+    }
+
+    public function alert1($text = '', $icon = false) {
+
+        $message = '<div class="im-alert-top">';
+
+        if($icon)
+            $message .= $icon.' ';
+
+        $message .= $text;
+
+        $message .= '</div>';
+
+        return $message;
+
+    }
+
+    public function getDate($format = 'Y-m-d H:m:s') {
+
+        return date($format);
+
+    }
+
+    public function getUserIp(){
+
+        $ip = '';
+        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+
+            //ip from share internet
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+
+        }else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+
+            //ip pass from proxy
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+        }else{
+
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+    }
+
+    public function cleanText($text, $clean) {
+
+        return str_replace($clean, '', $text);
+
+    }
+
+    public function whereOrAnd($sql) {
+
+        if(stristr($sql, 'where')) {
+
+            $whereOrAnd = ' and';
+
+        }else{
+
+            $whereOrAnd = ' where';
+        }
+
+        return $whereOrAnd;
+
+    }
+
+    public function setUrl() {
+
+        require 'php/script/get.php';
+
+        $url = '';
+
+        if($g_section != '')
+            $url .= $g_section;
+
+        if($g_var1 != '')
+            $url .= ','.$g_var1;
+
+        if($g_var2 != '')
+            $url .= ','.$g_var2;
+
+        if($g_var3 != '')
+            $url .= ','.$g_var3;
+
+        if($g_var4 != '')
+            $url .= ','.$g_var4;
+
+        if($g_var5 != '')
+            $url .= ','.$g_var5;
+
+        $this->url = $url;
+
+    }
+
+    public function implode3d($data, $index = false) {
+
+        if($index) {
+
+            $array2d = array();
+
+            foreach ($data as $d) {
+
+                array_push($array2d, $d[$index]);
+
+            }
+
+            return $array2d;
+
+        }else return array(0);
+
+    }
+
+    public function getUrl($count = 0) {
+
+        //Always: 0 = section
+        if($count > 0) {
+
+            if(stristr($this->url, ',')) {
+
+                $urlArray = explode(',', $this->url);
+
+                $urlArrayNew = array();
+                foreach ($urlArray as $i => $ua) {
+
+                    if ($i < $count) {
+
+                        array_push($urlArrayNew, $ua);
+
+                    } else break;
+
+                }
+
+                return implode(',', $urlArrayNew);
+
+            }else{
+
+                return $this->url;
+
+            }
+
+        }else{
+
+            return $this->url;
+
+        }
+
+    }
+    public function getUrlCount() {
+
+        $return = 1;
+        if(stristr($this->url, ','))
+            $return = count(explode(',', $this->url));
+
+        return $return;
+
+    }
+    public function varUrl() {
+
+        require 'php/script/get.php';
+
+        $url = '';
+
+        if($g_var1 != '')
+            $url .= ','.$g_var1;
+
+        if($g_var2 != '')
+            $url .= ','.$g_var2;
+
+        if($g_var3 != '')
+            $url .= ','.$g_var3;
+
+        if($g_var4 != '')
+            $url .= ','.$g_var4;
+
+        if($g_var5 != '')
+            $url .= ','.$g_var5;
+
+        return $url;
+
+    }
+
+    public function transaction() {
 
         return md5(microtime());
+
+    }
+
+    public function token($sessionId, $salt){
+
+        return sha1($this->getUserIp().$sessionId.$salt);
+
+    }
+
+    public function fileExists($path = false) {
+
+        if($path) {
+
+            if(file_exists($path) and is_file($path)) {
+
+                return true;
+
+            }else{
+
+                return false;
+
+            }
+
+        }else{
+
+            return false;
+
+        }
+
+    }
+    public function removeFile($path) {
+
+        if($this->fileExists($path)) {
+
+            unlink($path);
+
+            return true;
+
+        }else return false;
+
 
     }
     public function addFile($tmp, $file) {
@@ -78,18 +326,84 @@ class Addition
         }else return false;
 
     }
-    public function message($text = '', $icon = false) {
+    public function arrayJson($table) {
 
-        $message = '<div class="text-danger im-alert">';
+        return str_replace('"', '\'', json_encode($table));
 
-        if($icon)
-            $message .= $icon.' ';
+    }
+    public function jsonArray($json) {
 
-        $message .= $text;
+        return json_decode(str_replace('\'', '"', $json));
 
-        $message .= '</div>';
+    }
+    public function createUrl($string) {
 
-        return $message;
+        $string = str_replace(' ','-', $string);
+
+        $chars = array('!','#','$','%','^','&','*','(',')','+','[',']','{','}','/',';',':','\'','|','~','`','"','.',',');
+
+        $string = str_replace($chars,'', $string);
+
+        $string = $this->removePol($string);
+
+        $string = strtolower($string);
+
+        $string = str_replace(' ', '-', $string);
+
+        return $string;
+
+    }
+    public function cutDescription($descriptionWhole, $lengthAllow) {
+
+        $description = '';
+        if($descriptionWhole != '') {
+
+            if(strlen($descriptionWhole) > $lengthAllow) {
+
+                $description = ' ('.substr($descriptionWhole, 0, $lengthAllow).'...)';
+
+            }else{
+
+                $description = ' ('.$descriptionWhole.')';
+
+            }
+
+        }
+
+        return $description;
+
+    }
+    public function getFromSource($source = false, $index = false) {
+
+        $sourceDataArray = array();
+        if($source) {
+
+            $sourceDataScan = scandir($source);
+
+            if(count($sourceDataScan) > 2) {
+
+                foreach ($sourceDataScan as $sd) {
+
+                    if ($sd == '.' or $sd == '..')
+                        continue;
+
+                    if($index) {
+
+                        array_push($sourceDataArray, array('value' => $sd, 'name' => $sd));
+
+                    }else array_push($sourceDataArray, $sd);
+
+                }
+
+            }
+
+        }
+
+        if(count($sourceDataArray) > 0) {
+
+            return $sourceDataArray;
+
+        }else return '';
 
     }
 

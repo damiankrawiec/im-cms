@@ -3,7 +3,7 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin, $this->setting);
+$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->admin, $this->setting, $addition, $auth);
 
 $sectionData = $this->getSection($this->currentSection);
 
@@ -28,6 +28,11 @@ $label = $object->getAllLabel();
 ?>
 
 <div class="<?php echo ($sectionData['class'] === '' ? 'container' : $sectionData['class']) ?>" id="<?php echo $this->currentSection; ?>">
+
+    <?php
+    //Set array of object, which user can see (inside set $this variable, where will check during display object)
+    $object->auth($session);
+    ?>
 
     <?php
 

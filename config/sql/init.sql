@@ -933,7 +933,7 @@ create table im_user (
     email varchar(128) collate utf8_polish_ci default '',
     password varchar(256) collate utf8_polish_ci default '',-- password_hash() with salt may be different length
     date_login datetime default null,-- last login time (if null that means user was not login)
-    token varchar(32) collate utf8_polish_ci default '',-- specially hash for single session (one session in the same time)
+    token varchar(64) collate utf8_polish_ci default '',-- specially hash for single session (one session in the same time)
     timestamp varchar(32) collate utf8_polish_ci default '',-- specially hash of current time for session
     status_confirmation varchar(3) default 'off',-- by e-mail or another way
     status varchar(3) default 'on',-- is user active
@@ -1030,6 +1030,8 @@ insert into im_translation_system values (null, 1,  'Hasło', 'password', 'Hasł
 insert into im_translation_system values (null, 2,  'Hasło', 'password', 'Password', '', null, null);
 insert into im_translation_system values (null, 1,  'Zaloguj', 'login', 'Zaloguj', '', null, null);
 insert into im_translation_system values (null, 2,  'Zaloguj', 'login', 'Login', '', null, null);
+insert into im_translation_system values (null, 1,  'Błąd logowania', 'auth-fail', 'Niepoprawny e-mail lub hasło', '', null, null);
+insert into im_translation_system values (null, 2,  'Błąd logowania', 'auth-fail', 'E-mail or password are incorrect', '', null, null);
 
 -- setting
 

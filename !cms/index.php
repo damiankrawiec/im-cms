@@ -1,12 +1,12 @@
 <?php
 
-require_once 'php/class/security.class.php';
+require_once '../php/class/security.class.php';
 
-require_once 'php/class/session.class.php';
+require_once '../php/class/session.class.php';
 
 require_once 'php/class/tool.class.php';
 
-require_once 'php/class/addition.class.php';
+require_once '../php/class/addition.class.php';
 
 $addition = new Addition();
 

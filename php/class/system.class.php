@@ -185,7 +185,6 @@ class System extends Setting
         return $return;
 
     }
-
     private function currentLanguage($session) {
 
         if(isset($session['language'])) {
@@ -364,7 +363,7 @@ class System extends Setting
 
     }
 
-    public function getContent($db = false, $session) {
+    public function getContent($db = false, $session, $addition, $auth) {
 
         if($db) {
 

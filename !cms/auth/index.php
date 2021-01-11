@@ -4,7 +4,7 @@ $GLOBALS['hash'] = true;//section with sha1 encoding (input type password)
 
 require_once '../php/script/post.php';
 
-require_once '../php/class/addition.class.php';
+require_once '../../php/class/addition.class.php';
 
 $addition = new Addition();
 
