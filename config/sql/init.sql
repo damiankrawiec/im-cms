@@ -1040,6 +1040,8 @@ insert into im_translation_system values (null, 1,  'Wylogowano poprawnie', 'log
 insert into im_translation_system values (null, 2,  'Wylogowano poprawnie', 'logout-success', 'Logout correct', '', null, null);
 insert into im_translation_system values (null, 1,  'Obecnie zalogowany', 'login-current', 'Użytkownik jest obecnie zalogowany', '', null, null);
 insert into im_translation_system values (null, 2,  'Obecnie zalogowany', 'login-current', 'User are now log in', '', null, null);
+insert into im_translation_system values (null, 1,  'Dane chronione', 'data-protected', 'Dane chronione (autoryzacja)', '', null, null);
+insert into im_translation_system values (null, 2,  'Dane chronione', 'data-protected', 'Data protected (authorisation)', '', null, null);
 
 -- setting
 

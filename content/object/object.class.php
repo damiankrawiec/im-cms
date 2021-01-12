@@ -1011,6 +1011,9 @@ class ObjectContent extends Language {
 
                             }
 
+                            if($or['status_protected'] == 'on' and !in_array($or['id'], $this->allowObject))
+                                echo '<div class="col-12 text-danger">'.$this->icon['warning']['triangle'].' '.$this->makeTranslationSystem('data-protected').'</div>';
+
                         }
 
                         echo '<div class="im-hide col-12 no-data">'.$this->icon['warning']['triangle'].' '.$this->makeTranslationSystem('no-data').'</div>';
