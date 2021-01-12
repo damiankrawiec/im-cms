@@ -7,7 +7,7 @@ $s_previewImage = '120px';
 $s_previewImageBig = '220px';
 $s_previewMovie = '200px';
 $s_breadcrumbCount = 5; //max
-$s_debug = false; //Debug mode
+$s_debug = true; //Debug mode
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'icon' => $icon['menu']['section'], 'table' => 'im_section', 'title' => 'name, description', 'field' => 'parent'),
@@ -56,8 +56,13 @@ $s_menuDefinition = array(
             array('icon' => $icon['menu']['translation'], 'name' => $translation['menu']['translation-system'], 'url' => 'translation-system,0')
         )
     ),
-    'setting' => array('icon' => $icon['menu']['setting'], 'name' => $translation['menu']['setting'], 'url' => 'setting'),
-    'form' => array('icon' => $icon['menu']['form'], 'name' => $translation['menu']['form'], 'url' => 'form')
+    'website' => array('icon' => $icon['menu']['website'], 'name' => $translation['menu']['website'],
+        'submenu' => array(
+            array('icon' => $icon['menu']['form'], 'name' => $translation['menu']['form'], 'url' => 'form'),
+            array('icon' => $icon['menu']['user'], 'name' => $translation['menu']['user'], 'url' => 'user')
+        )
+    ),
+    'setting' => array('icon' => $icon['menu']['setting'], 'name' => $translation['menu']['setting'], 'url' => 'setting')
 );
 //This definitions are placed in form, and next that fields will be inside sql query, after form send
 $s_eventDefinition = array(
@@ -183,6 +188,12 @@ $s_eventDefinition = array(
             'email_destination' => array('name' => $tableDefinitionEvent['im_form']['email_destination'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_form', 'size' => 128),
             'content' => array('name' => $tableDefinitionEvent['im_form']['content'], 'type' => 'preview', 'table' => 'im_form'),
             'description' => array('name' => $tableDefinitionEvent['im_form']['description'], 'type' => 'textarea', 'table' => 'im_form')
+        ),
+        'im_user' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'email' => array('name' => $tableDefinitionEvent['im_user']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_user', 'size' => 128),
+            'description' => array('name' => $tableDefinitionEvent['im_user']['description'], 'type' => 'textarea', 'table' => 'im_user')
         )
     ),
     'add' => array(
@@ -255,6 +266,11 @@ $s_eventDefinition = array(
             'class' => array('name' => $tableDefinitionEvent['im_label_section']['class'], 'type' => 'text', 'size' => 256),
             'class_row' => array('name' => $tableDefinitionEvent['im_label_section']['class_row'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256),
             'class_row_second' => array('name' => $tableDefinitionEvent['im_label_section']['class_row_second'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256)
+        ),
+        'im_user' => array(
+            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'email' => array('name' => $tableDefinitionEvent['im_user']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_user', 'size' => 128)
         )
     )
 );

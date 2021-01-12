@@ -391,7 +391,7 @@ class System extends Setting
 
                 require_once $this->system . '/content.php';
 
-                return array('label' => $label, 'translation' => $object->getCurrentTranslation(), 'map-array' => $object->mapArray);
+                return array('label' => $label, 'translation' => $object->getCurrentTranslation(), 'icon' => $object->getCurrentIcon(), 'map-array' => $object->mapArray);
 
             }else return false;
 

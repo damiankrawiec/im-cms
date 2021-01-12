@@ -20,6 +20,8 @@
 
     <?php $data = $system->getContent($db, $sessionVariable, $addition, $auth); ?>
 
+    <?php require_once 'section/alert.php'; ?>
+
     <?php require_once 'section/body.php'; ?>
 
     <?php $system->getBody(); ?>

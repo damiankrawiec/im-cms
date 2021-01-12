@@ -4,6 +4,8 @@ require_once '../php/script/post.php';
 
 if($p_session) {
 
+    require_once '../php/class/security.class.php';
+
     require_once '../php/class/session.class.php';
 
     $session = new Session();

@@ -2,4 +2,4 @@
 
 $auth->removeAuthData($db, $session);
 
-$alert1 = 'Wylogowano poprawne';
+$alert1 = 'logout-success';

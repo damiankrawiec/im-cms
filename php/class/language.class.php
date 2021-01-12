@@ -170,7 +170,7 @@ class Language extends Icon
 
     public function getCurrentTranslation() {
 
-        return $this->translation;
+        return array('system' => $this->translationSystem, 'data' => $this->translation);
 
     }
 

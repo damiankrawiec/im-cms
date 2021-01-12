@@ -97,11 +97,14 @@ $translation = array(
         'movie' => 'Filmy',
         'setting' => 'Ustawienia',
         'label-property' => 'Właściwości etykiet',
+        'website' => 'Strona',
+        'user' => 'Użytkownicy',
         'form' => 'Obsługa'
     ),
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania', 'all' => 'wszystkie'),
     'edit' => array(
         'name' => 'Pole nazwy',
+        'last_name' => 'Pole nazwisko',
         'name_second' => 'Pole nazwy dodatkowej (nie jest wymagane)',
         'system_name' => 'Pole nazwa systemowa',
         'section_name' => 'Pole nazwa do której jest przekierowanie',
@@ -139,6 +142,7 @@ $translation = array(
         'selected' => 'Wybrane wartości',
         'search' => 'Szukaj...',
         'section' => 'Sekcje wyświetlające',
+        'object' => 'Dostępne obiekty',
         'image' => 'Obrazy podłączone',
         'file' => 'Pliki podłączone',
         'source' => 'Źródła podłączone',
@@ -331,6 +335,16 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony'
     ),
+    'im_user' => array(
+        'name' => 'Imię',
+        'last_name' => 'Nazwisko',
+        'email' => 'Adres e-mail',
+        'date_login' => 'Ostatnie logowanie',
+        'status_confirmation' => 'Potwierdzenie',
+        'status' => 'Status',
+        'date_create' => 'Utworzony',
+        'date_modify' => 'Zmodyfikowany'
+    )
 );
 $tableDefinitionEvent = array(
     'im_type' => array(
@@ -461,6 +475,13 @@ $tableDefinitionEvent = array(
         'email_source' => 'Nadawca',
         'email_destination' => 'Odbiorca',
         'description' => 'Opis techniczny'
+    ),
+    'im_user' => array(
+        'name' => 'Imię',
+        'last_name' => 'Nazwisko',
+        'email' => 'Adres e-mail',
+        'email_destination' => 'Odbiorca',
+        'description' => 'Opis techniczny'
     )
 );
 //Display tooltip (in selected table)
@@ -519,4 +540,10 @@ $tooltip = array(
         'url' => 'W tym polu należy fizycznie dodać plik, sugerujemy w formacie MP4 (kodek H.264). UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
+    'im_user' => array(
+        'name' => 'Imię użytkownika',
+        'last_name' => 'Nazwisko użytkownika',
+        'email' => 'Adres e-mail użytkownika. Jest to również login do systemu',
+        'description' => 'To pole jest widoczne tylko w Panelu Administratora. Opis "wewnętrzny" użytkownika'
+    )
 );

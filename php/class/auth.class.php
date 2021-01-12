@@ -10,12 +10,14 @@ class Auth
 
     private function getUserByEmail($email, $db) {
 
-        $sql = 'select user_id as id, password from im_user where email like :email';
+        $sql = 'select user_id as id, password from im_user where email like :email and status like :status and status_confirmation like :status_confirmation';
 
         $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':email', 'value' => $email, 'type' => 'string')
+            array('name' => ':email', 'value' => $email, 'type' => 'string'),
+            array('name' => ':status', 'value' => 'on', 'type' => 'string'),
+            array('name' => ':status_confirmation', 'value' => 'on', 'type' => 'string')
         );
 
         $db->bind($parameter);
@@ -43,6 +45,16 @@ class Auth
         $session->setSession('token', false);
 
         $session->setSession('email', false);
+
+    }
+
+    private function compareServerSession($serverData, $sessionData) {
+
+        $return = false;
+        if($serverData['token'] === $sessionData['token'] and $serverData['timestamp'] === $sessionData['timestamp'])
+            $return = true;
+
+        return $return;
 
     }
 
@@ -89,21 +101,25 @@ class Auth
 
     }
 
-    public function checkAuthData() {
+    //Is used in client side, object class
+    public function checkAuthData($db, $session) {
 
         $sql = 'select token, timestamp from im_user where sha1(user_id) = :id';
 
-        $this->db->prepare($sql);
+        $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':id', 'value' => $this->session->getSession(), 'type' => 'string')
+            array('name' => ':id', 'value' => $session['id'], 'type' => 'string')
         );
 
-        $this->db->bind($parameter);
+        $db->bind($parameter);
 
-        $this->db->run('one');
+        $server = $db->run('one');
 
-        $this->initAuthSession(sha1($userId), $timestamp, $token);//mask user id (insert another)
+        return $this->compareServerSession(
+            array('token' => $server->token, 'timestamp' => $server->timestamp),
+            array('token' => $session['token'], 'timestamp' => $session['timestamp'])
+        );
 
     }
 

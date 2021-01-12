@@ -928,7 +928,7 @@ create trigger im_form_insert_date_create
 
 create table im_user (
     user_id int not null auto_increment,
-    first_name varchar(128) collate utf8_polish_ci default '',
+    name varchar(128) collate utf8_polish_ci default '',
     last_name varchar(128) collate utf8_polish_ci default '',
     email varchar(128) collate utf8_polish_ci default '',
     password varchar(256) collate utf8_polish_ci default '',-- password_hash() with salt may be different length
@@ -936,7 +936,7 @@ create table im_user (
     token varchar(64) collate utf8_polish_ci default '',-- specially hash for single session (one session in the same time)
     timestamp varchar(32) collate utf8_polish_ci default '',-- specially hash of current time for session
     status_confirmation varchar(3) default 'off',-- by e-mail or another way
-    status varchar(3) default 'on',-- is user active
+    status varchar(3) default 'off',-- is user active
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time (modify by admin, user or last login too)
@@ -970,7 +970,9 @@ create table im_user_object (
     user_object_id int not null auto_increment,
     user_id int not null,
     object_id int not null,
-    primary key (user_object_id)
+    primary key (user_object_id),
+    foreign key (user_id) references im_user(user_id),
+    foreign key (object_id) references im_object(object_id)
 ) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
 
 -- USER-OBJECT END --
@@ -1030,8 +1032,14 @@ insert into im_translation_system values (null, 1,  'Hasło', 'password', 'Hasł
 insert into im_translation_system values (null, 2,  'Hasło', 'password', 'Password', '', null, null);
 insert into im_translation_system values (null, 1,  'Zaloguj', 'login', 'Zaloguj', '', null, null);
 insert into im_translation_system values (null, 2,  'Zaloguj', 'login', 'Login', '', null, null);
-insert into im_translation_system values (null, 1,  'Błąd logowania', 'auth-fail', 'Niepoprawny e-mail lub hasło', '', null, null);
-insert into im_translation_system values (null, 2,  'Błąd logowania', 'auth-fail', 'E-mail or password are incorrect', '', null, null);
+insert into im_translation_system values (null, 1,  'Błąd logowania', 'auth-fail', 'Błędy login lub hasło (bądź użytkownik nieaktywny)', '', null, null);
+insert into im_translation_system values (null, 2,  'Błąd logowania', 'auth-fail', 'Login or password fail (user status may be disable)', '', null, null);
+insert into im_translation_system values (null, 1,  'Zalogowano poprawnie', 'login-success', 'Zalogowano poprawnie', '', null, null);
+insert into im_translation_system values (null, 2,  'Zalogowano poprawnie', 'login-success', 'Correct login', '', null, null);
+insert into im_translation_system values (null, 1,  'Wylogowano poprawnie', 'logout-success', 'Wylogowano poprawnie', '', null, null);
+insert into im_translation_system values (null, 2,  'Wylogowano poprawnie', 'logout-success', 'Logout correct', '', null, null);
+insert into im_translation_system values (null, 1,  'Obecnie zalogowany', 'login-current', 'Użytkownik jest obecnie zalogowany', '', null, null);
+insert into im_translation_system values (null, 2,  'Obecnie zalogowany', 'login-current', 'User are now log in', '', null, null);
 
 -- setting
 

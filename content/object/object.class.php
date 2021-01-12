@@ -24,11 +24,15 @@ class ObjectContent extends Language {
 
     private $auth;
 
+    private $session;//only variables (no method)
+
+    private $allowObject;
+
     protected $systemName;
 
     public $mapArray;
 
-    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false, $addition, $auth) {
+    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false, $addition, $auth, $session) {
 
         parent::__construct($db, $languageCurrent);
 
@@ -50,8 +54,14 @@ class ObjectContent extends Language {
 
         $this->auth = $auth;
 
+        $this->session = $session;
+
+        $this->allowObject = array(0);
+
         if($setting)
             $this->setting = $setting;
+
+        $this->setAllowObject();
 
     }
 
@@ -82,6 +92,34 @@ class ObjectContent extends Language {
         }
 
         return $whereOrAnd;
+
+    }
+
+    //For loged user (if is)
+    private function setAllowObject() {
+
+       if(isset($this->session['id'])) {
+
+           if($this->auth->checkAuthData($this->db, $this->session)) {
+
+               $sql = 'select object_id as id from im_user_object where sha1(user_id) = :id';
+
+               $this->db->prepare($sql);
+
+               $parameter = array(
+                   array('name' => ':id', 'value' => $this->session['id'], 'type' => 'int')
+               );
+
+               $this->db->bind($parameter);
+
+               $allowObjectData = $this->db->run('all');
+
+               if ($allowObjectData)
+                   $this->allowObject = $this->addition->implode3d($allowObjectData, 'id');
+
+           }
+
+       }
 
     }
 
@@ -876,7 +914,7 @@ class ObjectContent extends Language {
 
                         foreach ($objectRecord as $i => $or) {
 
-                            if ($or['status_protected'] == 'off' or ($or['status_protected'] == 'on' and isset($userAuth))) {
+                            if ($or['status_protected'] == 'off' or ($or['status_protected'] == 'on' and in_array($or['id'], $this->allowObject))) {
 
                                 $classType = $this->getTypeClass($or['type'])->class;
                                 $classObject = $this->getObjectClass($or['id'])->class;
@@ -1080,15 +1118,16 @@ class ObjectContent extends Language {
 
     }
 
-    public function auth($session) {
+    public function auth() {
 
-        if(isset($session['email'])) {
+        if(isset($this->session['id'])) {
 
             echo '<form method="post" class="logout">';
             echo '<input type="hidden" name="event" value="logout"> ';
             echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
             echo '</form>';
-            echo '<button class="btn btn-secondary submit" id="logout">' . $session['email'] . '</button>';
+            echo '<button class="btn btn-secondary">' . $this->session['email'] . '</button>';
+            echo '<button class="btn btn-danger submit" id="logout">'.$this->icon['arrow']['logout'].'</button>';
 
         }
 

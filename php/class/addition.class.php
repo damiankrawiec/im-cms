@@ -168,6 +168,7 @@ class Addition
 
     }
 
+    //index means what column should be push in flat array
     public function implode3d($data, $index = false) {
 
         if($index) {

@@ -19,6 +19,9 @@ foreach ($eventData as $fix => $ed) {
         if($eventData[$fix]['collection']['table'] == 'im_section')
             $sql .= ',t.name_url as name_url';
 
+        if($eventData[$fix]['collection']['table'] == 'im_object')
+            $sql .= ',t.system_name as system_name';
+
         $sql .= ' from ' . $eventData[$fix]['collection']['table'] . ' t';
 
         $sqlRest = $sql;
@@ -139,6 +142,9 @@ foreach ($eventData as $fix => $ed) {
 
                 if($eventData[$fix]['collection']['table'] == 'im_section')
                     echo ': '.$c['name_url'].'';
+
+                if($eventData[$fix]['collection']['table'] == 'im_object')
+                    echo ': '.$c['system_name'].'';
 
                 echo '</option>';
 

@@ -7,6 +7,8 @@ if($p_label and isset($p_category)) {
     if($p_category == 0)
         $p_category = false;
 
+    require_once '../php/class/security.class.php';
+
     require_once '../php/class/session.class.php';
 
     $session = new Session();

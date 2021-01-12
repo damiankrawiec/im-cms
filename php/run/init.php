@@ -3,6 +3,9 @@
 if($session->getSession('transaction') == '')
     $session->setSession('transaction', array());
 
+//Alert bottom default set to not display (to show success - 1 or fail - 0, index of system translation)
+$alert0 = $alert1 = false;
+
 //Operations
 if(!in_array($p_transaction, $session->getSession('transaction'))) {
 
@@ -12,22 +15,12 @@ if(!in_array($p_transaction, $session->getSession('transaction'))) {
 
         if($addition->fileExists($eventPath)) {
 
-            //Alert top default set to not display (to show success - 1 or fail - 0, init $alert0 or $alert1 variable)
-            $alert0 = $alert1 = false;
-
             $eventData = array();
 
             if(count($formData) > 0)
                 $eventData['data'] = $formData;
 
             require_once $eventPath;
-
-            //Message top information (fail, success)
-            if($alert1)
-                echo $addition->alert1($alert1, '<i class="fad fa-check-square text-success"></i>');
-
-            if($alert0)
-                echo $addition->alert0($alert0, '<i class="fad fa-exclamation-square text-danger"></i>');
 
         }
 
