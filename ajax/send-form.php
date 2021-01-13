@@ -4,6 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+//In CMS and client side must be the same input
 require_once '../php/script/post.php';
 
 if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {

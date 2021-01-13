@@ -138,4 +138,4 @@ insert into im_object_source values (null, 2, 1, 1);
 insert into im_translation values (null, 2, 'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
 insert into im_translation values (null, 2, 'Dance floor', 'im_section', 'name', 7, 'Dance floor', '', null, null);
 
-insert into im_user values (null, 'Damian', 'Krawiec', 'damian.krawiec@gmail.com', '$2y$10$yABQUG9aB2CQJTKs1cK14u4tjC7RkQ5m.8upmD63hykCwdKDqVK2u', null, '', '', 'on', 'on', '', null, null);
+insert into im_user values (null, 'Damian Krawiec', '', '', 'damian.krawiec@gmail.com', '', null, '', '', 'off', 'off', '', null, null);

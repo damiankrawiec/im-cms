@@ -64,4 +64,3 @@ if($g_url)
     $session->setSession('path', $g_url);
 
 $sessionVariable = $session->grabSession();
-

@@ -230,6 +230,35 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     }
 
+                    //Form
+                    if(stristr($tableData['event'], 'form-password')) {
+
+                        if ($r['email']) {
+
+                            echo '<a href="#" class="btn btn-light show-next-row" title="' . $countColumn . '">' . $icon['button']['envelope'] . '</a>';
+                            echo '<div class="im-hide">';
+
+                                echo '<p>' . $translation['form']['change-password-info'] . '</p>';
+
+                                echo '<div>';
+                                    echo '<button class="btn btn-info im-send" id="'.$currentId.'">' . $translation['button']['send'] . '</button>';
+                                    echo '<input type="hidden" class="im-name" value="' . $translation['form']['change-password-name'] . '">';
+                                    echo '<input type="hidden" class="im-source" value="-">';
+                                    echo '<input type="hidden" class="im-destination" value="' . $r['email'] . '">';
+                                    echo '<input type="hidden" class="hide-form">';
+                                echo '</div>';
+
+                            echo '<div>';
+                                echo '<div class="im-hide alert0">'.$translation['form']['error'].'</div>';
+                                echo '<div class="im-hide alert1">'.$translation['form']['ok'].'</div>';
+                            echo '</div>';
+
+                            echo '</div>';
+
+                        }
+
+                    }
+
                     //Delete
                     if(stristr($tableData['event'], 'delete')) {
 

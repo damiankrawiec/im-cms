@@ -142,6 +142,18 @@ $(function(){
 
     if($('#current-system').length > 0) {
 
+        $('.im-send').click(function () {
+            console.log('ok')
+            sendFormEvent($(this).parent(), '../');
+
+        });
+
+        // $('.form-password').click(function () {
+        //
+        //
+        //
+        // });
+
         dataTables();
 
         niceSelect();

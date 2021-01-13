@@ -190,8 +190,9 @@ $s_eventDefinition = array(
             'description' => array('name' => $tableDefinitionEvent['im_form']['description'], 'type' => 'textarea', 'table' => 'im_form')
         ),
         'im_user' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
-            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 256),
+            'first_name' => array('name' => $tableDefinitionEvent['im_user']['first_name'], 'type' => 'text', 'table' => 'im_user', 'size' => 128),
+            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'table' => 'im_user', 'size' => 128),
             'email' => array('name' => $tableDefinitionEvent['im_user']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_user', 'size' => 128),
             'description' => array('name' => $tableDefinitionEvent['im_user']['description'], 'type' => 'textarea', 'table' => 'im_user')
         )
@@ -268,8 +269,9 @@ $s_eventDefinition = array(
             'class_row_second' => array('name' => $tableDefinitionEvent['im_label_section']['class_row_second'], 'type' => 'text', 'table' => 'im_label_section', 'size' => 256)
         ),
         'im_user' => array(
-            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
-            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 128),
+            'name' => array('name' => $tableDefinitionEvent['im_user']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_user', 'size' => 256),
+            'first_name' => array('name' => $tableDefinitionEvent['im_user']['first_name'], 'type' => 'text', 'table' => 'im_user', 'size' => 128),
+            'last_name' => array('name' => $tableDefinitionEvent['im_user']['last_name'], 'type' => 'text', 'table' => 'im_user', 'size' => 128),
             'email' => array('name' => $tableDefinitionEvent['im_user']['email'], 'type' => 'text', 'require' => 'validation :email', 'table' => 'im_user', 'size' => 128)
         )
     )

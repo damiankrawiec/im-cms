@@ -36,7 +36,11 @@ class Session extends Security
 
     public function grabSession() {
 
-        return $_SESSION;
+        $sessionArray = $_SESSION;
+
+        $sessionArray['session_id'] = $this->sessionId();
+
+        return $sessionArray;
 
     }
 

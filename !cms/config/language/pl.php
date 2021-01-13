@@ -47,7 +47,8 @@ $translation = array(
         'change-type' => 'Zmień typ',
         'change-parent' => 'Zmień sekcję nadrzędną',
         'go-object' => 'przejdź do obiektu',
-        'go-section' => 'przejdź do sekcji'
+        'go-section' => 'przejdź do sekcji',
+        'send' => 'Wyślij'
     ),
     'message' => array(
         'no-data' => 'Brak danych',
@@ -104,6 +105,7 @@ $translation = array(
     'table' => array('event' => 'Działania', 'sort' => 'tryb sortowania', 'all' => 'wszystkie'),
     'edit' => array(
         'name' => 'Pole nazwy',
+        'first_name' => 'Pole imię',
         'last_name' => 'Pole nazwisko',
         'name_second' => 'Pole nazwy dodatkowej (nie jest wymagane)',
         'system_name' => 'Pole nazwa systemowa',
@@ -155,6 +157,12 @@ $translation = array(
         'translation' => 'Kopiuj wszystkie tłumaczenia (dla każdego języka)',
         'property' => 'Kopiuj wszystkie przypisane właściwości',
         'section-object' => 'Kopiuj wszystkie przypisane obiekty'
+    ),
+    'form' => array(
+        'change-password-info' => 'Na adres e-mail użytkownika zostanie przesłany specjalny adres uruchamiający procedurę nadawania hasła',
+        'change-password-name' => 'Adres do zmiany hasła',
+        'ok' => 'Wiadomość wysłana poprawnie',
+        'error' => 'Błąd wysyłania wiadomości',
     ),
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',
@@ -336,7 +344,8 @@ $tableDefinition = array(
         'date_create' => 'Utworzony'
     ),
     'im_user' => array(
-        'name' => 'Imię',
+        'name' => 'Nazwa',
+        'first_name' => 'Imię',
         'last_name' => 'Nazwisko',
         'email' => 'Adres e-mail',
         'date_login' => 'Ostatnie logowanie',
@@ -477,7 +486,8 @@ $tableDefinitionEvent = array(
         'description' => 'Opis techniczny'
     ),
     'im_user' => array(
-        'name' => 'Imię',
+        'name' => 'Nazwa',
+        'first_name' => 'Imię',
         'last_name' => 'Nazwisko',
         'email' => 'Adres e-mail',
         'email_destination' => 'Odbiorca',
@@ -541,7 +551,8 @@ $tooltip = array(
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_user' => array(
-        'name' => 'Imię użytkownika',
+        'name' => 'Nazwa podmiotu (ogólna)',
+        'first_name' => 'Imię użytkownika',
         'last_name' => 'Nazwisko użytkownika',
         'email' => 'Adres e-mail użytkownika. Jest to również login do systemu',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Opis "wewnętrzny" użytkownika'

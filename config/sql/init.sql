@@ -928,7 +928,8 @@ create trigger im_form_insert_date_create
 
 create table im_user (
     user_id int not null auto_increment,
-    name varchar(128) collate utf8_polish_ci default '',
+    name varchar(256) collate utf8_polish_ci default '',
+    first_name varchar(128) collate utf8_polish_ci default '',
     last_name varchar(128) collate utf8_polish_ci default '',
     email varchar(128) collate utf8_polish_ci default '',
     password varchar(256) collate utf8_polish_ci default '',-- password_hash() with salt may be different length
@@ -1032,6 +1033,8 @@ insert into im_translation_system values (null, 1,  'Hasło', 'password', 'Hasł
 insert into im_translation_system values (null, 2,  'Hasło', 'password', 'Password', '', null, null);
 insert into im_translation_system values (null, 1,  'Zaloguj', 'login', 'Zaloguj', '', null, null);
 insert into im_translation_system values (null, 2,  'Zaloguj', 'login', 'Login', '', null, null);
+insert into im_translation_system values (null, 1,  'Wyloguj', 'logout', 'Wyloguj', '', null, null);
+insert into im_translation_system values (null, 2,  'Wyloguj', 'logout', 'Logout', '', null, null);
 insert into im_translation_system values (null, 1,  'Błąd logowania', 'auth-fail', 'Błędy login lub hasło (bądź użytkownik nieaktywny)', '', null, null);
 insert into im_translation_system values (null, 2,  'Błąd logowania', 'auth-fail', 'Login or password fail (user status may be disable)', '', null, null);
 insert into im_translation_system values (null, 1,  'Zalogowano poprawnie', 'login-success', 'Zalogowano poprawnie', '', null, null);
@@ -1052,6 +1055,6 @@ insert into im_setting values (null, 'Font size', 'font-size', '15px', '', null,
 insert into im_setting values (null, 'Google API', 'google-api', '', '', null, null);
 insert into im_setting values (null, 'Style map', 'map-style', '', '', null, null);
 insert into im_setting values (null, 'Footer class', 'class-footer', 'animated slideInUp', '', null, null);
-insert into im_setting values (null, 'Loading page', 'loading-page', 'background: #000;|top:30%;|color:#fff;font-size: 150px;|fad fa-spinner-third fa-spin|fadeOutUp|1000', 'Background style, icon box style, icon style, icon class, animation, visible time', null, null);
+insert into im_setting values (null, 'Loading page', 'loading-page', 'background: #000;|top:30%;|color:#fff;font-size: 150px;|fad fa-spinner-third fa-spin|fadeOutUp|300', 'Background style, icon box style, icon style, icon class, animation, visible time', null, null);
 insert into im_setting values (null, 'Debug', 'debug', 'disable', 'enable/disable (status)', null, null);
 insert into im_setting values (null, 'Map zoom', 'zoom-map', '16', '15, 16, 17 - probably will be ok', null, null);

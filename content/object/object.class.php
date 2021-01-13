@@ -100,7 +100,7 @@ class ObjectContent extends Language {
 
        if(isset($this->session['id'])) {
 
-           if($this->auth->checkAuthData($this->db, $this->session)) {
+           if($this->auth->checkAuthData($this->db, array('id' => $this->session['id'], 'timestamp' => $this->session['timestamp']), $this->addition->token($this->session['session_id'], $this->session['id']))) {
 
                $sql = 'select object_id as id from im_user_object where sha1(user_id) = :id';
 
@@ -1130,7 +1130,7 @@ class ObjectContent extends Language {
             echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
             echo '</form>';
             echo '<button class="btn btn-secondary">' . $this->session['email'] . '</button>';
-            echo '<button class="btn btn-danger submit" id="logout">'.$this->icon['arrow']['logout'].'</button>';
+            echo '<button class="btn btn-danger submit" id="logout">'.$this->makeTranslationSystem('logout').'</button>';
 
         }
 

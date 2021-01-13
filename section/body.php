@@ -8,6 +8,7 @@ require_once $sectionPath.'section/top.php';
 echo '<script src="'.$sectionPath.'app/composer/vendor/components/jquery/jquery.min.js"></script>
       <script src="'.$sectionPath.'app/composer/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>';
 
+//User and logged in cms
 if(!isset($minHeadBody)) {
 
       echo '<script src="'.$sectionPath.'module/lightcase/js/lightcase.js"></script>
@@ -21,9 +22,15 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/sortable/Sortable.min.js"></script>
             <script src="'.$sectionPath.'module/multijs/multi.min.js"></script>
             ';
+
+    //Only logged in cms (js from section is load automatic)
+    if ($sectionPath != '')
+        echo '<script src="' . $sectionPath . 'section/js/send-form.js"></script>';
 }
 
-if(isset($GLOBALS['hash']))
-    echo '<script src="' . $sectionPath . 'module/sha1/sha1.min.js"></script>';
+//CMS form and inside
+if($sectionPath != '')
+    echo '<script src="'.$sectionPath.'section/js/validation.js"></script>';
 
-echo '<script src="' . $sectionPath . 'section/js/validation.js"></script>';
+if(isset($GLOBALS['hash']))
+    echo '<script src="'.$sectionPath.'module/sha1/sha1.min.js"></script>';

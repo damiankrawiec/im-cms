@@ -9,6 +9,7 @@ $baseUrl = $addition->getUrl(1);
 $sql = 'select 
         user_id,
         name,
+        first_name,
         last_name,
         email,
         date_login,
@@ -69,7 +70,7 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit,delete',
+            'event' => 'edit,delete,form-password',//if form then must be email column defined
             'table_delete' => array('main' => $table),
             'restriction' => array(
                 'delete' => array(

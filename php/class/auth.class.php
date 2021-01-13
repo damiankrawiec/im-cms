@@ -26,13 +26,11 @@ class Auth
 
     }
 
-    private function initAuthSession($userId, $timestamp, $token, $session) {
+    private function initAuthSession($userId, $timestamp, $session) {
 
         $session->setSession('id', $userId);
 
         $session->setSession('timestamp', $timestamp);
-
-        $session->setSession('token', $token);
 
     }
 
@@ -41,8 +39,6 @@ class Auth
         $session->setSession('id', false);
 
         $session->setSession('timestamp', false);
-
-        $session->setSession('token', false);
 
         $session->setSession('email', false);
 
@@ -97,19 +93,19 @@ class Auth
 
         $db->run('one');
 
-        $this->initAuthSession(sha1($userId), $timestamp, $token, $session);//mask user id (insert another id)
+        $this->initAuthSession(sha1($userId), $timestamp, $session);//mask user id (insert another id)
 
     }
 
     //Is used in client side, object class
-    public function checkAuthData($db, $session) {
+    public function checkAuthData($db, $sessionArray, $token) {
 
         $sql = 'select token, timestamp from im_user where sha1(user_id) = :id';
 
         $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':id', 'value' => $session['id'], 'type' => 'string')
+            array('name' => ':id', 'value' => $sessionArray['id'], 'type' => 'string')
         );
 
         $db->bind($parameter);
@@ -118,7 +114,7 @@ class Auth
 
         return $this->compareServerSession(
             array('token' => $server->token, 'timestamp' => $server->timestamp),
-            array('token' => $session['token'], 'timestamp' => $session['timestamp'])
+            array('token' => $token, 'timestamp' => $sessionArray['timestamp'])
         );
 
     }
