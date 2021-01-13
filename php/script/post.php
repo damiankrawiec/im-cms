@@ -1,7 +1,7 @@
 <?php
 
 //Set all post variables
-$p_systemName = $p_section = $p_label = $p_session = $p_category = $p_sendForm = $p_string = $p_event = $p_transaction = false;
+$p_systemName = $p_section = $p_label = $p_session = $p_category = $p_sendForm = $p_string = $p_event = $p_transaction = $p_id = $p_path = false;
 
 if(isset($_POST['systemName']))
     $p_systemName = $_POST['systemName'];
@@ -29,6 +29,12 @@ if(isset($_POST['event']))
 
 if(isset($_POST['transaction']))
     $p_transaction = $_POST['transaction'];
+
+if(isset($_POST['id']))
+    $p_id = $_POST['id'];
+
+if(isset($_POST['path']))
+    $p_path = $_POST['path'];
 
 $formData = array();
 if(isset($_POST)) {

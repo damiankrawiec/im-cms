@@ -4,12 +4,12 @@ function sendFormEvent($this, $path) {
     let $source = $this.find('.im-source').val();
     let $destination = $this.find('.im-destination').val();
 
-    let $content = '';
+    let $content = '-';
     if($this.find('textarea').length)
         $content = tinyMCE.activeEditor.getContent();
 
     if($this.find('.im-content').length)
-        $content = $('.im-content').html();
+        $content = $this.find('.im-content').html();
 
     $this.next().children('.im-hide').hide();
 
@@ -105,16 +105,3 @@ function sendForm($dataJson, $form, $path) {
     });
 
 }
-
-/*
-$.ajax({
-    method: "POST",
-    url: $path + "ajax/form-password.php",
-    data: {
-        id: $(this).attr('id')
-    }
-}).done(function ($data) {
-
-    console.log($data);
-
-});*/

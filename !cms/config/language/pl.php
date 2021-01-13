@@ -159,8 +159,9 @@ $translation = array(
         'section-object' => 'Kopiuj wszystkie przypisane obiekty'
     ),
     'form' => array(
-        'change-password-info' => 'Na adres e-mail użytkownika zostanie przesłany specjalny adres uruchamiający procedurę nadawania hasła',
+        'change-password-info' => 'Na adres e-mail użytkownika zostanie przesłana wiadomość powitalna z adresem do ustwienia hasła',
         'change-password-name' => 'Adres do zmiany hasła',
+        'change-password-url' => 'Aby zmienić hasło kliknij',
         'ok' => 'Wiadomość wysłana poprawnie',
         'error' => 'Błąd wysyłania wiadomości',
     ),

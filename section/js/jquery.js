@@ -65,7 +65,7 @@ $(function(){
 
     });
 
-    $('.im-send').click(function () {
+    $('body').on('click', '.im-send', function () {
 
         sendFormEvent($(this).parent(), '');
 

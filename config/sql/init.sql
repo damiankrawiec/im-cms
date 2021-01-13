@@ -933,6 +933,7 @@ create table im_user (
     last_name varchar(128) collate utf8_polish_ci default '',
     email varchar(128) collate utf8_polish_ci default '',
     password varchar(256) collate utf8_polish_ci default '',-- password_hash() with salt may be different length
+    password_url varchar(256) collate utf8_polish_ci default '',-- url is generate when user's password must be change (send via e-mail)
     date_login datetime default null,-- last login time (if null that means user was not login)
     token varchar(64) collate utf8_polish_ci default '',-- specially hash for single session (one session in the same time)
     timestamp varchar(32) collate utf8_polish_ci default '',-- specially hash of current time for session

@@ -142,17 +142,19 @@ $(function(){
 
     if($('#current-system').length > 0) {
 
-        $('.im-send').click(function () {
-            console.log('ok')
+        $('body').on('click', '.im-send', function () {
+
             sendFormEvent($(this).parent(), '../');
 
         });
 
-        // $('.form-password').click(function () {
-        //
-        //
-        //
-        // });
+        $('body').on('click', '.im-send', function () {
+
+            let $this = $(this);
+
+            passwordUrl($this.parent(), $this.attr('id'), '../');
+
+        });
 
         dataTables();
 
