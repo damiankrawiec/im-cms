@@ -148,14 +148,6 @@ $(function(){
 
         });
 
-        $('body').on('click', '.im-send', function () {
-
-            let $this = $(this);
-
-            passwordUrl($this.parent(), $this.attr('id'), '../');
-
-        });
-
         dataTables();
 
         niceSelect();

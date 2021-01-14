@@ -1,4 +1,6 @@
-function sendFormEvent($this, $path) {
+function sendFormEvent($this, $path, $data = false) {
+
+    iconSpin($this);
 
     let $name = $this.find('.im-name').val();
     let $source = $this.find('.im-source').val();
@@ -11,17 +13,27 @@ function sendFormEvent($this, $path) {
     if($this.find('.im-content').length)
         $content = $this.find('.im-content').html();
 
+    if($data)
+        $content += $data;
+
     $this.next().children('.im-hide').hide();
 
     if ($name !== '' && $source !== '' && $destination !== '' && $content !== '') {
 
-        let $captcha = $this.find('.im-captcha').text();
-        $captcha = $captcha.toLowerCase();
-
-        let $captchaText = $this.find('.im-captcha-text').val();
-        $captchaText = $captchaText.toLowerCase();
-
         let $hideForm = $this.find('.hide-form').length;
+
+        let $captcha = '';
+        let $captchaText = '';
+        if ($hideForm === 0) {
+
+            $captcha = $this.find('.im-captcha').text();
+            $captcha = $captcha.toLowerCase();
+
+            $captchaText = $this.find('.im-captcha-text').val();
+            $captchaText = $captchaText.toLowerCase();
+
+        }
+
         if ($hideForm > 0 || ($hideForm === 0 && $captcha === $captchaText)) {
 
             let $systemName = $('#system-name').val();
@@ -96,12 +108,22 @@ function sendForm($dataJson, $form, $path) {
 
         $form.next().children('.alert1').fadeIn();
 
-        $form.addClass('animated zoomOutUp');
+        $form.addClass('animated fadeOut');
 
         setTimeout(function () {
             $form.slideUp()
         }, 700);
 
     });
+
+}
+
+function iconSpin($this) {
+
+    $this.append($('#process-button').html());
+
+    setTimeout(function() {
+        $this.children(':last-child').remove();
+    }, 5000);
 
 }

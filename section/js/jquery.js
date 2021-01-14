@@ -70,6 +70,20 @@ $(function(){
         sendFormEvent($(this).parent(), '');
 
     });
+    $('body').on('click', '.im-password-address', function () {
+
+        let $parent = $(this).parent();
+
+        passwordAddress($parent.find('.im-destination').val(), $parent.find('.im-content').attr('id'), $parent, '');
+
+    });
+    $('body').on('click', '.im-password', function () {
+
+        let $parent = $(this).parent();
+
+        passwordSet($parent.find('.im-destination').val(), $parent.find('.im-content').attr('id'), $parent, '');
+
+    });
 
     validationRun();
 

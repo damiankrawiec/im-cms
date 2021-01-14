@@ -159,11 +159,13 @@ $translation = array(
         'section-object' => 'Kopiuj wszystkie przypisane obiekty'
     ),
     'form' => array(
-        'change-password-info' => 'Na adres e-mail użytkownika zostanie przesłana wiadomość powitalna z adresem do ustwienia hasła',
-        'change-password-name' => 'Adres do zmiany hasła',
-        'change-password-url' => 'Aby zmienić hasło kliknij',
+        'welcome' => array(
+            'info' => 'Na adres e-mail użytkownika zostanie przesłana wiadomość powitalna',
+            'name' => 'Witamy w systemie',
+            'content' => 'Witam Cie użytkowniku w systemie, zapraszamy do poznania naszych funkcjonalności'
+        ),
         'ok' => 'Wiadomość wysłana poprawnie',
-        'error' => 'Błąd wysyłania wiadomości',
+        'error' => 'Błąd wysyłania wiadomości'
     ),
     'validation' => array(
         'wrong-file' => 'Plik niepoprawny',

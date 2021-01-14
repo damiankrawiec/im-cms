@@ -237,19 +237,19 @@ class Addition
 
         $url = '';
 
-        if($g_var1 != '')
+        if(isset($g_var1) and $g_var1 != '')
             $url .= ','.$g_var1;
 
-        if($g_var2 != '')
+        if(isset($g_var2) and $g_var2 != '')
             $url .= ','.$g_var2;
 
-        if($g_var3 != '')
+        if(isset($g_var3) and $g_var3 != '')
             $url .= ','.$g_var3;
 
-        if($g_var4 != '')
+        if(isset($g_var4) and $g_var4 != '')
             $url .= ','.$g_var4;
 
-        if($g_var5 != '')
+        if(isset($g_var5) and $g_var5 != '')
             $url .= ','.$g_var5;
 
         return $url;
@@ -287,6 +287,34 @@ class Addition
             return false;
 
         }
+
+    }
+    public function password($length = 9) {
+
+        $return = false;
+        if($length%3 == 0 and $length > 8) {
+
+            $letter = array('a', 'd', 'x', 'w', 'q', 'p', 'j', 'h', 'r', 'k');
+            $character = array('&', '!', '#', '@', '(', ')', '*', ':', ';', '?');
+
+            $realLength = $length/3;
+            $password = '';
+            for($i = 0; $i < $realLength; $i++) {
+
+                $digit = rand(0, 9);
+
+                $password .= $digit;
+
+                $password .= $letter[$digit];
+
+                $password .= $character[$digit];
+
+            }
+
+            $return = $password;
+
+        }
+        return $return;
 
     }
     public function removeFile($path) {

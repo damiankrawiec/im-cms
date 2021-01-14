@@ -1015,7 +1015,7 @@ insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No da
 insert into im_translation_system values (null, 1,  'Przycisk wyślij', 'send', 'Wyślij', '', null, null);
 insert into im_translation_system values (null, 1,  'Nazwa', 'name', 'Nazwa', '', null, null);
 insert into im_translation_system values (null, 1,  'Nadawca', 'source', 'Nadawca', '', null, null);
-insert into im_translation_system values (null, 2,  'Send button', 'send', 'Send now', '', null, null);
+insert into im_translation_system values (null, 2,  'Send button', 'send', 'Send', '', null, null);
 insert into im_translation_system values (null, 2,  'Name', 'name', 'name', '', null, null);
 insert into im_translation_system values (null, 2,  'From', 'source', 'from', '', null, null);
 insert into im_translation_system values (null, 1,  'Formularz błąd', 'form-error', 'Błąd wysyłania wiadomości', '', null, null);
@@ -1046,6 +1046,19 @@ insert into im_translation_system values (null, 1,  'Obecnie zalogowany', 'login
 insert into im_translation_system values (null, 2,  'Obecnie zalogowany', 'login-current', 'User are now log in', '', null, null);
 insert into im_translation_system values (null, 1,  'Dane chronione', 'data-protected', 'Dane chronione (autoryzacja)', '', null, null);
 insert into im_translation_system values (null, 2,  'Dane chronione', 'data-protected', 'Data protected (authorisation)', '', null, null);
+insert into im_translation_system values (null, 1,  'Ustawienie nowego hasła', 'new-password', 'Ustawienie nowego hasła', '', null, null);
+insert into im_translation_system values (null, 2,  'Ustawienie nowego hasła', 'new-password', 'Set new password', '', null, null);
+insert into im_translation_system values (null, 1,  'Adres do nowego hasła', 'new-password-address', 'Aby ustawić nowe hasło, kliknij', '', null, null);
+insert into im_translation_system values (null, 2,  'Adres do nowego hasła', 'new-password-address', 'If would You like to set new password, click', '', null, null);
+insert into im_translation_system values (null, 1,  'Adres e-mail zarejestrowany w systemie', 'system-address', 'Wprowadź adres e-mail zarejestrowany w systemie', '', null, null);
+insert into im_translation_system values (null, 2,  'Adres e-mail zarejestrowany w systemie', 'system-address', 'Insert in system defined e-mail address', '', null, null);
+insert into im_translation_system values (null, 1,  'Powrót', 'back', 'Powrót', '', null, null);
+insert into im_translation_system values (null, 2,  'Powrót', 'back', 'Back', '', null, null);
+insert into im_translation_system values (null, 1,  'Ustaw hasło', 'set-password', 'Ustaw hasło', '', null, null);
+insert into im_translation_system values (null, 2,  'Ustaw hasło', 'set-password', 'Set password', '', null, null);
+insert into im_translation_system values (null, 1,  'Ustawione hasło', 'new-password-set', 'Hasło zostało ustawione', '', null, null);
+insert into im_translation_system values (null, 2,  'Ustawione hasło', 'new-password-set', 'Password has set', '', null, null);
+
 
 -- setting
 

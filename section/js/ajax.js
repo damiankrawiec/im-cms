@@ -120,3 +120,55 @@ function baseDecode($object, $data) {
     });
 
 }
+
+function passwordAddress($email, $url, $form, $path) {
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/set-password-url.php",
+        data: {
+            system: $('#system').val(),
+            email: $email,
+            path: $url
+        }
+    }).done(function($data) {
+
+        if($data != 'false') {
+
+            sendFormEvent($form, $path);
+
+        }else{
+
+            $form.next().children('.alert0').fadeIn();
+
+        }
+
+    });
+
+}
+
+function passwordSet($email, $url, $form, $path) {
+
+    $.ajax({
+        method: "POST",
+        url: "ajax/set-password.php",
+        data: {
+            system: $('#system').val(),
+            email: $email,
+            path: $url
+        }
+    }).done(function($data) {
+
+        if($data != 'false') {
+
+            sendFormEvent($form, $path, ': ' + $data);
+
+        }else{
+
+            $form.next().children('.alert0').fadeIn();
+
+        }
+
+    });
+
+}
