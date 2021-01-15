@@ -13,9 +13,7 @@ class Run extends Session
     private $date;
 
     //Admins array
-    private $admin = array(
-        'm@internet.media.pl' => array('image' => 'dk.jpg', 'password' => '7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
-    );
+    private $admin = array();
 
     private function checkAdmin($email, $password) {
 
@@ -23,7 +21,7 @@ class Run extends Session
 
             $adminData = $this->admin[$email];
 
-            if ($adminData['password'] === $password) {
+            if (password_verify($password, $adminData['password'])) {
 
                 $this->hashEmail = sha1($email . $this->getSalt() . $this->date);//Name of file (server side security)
 
@@ -61,11 +59,35 @@ class Run extends Session
 
     }
 
+    private function getAccount() {
+
+        $dir = '../config/!account';
+
+        $file = scandir($dir);
+
+        if (count($file) > 2) {
+
+            foreach ($file as $f) {
+
+                if ($f == '.' or $f == '..')
+                    continue;
+
+                $fileContent = json_decode(file_get_contents($dir . '/' . $f));
+
+                $this->admin[$fileContent->email] = array('image' => $fileContent->image, 'password' => $fileContent->password);
+
+            }
+        }
+
+    }
+
     public function __construct($email, $password)
     {
         parent::__construct();
 
         $this->date = date("Y-m-d");
+
+        $this->getAccount();
 
         $this->checkAdmin($email, $password);
     }
