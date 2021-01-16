@@ -8,7 +8,7 @@ if(isset($s_menuDefinition) and is_array($s_menuDefinition) and count($s_menuDef
 
             $userImage = 'layout/graphic/admin/'.$tool->getSession('admin')['image'];
 
-            if($tool->fileExists($userImage)) {
+            if($addition->fileExists($userImage)) {
 
                 echo '<img src="'.$userImage.'" style="height: 40px">';
 

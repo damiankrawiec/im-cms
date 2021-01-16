@@ -8,7 +8,7 @@ if($p_email and $p_password) {
 
     require_once 'run/run.class.php';
 
-    $run = new Run($p_email, $p_password);
+    $run = new Run($p_email, $p_password, $addition);
 
     unset($p_password);
 

@@ -12,6 +12,8 @@ class Run extends Session
 
     private $date;
 
+    private $addition;
+
     //Admins array
     private $admin = array();
 
@@ -25,7 +27,7 @@ class Run extends Session
 
                 $this->hashEmail = sha1($email . $this->getSalt() . $this->date);//Name of file (server side security)
 
-                $this->hashClient = $this->encode(sha1($_SERVER['REMOTE_ADDR'] . $this->getSalt() . $this->date));//Content of file (server side security)
+                $this->hashClient = $this->encode(sha1($this->addition->getUserIp() . $this->getSalt() . $this->date));//Content of file (server side security)
 
                 $this->setSession('admin', array('email' => $email, 'image' => $adminData['image']));
 
@@ -81,11 +83,13 @@ class Run extends Session
 
     }
 
-    public function __construct($email, $password)
+    public function __construct($email, $password, $addition)
     {
         parent::__construct();
 
         $this->date = date("Y-m-d");
+
+        $this->addition = $addition;
 
         $this->getAccount();
 

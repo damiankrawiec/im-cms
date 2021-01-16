@@ -10,7 +10,7 @@ require_once '../php/class/addition.class.php';
 
 $addition = new Addition();
 
-$tool = new Tool();
+$tool = new Tool($addition);
 
 //Set current url
 $addition->setUrl();

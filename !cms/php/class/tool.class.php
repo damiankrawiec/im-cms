@@ -8,6 +8,8 @@ class Tool extends Session
 
     private $hashEmail;
 
+    private $addition;
+
     private $checkAuth = false;
 
     private function checkAuth() {
@@ -20,11 +22,11 @@ class Tool extends Session
 
         $pathHashFile = 'auth/stamp/'.$this->hashEmail.'.txt';
 
-        if($this->fileExists($pathHashFile)) {
+        if($this->addition->fileExists($pathHashFile)) {
 
             $hashClientFile = $this->decode(file_get_contents($pathHashFile));
 
-            $hashClient = sha1($_SERVER['REMOTE_ADDR'].$this->getSalt().$this->date);
+            $hashClient = sha1($this->addition->getUserIp().$this->getSalt().$this->date);
 
             if($hashClientFile === $hashClient) {
 
@@ -56,10 +58,12 @@ class Tool extends Session
 
     }
 
-    public function __construct()
+    public function __construct($addition)
     {
 
         parent::__construct();
+
+        $this->addition = $addition;
 
         $this->date = date("Y-m-d");//Check timestamp security, one of 24h admin must be logged (maybe again)
 
@@ -70,28 +74,6 @@ class Tool extends Session
     public function getCheckAuth() {
 
         return $this->checkAuth;
-
-    }
-
-    public function fileExists($path = false) {
-
-        if($path) {
-
-            if(file_exists($path)) {
-
-                return true;
-
-            }else{
-
-                return false;
-
-            }
-
-        }else{
-
-            return false;
-
-        }
 
     }
 
