@@ -1,4 +1,19 @@
-<?php require_once 'php/init.php'; ?>
+<?php 
+
+    require_once 'php/init.php'; 
+
+    //---DO NOT REMOVE!!!
+
+    //Init setting and $db object
+    require_once 'php/script/system.php';
+
+    //If detect "transaction" then /run
+    if($p_transaction)
+        require_once 'php/run/init.php';
+
+    //---DO NOT REMOVE!!!
+
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -25,17 +40,6 @@
         echo '<div class="animated animated-body">';
 
     }else echo '<div>';
-
-    //---DO NOT REMOVE!!!
-
-    //Init setting and $db object
-    require_once 'php/script/system.php';
-
-    //If detect "transaction" then /run
-    if($p_transaction)
-        require_once 'php/run/init.php';
-
-    //---DO NOT REMOVE!!!
 
     //History of urls
     require_once 'content/box/breadcrumb.php';

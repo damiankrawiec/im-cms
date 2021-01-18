@@ -3,6 +3,9 @@
 if($tool->getSession('transaction') == '')
     $tool->setSession('transaction', array());
 
+//Alert top default set to not display (to show success - 1 or fail - 0, init $alert0 or $alert1 variable)
+$alert0 = $alert1 = false;
+
 //Operations
 if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
@@ -11,9 +14,6 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
         $eventPath = 'php/run/'.$p_event.'/init.php';
 
         if($addition->fileExists($eventPath)) {
-
-            //Alert top default set to not display (to show success - 1 or fail - 0, init $alert0 or $alert1 variable)
-            $alert0 = $alert1 = false;
 
             $eventData = array();
 
@@ -62,13 +62,6 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
 
             require_once $eventPath;
 
-            //Message top information (fail, success)
-            if($alert1)
-                echo $addition->alert1($alert1, $icon['message']['success']);
-
-            if($alert0)
-                echo $addition->alert0($alert0, $icon['message']['fail']);
-
         }
 
     }
@@ -108,3 +101,10 @@ if ($p_ids and ($p_edit_prev or $p_edit_next)) {
     echo '<form method="post" action="'.$addition->getUrl($addition->getUrlCount() - 1) . ','.$goUrl.'" id="auto-submit"><input type="hidden" name="ids" value="' . $addition->arrayJson($p_ids) . '"></form>';
 
 }
+
+//Message top information (fail, success)
+if($alert1)
+    echo $addition->alert1($alert1, $icon['message']['success']);
+
+if($alert0)
+    echo $addition->alert0($alert0, $icon['message']['fail']);
