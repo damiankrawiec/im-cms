@@ -214,6 +214,7 @@ class ObjectContent extends Language {
             o.attachment as attachment, 
             o.icon as icon,
             o.map as map,
+            o.package as package,
             o.status_protected as status_protected
             from im_object o';
 
@@ -263,7 +264,7 @@ class ObjectContent extends Language {
 
             $path = $this->path.'content/object/field/'.$p['name'].'.php';
 
-            if(is_file($path)) {
+            if($this->addition->fileExists($path)) {
 
                 if(isset($data[$p['name']])) {
 
@@ -305,7 +306,7 @@ class ObjectContent extends Language {
 
     }
 
-    //Do not remove! Check data is in field files
+    //Do not remove! Check data in field files
     private function checkDataDisplay($dataDisplay, $type = false) {
 
         $check = false;
@@ -324,6 +325,19 @@ class ObjectContent extends Language {
 
                     if (is_array($dataDisplay) and count($dataDisplay) > 0)
                         $check = true;
+
+                }
+
+                if ($type == 'package') {
+
+                    if (is_string($dataDisplay)) {
+
+                        $dataDisplayJson = $this->addition->jsonArray($dataDisplay);
+
+                        if (json_last_error() === JSON_ERROR_NONE)
+                            $check = true;
+
+                    }
 
                 }
 
@@ -908,9 +922,9 @@ class ObjectContent extends Language {
 
                             echo '<div class="col-12 pagination-arrow" id="'.$label.':'.$number.'">';
 
-                            echo $this->icon['arrow']['light-left'];
+                                echo $this->icon['arrow']['light-left'];
 
-                            echo $this->icon['arrow']['light-right'];
+                                echo $this->icon['arrow']['light-right'];
 
                             echo '</div>';
 

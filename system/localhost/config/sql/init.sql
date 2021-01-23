@@ -21,6 +21,8 @@ insert into im_label values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', '',
 insert into im_label values (null, 'Film', 'movie', '', '', null, null);
 insert into im_label values (null, 'Mapa', 'map', '', '', null, null);
 insert into im_label values (null, 'Autoryzacja', 'auth', '', '', null, null);
+insert into im_label values (null, 'Pakiet', 'package', '', '', null, null);
+
 
 -- record, object type
 
@@ -34,6 +36,7 @@ insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', '', nu
 insert into im_type values (null, 'Film', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Mapa', 'col-12', 'on', '', null, null);
 insert into im_type values (null, 'Autoryzacja', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Pakiet', 'col-12', 'on', '', null, null);
 
 -- record, set property in type
 
@@ -64,22 +67,26 @@ insert into im_type_property values (null, 9, 16, 'col-12', '', 1, 'on', '', nul
 
 insert into im_type_property values (null, 10, 17, 'col-12', '', 1, 'on', '', null, null);
 
+insert into im_type_property values (null, 11, 1, 'col-12', '', 1, 'on', '', null, null);
+insert into im_type_property values (null, 11, 18, 'col-12', '', 1, 'on', '', null, null);
+
 
 -- record, object
 
-insert into im_object values (null, 4, 4, 0, '', 'Najbliższe wydarzenie', 'Najbliższe wydarzenie', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Impreza 1', 'Impreza 1', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Impreza 2', 'Impreza 2', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Impreza 3', 'Impreza 3', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 1, 1, 0, '', 'Impreza 4', 'Impreza 4', '', '', '', '', '', '', '', '', '', 4, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 2, 2, 0, '', 'Slider', 'Slider', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 3, 3, 0, '', 'Menu', 'Menu', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 5, 5, 0, '', 'Języki', 'Języki', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 6, 6, 0, '', 'Ciasteczka', 'Ciasteczka', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 7, 7, 0, '', 'Menu', 'Menu', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 8, 8, 0, '', 'Film', 'Film', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 9, 9, 0, '', 'Mapa', 'Mapa', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
-insert into im_object values (null, 10, 10, 0, '', 'Formularz logowania', 'Formularz logowania', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 4, 4, 0, '', 'Najbliższe wydarzenie', 'Najbliższe wydarzenie', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Impreza 1', 'Impreza 1', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Impreza 2', 'Impreza 2', '', '', '', '', '', '', '', '', '', '', 2, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Impreza 3', 'Impreza 3', '', '', '', '', '', '', '', '', '', '', 3, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 1, 1, 0, '', 'Impreza 4', 'Impreza 4', '', '', '', '', '', '', '', '', '', '', 4, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 2, 2, 0, '', 'Slider', 'Slider', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 3, 3, 0, '', 'Menu', 'Menu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 5, 5, 0, '', 'Języki', 'Języki', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 6, 6, 0, '', 'Ciasteczka', 'Ciasteczka', '<div id="cookie"><i class="fad fa-cookie fa-2x float-left m-1"></i> Przeglądając niniejszy serwis internetowy, akceptujesz pliki cookies zgodnie z ustawieniami przeglądarki <button class="btn btn-dark">OK</button></div>', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 7, 7, 0, '', 'Menu', 'Menu', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 8, 8, 0, '', 'Film', 'Film', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 9, 9, 0, '', 'Mapa', 'Mapa', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 10, 10, 0, '', 'Formularz logowania', 'Formularz logowania', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
+insert into im_object values (null, 11, 11, 0, '', 'Pakiet', 'Pakiet', '', '', '', '', '', '', '', '', '', '', 1, 'on', 'off', 'off','off', '', null, null, null);
 
 -- record, object image
 
@@ -108,6 +115,7 @@ insert into im_section_object values (null, 1, 11);
 insert into im_section_object values (null, 1, 12);
 insert into im_section_object values (null, 4, 7);
 insert into im_section_object values (null, 4, 13);
+insert into im_section_object values (null, 1, 14);
 
 -- record, label class in section
 

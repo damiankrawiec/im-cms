@@ -7,7 +7,7 @@ $s_previewImage = '120px';
 $s_previewImageBig = '220px';
 $s_previewMovie = '200px';
 $s_breadcrumbCount = 5; //max
-$s_debug = true; //Debug mode
+$s_debug = false; //Debug mode
 //Dashboard definitions, there should be 6, 9, 12...elements (max: col-md-4), direct to edit
 $s_dashboard = array(
     array('name' => $translation['dashboard']['section'], 'icon' => $icon['menu']['section'], 'table' => 'im_section', 'title' => 'name, description', 'field' => 'parent'),
@@ -96,6 +96,7 @@ $s_eventDefinition = array(
             'attachment' => array('name' => $tableDefinitionEvent['im_object']['attachment'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'icon' => array('name' => $tableDefinitionEvent['im_object']['icon'], 'type' => 'icon', 'require' => 'validation :icon', 'table' => 'im_object'),
             'map' => array('name' => $tableDefinitionEvent['im_object']['map'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 64),
+            'package' => array('name' => $tableDefinitionEvent['im_object']['package'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_object'),
             'class' => array('name' => $tableDefinitionEvent['im_object']['class'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),

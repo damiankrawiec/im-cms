@@ -29,10 +29,10 @@ $db = new Database();
 require_once 'php/script/start-section.php';
 
 //Grab all "get" variables
-require_once 'php/script/get.php';
+require 'php/script/get.php';
 
 //Grab all "post" variables
-require_once 'php/script/post.php';
+require 'php/script/post.php';
 
 $system->setSection($g_url, $db);
 

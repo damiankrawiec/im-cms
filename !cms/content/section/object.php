@@ -32,6 +32,7 @@ if($g_var1 != '') {
         attachment,
         icon,
         map,
+        package,
         class,
         date,
         content,

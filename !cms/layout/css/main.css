@@ -270,6 +270,11 @@ ul.pagination .page-link i {
   color: #fff;
   padding: 5px;
 }
+#package {
+  font-family: "Courier New";
+  font-size: 12px;
+  min-height: 350px;
+}
 .editor-data {
   display: none;
   position: fixed;

@@ -346,6 +346,7 @@ create table im_object (
     attachment varchar(256) collate utf8_polish_ci default '',-- attachment text, like CV (if empty, there is no attachment)
     icon varchar(64) collate utf8_polish_ci default '',-- icon (fontawesome)
     map varchar(64) collate utf8_polish_ci default '',-- coordinates
+    package text collate utf8_polish_ci default '',-- code of package (e.g. json, it should contain name of package, few events, get api response, draw map, draw chart, insert data to table)
     class varchar(256) collate utf8_polish_ci default '',-- class of object
     position int default 0,
     status varchar(3) default 'on',
@@ -1000,6 +1001,7 @@ insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', 
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 insert into im_property values (null, 'Mapa', 'map', '', null, null);
 insert into im_property values (null, 'Formularz logowania', 'form-auth', '', null, null);
+insert into im_property values (null, 'Pakiet', 'package', '', null, null);
 
 -- language definition
 
@@ -1013,9 +1015,9 @@ insert into im_translation_system values (null, 2,  'All', 'show-all', 'Show all
 insert into im_translation_system values (null, 1,  'No data', 'no-data', 'Brak danych', '', null, null);
 insert into im_translation_system values (null, 2,  'No data', 'no-data', 'No data', '', null, null);
 insert into im_translation_system values (null, 1,  'Przycisk wyślij', 'send', 'Wyślij', '', null, null);
+insert into im_translation_system values (null, 2,  'Send button', 'send', 'Send', '', null, null);
 insert into im_translation_system values (null, 1,  'Nazwa', 'name', 'Nazwa', '', null, null);
 insert into im_translation_system values (null, 1,  'Nadawca', 'source', 'Nadawca', '', null, null);
-insert into im_translation_system values (null, 2,  'Send button', 'send', 'Send', '', null, null);
 insert into im_translation_system values (null, 2,  'Name', 'name', 'name', '', null, null);
 insert into im_translation_system values (null, 2,  'From', 'source', 'from', '', null, null);
 insert into im_translation_system values (null, 1,  'Formularz błąd', 'form-error', 'Błąd wysyłania wiadomości', '', null, null);
@@ -1058,6 +1060,8 @@ insert into im_translation_system values (null, 1,  'Ustaw hasło', 'set-passwor
 insert into im_translation_system values (null, 2,  'Ustaw hasło', 'set-password', 'Set password', '', null, null);
 insert into im_translation_system values (null, 1,  'Ustawione hasło', 'new-password-set', 'Hasło zostało ustawione', '', null, null);
 insert into im_translation_system values (null, 2,  'Ustawione hasło', 'new-password-set', 'Password has set', '', null, null);
+insert into im_translation_system values (null, 1,  'Uruchom', 'run', 'Uruchom', '', null, null);
+insert into im_translation_system values (null, 2,  'Uruchom', 'run', 'Run', '', null, null);
 
 
 -- setting
