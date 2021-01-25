@@ -256,7 +256,7 @@ class ObjectContent extends Language {
     }
 
     //Section is used in require (do not remove)
-    private function displayProperty($property, $data, $section, $classRow) {
+    private function displayProperty($property, $data, $section, $classRow, $p_package) {
 
         echo '<div class="'.$classRow.'row">';
 
@@ -843,6 +843,9 @@ class ObjectContent extends Language {
 
         if($label) {
 
+            //Grab all "post" variables (it can use in fields, e.g. package)
+            require 'php/script/post.php';
+
             $this->label = $label;
 
             $parameter = array(
@@ -872,6 +875,20 @@ class ObjectContent extends Language {
 
             }
 
+            if($p_id) {
+
+                foreach ($objectRecord as $or) {
+
+                    if($or['id'] == $p_id) {
+
+                        $objectRecord = array($or);
+                        break;
+
+                    }
+
+                }
+
+            }
             if(count($objectRecord) > 0) {
 
                 $classLabelDisplay = $classLabelRowDisplay = $classLabelRowSecondDisplay = '';
@@ -1021,7 +1038,7 @@ class ObjectContent extends Language {
 
                                 }
 
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay);
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, $p_package);
 
                                 echo '</div>';
 

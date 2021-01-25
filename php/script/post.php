@@ -50,6 +50,14 @@ $p_email = false;
 if(isset($_POST['email']))
     $p_email = $_POST['email'];
 
+$p_package = false;
+if(isset($_POST['package']))
+    $p_package = $_POST['package'];
+
+$p_id = false;
+if(isset($_POST['id']))
+    $p_id = $_POST['id'];
+
 $formData = array();
 if(isset($_POST)) {
 
