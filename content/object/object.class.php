@@ -875,6 +875,7 @@ class ObjectContent extends Language {
 
             }
 
+            $runPackage = false;
             if($p_id) {
 
                 foreach ($objectRecord as $or) {
@@ -882,6 +883,7 @@ class ObjectContent extends Language {
                     if($or['id'] == $p_id) {
 
                         $objectRecord = array($or);
+                        $runPackage = true;
                         break;
 
                     }
@@ -960,6 +962,9 @@ class ObjectContent extends Language {
                                     $class .= ' ' . $classObject;
                                 if ($this->admin)
                                     $class .= ' im-preview';
+                                if ($runPackage)
+                                    $class .= ' col-12';
+
                                 echo '<div class="' . $this->getCategoryObject($or['id']) . $class . '">';
                                 if ($this->admin) {
 
@@ -1035,6 +1040,15 @@ class ObjectContent extends Language {
                                         } else $displayPropertyData['section'] = false;
 
                                     }
+
+                                    if ($p['name'] == 'package') {
+
+                                        if(in_array($p_transaction, $this->session['transaction']))
+                                            continue;
+
+                                    }
+
+
 
                                 }
 

@@ -43,6 +43,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
             echo '<input type="submit" value="' . $this->makeTranslationSystem('run') . '" class="btn btn-danger">';
             echo '<input type="hidden" name="package" value="' . $nextPackage . '">';
             echo '<input type="hidden" name="id" value="' . $dataId . '">';
+            echo '<input type="hidden" name="transaction" value="'.$this->addition->transaction().'">';
             echo '</form>';
 
         }
