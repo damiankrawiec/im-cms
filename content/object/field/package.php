@@ -10,20 +10,9 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
     if(isset($package->$packageName)) {
 
-        $pack = $package->$packageName;
-
-        $path = '';
-        if(isset($pack->name) and $pack->name !== '')
-            $path = 'content/package/'.$pack->name;
-
-        if ($this->addition->fileExists($path.'/init.php')) {
-
-            require $path.'/init.php';
-
-        }
-
         //Run event to next package (with object full width - $objectId), protect package form to resend (e.g. back in browser)
         $stop = false;
+        $nextPackage = '';
         foreach ($package as $i => $p) {
 
             $nextPackage = $i;
@@ -36,13 +25,22 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
         }
 
-        if ($nextPackage !== $packageName) {
+        $pack = $package->$packageName;
+
+        $path = '';
+        if(isset($pack->name) and $pack->name !== '')
+            $path = 'content/package/'.$pack->name;
+
+        if ($this->addition->fileExists($path.'/init.php')) {
+
+            require $path.'/init.php';
+
+        }
+
+        if (!isset($package->$packageName->run) and $nextPackage !== $packageName) {
 
             echo '<form method="post" action="">';
-            echo '<input type="submit" value="' . $this->makeTranslationSystem('run') . '" class="btn btn-danger run-package"> <span class="im-hide">'.$this->icon['process']['spin'].'</span>';
-            echo '<input type="hidden" name="package" value="' . $nextPackage . '">';
-            echo '<input type="hidden" name="id" value="' . $dataId . '">';
-            echo '<input type="hidden" name="transaction_package" value="'.$this->addition->transaction().'">';
+                require 'content/package/submit.php';
             echo '</form>';
 
         }

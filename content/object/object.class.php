@@ -256,7 +256,7 @@ class ObjectContent extends Language {
     }
 
     //Section is used in require (do not remove)
-    private function displayProperty($property, $data, $section, $classRow, $packageData) {
+    private function displayProperty($property, $data, $section, $classRow, $packageData, $formData) {
 
         echo '<div class="'.$classRow.'row">';
 
@@ -1060,7 +1060,7 @@ class ObjectContent extends Language {
 
                                 }
 
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package));
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package), $formData);
 
                                 echo '</div>';
 
