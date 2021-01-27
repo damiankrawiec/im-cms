@@ -42,6 +42,10 @@ $p_transaction = false;
 if(isset($_POST['transaction']))
     $p_transaction = $_POST['transaction'];
 
+$p_transaction_package = false;
+if(isset($_POST['transaction_package']))
+    $p_transaction_package = $_POST['transaction_package'];
+
 $p_path = false;
 if(isset($_POST['path']))
     $p_path = $_POST['path'];

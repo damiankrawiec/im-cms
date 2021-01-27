@@ -32,5 +32,7 @@
 
     <?php require_once 'section/map.php'; ?>
 
+    <?php require_once 'section/end.php'; ?>
+
 </body>
 </html>

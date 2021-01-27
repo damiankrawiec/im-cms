@@ -256,11 +256,22 @@ class ObjectContent extends Language {
     }
 
     //Section is used in require (do not remove)
-    private function displayProperty($property, $data, $section, $classRow, $p_package) {
+    private function displayProperty($property, $data, $section, $classRow, $packageData) {
 
         echo '<div class="'.$classRow.'row">';
 
         foreach ($property as $p) {
+
+            if ($p['name'] == 'package') {
+
+                if(($packageData['transaction'] and isset($this->session['transaction_package'])) and in_array($packageData['transaction'], $this->session['transaction_package'])) {
+
+                    echo $this->addition->message($this->makeTranslationSystem('transaction_package_done'));
+
+                    continue;
+                }
+
+            }
 
             $path = $this->path.'content/object/field/'.$p['name'].'.php';
 
@@ -844,6 +855,7 @@ class ObjectContent extends Language {
         if($label) {
 
             //Grab all "post" variables (it can use in fields, e.g. package)
+            $addition = $this->addition;
             require 'php/script/post.php';
 
             $this->label = $label;
@@ -1041,18 +1053,9 @@ class ObjectContent extends Language {
 
                                     }
 
-                                    if ($p['name'] == 'package') {
-
-                                        if(in_array($p_transaction, $this->session['transaction']))
-                                            continue;
-
-                                    }
-
-
-
                                 }
 
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, $p_package);
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package));
 
                                 echo '</div>';
 

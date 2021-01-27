@@ -65,6 +65,13 @@ $(function(){
 
     });
 
+    $('.run-package').click(function(){
+
+        $(this).next().show();
+
+    });
+
+
     $('body').on('click', '.im-send', function () {
 
         sendFormEvent($(this).parent(), '');

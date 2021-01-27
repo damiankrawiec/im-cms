@@ -63,4 +63,7 @@ require_once 'php/run/init.php';
 if($g_url)
     $session->setSession('path', $g_url);
 
+if($session->getSession('transaction_package') == '')
+    $session->setSession('transaction_package', array());
+
 $sessionVariable = $session->grabSession();

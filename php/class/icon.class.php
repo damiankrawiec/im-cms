@@ -18,7 +18,8 @@ class Icon
         'multimedia' => array('movie' => '<i class="fal fa-film-alt"></i>'),
         'tool' => array('edit' => '<i class="fad fa-pen-square fa-2x"></i>', 'slash' => '<i class="fal fa-slash fa-flip-horizontal"></i>'),
         'hamburger' => array('standard' => '<i class="fal fa-bars"></i>', 'close' => '<i class="fal fa-times im-hide"></i>'),
-        'message' => array('success' => '<i class="fad fa-check-square text-success"></i>', 'fail' => '<i class="fad fa-exclamation-square text-danger"></i>')
+        'message' => array('success' => '<i class="fad fa-check-square text-success"></i>', 'fail' => '<i class="fad fa-exclamation-square text-danger"></i>'),
+        'process' => array('spin' => '<i class="fas fa-cog fa-spin"></i>'),
     );
 
     public function getCurrentIcon() {

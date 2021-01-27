@@ -31,7 +31,7 @@ if(!in_array($p_transaction, $session->getSession('transaction'))) {
 //SAVE CURRENT TRANSACTION (do not unset in logout, user may login one more time without close browser)
 
 //No repeat
-if(!in_array($p_transaction, $session->getSession('transaction')))
+if($p_transaction and !in_array($p_transaction, $session->getSession('transaction')))
     $session->pushSession('transaction', $p_transaction);
 
 //---
