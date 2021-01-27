@@ -974,8 +974,13 @@ class ObjectContent extends Language {
                                     $class .= ' ' . $classObject;
                                 if ($this->admin)
                                     $class .= ' im-preview';
-                                if ($runPackage)
+                                if ($runPackage) {
+
+                                    $class = $this->addition->cleanText($class, 'col-');
+
                                     $class .= ' col-12';
+
+                                }
 
                                 echo '<div class="' . $this->getCategoryObject($or['id']) . $class . '">';
                                 if ($this->admin) {
