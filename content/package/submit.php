@@ -3,3 +3,5 @@ echo '<input type="submit" value="' . $this->makeTranslationSystem('run') . '" c
 echo '<input type="hidden" name="package" value="' . $nextPackage . '">';
 echo '<input type="hidden" name="id" value="' . $dataId . '">';
 echo '<input type="hidden" name="transaction_package" value="'.$this->addition->transaction().'">';
+
+$submit = true;

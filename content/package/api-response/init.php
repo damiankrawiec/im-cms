@@ -1,8 +1,12 @@
 <?php
-//$package objects
+//$package - all packages
+//$pack - current package
 //$path source of package
+/*
+ * when is form (parameter), then add in form [require_once 'content/package/submit.php';]
+ * (this display button in parameter form and hide run button)
+*/
 
-echo 'api response code run';
+$jsonResponse = $this->addition->jsonArray(file_get_contents($apiResponsePath.'/response.json'));
 
-//when is form (parameter)
-//require 'content/package/submit.php';
+return $jsonResponse;
