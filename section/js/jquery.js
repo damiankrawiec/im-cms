@@ -4,6 +4,10 @@ $(function(){
 
     translation();
 
+    dataTables();
+
+    $('.data-table').DataTable();
+
     closeAlertTop();
 
     setTimeout(optimizeImage, 2000);

@@ -3,7 +3,7 @@
 //$pack - current package
 //$path source of package
 /*
- * when is form (parameter), then add in form [require_once 'content/package/submit.php';]
+ * when is form (parameter), then add in form [require 'content/package/submit.php';]
  * (this display button in parameter form and hide run button)
 */
 

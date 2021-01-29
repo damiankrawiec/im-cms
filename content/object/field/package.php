@@ -40,7 +40,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
         if (!isset($submit) and $nextPackage !== $packageName) {
 
             echo '<form method="post" action="">';
-                require_once 'content/package/submit.php';
+                require 'content/package/submit.php';
             echo '</form>';
 
         }
