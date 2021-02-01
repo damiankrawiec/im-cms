@@ -150,7 +150,7 @@ function dataTables() {
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         "ordering": false,
         'language': {
-            'url': 'content/box/table/polish.json',
+            'url': '../layout/data-tables/pl.json',
             'oPaginate': {
                 'sFirst': $arrow[0],
                 'sPrevious': $arrow[1],
