@@ -27,20 +27,20 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
         $pack = $package->$packageName;
 
-        $path = '';
+        $path = $pathName = 'content/package';
         if(isset($pack->name) and $pack->name !== '')
-            $path = 'content/package/'.$pack->name;
+            $pathName = $path.'/'.$pack->name;
 
-        if ($this->addition->fileExists($path.'/init.php')) {
+        if ($this->addition->fileExists($pathName.'/init.php')) {
 
-            require $path.'/init.php';
+            require $pathName.'/init.php';
 
         }
 
         if (!isset($submit) and $nextPackage !== $packageName) {
 
             echo '<form method="post" action="">';
-                require_once 'content/package/submit.php';
+                require_once $path.'/submit.php';
             echo '</form>';
 
         }
