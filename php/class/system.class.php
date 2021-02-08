@@ -351,13 +351,17 @@ class System extends Setting
 
     }
 
-    public function getHead() {
+    public function getHead($addition) {
 
         if($this->checkSystemStructure) {
 
             echo '<link rel="stylesheet" href="section/css/main.css">';
 
             echo '<link rel="stylesheet" href="' . $this->system . '/css/main.css">';
+
+            $childStyle = $this->system . '/css/child/main.css';
+            if($addition->fileExists($childStyle))
+                echo '<link rel="stylesheet" href="'.$childStyle.'">';
 
         }
 

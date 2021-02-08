@@ -7,7 +7,7 @@
 
     <?php require_once 'section/title.php'; ?>
 
-    <?php $system->getHead(); ?>
+    <?php $system->getHead($addition); ?>
 
     <?php require_once 'section/favicon.php'; ?>
 
