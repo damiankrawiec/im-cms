@@ -8,7 +8,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
     if($packageData['name'])
         $packageName = $packageData['name'];
 
-    if(isset($package->$packageName)) {
+    if(isset($package->{$packageName})) {
 
         //Run event to next package (with object full width - $objectId), protect package form to resend (e.g. back in browser)
         $stop = false;
@@ -25,22 +25,23 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
         }
 
-        $pack = $package->$packageName;
+        $pack = $package->{$packageName};
 
         $path = $pathName = 'content/package';
         if(isset($pack->name) and $pack->name !== '')
             $pathName = $path.'/'.$pack->name;
 
+        $submit = false;
         if ($this->addition->fileExists($pathName.'/init.php')) {
 
             require $pathName.'/init.php';
 
         }
 
-        if (!isset($submit) and $nextPackage !== $packageName) {
+        if (!$submit and $nextPackage !== $packageName) {
 
             echo '<form method="post" action="">';
-                require_once $path.'/submit.php';
+                require $path.'/submit.php';
             echo '</form>';
 
         }
