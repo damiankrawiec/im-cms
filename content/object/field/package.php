@@ -34,6 +34,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
         $submit = false;
         if ($this->addition->fileExists($pathName.'/init.php')) {
 
+            $pathSection = 'content/section';
             require $pathName.'/init.php';
 
         }
