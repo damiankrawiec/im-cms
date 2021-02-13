@@ -27,14 +27,20 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
         $pack = $package->{$packageName};
 
+        $pathSection = 'content/section';
+
         $path = $pathName = 'content/package';
         if(isset($pack->name) and $pack->name !== '')
-            $pathName = $path.'/'.$pack->name;
+            $pathName .= '/'.$pack->name;
+
+        //Get translation array
+        $packageLanguagePath = $pathSection.'/package/language/'.$this->languageCurrent.'.php';
+        if($this->addition->fileExists($packageLanguagePath))
+            require $packageLanguagePath;
 
         $submit = false;
         if ($this->addition->fileExists($pathName.'/init.php')) {
 
-            $pathSection = 'content/section';
             require $pathName.'/init.php';
 
         }
@@ -42,7 +48,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
         if (!$submit and $nextPackage !== $packageName) {
 
             echo '<form method="post" action="">';
-                require $path.'/submit.php';
+                require $pathSection.'/package/submit.php';
             echo '</form>';
 
         }

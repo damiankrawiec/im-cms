@@ -403,7 +403,7 @@ class System extends Setting
 
     }
 
-    public function getBody() {
+    public function getBody($addition) {
 
         if($this->checkSystemStructure) {
 
@@ -418,6 +418,14 @@ class System extends Setting
 
             }
             //--
+
+            $packageEventPath = 'content/section/package/public/event.js';
+            if($addition->fileExists($packageEventPath)) {
+
+                echo '<script src="' . $packageEventPath . '"></script>';
+
+            }
+
 
             if (count($fileGlobal) > 2) {
 
