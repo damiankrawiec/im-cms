@@ -34,9 +34,9 @@ class ObjectContent extends Language {
 
     public $mapArray;
 
-    public function __construct($systemName, $db, $languageCurrent, $admin, $setting = false, $domain, $addition, $auth, $session) {
+    public function __construct($systemName, $db, $currentLanguage, $admin, $setting = false, $domain, $addition, $auth, $session) {
 
-        parent::__construct($db, $languageCurrent);
+        parent::__construct($db, $currentLanguage);
 
         $this->systemName = $systemName;
 

@@ -24,7 +24,7 @@
 
     <?php require_once 'section/body.php'; ?>
 
-    <?php $system->getBody(); ?>
+    <?php $system->getBody($addition); ?>
 
     <?php require_once 'section/popup.php'; ?>
 

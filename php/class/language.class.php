@@ -7,15 +7,15 @@ class Language extends Icon
 
     protected $db;
 
-    protected $languageCurrent;
+    protected $currentLanguage;
 
     protected $translation;
 
-    protected function __construct($db, $languageCurrent){
+    protected function __construct($db, $currentLanguage){
 
         $this->db = $db;
 
-        $this->default($languageCurrent);
+        $this->default($currentLanguage);
 
         $this->translationSystem();
 
@@ -73,7 +73,7 @@ class Language extends Icon
         $this->db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
+            array('name' => ':languageCurrent', 'value' => $this->currentLanguage, 'type' => 'string')
         );
 
         $this->db->bind($parameter);
@@ -92,7 +92,7 @@ class Language extends Icon
         $this->db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':languageCurrent', 'value' => $this->languageCurrent, 'type' => 'string')
+            array('name' => ':languageCurrent', 'value' => $this->currentLanguage, 'type' => 'string')
         );
 
         $this->db->bind($parameter);
@@ -101,11 +101,11 @@ class Language extends Icon
 
     }
 
-    private function default($languageCurrent) {
+    private function default($currentLanguage) {
 
-        if($languageCurrent) {
+        if($currentLanguage) {
 
-            $this->languageCurrent = $languageCurrent;
+            $this->currentLanguage = $currentLanguage;
 
         }else{
 
@@ -116,11 +116,11 @@ class Language extends Icon
 
             $this->db->prepare($sql);
 
-            $languageCurrent = $this->db->run('one');
+            $currentLanguage = $this->db->run('one');
 
-            if ($languageCurrent) {
+            if ($currentLanguage) {
 
-                $this->languageCurrent = $languageCurrent->system_name;
+                $this->currentLanguage = $currentLanguage->system_name;
 
             } else {
 
@@ -129,6 +129,8 @@ class Language extends Icon
                 exit();
 
             }
+
+            var_dump($currentLanguage);
 
         }
 

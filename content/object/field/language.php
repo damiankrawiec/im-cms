@@ -8,7 +8,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         foreach ($dataDisplay as $l) {
 
             $active = '';
-            if($l['system_name'] == $this->languageCurrent)
+            if($l['system_name'] == $this->currentLanguage)
                 $active = ' class="im-hide"';
 
             echo '<li id="'.$l['system_name'].'"'.$active.'>';

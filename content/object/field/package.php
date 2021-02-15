@@ -34,7 +34,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
             $pathName .= '/'.$pack->name;
 
         //Get translation array
-        $packageLanguagePath = $pathSection.'/package/language/'.$this->languageCurrent.'.php';
+        $packageLanguagePath = $pathSection.'/package/language/'.$this->currentLanguage.'.php';
         if($this->addition->fileExists($packageLanguagePath))
             require $packageLanguagePath;
 

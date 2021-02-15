@@ -349,7 +349,9 @@ function gallery() {
 }
 function datepicker() {
 
-    $('.datepicker-here').datepicker();
+    $('.im-datepicker').datepicker();
+
+    $('.im-datepicker').val($('.im-datepicker').next().val());
 
 }
 function popup() {
