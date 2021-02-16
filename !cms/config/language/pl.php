@@ -53,6 +53,7 @@ $translation = array(
     'message' => array(
         'no-data' => 'Brak danych',
         'relation-exists' => 'Pozycja posiada powiązania z innymi danymi',
+        'data-exists' => 'Podane dane już istnieją',
         'save-success' => 'Dane zostały zapisane poprawnie',
         'delete-success' => 'Pozycja została usunięta poprawnie',
         'no-field' => 'Typ, do którego podłączony jest obiekt nie posiada żadnych właściwości',

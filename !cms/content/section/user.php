@@ -56,7 +56,10 @@ if($displayCount == 'all') {
 
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
-        'table_add' => array($table)
+        'table_add' => array($table),
+        'restriction' => array(
+            'im_user' => 'email'
+        )
     );
 
     require_once 'content/box/event/add.php';
@@ -90,6 +93,9 @@ if ($record) {
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
             'url' => $baseUrl,
+            'restriction' => array(
+                'im_user' => 'email'
+            ),
             'fix-0' => array(
                 'collection' => array('name' => $translation['fix']['object'], 'table' => 'im_object'),
                 'id' => array('name' => 'user_id', 'value' => $g_var2),

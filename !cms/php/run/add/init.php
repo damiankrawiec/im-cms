@@ -1,56 +1,20 @@
 <?php
 
-foreach($eventData['table'] as $table) {
+$restrictionStatus = true;
+if(isset($eventData['restriction']))
+    require_once 'php/run/add/comparison-data.php';
 
-    $sql = 'insert into ' . $table . ' (';
+if($restrictionStatus) {
 
-    $parameter = array();
+    foreach ($eventData['table'] as $table) {
 
-    foreach ($eventData['data'] as $e => $ed) {
+        $sql = 'insert into ' . $table . ' (';
 
-        $sql .= $e . ', ';
-
-    }
-
-    if(isset($eventData['supplement']->$table)) {
-
-        foreach ($eventData['supplement']->$table as $s => $su) {
-
-            $sql .= $s . ', ';
-
-        }
-
-        $sql = substr($sql, 0, -2);
-
-    }else $sql = substr($sql, 0, -2);
-
-    $sql .= ')';
-
-    $sqlValue = '';
-    foreach ($eventCount as $ec => $item) {
-
-        $sqlValue .= '(';
+        $parameter = array();
 
         foreach ($eventData['data'] as $e => $ed) {
 
-            $bindType = 'string';
-            if (stristr($e, 'id'))
-                $bindType = 'int';
-
-            $sqlValue .= ':' . $e.$ec . ', ';
-
-            $value = $ed;
-            if ($e == 'url') {
-
-                if($item == 'one') {
-
-                    continue;
-
-                }else $value = $item;
-
-            }
-
-            array_push($parameter, array('name' => ':' . $e.$ec, 'value' => $value, 'type' => $bindType));
+            $sql .= $e . ', ';
 
         }
 
@@ -58,52 +22,103 @@ foreach($eventData['table'] as $table) {
 
             foreach ($eventData['supplement']->$table as $s => $su) {
 
+                $sql .= $s . ', ';
+
+            }
+
+            $sql = substr($sql, 0, -2);
+
+        } else $sql = substr($sql, 0, -2);
+
+        $sql .= ')';
+
+        $sqlValue = '';
+        foreach ($eventCount as $ec => $item) {
+
+            $sqlValue .= '(';
+
+            foreach ($eventData['data'] as $e => $ed) {
+
                 $bindType = 'string';
-                if (stristr($s, 'id') or $s == 'parent')
+                if (stristr($e, 'id'))
                     $bindType = 'int';
 
-                $sqlValue .= ':' . $s.$ec . ', ';
+                $sqlValue .= ':' . $e . $ec . ', ';
 
-                $value = $su;
-                if ($su == 'create') {
+                $value = $ed;
+                if ($e == 'url') {
 
-                    if ($s == 'name_url')
-                        $value = $addition->createUrl($eventData['data']['name']);
+                    if ($item == 'one') {
+
+                        continue;
+
+                    } else $value = $item;
 
                 }
 
-                array_push($parameter, array('name' => ':' . $s.$ec, 'value' => $value, 'type' => $bindType));
+                array_push($parameter, array('name' => ':' . $e . $ec, 'value' => $value, 'type' => $bindType));
 
             }
+
+            if (isset($eventData['supplement']->$table)) {
+
+                foreach ($eventData['supplement']->$table as $s => $su) {
+
+                    $bindType = 'string';
+                    if (stristr($s, 'id') or $s == 'parent')
+                        $bindType = 'int';
+
+                    $sqlValue .= ':' . $s . $ec . ', ';
+
+                    $value = $su;
+                    if ($su == 'create') {
+
+                        if ($s == 'name_url')
+                            $value = $addition->createUrl($eventData['data']['name']);
+
+                    }
+
+                    array_push($parameter, array('name' => ':' . $s . $ec, 'value' => $value, 'type' => $bindType));
+
+                }
+
+            }
+
+            $sqlValue = substr($sqlValue, 0, -2);
+
+            $sqlValue .= '), ';
 
         }
 
         $sqlValue = substr($sqlValue, 0, -2);
 
-        $sqlValue .= '), ';
+        $sql .= ' values ' . $sqlValue;
 
-    }
+        if (count($parameter) > 0) {
 
-    $sqlValue = substr($sqlValue, 0, -2);
+            $db->prepare($sql);
 
-    $sql .= ' values ' . $sqlValue;
+            $db->bind($parameter);
 
-    if(count($parameter) > 0) {
+            $lastInsertId = $db->run();
 
-        $db->prepare($sql);
+            if (isset($eventData['field_supplement'])) {
 
-        $db->bind($parameter);
+                require_once 'php/run/add/field-supplement.php';
 
-        $lastInsertId = $db->run();
-
-        if (isset($eventData['field_supplement'])) {
-
-            require_once 'php/run/add/field-supplement.php';
+            }
 
         }
 
     }
 
-}
+    $alert1 = $translation['message']['save-success'];
 
-$alert1 = $translation['message']['save-success'];
+}else{
+
+    $alert0 = $translation['message']['data-exists'];
+
+    if(isset($eventData['restriction']))
+        $alert0 .= ' - '.json_encode($eventData['restriction']);
+
+}

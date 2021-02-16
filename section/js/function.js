@@ -351,7 +351,13 @@ function datepicker() {
 
     $('.im-datepicker').datepicker();
 
-    $('.im-datepicker').val($('.im-datepicker').next().val());
+    $('im-datepicker-box .im-datepicker').each(function() {
+
+        let $this = $(this);
+
+        $this.val($this.next().val());
+
+    });
 
 }
 function popup() {

@@ -1,63 +1,78 @@
 <?php
 
-foreach($eventData['table'] as $table => $field) {
+$restrictionStatus = true;
+if(isset($eventData['restriction']))
+    require_once 'php/run/edit/comparison-data.php';
 
-    $sql = 'update ' . $table . ' set ';
+if($restrictionStatus) {
 
-    $parameter = array();
-    foreach ($field as $f) {
+    foreach ($eventData['table'] as $table => $field) {
 
-        if($f == 'url' and !$fileName)
-            continue;
+        $sql = 'update ' . $table . ' set ';
 
-        $bindType = 'string';
-        if(is_numeric($eventData['data'][$f]) or $f == 'parent')
-            $bindType = 'int';
+        $parameter = array();
+        foreach ($field as $f) {
 
-        $sql .= $f . ' = :' . $f . ', ';
+            if ($f == 'url' and !$fileName)
+                continue;
 
-        $value = $eventData['data'][$f];
+            $bindType = 'string';
+            if (is_numeric($eventData['data'][$f]) or $f == 'parent')
+                $bindType = 'int';
 
-        if($f == 'name_url')
-            $value = $addition->createUrl($eventData['data']['name_url']);
+            $sql .= $f . ' = :' . $f . ', ';
 
-        if($f == 'url')
-            $value = $fileName;
+            $value = $eventData['data'][$f];
 
-        array_push($parameter, array('name' => ':' . $f, 'value' => $value, 'type' => $bindType));
+            if ($f == 'name_url')
+                $value = $addition->createUrl($eventData['data']['name_url']);
+
+            if ($f == 'url')
+                $value = $fileName;
+
+            array_push($parameter, array('name' => ':' . $f, 'value' => $value, 'type' => $bindType));
+
+        }
+
+        $sql = substr($sql, 0, -2);
+
+        $tableId = $addition->cleanText($table, 'im_') . '_id';
+
+        $sql .= ' where ' . $tableId . ' = :id';
+
+        array_push($parameter, array('name' => ':id', 'value' => $eventData['id']->$tableId, 'type' => 'int'));
+
+        $db->prepare($sql);
+
+        $db->bind($parameter);
+
+        $db->run();
+
+        if (isset($eventData['collection']) and count($collectionData) > 0) {
+
+            require_once 'php/run/edit/collection.php';
+
+        }
+
+        if (isset($eventData['file_delete'])) {
+
+            $fileDataEdit = array(
+                'table' => $table,
+                'id' => $eventData['id']->$tableId
+            );
+            require_once 'php/run/edit/file.php';
+
+        }
 
     }
 
-    $sql = substr($sql, 0, -2);
+    $alert1 = $translation['message']['save-success'];
 
-    $tableId = $addition->cleanText($table, 'im_') . '_id';
+}else{
 
-    $sql .= ' where ' . $tableId . ' = :id';
+    $alert0 = $translation['message']['data-exists'];
 
-    array_push($parameter, array('name' => ':id', 'value' => $eventData['id']->$tableId, 'type' => 'int'));
-
-    $db->prepare($sql);
-
-    $db->bind($parameter);
-
-    $db->run();
-
-    if(isset($eventData['collection']) and count($collectionData) > 0) {
-
-        require_once 'php/run/edit/collection.php';
-
-    }
-
-    if(isset($eventData['file_delete'])) {
-
-        $fileDataEdit = array(
-            'table' => $table,
-            'id' => $eventData['id']->$tableId
-        );
-        require_once 'php/run/edit/file.php';
-
-    }
+    if(isset($eventData['restriction']))
+        $alert0 .= ' - '.json_encode($eventData['restriction']);
 
 }
-
-$alert1 = $translation['message']['save-success'];

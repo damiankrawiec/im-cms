@@ -10,7 +10,7 @@ foreach($eventData['restriction'] as $table => $field) {
         $field = $addition->cleanText($table, 'im_').'_id';
 
     $parameter = array(
-        array('name' => ':id', 'value' => $eventData['id']->$field, 'type' => 'int')
+        array('name' => ':id', 'value' => $eventData['id']->{$field}, 'type' => 'int')
     );
 
     $db->bind($parameter);

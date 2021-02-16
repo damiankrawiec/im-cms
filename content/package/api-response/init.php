@@ -19,13 +19,17 @@ if(isset($formData['date2']))
     $date2 = $formData['date2'];
 
 echo '<form method="post">';
-echo '<input type="text" name="form_date1" class="im-datepicker form-control" placeholder="'.$translation['input']['choose-date1'].'" value="'.$date1.'">';
+
+echo '<div class="im-datepicker-box">';
+echo '<input type="text" name="form_date1" class="im-datepicker form-control" data-language="pl" placeholder="'.$translation['input']['choose-date1'].'" value="'.$date1.'">';
 echo '<input type="hidden" value="'.$date1.'">';
 
-echo '<input type="text" name="form_date2" class="im-datepicker form-control" placeholder="'.$translation['input']['choose-date2'].'" value="'.$date2.'">';
+echo '<input type="text" name="form_date2" class="im-datepicker form-control" data-language="pl" placeholder="'.$translation['input']['choose-date2'].'" value="'.$date2.'">';
 echo '<input type="hidden" value="'.$date2.'">';
+echo '</div>';
 require $pathSection.'/package/submit.php';
 echo '<form>';
+
 
 //var_dump($jsonResponse);
 

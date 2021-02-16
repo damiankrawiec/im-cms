@@ -113,13 +113,18 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
         }
 
         $idRecord = $eventData['record'];
-            require_once 'php/script/id-table.php';
+        require_once 'php/script/id-table.php';
 
         echo '<input type="hidden" name="event_table" value="'.$addition->arrayJson($fieldTable).'">';
 
+        //Edit and delete need id (not add)
         echo '<input type="hidden" name="event_id" value="'.$addition->arrayJson($idTable).'">';
 
         echo '<input type="hidden" name="event_collection" value="'.$addition->arrayJson($fixArray).'">';
+
+        //Check if there some restrictions for edit (the same data - compare)
+        if(isset($eventData['restriction']))
+            echo '<input type="hidden" name="restriction" value="'.$addition->arrayJson($eventData['restriction']).'">';
 
         echo '<input type="hidden" name="event" value="edit">';
 
