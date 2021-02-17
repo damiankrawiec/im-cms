@@ -75,6 +75,10 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
         if(isset($eventData['supplement']))
             echo '<input type="hidden" name="event_supplement" value="'.$addition->arrayJson($eventData['supplement']).'">';
 
+        //Check if there some restrictions for add (the same data - compare)
+        if(isset($eventData['restriction']))
+            echo '<input type="hidden" name="restriction" value="'.$addition->arrayJson($eventData['restriction']).'">';
+
         echo '<input type="hidden" name="event" value="add"> ';
 
         echo '<input type="hidden" name="transaction" value="'.$addition->transaction().'">';

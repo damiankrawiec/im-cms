@@ -66,6 +66,8 @@ drop table if exists im_user;
 
 drop table if exists im_user_object;
 
+drop table if exists im_user_supplement;
+
 -- triggers
 
 drop trigger if exists im_section_insert_date_create;
@@ -175,6 +177,14 @@ drop trigger if exists im_user_insert_date_create;
 drop trigger if exists im_user_insert_date_modify;
 
 drop trigger if exists im_user_update_date_modify;
+
+-- Version 3.1 (02.2021)
+
+drop trigger if exists im_user_supplement_insert_date_create;
+
+drop trigger if exists im_user_supplement_insert_date_modify;
+
+drop trigger if exists im_user_supplement_update_date_modify;
 
 -- end prepare database --
 
@@ -353,8 +363,8 @@ create table im_object (
     status_copy varchar(3) default 'off',
     status_free varchar(3) default 'off',
     status_protected varchar(3) default 'off',-- object for login user (user_object table)
-    description text collate utf8_polish_ci default '',-- description, management
     date varchar(32) collate utf8_polish_ci default '',-- date to display
+    description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
     primary key (object_id),
@@ -979,6 +989,43 @@ create table im_user_object (
 ) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
 
 -- USER-OBJECT END --
+
+-- USER-SUPPLEMENT START --
+--
+-- table
+
+create table im_user_supplement (
+    user_supplement_id int not null auto_increment,
+    user_id int not null,
+    name varchar(256) collate utf8_polish_ci default '',
+    content text collate utf8_polish_ci default '',
+    date datetime default null,
+    status varchar(3) default 'on',-- it can mean important
+    description text collate utf8_polish_ci default '',-- description, management
+    date_create datetime,-- create time
+    date_modify datetime,-- last modification time
+    primary key (user_supplement_id),
+    foreign key (user_id) references im_user(user_id)
+) engine = InnoDB default charset = utf8 collate = utf8_polish_ci;
+
+-- trigger
+
+create trigger im_user_supplement_insert_date_create
+    before insert on im_user_supplement
+    for each row
+    set new.date_create = now();
+
+create trigger im_user_supplement_insert_date_modify
+    before insert on im_user_supplement
+    for each row
+    set new.date_modify = now();
+
+create trigger im_user_supplement_update_date_modify
+    before update on im_user_supplement
+    for each row
+    set new.date_modify = now();
+
+-- USER-SUPPLEMENT END --
 
 -- INSERT (the same records for all systems) --
 
