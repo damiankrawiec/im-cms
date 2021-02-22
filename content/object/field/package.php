@@ -12,7 +12,7 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
         //Run event to next package (with object full width - $objectId), protect package form to resend (e.g. back in browser)
         $stop = false;
-        $nextPackage = '';
+        $nextPackage = $prevPackage = '';
         foreach ($package as $i => $p) {
 
             $nextPackage = $i;
@@ -22,6 +22,14 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
 
             if($i == $packageName)
                 $stop = true;
+
+        }
+        foreach ($package as $i => $p) {
+
+            if($i == $packageName)
+                break;
+
+            $prevPackage = $i;
 
         }
 
@@ -37,6 +45,14 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
         $packageLanguagePath = $pathSection.'/package/language/'.$this->currentLanguage.'.php';
         if($this->addition->fileExists($packageLanguagePath))
             require $packageLanguagePath;
+
+        if ($prevPackage !== '') {
+
+            echo '<form method="post" action="">';
+            require $pathSection.'/package/prev.php';
+            echo '</form>';
+
+        }
 
         $submit = false;
         if ($this->addition->fileExists($pathName.'/init.php')) {
