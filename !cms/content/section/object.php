@@ -119,6 +119,11 @@ if($g_var1 != '') {
                 'record' => $record,
                 'event' => 'edit,delete,copy',
                 'table_delete' => array('im_section_object', 'im_object_category', 'im_object_source', 'im_object_image', 'im_object_file', 'im_object_movie', 'main' => $table),
+                'restriction' => array(
+                    'delete' => array(
+                        'im_user_object' => 'object_id'
+                    )
+                ),
                 'sort' => true,
                 'url' => $baseUrl,
                 'copy' => array(
