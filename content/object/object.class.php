@@ -1060,7 +1060,7 @@ class ObjectContent extends Language {
 
                                 }
 
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package), $formData);
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string), $formData);
 
                                 echo '</div>';
 
