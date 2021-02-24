@@ -6,8 +6,6 @@ $(function(){
 
     dataTables();
 
-    $('.data-table').DataTable();
-
     closeAlertTop();
 
     setTimeout(optimizeImage, 2000);

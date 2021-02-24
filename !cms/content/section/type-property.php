@@ -119,12 +119,7 @@ if($g_var1 != '') {
             $eventData = array(
                 'field' => $s_eventDefinition['edit'][$table],
                 'record' => $record,
-                'url' => $baseUrl,
-                'restriction' => array(
-                    'select' => array(
-                        'data' => array('table' => 'im_type_property', 'get' => 'property_id', 'field' => 'type_id', 'value' => $g_var1, 'expand' => $record->property_id)
-                    )
-                )
+                'url' => $baseUrl
             );
 
             require_once 'content/box/event/edit.php';

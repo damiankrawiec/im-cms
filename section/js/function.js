@@ -63,7 +63,7 @@ function dataTables() {
 
     $('.data-table').DataTable({
         'pagingType': 'full_numbers',
-        //'stateSave': true,
+        'stateSave': true,
         'language': {
             'url': 'layout/data-tables/pl.json'
         }
