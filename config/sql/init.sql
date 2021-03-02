@@ -1109,8 +1109,10 @@ insert into im_translation_system values (null, 1,  'Ustawione hasło', 'new-pas
 insert into im_translation_system values (null, 2,  'Ustawione hasło', 'new-password-set', 'Password has set', '', null, null);
 insert into im_translation_system values (null, 1,  'Uruchom', 'run', 'Uruchom', '', null, null);
 insert into im_translation_system values (null, 2,  'Uruchom', 'run', 'Run', '', null, null);
-insert into im_translation_system values (null, 1,  'Powrót', 'back', 'Powrót', '', null, null);
-insert into im_translation_system values (null, 2,  'Powrót', 'back', 'Back', '', null, null);
+insert into im_translation_system values (null, 1,  'Operacja wykonana poprawnie', 'operation-ok', 'Operacja wykonana poprawnie', '', null, null);
+insert into im_translation_system values (null, 2,  'Operacja wykonana poprawnie', 'operation-ok', 'Operation ok', '', null, null);
+insert into im_translation_system values (null, 1,  'Błąd operacji', 'operation-error', 'Błąd operacji', '', null, null);
+insert into im_translation_system values (null, 2,  'Błąd operacji', 'operation-error', 'Operation error', '', null, null);
 insert into im_translation_system values (null, 1,  'Zdarzenie tego pakietu już się odbyło', 'transaction_package_done', 'Zdarzenie tego pakietu już się odbyło', '', null, null);
 insert into im_translation_system values (null, 2,  'Zdarzenie tego pakietu już się odbyło', 'transaction_package_done', 'Event of this package already done', '', null, null);
 

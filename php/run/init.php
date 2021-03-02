@@ -15,11 +15,6 @@ if(!in_array($p_transaction, $session->getSession('transaction'))) {
 
         if($addition->fileExists($eventPath)) {
 
-            $eventData = array();
-
-            if(count($formData) > 0)
-                $eventData['data'] = $formData;
-
             require_once $eventPath;
 
         }

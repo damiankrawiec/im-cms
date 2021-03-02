@@ -74,7 +74,7 @@ if ($record) {
             'table' => $tableDefinition[$table],
             'record' => $record,
             'event' => 'edit,delete,form-password',//if form then must be email column defined
-            'table_delete' => array('main' => $table),
+            'table_delete' => array('im_user_supplement', 'main' => $table),
             'restriction' => array(
                 'delete' => array(
                     'im_user_object' => 'user_id'
