@@ -16,7 +16,7 @@ $(function(){
 
     labelProperty('all');
 
-    $('select.form-control').chosen();
+    $('select.chosen').chosen();
 
     //Filter object by category in label box of each section
     $('.object-category').change(function(){
