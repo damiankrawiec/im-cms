@@ -35,6 +35,9 @@ if(!in_array($p_transaction, $tool->getSession('transaction'))) {
             if($p_restriction)
                 $eventData['restriction'] = $p_restriction;
 
+            if($p_compare)
+                $eventData['compare'] = $p_compare;
+
             if($p_path)
                 $eventData['path'] = $p_path;
 

@@ -1,6 +1,6 @@
 <?php
 
-foreach($eventData['restriction'] as $table => $field) {
+foreach($eventData['compare'] as $table => $field) {
 
     $sql = 'select * from '.$table.' where '.$field.' = :'.$field;
 
@@ -14,7 +14,7 @@ foreach($eventData['restriction'] as $table => $field) {
 
     if($db->run('all')) {
 
-        $restrictionStatus = false;
+        $compareStatus = false;
 
         break;
 

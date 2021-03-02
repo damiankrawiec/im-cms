@@ -1,6 +1,6 @@
 <?php
 
-foreach($eventData['restriction'] as $table => $field) {
+foreach($eventData['compare'] as $table => $field) {
 
     $fieldId = $addition->cleanText($table, 'im_').'_id';
 
@@ -17,7 +17,7 @@ foreach($eventData['restriction'] as $table => $field) {
 
     if($db->run('all')) {
 
-        $restrictionStatus = false;
+        $compareStatus = false;
 
         break;
 

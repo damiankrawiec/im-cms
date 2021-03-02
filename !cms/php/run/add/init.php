@@ -1,10 +1,10 @@
 <?php
 
-$restrictionStatus = true;
-if(isset($eventData['restriction']))
-    require_once 'php/run/add/comparison-data.php';
+$compareStatus = true;
+if(isset($eventData['compare']))
+    require_once 'php/run/add/compare-data.php';
 
-if($restrictionStatus) {
+if($compareStatus) {
 
     foreach ($eventData['table'] as $table) {
 

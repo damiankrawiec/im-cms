@@ -85,30 +85,36 @@ if(count($ctcArray) > 0) {
 
 $dirToClean = array(
     'auth' => 'auth/stamp',
-    'captcha' => '../system/'.$tool->getSession('system').'/public/captcha'
+    'captcha' => '../system/'.$tool->getSession('system').'/public/captcha',
+    'maps' => '../content/package/map/public/file',
+    'export' => '../content/package/export/public/file',
 );
 
 $countFileRemove = 0;
 foreach ($dirToClean as $dtc) {
 
-    $dir = scandir($dtc);
+    if(is_dir($dtc)) {
 
-    if(count($dir) > 0) {
+        $dir = scandir($dtc);
 
-        foreach ($dir as $d) {
+        if (count($dir) > 0) {
 
-            if($d == '.' or $d == '..')
-                continue;
+            foreach ($dir as $d) {
 
-            $today = date('Y-m-d');
+                if ($d == '.' or $d == '..')
+                    continue;
 
-            $dateCreate = date('Y-m-d', filemtime($dtc.'/'.$d));
+                $today = date('Y-m-d');
 
-            if($today != $dateCreate) {
+                $dateCreate = date('Y-m-d', filemtime($dtc . '/' . $d));
 
-                $addition->removeFile($dtc . '/' . $d);
+                if ($today != $dateCreate) {
 
-                $countFileRemove++;
+                    $addition->removeFile($dtc . '/' . $d);
+
+                    $countFileRemove++;
+
+                }
 
             }
 

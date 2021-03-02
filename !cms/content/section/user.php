@@ -57,7 +57,7 @@ if($displayCount == 'all') {
     $eventData = array(
         'field' => $s_eventDefinition['add'][$table],
         'table_add' => array($table),
-        'restriction' => array(
+        'compare' => array(
             'im_user' => 'email'
         )
     );
@@ -93,11 +93,11 @@ if ($record) {
             'field' => $s_eventDefinition['edit'][$table],
             'record' => $record,
             'url' => $baseUrl,
-            'restriction' => array(
+            'compare' => array(
                 'im_user' => 'email'
             ),
             'fix-0' => array(
-                'collection' => array('name' => $translation['fix']['object'], 'table' => 'im_object'),
+                'collection' => array('name' => $translation['fix']['object'], 'table' => 'im_object', 'where' => 'status_protected like "on"'),
                 'id' => array('name' => 'user_id', 'value' => $g_var2),
                 'table' => array('name' => 'im_user_object', 'id' => 'object_id')
             )

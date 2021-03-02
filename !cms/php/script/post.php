@@ -74,6 +74,10 @@ $p_file_delete = false;
 if(isset($_POST['file_delete']))
     $p_file_delete = $_POST['file_delete'];
 
+$p_compare = false;
+if(isset($_POST['compare']))
+    $p_compare = $addition->jsonArray($_POST['compare']);
+
 $p_restriction = false;
 if(isset($_POST['restriction']))
     $p_restriction = $addition->jsonArray($_POST['restriction']);
