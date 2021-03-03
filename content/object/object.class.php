@@ -1182,12 +1182,14 @@ class ObjectContent extends Language {
 
         if(isset($this->session['id'])) {
 
-            echo '<form method="post" class="logout">';
-            echo '<input type="hidden" name="event" value="logout"> ';
-            echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
-            echo '</form>';
-            echo '<button class="btn btn-secondary">' . $this->session['email'] . '</button>';
-            echo '<button class="btn btn-danger submit" id="logout">'.$this->makeTranslationSystem('logout').'</button>';
+            echo '<div id="auth">';
+                echo '<form method="post" class="logout">';
+                echo '<input type="hidden" name="event" value="logout"> ';
+                echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
+                echo '</form>';
+                echo '<button class="btn btn-secondary">' . $this->session['email'] . '</button>';
+                echo '<button class="btn btn-danger submit" id="logout">'.$this->makeTranslationSystem('logout').'</button>';
+            echo '</div>';
 
         }
 
