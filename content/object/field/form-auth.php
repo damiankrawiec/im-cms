@@ -19,11 +19,11 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
                 $passwordUrl = $this->addition->transaction();
 
-                echo '<p>' . $this->makeTranslationSystem('system-address') . '</p>';
+                echo '<h4>' . $this->makeTranslationSystem('system-address') . '</h4>';
                 echo '<input type="text" class="form-control im-destination" placeholder="'.$this->makeTranslationSystem('email').'">';
                 echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
                 echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
-                echo '<input type="button" class="btn btn-light im-password-address" value="'.$this->makeTranslationSystem('send').'">';
+                echo '<input type="button" class="btn btn-secondary im-password-address" value="'.$this->makeTranslationSystem('send').'">';
 
                 echo '<input type="hidden" class="im-name" value="'.$this->makeTranslationSystem('new-password').'">';
                 echo '<input type="hidden" class="im-source" value="'.$this->domain.'">';
@@ -52,8 +52,8 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
                 if($userUrl) {
 
-                     echo '<p>' . $this->makeTranslationSystem('set-password') . '</p>';
-                     echo '<input type="hidden" class="form-control im-destination" value="'.$userUrl->email.'">';
+                     echo '<h4>' . $this->makeTranslationSystem('set-password') . '</h4>';
+                     echo '<input type="hidden" class="im-destination" value="'.$userUrl->email.'">';
                      echo '<input type="button" class="btn btn-danger im-password" value="'.$this->makeTranslationSystem('set-password').'">';
                      echo '<input type="hidden" class="im-name" value="'.$this->makeTranslationSystem('new-password-set').'">';
                      echo '<input type="hidden" class="im-source" value="'.$this->domain.'">';
@@ -66,7 +66,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
         } else {
 
-            echo '<p>' . $dataDisplay . '</p>';
+            echo '<h4>' . $dataDisplay . '</h4>';
             echo '<form method="post" class="auth">';
             echo '<input type="text" name="form_email" class="form-control validation :email" placeholder="' . $this->makeTranslationSystem('email') . '">';
             echo '<input type="password" class="form-control validation :text" placeholder="' . $this->makeTranslationSystem('password') . '">';
@@ -91,7 +91,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
     }else{
 
-        echo '<p>'.$this->makeTranslationSystem('login-current').'</p>';
+        echo '<h4 class="text-center">'.$this->makeTranslationSystem('login-current').'</h4>';
 
     }
 
