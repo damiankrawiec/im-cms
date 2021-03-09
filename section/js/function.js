@@ -65,7 +65,13 @@ function dataTables() {
         'pagingType': 'full_numbers',
         'stateSave': true,
         'language': {
-            'url': 'layout/data-tables/pl.json'
+            'url': 'layout/data-tables/pl.json',
+            'oPaginate': {
+                'sFirst': '<i class="fal fa-chevron-double-left"></i>',
+                'sPrevious': '<i class="fal fa-chevron-left"></i>',
+                'sNext': '<i class="fal fa-chevron-right"></i>',
+                'sLast': '<i class="fal fa-chevron-double-right"></i>'
+            }
         }
     });
 
