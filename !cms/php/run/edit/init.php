@@ -2,7 +2,7 @@
 
 $compareStatus = true;
 if(isset($eventData['compare']))
-    require_once 'php/run/add/compare-data.php';
+    require_once 'php/run/edit/compare-data.php';
 
 if($compareStatus) {
 
