@@ -33,6 +33,8 @@
 
 <?php
 
+    require_once 'section/alert.php';
+
     if(!$s_debug) {
 
         echo '<div class="animated-icon"><p class="text-secondary h5">'.$translation['system']['name'].'</p>'.$icon['process']['site'].'</div>';
