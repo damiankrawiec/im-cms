@@ -130,7 +130,7 @@ class Auth
         $parameter = array(
             array('name' => ':token', 'value' => '', 'type' => 'string'),
             array('name' => ':timestamp', 'value' => '', 'type' => 'string'),
-            array('name' => ':id', 'value' => $session->getSession('id'), 'type' => 'int')
+            array('name' => ':id', 'value' => $session->getSession('id'), 'type' => 'string')
         );
 
         $db->bind($parameter);
