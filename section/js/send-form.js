@@ -111,7 +111,7 @@ function sendForm($dataJson, $form, $path) {
         $form.addClass('animated fadeOut');
 
         setTimeout(function () {
-            $form.slideUp()
+            $form.slideUp();
         }, 700);
 
     });
