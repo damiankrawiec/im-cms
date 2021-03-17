@@ -99,7 +99,7 @@ class ObjectContent extends Language {
 
     }
 
-    //For loged user (if is)
+    //For logged user (if is)
     private function setAllowObject() {
 
        if(isset($this->session['id'])) {
@@ -1182,7 +1182,7 @@ class ObjectContent extends Language {
 
         if(isset($this->session['id'])) {
 
-            echo '<div id="auth">';
+            echo '<div id="auth-top">';
                 echo '<form method="post" class="logout">';
                 echo '<input type="hidden" name="event" value="logout"> ';
                 echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
