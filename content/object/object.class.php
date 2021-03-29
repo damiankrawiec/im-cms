@@ -1134,9 +1134,11 @@ class ObjectContent extends Language {
 
     public function displayStatic($sectionId) {
 
-        if(is_dir($this->systemName.'/static')) {
+        $staticPath = 'content/static';
 
-            $files = scandir($this->systemName.'/static');
+        if(is_dir($this->systemName.'/'.$staticPath)) {
+
+            $files = scandir($this->systemName.'/'.$staticPath);
 
             $fileStatic = false;
             if(count($files) > 2) {
@@ -1150,7 +1152,7 @@ class ObjectContent extends Language {
 
                     if(stristr($f, $sectionName)) {
 
-                        $fileStatic = $this->systemName.'/static/'.$f;
+                        $fileStatic = $this->systemName.'/'.$staticPath.'/'.$f;
 
                         break;
 
