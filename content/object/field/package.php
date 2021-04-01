@@ -41,11 +41,6 @@ if($this->checkDataDisplay($dataDisplay, 'package')) {
         if(isset($pack->name) and $pack->name !== '')
             $pathName .= '/'.$pack->name;
 
-        //Get translation array
-        $packageLanguagePath = $this->systemName.'/content/language/'.$this->currentLanguage.'.php';
-        if($this->addition->fileExists($packageLanguagePath))
-            require $packageLanguagePath;
-
         if ($prevPackage !== '') {
 
             echo '<form method="post" action="">';

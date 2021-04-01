@@ -136,6 +136,18 @@ class Language extends Icon
 
     }
 
+    protected function getTranslationSource($systemName, $addition) {
+
+        $translationSourcePath = $systemName.'/content/language/'.$this->currentLanguage.'.php';
+
+        $return = false;
+        if($addition->fileExists($translationSourcePath))
+            $return = require $translationSourcePath;
+
+        return $return;
+
+    }
+
     //Add mark to elements on the body
     protected function translationMark($mark, $data) {
 

@@ -32,7 +32,7 @@ foreach ($iconEditor as $i => $ie) {
 
                     if($i == 'editor-gallery') {
 
-                        $srcPath = '../system/' . $eventData['system'] . '/public/'.$ed['url'];
+                        $srcPath = '../system/' . $eventData['system'] . '/content/public/'.$ed['url'];
 
                         echo '<td class="img">';
 

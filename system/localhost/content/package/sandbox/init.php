@@ -5,6 +5,7 @@
 //$pathName - full path of package (with name)
 //$pathContent - full path of content elements (package elements)
 //$this->systemName - path of system (system/[...])
+//$this->translationSource - array of source translation
 /*
  * when is form (parameter), then add in form [require $pathSection.'/package/submit.php';]
  * (this display button in parameter form and hide run button)

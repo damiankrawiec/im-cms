@@ -4,7 +4,7 @@ if(isset($field['option'])) {
 
     $currentFile = false;
 
-    $filePath = '../system/' . $eventData['system'] . '/public/';
+    $filePath = '../system/' . $eventData['system'] . '/content/public/';
 
     $filePathAll = $filePath;
     if(isset($eventData['record']))

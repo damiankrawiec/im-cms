@@ -17,7 +17,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             if($f['status_autoplay'] == 'on')
                 $attrString .= ' autoplay muted';
 
-            echo '<video src="'.$this->systemName.'/public/'.$f['url'].'"'.$attrString.'></video>';
+            echo '<video src="'.$this->systemName.'/content/public/'.$f['url'].'"'.$attrString.'></video>';
 
             if($f['content'] != '')
                 echo ' <em>'.$this->translationMark('im_file-content-'.$f['id'], $f['content']).'</em>';

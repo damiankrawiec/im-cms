@@ -81,13 +81,11 @@ if(count($ctcArray) > 0) {
 
 }
 
-//After clean database remove files in "cms/auth/stamp" "system/[all-names]/public/captcha" (Attention! filemtime() must be equal or early than yesterday - e.g. current admin session)
+//After clean database remove files in "cms/auth/stamp" "system/[all-names]/content/public/captcha" (Attention! filemtime() must be equal or early than yesterday - e.g. current admin session)
 
 $dirToClean = array(
     'auth' => 'auth/stamp',
-    'captcha' => '../system/'.$tool->getSession('system').'/public/captcha',
-    'maps' => '../content/package/map/public/file',
-    'export' => '../content/package/export/public/file',
+    'captcha' => '../system/'.$tool->getSession('system').'/content/public/captcha'
 );
 
 $countFileRemove = 0;

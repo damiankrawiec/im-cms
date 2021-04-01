@@ -105,18 +105,18 @@ if(isset($tableData) and is_array($tableData) and count($tableData) > 0) {
 
                     if(isset($tableData['preview']) and $f == 'url') {
 
-                        $filePath = '../system/' . $tableData['system'] . '/public/' . $r[$f];
+                        $filePath = '../system/' . $tableData['system'] . '/content/public/' . $r[$f];
 
                         if($addition->fileExists($filePath)) {
 
                             if($tableData['preview'] == 'image')
-                                echo '<img src="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" title="' . $r[$f] . '" style="max-width: ' . $s_previewImage . '">';
+                                echo '<img src="../system/' . $tableData['system'] . '/content/public/' . $r[$f] . '" title="' . $r[$f] . '" style="max-width: ' . $s_previewImage . '">';
 
                             if($tableData['preview'] == 'file')
-                                echo '<a href="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" title="' . $r[$f] . '" download="'.$r[$f].'">'.$icon['button']['download'].' '.$r[$f].'</a>';
+                                echo '<a href="../system/' . $tableData['system'] . '/content/public/' . $r[$f] . '" title="' . $r[$f] . '" download="'.$r[$f].'">'.$icon['button']['download'].' '.$r[$f].'</a>';
 
                             if($tableData['preview'] == 'movie')
-                                echo '<video src="../system/' . $tableData['system'] . '/public/' . $r[$f] . '" style="max-width: ' . $s_previewMovie . '" controls></video>';
+                                echo '<video src="../system/' . $tableData['system'] . '/content/public/' . $r[$f] . '" style="max-width: ' . $s_previewMovie . '" controls></video>';
 
                         }else echo $icon['warning']['empty'];
 

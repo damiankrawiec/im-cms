@@ -465,13 +465,13 @@ function insertToOption($multiple, $type) {
 
         var $fileDom;
         if($type === 'image')
-            $fileDom = '<img src="../system/' + $('#url-system').val() + '/public/' + $file + '" alt="' + $file + '" style="height: 50px" title="image,edit,' + $this.attr('data-value') + '">';
+            $fileDom = '<img src="../system/' + $('#url-system').val() + '/content/public/' + $file + '" alt="' + $file + '" style="height: 50px" title="image,edit,' + $this.attr('data-value') + '">';
 
         if($type === 'file')
-            $fileDom = '<a href="../system/' + $('#url-system').val() + '/public/' + $file + '" title="' + $file + '" download>' + $('#download-icon').html() + '</a>';
+            $fileDom = '<a href="../system/' + $('#url-system').val() + '/content/public/' + $file + '" title="' + $file + '" download>' + $('#download-icon').html() + '</a>';
 
         if($type === 'movie')
-            $fileDom = '<video src="../system/' + $('#url-system').val() + '/public/' + $file + '" style="height: 100px" controls></video><br>';
+            $fileDom = '<video src="../system/' + $('#url-system').val() + '/content/public/' + $file + '" style="height: 100px" controls></video><br>';
 
         $this.html($fileDom + ' ' + $text);
 
