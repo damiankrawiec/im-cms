@@ -14,22 +14,23 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
             //Mail + captcha
             if(stristr($varUrl, 'nowe-haslo')) {
 
-                $captchaData = array('system' => $this->systemName);
-                require 'php/script/captcha.php';
+                //$captchaData = array('system' => $this->systemName);
+                //require 'php/script/captcha.php';
 
                 $passwordUrl = $this->addition->transaction();
 
                 echo '<h4>' . $this->makeTranslationSystem('system-address') . '</h4>';
                 echo '<input type="text" class="form-control im-destination" placeholder="'.$this->makeTranslationSystem('email').'">';
-                echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
-                echo '<img src="'.$this->systemName.'/content/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
+                //echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
+                //echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
                 echo '<input type="button" class="btn btn-secondary im-password-address" value="'.$this->makeTranslationSystem('send').'">';
 
                 echo '<input type="hidden" class="im-name" value="'.$this->makeTranslationSystem('new-password').'">';
                 echo '<input type="hidden" class="im-source" value="'.$this->domain.'">';
                 echo '<div class="im-content im-hide" id="'.$passwordUrl.'">'.$this->makeTranslationSystem('new-password-address').': <a href="http://'.$this->domain.'/'.$currentSectionUrl.','.$passwordUrl.'">'.$this->domain.'/'.$currentSectionUrl.'</a></div>';
-                echo '<div class="im-hide im-captcha">'.$captcha.'</div>';
+                //echo '<div class="im-hide im-captcha">'.$captcha.'</div>';
                 echo '<a href="'.$currentSectionUrl.'" class="btn btn-light">' . $this->makeTranslationSystem('back') . '</a>';
+                echo '<input type="hidden" class="hide-form">';
 
             //Only button to set new password automatically
             }else{
@@ -68,8 +69,14 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
             echo '<h4>' . $dataDisplay . '</h4>';
             echo '<form method="post" class="auth">';
-            echo '<input type="text" name="form_email" class="form-control validation :email" placeholder="' . $this->makeTranslationSystem('email') . '">';
-            echo '<input type="password" class="form-control validation :text" placeholder="' . $this->makeTranslationSystem('password') . '">';
+            echo '<div class="form-group">';
+                echo '<label for="email">'.$this->makeTranslationSystem('email').'</label>';
+                echo '<input type="text" name="form_email" id="email" class="form-control validation :email" placeholder="' . $this->makeTranslationSystem('email') . '">';
+            echo '</div>';
+            echo '<div class="form-group">';
+            echo '<label for="password">'.$this->makeTranslationSystem('password').'</label>';
+                echo '<input type="password" id="password" class="form-control validation :text" placeholder="' . $this->makeTranslationSystem('password') . '">';
+            echo '</div>';
             echo '<input type="hidden" name="form_password">';
             echo '<input type="hidden" name="event" value="auth"> ';
             echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
