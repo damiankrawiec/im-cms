@@ -1,6 +1,6 @@
 <?php
-//$package - all packages array (only names, not path)
-//$pack - current package (only name, not path)
+//$package - all packages array
+//$pack - current package
 //$path - path to all packages (without / at the end)
 //$pathName - full path of package (with name)
 //$pathContent - full path of content elements (package elements)
