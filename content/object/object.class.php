@@ -30,8 +30,6 @@ class ObjectContent extends Language {
 
     private $domain;
 
-    private $translationSource;
-
     protected $systemName;
 
     public $mapArray;
@@ -39,8 +37,6 @@ class ObjectContent extends Language {
     public function __construct($systemName, $db, $currentLanguage, $admin, $setting = false, $domain, $addition, $auth, $session) {
 
         parent::__construct($db, $currentLanguage);
-
-        $this->translationSource = $this->getTranslationSource($systemName, $addition);
 
         $this->systemName = $systemName;
 
@@ -115,7 +111,7 @@ class ObjectContent extends Language {
                $this->db->prepare($sql);
 
                $parameter = array(
-                   array('name' => ':id', 'value' => $this->session['id'], 'type' => 'int')
+                   array('name' => ':id', 'value' => $this->session['id'], 'type' => 'string')
                );
 
                $this->db->bind($parameter);
@@ -1138,11 +1134,9 @@ class ObjectContent extends Language {
 
     public function displayStatic($sectionId) {
 
-        $staticPath = 'content/static';
+        if(is_dir($this->systemName.'/static')) {
 
-        if(is_dir($this->systemName.'/'.$staticPath)) {
-
-            $files = scandir($this->systemName.'/'.$staticPath);
+            $files = scandir($this->systemName.'/static');
 
             $fileStatic = false;
             if(count($files) > 2) {
@@ -1156,7 +1150,7 @@ class ObjectContent extends Language {
 
                     if(stristr($f, $sectionName)) {
 
-                        $fileStatic = $this->systemName.'/'.$staticPath.'/'.$f;
+                        $fileStatic = $this->systemName.'/static/'.$f;
 
                         break;
 

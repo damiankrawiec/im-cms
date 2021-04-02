@@ -75,7 +75,7 @@ if ($record) {
             'record' => $record,
             'event' => 'edit,delete',
             'table_delete' => array('main' => $table),
-            'file_delete' => '../system/'.$tool->getSession('system').'/public',
+            'file_delete' => '../system/'.$tool->getSession('system').'/content/public',
             'restriction' => array(
                 'delete' => array(
                     'im_object_file' => 'file_id'
