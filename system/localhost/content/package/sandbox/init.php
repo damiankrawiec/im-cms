@@ -7,7 +7,7 @@
 //$this->systemName - path of system (system/[...])
 //$this->translationSource - array of source translation
 /*
- * when is form (parameter), then add in form [require $pathSection.'/package/submit.php';]
+ * when is form (parameter), then add in form [require $pathContent.'/submit.php';]
  * (this display button in parameter form and hide run button)
 */
 
@@ -19,11 +19,11 @@
 //echo '<input type="text" name="form_date2" class="im-datepicker form-control" data-language="pl" placeholder="'.$translation['input']['choose-date2'].'" value="'.$date2.'">';
 //echo '<input type="hidden" value="'.$date2.'">';
 //echo '</div>';
-//require $pathSection.'/package/submit.php';
+//require $pathContent.'/submit.php';
 //echo '<form>';
 
 echo 'Package run well. Packages are connected';
 
-//require $pathSection.'/package/submit.php';
+//require $pathContent.'/submit.php';
 
 //if require button is init, next run package button will not display
