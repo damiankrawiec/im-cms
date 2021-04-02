@@ -36,7 +36,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                     $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
 
-                    $href = $this->systemName . '/public/' . $img['url'];
+                    $href = $this->systemName . '/content/public/' . $img['url'];
 
                 }
 
