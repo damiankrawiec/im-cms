@@ -93,6 +93,35 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
+                if($field['type'] == 'code') {
+
+                    echo '<textarea name="form_' . $i . '" id="' . $i . '">' . $editDataOne . '</textarea>';
+
+                    echo '<link rel="stylesheet" href="../module/code/lib/codemirror.css">
+                        <link rel="stylesheet" href="../module/code/theme/darcula.css">
+                        <link rel="stylesheet" href="../module/code/addon/hint/show-hint.css">
+                        
+                        <script src="../module/code/lib/codemirror.js"></script>
+
+                        <script src="../module/code/addon/hint/show-hint.js"></script>
+                        <script src="../module/code/addon/hint/javascript-hint.js"></script>
+                        <script src="../module/code/mode/javascript/javascript.js"></script>
+                        <script src="../module/code/mode/markdown/markdown.js"></script>
+
+                        <script>
+                          var $textArea = document.getElementById("package");
+                          
+                          var editor = CodeMirror.fromTextArea($textArea, {
+                              lineNumbers: true,
+                              extraKeys: {"Ctrl-Space": "autocomplete"},
+                              mode: {name: "javascript", globalVars: true}
+                          });
+                          editor.setOption("theme", "darcula");
+                          
+                        </script>';
+
+                }
+
                 if($field['type'] == 'image' or $field['type'] == 'file' or $field['type'] == 'movie')
                     require 'php/script/files.php';
 
