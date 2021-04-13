@@ -96,7 +96,7 @@ $s_eventDefinition = array(
             'attachment' => array('name' => $tableDefinitionEvent['im_object']['attachment'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'icon' => array('name' => $tableDefinitionEvent['im_object']['icon'], 'type' => 'icon', 'require' => 'validation :icon', 'table' => 'im_object'),
             'map' => array('name' => $tableDefinitionEvent['im_object']['map'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 64),
-            'package' => array('name' => $tableDefinitionEvent['im_object']['package'], 'type' => 'code', 'table' => 'im_object'),
+            'package' => array('name' => $tableDefinitionEvent['im_object']['package'], 'type' => 'code:javascript', 'table' => 'im_object'),
             'class' => array('name' => $tableDefinitionEvent['im_object']['class'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
@@ -172,7 +172,7 @@ $s_eventDefinition = array(
         'im_label' => array(
             'name' => array('name' => $tableDefinitionEvent['im_label']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_label', 'size' => 128),
             'system_name' => array('name' => $tableDefinitionEvent['im_label']['system_name'], 'type' => 'text', 'require' => 'validation :text', 'readonly' => true, 'table' => 'im_label', 'size' => 128),
-            'style' => array('name' => $tableDefinitionEvent['im_label']['style'], 'type' => 'textarea', 'table' => 'im_label'),
+            'style' => array('name' => $tableDefinitionEvent['im_label']['style'], 'type' => 'code:css', 'table' => 'im_label'),
             'description' => array('name' => $tableDefinitionEvent['im_label']['description'], 'type' => 'textarea', 'table' => 'im_label')
         ),
         'im_label_section' => array(

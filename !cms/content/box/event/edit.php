@@ -11,7 +11,7 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
     echo '<form method="post" class="edit"'.(isset($eventData['field']['url']) ? 'enctype="multipart/form-data"' : '').'>';
 
-        $editorDisplay = false;
+        $editorDisplay = $codeDisplay = false;
         $fieldSum = count($eventData['field']);
         $fieldCount = 0;
         $fixArray = array();
@@ -93,32 +93,39 @@ if(isset($eventData) and is_array($eventData) and count($eventData) > 0) {
 
                 }
 
-                if($field['type'] == 'code') {
+                if(stristr($field['type'], 'code') and !$codeDisplay) {
+
+                    $modeArray = explode(':', $field['type']);
+
+                    $mode = $modeArray[1];
 
                     echo '<textarea name="form_' . $i . '" id="' . $i . '">' . $editDataOne . '</textarea>';
 
                     echo '<link rel="stylesheet" href="../module/code/lib/codemirror.css">
-                        <link rel="stylesheet" href="../module/code/theme/darcula.css">
+                        <link rel="stylesheet" href="../module/code/theme/base16-light.css">
                         <link rel="stylesheet" href="../module/code/addon/hint/show-hint.css">
                         
                         <script src="../module/code/lib/codemirror.js"></script>
 
                         <script src="../module/code/addon/hint/show-hint.js"></script>
-                        <script src="../module/code/addon/hint/javascript-hint.js"></script>
-                        <script src="../module/code/mode/javascript/javascript.js"></script>
+                        <script src="../module/code/addon/hint/'.$mode.'-hint.js"></script>
+                        <script src="../module/code/mode/'.$mode.'/'.$mode.'.js"></script>
                         <script src="../module/code/mode/markdown/markdown.js"></script>
 
                         <script>
-                          var $textArea = document.getElementById("package");
+                        
+                          var $textArea = document.getElementById("'.$i.'");
                           
-                          var editor = CodeMirror.fromTextArea($textArea, {
+                          var $editor = CodeMirror.fromTextArea($textArea, {
                               lineNumbers: true,
                               extraKeys: {"Ctrl-Space": "autocomplete"},
-                              mode: {name: "javascript", globalVars: true}
+                              mode: {name: "'.$mode.'", globalVars: true}
                           });
-                          editor.setOption("theme", "darcula");
+                          $editor.setOption("theme", "base16-light");
                           
                         </script>';
+
+                    $codeDisplay = true;
 
                 }
 
