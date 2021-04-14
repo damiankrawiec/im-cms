@@ -88,6 +88,9 @@ ul.pagination .page-link i {
 .selected-wrapper .header {
   display: none;
 }
+.CodeMirror {
+  min-height: 500px;
+}
 #process {
   position: fixed;
   bottom: 30px;

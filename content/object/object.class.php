@@ -62,6 +62,8 @@ class ObjectContent extends Language {
 
         $this->domain = $domain;
 
+        $this->translationSource = $this->getTranslationSource($systemName, $addition);
+
         if($setting)
             $this->setting = $setting;
 

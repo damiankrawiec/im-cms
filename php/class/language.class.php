@@ -11,6 +11,8 @@ class Language extends Icon
 
     protected $translation;
 
+    protected $translationSource;
+
     protected function __construct($db, $currentLanguage){
 
         $this->db = $db;
