@@ -419,7 +419,7 @@ class System extends Setting
             }
             //--
 
-            $packageEventPath = 'content/section/package/public/event.js';
+            $packageEventPath = $this->system.'/content/public/event.js';
             if($addition->fileExists($packageEventPath)) {
 
                 echo '<script src="' . $packageEventPath . '"></script>';
