@@ -24,6 +24,12 @@
 
 echo 'Package run well. Packages are connected';
 
-//require $pathContent.'/submit.php';
+echo '<form method="post">';
+echo '<input type="hidden" name="event" value="pdf"> ';
+echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
+echo '<input type="submit" class="btn btn-warning" value="Generuj testowy PDF">';
+echo '</form>';
+
+$submit = true;
 
 //if require button is init, next run package button will not display
