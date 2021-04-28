@@ -419,14 +419,6 @@ class System extends Setting
             }
             //--
 
-            $packageEventPath = $this->system.'/content/public/event.js';
-            if($addition->fileExists($packageEventPath)) {
-
-                echo '<script src="' . $packageEventPath . '"></script>';
-
-            }
-
-
             if (count($fileGlobal) > 2) {
 
                 foreach ($fileGlobal as $fg) {
