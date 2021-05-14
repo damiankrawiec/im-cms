@@ -21,6 +21,7 @@ if(!isset($minHeadBody)) {
             <script src="'.$sectionPath.'module/chosen/chosen.jquery.min.js"></script>
             <script src="'.$sectionPath.'module/sortable/Sortable.min.js"></script>
             <script src="'.$sectionPath.'module/multijs/multi.min.js"></script>
+            <script src="'.$sectionPath.'module/anime/anime.min.js"></script>
             ';
 
     //Only logged in cms (js from section is load automatic)
