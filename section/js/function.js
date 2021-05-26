@@ -344,7 +344,7 @@ function editor() {
 }
 function niceSelect() {
 
-    $('.select').niceSelect();
+    $('.nice-select').niceSelect();
 
 }
 function gallery() {
