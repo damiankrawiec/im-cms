@@ -1,7 +1,13 @@
 <?php
 
-if(!isset($sectionPath))
+if(!isset($sectionPath)) {
+
     $sectionPath = '';
+
+    if($g_language !== '')
+        $sectionPath = '../';
+
+}
 
 echo '<meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -12,7 +12,9 @@ class System extends Setting
 
     private $currentSection;//url
 
-    private $currentLanguage;
+    private $defaultLanguage;//Default language from database
+
+    private $currentLanguage;//Set language from database or URL
 
     private $startSection;//url
 
@@ -248,7 +250,7 @@ class System extends Setting
 
         $defaultLanguage = $db->run('one');
 
-        $this->currentLanguage = $defaultLanguage->name;
+        $this->defaultLanguage = $this->currentLanguage = $defaultLanguage->name;
 
     }
 
@@ -355,9 +357,9 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
-            echo '<link rel="stylesheet" href="section/css/main.css">';
+            echo '<link rel="stylesheet" href="../section/css/main.css">';
 
-            echo '<link rel="stylesheet" href="' . $this->system . '/css/main.css">';
+            echo '<link rel="stylesheet" href="../'.$this->system . '/css/main.css">';
 
             $childStyle = $this->system . '/css/child/main.css';
             if($addition->fileExists($childStyle))
@@ -407,6 +409,10 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
+            $sectionPath = '';
+            if($this->currentLanguage !== $this->defaultLanguage)
+                $sectionPath = '../';
+
             $fileGlobal = scandir('section/js');
 
             $fileLocal = scandir($this->system . '/js');
@@ -414,7 +420,7 @@ class System extends Setting
             //Init modules
             if(count($this->parallax) > 0) {
 
-                echo '<script src="module/parallax/parallax.min.js"></script>';
+                echo '<script src="'.$sectionPath.'module/parallax/parallax.min.js"></script>';
 
             }
             //--
@@ -426,7 +432,7 @@ class System extends Setting
                     if ($fg == '.' or $fg == '..' or $fg == '.htaccess')
                         continue;
 
-                    echo '<script src="section/js/' . $fg . '"></script>';
+                    echo '<script src="'.$sectionPath.'section/js/' . $fg . '"></script>';
 
                 }
 
@@ -439,7 +445,7 @@ class System extends Setting
                     if ($fl == '.' or $fl == '..' or $fl == '.htaccess')
                         continue;
 
-                    echo '<script src="' . $this->system . '/js/' . $fl . '"></script>';
+                    echo '<script src="'.$sectionPath.$this->system . '/js/' . $fl . '"></script>';
 
                 }
 

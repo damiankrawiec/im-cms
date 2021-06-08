@@ -28,6 +28,9 @@ $db = new Database();
 //Get start section in system (no current section)
 require_once 'php/script/start-section.php';
 
+//Set default language
+$system->setDefaultLanguage($db);
+
 //Grab all "get" variables
 require 'php/script/get.php';
 
@@ -47,9 +50,6 @@ $system->setting($db);
 
 //Get setting in array
 $setting = $system->getSetting();
-
-//Set default language from database (it may be replaced by language in session)
-$system->setDefaultLanguage($db);
 
 $session = new Session();
 
