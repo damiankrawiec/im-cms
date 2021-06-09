@@ -16,6 +16,8 @@ class System extends Setting
 
     private $currentLanguage;//Set language from database or URL
 
+    private $path = '';
+
     private $startSection;//url
 
     private $setting;//array
@@ -187,15 +189,6 @@ class System extends Setting
         return $return;
 
     }
-    private function currentLanguage($session) {
-
-        if(isset($session['language'])) {
-
-            $this->currentLanguage = $session['language'];
-
-        }
-
-    }
 
     private function implode3d($data, $index = false) {
 
@@ -238,19 +231,39 @@ class System extends Setting
 
         $sql = 'select system_name as name
                 from im_language
-                where status_default = :status';
+                where status like :status
+                and status_default = :status_default';
 
         $db->prepare($sql);
 
         $parameter = array(
-            array('name' => ':status', 'value' => 'on', 'type' => 'string')
+            array('name' => ':status', 'value' => 'on', 'type' => 'string'),
+            array('name' => ':status_default', 'value' => 'on', 'type' => 'string')
         );
 
         $db->bind($parameter);
 
         $defaultLanguage = $db->run('one');
 
-        $this->defaultLanguage = $this->currentLanguage = $defaultLanguage->name;
+        $this->defaultLanguage = $defaultLanguage->name;
+
+    }
+
+    public function setCurrentLanguage($language) {
+
+        $this->currentLanguage = $this->defaultLanguage;
+
+        if($language !== '')
+            $this->currentLanguage = $language;
+
+    }
+
+    public function setPath() {
+
+        if($this->currentLanguage !== $this->defaultLanguage)
+            $this->path = '../';
+
+        return $this->path;
 
     }
 
@@ -357,11 +370,11 @@ class System extends Setting
 
         if($this->checkSystemStructure) {
 
-            echo '<link rel="stylesheet" href="../section/css/main.css">';
+            echo '<link rel="stylesheet" href="'.$this->path.'section/css/main.css">';
 
-            echo '<link rel="stylesheet" href="../'.$this->system . '/css/main.css">';
+            echo '<link rel="stylesheet" href="'.$this->path.$this->system . '/css/main.css">';
 
-            $childStyle = $this->system . '/css/child/main.css';
+            $childStyle = $this->path.$this->system . '/css/child/main.css';
             if($addition->fileExists($childStyle))
                 echo '<link rel="stylesheet" href="'.$childStyle.'">';
 
@@ -375,21 +388,17 @@ class System extends Setting
 
             if ($this->checkSystemStructure and $this->section) {
 
-                $this->currentLanguage($session);
-
                 if($this->checkIsAdmin($session)) {
 
-                    if(!isset($session['path-admin'])) {
-
-                        $cmsUrl = '';
-
-                    }else $cmsUrl = $session['path-admin'];
+                    $cmsUrl = '#';
+                    if(isset($session['path-admin']))
+                        $cmsUrl = $this->path.'!cms/'.$session['path-admin'];
 
                     echo '<div style="position:fixed; z-index: 1000; opacity:0.8">';
 
-                    echo '<a href="!cms/'.$cmsUrl.'" class="btn btn-light m-1 float-left"><i class="fal fa-search fa-flip-horizontal"></i></a>';
+                    echo '<a href="'.$cmsUrl.'" class="btn btn-light m-1 float-left"><i class="fal fa-search fa-flip-horizontal"></i></a>';
 
-                    echo '<a href="!cms/section,'.$this->getSection($this->currentSection, 'parent').',edit,'.$this->getSection($this->currentSection, 'id').','.$this->currentSection.'" class="btn btn-light m-1 float-left"><i class="fal fa-pencil"></i></a>';
+                    echo '<a href="'.$this->path.'!cms/section,'.$this->getSection($this->currentSection, 'parent').',edit,'.$this->getSection($this->currentSection, 'id').','.$this->currentSection.'" class="btn btn-light m-1 float-left"><i class="fal fa-pencil"></i></a>';
 
                     echo '</div>';
 
@@ -405,13 +414,9 @@ class System extends Setting
 
     }
 
-    public function getBody($addition) {
+    public function getBody() {
 
         if($this->checkSystemStructure) {
-
-            $sectionPath = '';
-            if($this->currentLanguage !== $this->defaultLanguage)
-                $sectionPath = '../';
 
             $fileGlobal = scandir('section/js');
 
@@ -420,7 +425,7 @@ class System extends Setting
             //Init modules
             if(count($this->parallax) > 0) {
 
-                echo '<script src="'.$sectionPath.'module/parallax/parallax.min.js"></script>';
+                echo '<script src="'.$this->path.'module/parallax/parallax.min.js"></script>';
 
             }
             //--
@@ -432,7 +437,7 @@ class System extends Setting
                     if ($fg == '.' or $fg == '..' or $fg == '.htaccess')
                         continue;
 
-                    echo '<script src="'.$sectionPath.'section/js/' . $fg . '"></script>';
+                    echo '<script src="'.$this->path.'section/js/' . $fg . '"></script>';
 
                 }
 
@@ -445,7 +450,7 @@ class System extends Setting
                     if ($fl == '.' or $fl == '..' or $fl == '.htaccess')
                         continue;
 
-                    echo '<script src="'.$sectionPath.$this->system . '/js/' . $fl . '"></script>';
+                    echo '<script src="'.$this->path.$this->system . '/js/' . $fl . '"></script>';
 
                 }
 

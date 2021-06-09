@@ -8,7 +8,7 @@ echo '<div id="arrow-type" class="im-hide">'.implode(",", $icon['arrow']).'</div
 echo '<input type="hidden" id="search-fix" value="'.$translation['fix']['search'].'">';
 echo '<input type="hidden" id="select-value" value="'.$translation['select']['no-set'].'">';
 
-if(!isset($minHeadBody)) {
+if($s_sectionData['name'] === 'back') {
 
     $systemName = $tool->getSession('system');
     echo '<input type="hidden" id="url-system" value="' . $systemName . '">';
@@ -17,11 +17,11 @@ if(!isset($minHeadBody)) {
     echo '<input type="hidden" id="system-name" value="' . $systemName . '">';
 
 }
-if(isset($g_section))
+if($s_sectionData['name'] === 'back' and isset($g_section))
     echo '<input type="hidden" id="url-section" value="'.$g_section.'">';
 
 //Get full url
-if(isset($g_section)) {
+if($s_sectionData['name'] === 'back' and isset($g_section)) {
 
     $urlFull = $g_section . $addition->varUrl();
 

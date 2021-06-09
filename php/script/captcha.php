@@ -37,7 +37,7 @@ for ($i = 0;$i < 7; $i++) {
 
 $imageStamp = md5(microtime());
 
-imagepng($image, $captchaData['system'].'/public/captcha/'.$imageStamp.'.png');
+imagepng($image, $captchaData['system'].'/content/public/captcha/'.$imageStamp.'.png');
 
 imagedestroy($image);
 

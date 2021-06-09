@@ -17,9 +17,9 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 $imagePath = $this->systemName . '/content/public/' . $l['url'];
 
-                if($l['url'] != '' and file_exists($imagePath)) {
+                if($this->addition->fileExists($imagePath)) {
 
-                    echo '<img src="' . $this->systemName . '/content/public/' . $l['url'] . '" alt="' . $l['name'] . '">';
+                    echo '<img src="' . $this->path.$imagePath . '" alt="' . $l['name'] . '">';
 
                 } else {
 

@@ -17,7 +17,7 @@ class Language extends Icon
 
         $this->db = $db;
 
-        $this->default($currentLanguage);
+        $this->currentLanguage = $currentLanguage;
 
         $this->translationSystem();
 
@@ -103,41 +103,6 @@ class Language extends Icon
 
     }
 
-    private function default($currentLanguage) {
-
-        if($currentLanguage) {
-
-            $this->currentLanguage = $currentLanguage;
-
-        }else{
-
-            $sql = 'select system_name
-                from im_language
-                where status like "on"
-                and status_default like "on"';
-
-            $this->db->prepare($sql);
-
-            $currentLanguage = $this->db->run('one');
-
-            if ($currentLanguage) {
-
-                $this->currentLanguage = $currentLanguage->system_name;
-
-            } else {
-
-                var_dump('No default language set (or default is not enable)');
-
-                exit();
-
-            }
-
-            var_dump($currentLanguage);
-
-        }
-
-    }
-
     protected function getTranslationSource($systemName, $addition) {
 
         $translationSourcePath = $systemName.'/content/language/'.$this->currentLanguage.'.php';
@@ -161,10 +126,16 @@ class Language extends Icon
 
         $sql = 'select name, system_name, url
                 from im_language
-                where status like "on"
+                where status like :status
                 order by position';
 
         $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':status', 'value' => 'on', 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
 
         return $this->db->run('all');
 

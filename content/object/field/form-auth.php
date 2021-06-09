@@ -22,7 +22,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
                 echo '<h4>' . $this->makeTranslationSystem('system-address') . '</h4>';
                 echo '<input type="text" class="form-control im-destination" placeholder="'.$this->makeTranslationSystem('email').'">';
                 echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
-                echo '<img src="'.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
+                echo '<img src="'.$this->path.$this->systemName.'/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
                 echo '<input type="button" class="btn btn-secondary im-password-address" value="'.$this->makeTranslationSystem('send').'">';
 
                 echo '<input type="hidden" class="im-name" value="'.$this->makeTranslationSystem('new-password').'">';

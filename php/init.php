@@ -28,14 +28,20 @@ $db = new Database();
 //Get start section in system (no current section)
 require_once 'php/script/start-section.php';
 
-//Set default language
-$system->setDefaultLanguage($db);
-
 //Grab all "get" variables
 require 'php/script/get.php';
 
 //Grab all "post" variables
 require 'php/script/post.php';
+
+//Set default language
+$system->setDefaultLanguage($db);
+
+$system->setCurrentLanguage($g_language);
+
+$s_path = $system->setPath();
+
+$s_sectionData = array('name' => 'front', 'global-path' => $s_path, 'local-path' => $s_path);
 
 $system->setSection($g_url, $db);
 

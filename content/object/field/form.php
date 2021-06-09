@@ -21,7 +21,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
         }
 
         echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
-        echo '<img src="'.$this->systemName.'/content/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
+        echo '<img src="'.$this->path.$this->systemName.'/content/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
         echo '<input type="button" class="btn btn-light im-send" value="'.$this->makeTranslationSystem('send').'">';
         echo '<input type="hidden" class="im-destination" value="'.$dataDisplayArray[0].'">';
         echo '<div class="im-hide im-captcha">'.$captcha.'</div>';

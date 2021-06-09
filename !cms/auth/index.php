@@ -1,5 +1,7 @@
 <?php
 
+$s_sectionData = array('name' => 'auth', 'global-path' => '../../', 'local-path' => '../');
+
 $GLOBALS['hash'] = true;//section with sha1 encoding (input type password)
 
 require_once '../php/script/post.php';
@@ -8,9 +10,6 @@ require_once '../../php/class/addition.class.php';
 
 $addition = new Addition();
 
-$minHeadBody = true;
-$sectionPath = '../../';
-$sectionPathAdmin = '../';
 require_once '../php/init.php';
 require_once 'validation/init.php';
 ?>
@@ -18,7 +17,7 @@ require_once 'validation/init.php';
 <html lang="pl">
 <head>
 
-    <?php require_once $sectionPath.'section/head.php'; ?>
+    <?php require_once '../../section/head.php'; ?>
 
     <title><?php echo $s_systemName.' - '.$translation['authorization']['singular']; ?></title>
 
@@ -72,13 +71,13 @@ require_once 'validation/init.php';
     </div>
 </div>
 
-<?php require_once $sectionPathAdmin.'content/box/process.php'; ?>
+<?php require_once '../content/box/process.php'; ?>
 
-<?php require_once $sectionPath.'section/body.php'; ?>
+<?php require_once '../../section/body.php'; ?>
 
-<?php require_once $sectionPathAdmin.'layout/js/js.php'; ?>
+<?php require_once '../layout/js/js.php'; ?>
 
-<?php require_once $sectionPathAdmin.'section/variable.php'; ?>
+<?php require_once '../section/variable.php'; ?>
 
 </body>
 </html>

@@ -1,24 +1,26 @@
-<?php 
+<?php
 
-    require_once 'php/init.php'; 
+$s_sectionData = array('name' => 'back', 'global-path' => '../', 'local-path' => '');
 
-    //---DO NOT REMOVE!!!
+require_once 'php/init.php';
 
-    //Init setting and $db object
-    require_once 'php/script/system.php';
+//---DO NOT REMOVE!!!
 
-    //If detect "transaction" then /run
-    if($p_transaction)
-        require_once 'php/run/init.php';
+//Init setting and $db object
+require_once 'php/script/system.php';
 
-    //---DO NOT REMOVE!!!
+//If detect "transaction" then /run
+if($p_transaction)
+    require_once 'php/run/init.php';
+
+//---DO NOT REMOVE!!!
 
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 
-    <?php require_once $sectionPath.'section/head.php'; ?>
+    <?php require_once '../section/head.php'; ?>
 
     <title><?php echo $s_systemName.' - '.$system->getSystemName(); ?></title>
 
@@ -91,17 +93,17 @@
     echo '</div>';
 
     //Display information about current system to be management
-    require_once $sectionPathAdmin.'content/box/current-system.php';
+    require_once 'content/box/current-system.php';
 
-    require_once $sectionPathAdmin.'content/box/process.php';
+    require_once 'content/box/process.php';
 
-    require_once $sectionPathAdmin.'content/box/modal.php';
+    require_once 'content/box/modal.php';
 
-    require_once $sectionPath.'section/body.php';
+    require_once '../section/body.php';
 
-    require_once $sectionPathAdmin.'layout/js/js.php';
+    require_once 'layout/js/js.php';
 
-    require_once $sectionPathAdmin.'section/variable.php';
+    require_once 'section/variable.php';
 
     ?>
 

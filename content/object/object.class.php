@@ -12,7 +12,7 @@ class ObjectContent extends Language {
 
     private $objectCounter;
 
-    private $path;
+    private $path = '';
 
     private $row;//check if starting object has class and class is "col"
 
@@ -34,7 +34,7 @@ class ObjectContent extends Language {
 
     public $mapArray;
 
-    public function __construct($systemName, $db, $currentLanguage, $admin, $setting = false, $domain, $addition, $auth, $session) {
+    public function __construct($systemName, $db, $currentLanguage, $admin, $setting = false, $domain, $addition, $auth, $session, $path) {
 
         parent::__construct($db, $currentLanguage);
 
@@ -44,7 +44,7 @@ class ObjectContent extends Language {
 
         $this->objectCounter = 0;
 
-        $this->path = '';
+        $this->path = $path;//Not to server side, only front like img
 
         $this->row = false;
 
@@ -275,7 +275,7 @@ class ObjectContent extends Language {
 
             }
 
-            $path = $this->path.'content/object/field/'.$p['name'].'.php';
+            $path = 'content/object/field/'.$p['name'].'.php';
 
             if($this->addition->fileExists($path)) {
 
@@ -805,7 +805,7 @@ class ObjectContent extends Language {
 
     private function getToolUrl($toolUrlRest) {
 
-        return '!cms/'.$toolUrlRest;
+        return $this->path.'!cms/'.$toolUrlRest;
 
     }
 
@@ -841,15 +841,6 @@ class ObjectContent extends Language {
         }
         return $labelArray;
 
-    }
-
-    public function setPath($addPath = false) {
-
-        if($addPath) {
-
-            $this->path = $addPath.$this->path;
-
-        }
     }
 
     public function display($section = false, $label = false, $option = false) {

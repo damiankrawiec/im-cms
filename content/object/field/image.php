@@ -36,7 +36,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                     $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
 
-                    $href = $this->systemName . '/content/public/' . $img['url'];
+                    $href = $this->path.$this->systemName . '/content/public/' . $img['url'];
 
                 }
 
@@ -50,7 +50,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
             echo '<div class="carousel-item' . $active . '">
                     <a href="'.$href.'" title="'.$img['name'].'"'.$dataRel.'>
-                      <img'.$classField.' src="'.$this->systemName.'/content/public/' . $img['url'] . '" alt="' . $img['name'] . '">
+                      <img'.$classField.' src="'.$this->path.$this->systemName.'/content/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
                       <div class="carousel-caption d-none d-md-block">
                         <h5>'.$this->translationMark('im_image-name-'.$img['id'], $img['name']).'</h5>
