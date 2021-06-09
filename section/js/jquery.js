@@ -2,8 +2,6 @@ $(function(){
 
     loadingPage();
 
-    translation();
-
     dataTables();
 
     closeAlertTop();
@@ -23,13 +21,6 @@ $(function(){
 
         //label, categoryId
         filterObject($(this).attr('id'), $(this).val());
-
-    });
-
-    $('.change-language ul li').click(function(){
-
-        //system name of selected language
-        setLanguage($(this).attr('id'));
 
     });
 

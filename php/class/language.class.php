@@ -9,15 +9,19 @@ class Language extends Icon
 
     protected $currentLanguage;
 
+    protected $defaultLanguage;
+
     protected $translation;
 
     protected $translationSource;
 
-    protected function __construct($db, $currentLanguage){
+    protected function __construct($db, $currentLanguage, $defaultLanguage){
 
         $this->db = $db;
 
         $this->currentLanguage = $currentLanguage;
+
+        $this->defaultLanguage = $defaultLanguage;
 
         $this->translationSystem();
 
@@ -118,7 +122,11 @@ class Language extends Icon
     //Add mark to elements on the body
     protected function translationMark($mark, $data) {
 
-        return '<section class="translation '.$mark.'">'.$data.'</section>';
+        $dataDisplay = $data;
+        if(isset($this->translation[$mark]))
+            $dataDisplay = $this->translation[$mark];
+
+        return $dataDisplay;
 
     }
 

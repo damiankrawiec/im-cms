@@ -30,13 +30,15 @@ class ObjectContent extends Language {
 
     private $domain;
 
+    private $currentSection;
+
     protected $systemName;
 
     public $mapArray;
 
-    public function __construct($systemName, $db, $currentLanguage, $admin, $setting = false, $domain, $addition, $auth, $session, $path) {
+    public function __construct($systemName, $db, $currentLanguage, $defaultLanguage, $admin, $setting = false, $domain, $addition, $auth, $session, $path, $currentSection) {
 
-        parent::__construct($db, $currentLanguage);
+        parent::__construct($db, $currentLanguage, $defaultLanguage);
 
         $this->systemName = $systemName;
 
@@ -61,6 +63,8 @@ class ObjectContent extends Language {
         $this->allowObject = array(0);
 
         $this->domain = $domain;
+
+        $this->currentSection = $currentSection;
 
         $this->translationSource = $this->getTranslationSource($systemName, $addition);
 

@@ -66,8 +66,15 @@ $auth = new Auth();
 //Operation in server side (before grab all session variables, because in run are set session variables)
 require_once 'php/run/init.php';
 
-if($g_url)
-    $session->setSession('path', $g_language.'/'.$g_url);
+if($g_url) {
+
+    $currentSectionSession = $g_url;
+    if($g_language !== '')
+        $currentSectionSession = $g_language.'/'.$currentSectionSession;
+
+    $session->setSession('path', $currentSectionSession);
+
+}
 
 if($session->getSession('transaction_package') == '')
     $session->setSession('transaction_package', array());

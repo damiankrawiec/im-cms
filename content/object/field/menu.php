@@ -38,7 +38,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                     $href = '#';
                     if ($ms['status_link'] == 'on')
-                        $href = $ms['url'];
+                        $href = $this->translationMark('im_section-name_url-' . $ms['id'], $ms['url']);
 
                     $displaySubmenu .= '<a class="dropdown-item" href="' . $href . '">' . $iconSub . $this->translationMark('im_section-name-' . $ms['id'], $this->getSectionName($ms)) . '</a>';
 
@@ -62,7 +62,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 if($m['status_link'] == 'on') {
 
-                    echo '<a href="' . $m['url'] . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $this->translationMark('im_section-name-' . $m['id'], $this->getSectionName($m)) . '</a>';
+                    echo '<a href="' . $this->translationMark('im_section-name_url-' . $m['id'], $m['url']) . '" title="' . $m['name'] . '" class="nav-link">' . $icon . $this->translationMark('im_section-name-' . $m['id'], $this->getSectionName($m)) . '</a>';
 
                     if (isset($displaySubmenu))
                         echo '<div class="dropdown-menu d-block">'.$displaySubmenu.'</div>';

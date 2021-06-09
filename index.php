@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <?php //require_once 'section/loading-page.php'; ?>
+    <?php require_once 'section/loading-page.php'; ?>
 
     <?php $data = $system->getContent($db, $sessionVariable, $addition, $auth); ?>
 

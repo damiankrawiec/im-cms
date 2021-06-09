@@ -223,7 +223,51 @@ class System extends Setting
             }
 
         }
-        //--
+
+    }
+
+    private function url($url, $db){
+
+        $return = $url;
+        if($this->currentLanguage !== $this->defaultLanguage) {
+
+            $sql = 'select target_record as id
+                from im_translation
+                where target_table like :table
+                and target_column like :column
+                and content = :content';
+
+            $db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':table', 'value' => 'im_section', 'type' => 'string'),
+                array('name' => ':column', 'value' => 'name_url', 'type' => 'string'),
+                array('name' => ':content', 'value' => $url, 'type' => 'string')
+            );
+
+            $db->bind($parameter);
+
+            if($section = $db->run('one')) {
+
+                $sql = 'select name_url as url
+                    from im_section
+                    where section_id like :id';
+
+                $db->prepare($sql);
+
+                $parameter = array(
+                    array('name' => ':id', 'value' => $section->id, 'type' => 'int')
+                );
+
+                $db->bind($parameter);
+
+                $return = $db->run('one')->url;
+
+            }
+
+        }
+
+        return $return;
 
     }
 
@@ -269,7 +313,7 @@ class System extends Setting
 
     public function setSection($url, $db) {
 
-        $this->currentSection = $url;
+        $this->currentSection = $this->url($url, $db);
 
         $sql = 'select section_id as id, parent, name, name_second, name_url as url, meta, icon, class, popup, status_popup, status_parallax
                 from im_section';
@@ -312,10 +356,10 @@ class System extends Setting
     public function getSection($url = false, $field = false) {
 
         if($url and !$field)
-            $returnSection = $this->section[$url];
+            $returnSection = $this->section[$this->currentSection];
 
         if($url and $field)
-            $returnSection = $this->section[$url][$field];
+            $returnSection = $this->section[$this->currentSection][$field];
 
         if(!$url and !$field)
             $returnSection = $this->section;
@@ -398,7 +442,7 @@ class System extends Setting
 
                     echo '<a href="'.$cmsUrl.'" class="btn btn-light m-1 float-left"><i class="fal fa-search fa-flip-horizontal"></i></a>';
 
-                    echo '<a href="'.$this->path.'!cms/section,'.$this->getSection($this->currentSection, 'parent').',edit,'.$this->getSection($this->currentSection, 'id').','.$this->currentSection.'" class="btn btn-light m-1 float-left"><i class="fal fa-pencil"></i></a>';
+                    echo '<a href="'.$this->path.'!cms/section,'.$this->getSection(true, 'parent').',edit,'.$this->getSection($this->currentSection, 'id').','.$this->currentSection.'" class="btn btn-light m-1 float-left"><i class="fal fa-pencil"></i></a>';
 
                     echo '</div>';
 

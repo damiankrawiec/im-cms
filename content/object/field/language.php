@@ -11,12 +11,20 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             if($l['system_name'] == $this->currentLanguage)
                 $active = ' class="im-hide"';
 
-            echo '<li id="'.$l['system_name'].'"'.$active.'>';
+            echo '<li'.$active.'>';
 
-                echo '<a href="#" title="'.$l['name'].'">';
+                $changeLanguageUrl = $this->currentSection;
+                if($l['system_name'] === $this->defaultLanguage) {
+
+                    $changeLanguageUrl = $this->path . $changeLanguageUrl;
+
+                }else{
+                    $changeLanguageUrl = $this->path . $l['system_name'] . '/' . $changeLanguageUrl;
+                }
+
+                echo '<a href="'.$changeLanguageUrl.'" title="'.$l['name'].'">';
 
                 $imagePath = $this->systemName . '/content/public/' . $l['url'];
-
                 if($this->addition->fileExists($imagePath)) {
 
                     echo '<img src="' . $this->path.$imagePath . '" alt="' . $l['name'] . '">';

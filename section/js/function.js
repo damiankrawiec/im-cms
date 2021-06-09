@@ -250,28 +250,6 @@ function move($direction, $paginationData) {
     }
 
 }
-
-function translation() {
-
-    if($('#translation').length > 0) {
-
-        var $translationJson = $('#translation').text();
-
-        if($translationJson != '') {
-
-            var $translation = JSON.parse($translationJson);
-
-            for($t in $translation) {
-
-                baseDecode($('.' + $t), $translation[$t]);
-
-            }
-
-        }
-
-    }
-
-}
 function scrollEvent() {
 
     var $window = $(window);

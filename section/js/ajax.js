@@ -1,28 +1,3 @@
-function setLanguage($language = false){
-
-    if($language) {
-
-        $.ajax({
-            method: "POST",
-            url: "ajax/set-session.php",
-            data: {
-                session: {
-                    "name": "language",
-                    "value": $language
-                }
-            },
-            beforeSend: function(){
-                $('#process').show();
-            }
-        }).done(function () {
-
-            window.location = $('#url').val();
-
-        });
-
-    }
-
-}
 function setCookie(){
 
     $.ajax({
@@ -102,22 +77,6 @@ function attachment($fileData) {
         dataType: 'text/html',
         async: false
     }).responseText;
-
-}
-
-function baseDecode($object, $data) {
-
-     $.ajax({
-        method: "POST",
-        url: "ajax/base-decode.php",
-        data: {
-            string: $data
-        }
-    }).done(function($dataOut) {
-
-         $object.html($dataOut);
-
-    });
 
 }
 
