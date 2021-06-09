@@ -983,7 +983,7 @@ class ObjectContent extends Language {
                                     echo '<div class="edit-tool">';
 
                                     //edit object when login like admin. In edit status you can change rest property
-                                    echo '<a href="' . $this->getToolUrl('object,' . $or['type'] . ',edit,' . $or['id'] . ',' . $this->getSectionUrl($section)) . '">' . $this->icon['tool']['edit'] . '</a>';
+                                    echo '<a href="' . $this->getToolUrl('object,' . $or['type'] . ',edit,' . $or['id']) . '">' . $this->icon['tool']['edit'] . '</a>';
 
                                     echo '</div>';
 

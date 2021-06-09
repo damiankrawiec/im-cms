@@ -138,12 +138,8 @@ if($g_var1 != '') {
         }
         if($displayCount == 'one') {
 
-            if($g_var4 != '') {
-
-                $cmsBack = $g_var4;
-                require_once 'php/script/cms-back.php';
-
-            }
+            $cmsBack = $tool->getSession('path');
+            require_once 'php/script/cms-back.php';
 
             $labelId = $record->label_id;
             require_once 'php/script/object-move.php';
