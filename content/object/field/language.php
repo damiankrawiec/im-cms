@@ -14,12 +14,17 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
             echo '<li'.$active.'>';
 
                 $changeLanguageUrl = $this->currentSection;
+                if($translationUrl = $this->translationUrl($l['system_name']))
+                    $changeLanguageUrl = $translationUrl;
+
                 if($l['system_name'] === $this->defaultLanguage) {
 
                     $changeLanguageUrl = $this->path . $changeLanguageUrl;
 
                 }else{
+
                     $changeLanguageUrl = $this->path . $l['system_name'] . '/' . $changeLanguageUrl;
+
                 }
 
                 echo '<a href="'.$changeLanguageUrl.'" title="'.$l['name'].'">';

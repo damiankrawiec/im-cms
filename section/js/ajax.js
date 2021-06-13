@@ -2,7 +2,7 @@ function setCookie(){
 
     $.ajax({
         method: "POST",
-        url: "ajax/set-session.php",
+        url: $('#path').val() + "ajax/set-session.php",
         data: {
             session: {
                 "name": "cookie",
@@ -26,7 +26,7 @@ function setFilter($label, $category) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/set-filter.php",
+        url: $('#path').val() + "ajax/set-filter.php",
         data: {
             label: $label,
             category: $category
@@ -53,7 +53,7 @@ function refreshSession($label, $type) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/get-session.php"
+        url: $('#path').val() + "ajax/get-session.php"
     }).done(function ($data) {
 
         $('#session').text($data);
@@ -69,7 +69,7 @@ function refreshSession($label, $type) {
 function attachment($fileData) {
 
     return $.ajax({
-        url: "ajax/attachment.php",
+        url: $('#path').val() + "ajax/attachment.php",
         method: 'post',
         data: $fileData,
         contentType: false,
@@ -84,7 +84,7 @@ function passwordAddress($email, $url, $form, $path) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/set-password-url.php",
+        url: $('#path').val() + "ajax/set-password-url.php",
         data: {
             system: $('#system').val(),
             email: $email,
@@ -110,7 +110,7 @@ function passwordSet($email, $url, $form, $path) {
 
     $.ajax({
         method: "POST",
-        url: "ajax/set-password.php",
+        url: $('#path').val() + "ajax/set-password.php",
         data: {
             system: $('#system').val(),
             email: $email,

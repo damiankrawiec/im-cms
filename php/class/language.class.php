@@ -130,6 +130,34 @@ class Language extends Icon
 
     }
 
+    //Translation url - e.g. use in change language box
+    protected function translationUrl($systemName) {
+
+        $sql = 'select t.content as url
+                from im_translation t 
+                join im_language l on(l.language_id = t.language_id)
+                where t.target_table like :table
+                and t.target_column like :column
+                and l.system_name = :name';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':table', 'value' => 'im_section', 'type' => 'string'),
+            array('name' => ':column', 'value' => 'name_url', 'type' => 'string'),
+            array('name' => ':name', 'value' => $systemName, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $return = false;
+        if($section = $this->db->run('one'))
+            $return = $section->url;
+
+        return $return;
+
+    }
+
     protected function getLanguage() {
 
         $sql = 'select name, system_name, url

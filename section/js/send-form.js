@@ -89,7 +89,7 @@ function sendFormEvent($this, $path, $data = false) {
 function sendForm($dataJson, $form, $path) {
 
     $.ajax({
-        url: $path + 'ajax/send-form.php',
+        url: $('#path').val() + $path + 'ajax/send-form.php',
         method: 'post',
         data: {
             sendForm: $dataJson

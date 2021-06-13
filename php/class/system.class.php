@@ -228,42 +228,38 @@ class System extends Setting
 
     private function url($url, $db){
 
-        $return = $url;
-        if($this->currentLanguage !== $this->defaultLanguage) {
-
-            $sql = 'select target_record as id
+        $sql = 'select target_record as id
                 from im_translation
                 where target_table like :table
                 and target_column like :column
                 and content = :content';
 
-            $db->prepare($sql);
+        $db->prepare($sql);
 
-            $parameter = array(
+        $parameter = array(
                 array('name' => ':table', 'value' => 'im_section', 'type' => 'string'),
                 array('name' => ':column', 'value' => 'name_url', 'type' => 'string'),
                 array('name' => ':content', 'value' => $url, 'type' => 'string')
             );
 
+        $db->bind($parameter);
+
+        $return = $url;
+        if($section = $db->run('one')) {
+
+            $sql = 'select name_url as url
+                from im_section
+                where section_id like :id';
+
+            $db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':id', 'value' => $section->id, 'type' => 'int')
+            );
+
             $db->bind($parameter);
 
-            if($section = $db->run('one')) {
-
-                $sql = 'select name_url as url
-                    from im_section
-                    where section_id like :id';
-
-                $db->prepare($sql);
-
-                $parameter = array(
-                    array('name' => ':id', 'value' => $section->id, 'type' => 'int')
-                );
-
-                $db->bind($parameter);
-
-                $return = $db->run('one')->url;
-
-            }
+            $return = $db->run('one')->url;
 
         }
 
