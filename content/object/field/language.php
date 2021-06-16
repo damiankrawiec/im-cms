@@ -13,9 +13,7 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
             echo '<li'.$active.'>';
 
-                $changeLanguageUrl = $this->currentSection;
-                if($translationUrl = $this->translationUrl($l['system_name']))
-                    $changeLanguageUrl = $translationUrl;
+                $changeLanguageUrl = $this->translationUrl($l['system_name'], $this->currentSection);
 
                 if($l['system_name'] === $this->defaultLanguage) {
 

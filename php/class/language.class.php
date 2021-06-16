@@ -131,12 +131,25 @@ class Language extends Icon
     }
 
     //Translation url - e.g. use in change language box
-    protected function translationUrl($systemName) {
+    protected function translationUrl($systemName, $currentSection) {
+
+        $sql = 'select section_id as id from im_section where name_url like :url';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':url', 'value' => $currentSection, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $section = $this->db->run('one');
 
         $sql = 'select t.content as url
                 from im_translation t 
                 join im_language l on(l.language_id = t.language_id)
-                where t.target_table like :table
+                where t.target_record = :id
+                and t.target_table like :table
                 and t.target_column like :column
                 and l.system_name = :name';
 
@@ -145,14 +158,15 @@ class Language extends Icon
         $parameter = array(
             array('name' => ':table', 'value' => 'im_section', 'type' => 'string'),
             array('name' => ':column', 'value' => 'name_url', 'type' => 'string'),
-            array('name' => ':name', 'value' => $systemName, 'type' => 'string')
+            array('name' => ':name', 'value' => $systemName, 'type' => 'string'),
+            array('name' => ':id', 'value' => $section->id, 'type' => 'int')
         );
 
         $this->db->bind($parameter);
 
-        $return = false;
-        if($section = $this->db->run('one'))
-            $return = $section->url;
+        $return = $currentSection;
+        if($sectionTranslation = $this->db->run('one'))
+            $return = $sectionTranslation->url;
 
         return $return;
 

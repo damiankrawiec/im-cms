@@ -30,7 +30,9 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                     $dataRel = '';
 
-                    $href = $this->getSectionUrl($img['section']);
+                    $imageUrl = $this->getSectionUrl($img['section']);
+
+                    $href = $this->translationUrl($this->currentLanguage, $imageUrl);
 
                 } else {
 

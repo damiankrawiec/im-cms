@@ -211,7 +211,7 @@ class System extends Setting
 
             if(isset($this->parallax[$this->parallaxPointer])) {
 
-                echo '<div class="parallax-window" data-parallax="scroll" data-image-src="' . $this->system . '/public/' . $this->parallax[$this->parallaxPointer]['url'] . '">';
+                echo '<div class="parallax-window" data-parallax="scroll" data-image-src="'. $this->path . $this->system . '/content/public/' . $this->parallax[$this->parallaxPointer]['url'] . '">';
 
                 if($this->parallax[$this->parallaxPointer]['content'] != '')
                     echo '<span>'.$this->parallax[$this->parallaxPointer]['content'].'</span>';
