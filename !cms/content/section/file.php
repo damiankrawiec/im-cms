@@ -16,6 +16,7 @@ $sql = 'select
         content,
         url,
         status,
+        language,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify

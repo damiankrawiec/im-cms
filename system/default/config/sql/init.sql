@@ -69,18 +69,18 @@ insert into im_object values (null, 8, 8, 0, '', 'Nawigacja okruszkowa', '', '',
 
 -- record, object image
 
-insert into im_image values (null, 0, 'Moon', 'What are you doing?', '1.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 0, 'Winter tree', '', '2.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 0, 'Cactuars', '', '3.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 0, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 0, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', '', null, null);
-insert into im_image values (null, 0, 'Third slider', '', 'slider-3.jpg', '', 'on', '', null, null);
+insert into im_image values (null, 0, 'Moon', 'What are you doing?', '1.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Winter tree', '', '2.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Cactuars', '', '3.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Third slider', '', 'slider-3.jpg', '', 'on', 0, '', null, null);
 
 -- record, object file
 
-insert into im_file values (null, 'Moon', '(description moon file)', '1.jpg', 'on', '', null, null);
-insert into im_file values (null, 'Winter tree', '', '2.jpg', 'on', '', null, null);
-insert into im_file values (null, 'Cactuars', '', '3.jpg', 'on', '', null, null);
+insert into im_file values (null, 'Moon', '(description moon file)', '1.jpg', 'on', 0, '', null, null);
+insert into im_file values (null, 'Winter tree', '', '2.jpg', 'on', 0, '', null, null);
+insert into im_file values (null, 'Cactuars', '', '3.jpg', 'on', 0, '', null, null);
 
 -- record, connect object with section
 

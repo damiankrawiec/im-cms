@@ -18,6 +18,7 @@ $sql = 'select
         link,
         section,
         status,
+        language,
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify

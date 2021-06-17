@@ -428,6 +428,7 @@ $tableDefinitionEvent = array(
         'url-edit' => 'Obraz (dodaj nowy obraz tylko w przypadku gdy chcesz zmienić bieżący)',
         'section' => 'Przekierowanie (gdy nie wybierzesz nic obraz po kliknięciu będzie powiększany)',
         'link' => 'Przekierowanie zewnętrzne (jeśli pole jest puste wówczas aktywne jest ustawienie z pola "przekierowanie")',
+        'language' => 'Język',
         'description' => 'Opis techniczny'
     ),
     'im_file' => array(
@@ -435,12 +436,14 @@ $tableDefinitionEvent = array(
         'content' => 'Opis',
         'url' => 'Plik (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
+        'language' => 'Język',
         'description' => 'Opis techniczny'
     ),
     'im_source' => array(
         'name' => 'Nazwa',
         'content' => 'Źródło',
         'link' => 'Odsyłacz zewnętrzny',
+        'language' => 'Język',
         'description' => 'Opis techniczny'
     ),
     'im_movie' => array(
@@ -448,6 +451,7 @@ $tableDefinitionEvent = array(
         'content' => 'Opis',
         'url' => 'Film (aby dodać więcej niż jeden plik przytrzymaj ctrl lub shift)',
         'url-edit' => 'Plik (dodaj nowy plik tylko w przypadku gdy chcesz zmienić bieżący)',
+        'language' => 'Język',
         'description' => 'Opis techniczny'
     ),
     'im_setting' => array(
@@ -537,24 +541,28 @@ $tooltip = array(
         'url' => 'W tym polu należy fizycznie dodać plik obrazu, w formacie: jpg, png, gif lub svg. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie lub nadpisanie bieżącego',
         'section' => 'Pole, w którym można określić do jakiej sekcji w serwisie ma prowadzić odsyłacz. Jeżeli nie będzie ustawionej wartości to obraz będzie powiększany',
         'link' => 'Pole, w któym można określić adres zewnętrzny do którego będzie kierować zdjęcie (otwarcie w nowym oknie)',
+        'language' => 'Jeżeli pole nie zostanie wypełnione to obraz wyświetli się w każdym języku',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_file' => array(
         'name' => 'To pole jest nazwą pliku, która będzie wyświetlana jako odsyłacz do pliku',
         'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się plik jest również miejsce na jego opis (zależne od konfiguracji)',
         'url' => 'W tym polu należy fizycznie dodać plik, w dowolnym formacie. UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'language' => 'Jeżeli pole nie zostanie wypełnione to plik wyświetli się w każdym języku',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_source' => array(
         'name' => 'To pole jest nazwą źródła, która z reguły nie jest publikowana (zależna od konfiguracji)',
         'content' => 'To pole jest publikowane, w postaci źródła, najczęściej w języku HTML. Źródło powoduje wyświetlenie interaktywnego elementu z innego serwisu np. YouTube (player video)',
         'link' => 'Pole, w którym można określić do jakiego adresu zewnętrznego ma prowadzić odsyłacz obok źródła (tzw. oryginalna publikacja) - otwarcie strony nastąpi w nowym oknie',
+        'language' => 'Jeżeli pole nie zostanie wypełnione to źródło wyświetli się w każdym języku',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_movie' => array(
         'name' => 'To pole jest nazwą filmu, z reguły nie będzie wyświetlane (służy identyfikacji)',
         'content' => 'Pole to z reguły nie jest publikowane, chyba że w sekcji na której znajduje się plik jest również miejsce na jego opis (zależne od konfiguracji)',
         'url' => 'W tym polu należy fizycznie dodać plik, sugerujemy w formacie MP4 (kodek H.264). UWAGA! W trybie edycji, dodanie nowego pliku spowoduje skasowanie starego',
+        'language' => 'Jeżeli pole nie zostanie wypełnione to film wyświetli się w każdym języku',
         'description' => 'To pole jest widoczne tylko w Panelu Administratora. Treść będzie służyła wyjaśnieniu, przykładowo, jaką funkcję pełni obiekt w serwisie i czy jest on powiązany z innymi danymi (tzn. czy zmianay w obiekcie będą miały wpływ na inne dane - ich interpretację)'
     ),
     'im_user' => array(

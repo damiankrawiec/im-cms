@@ -130,24 +130,28 @@ $s_eventDefinition = array(
             'url' => array('name' => $tableDefinitionEvent['im_image']['url-edit'], 'type' => 'image', 'option' => 'preview,add', 'table' => 'im_image'),
             'section' => array('name' => $tableDefinitionEvent['im_image']['section'], 'type' => 'select:im_section', 'table' => 'im_image'),
             'link' => array('name' => $tableDefinitionEvent['im_image']['link'], 'type' => 'text', 'table' => 'im_image', 'size' => 128),
+            'language' => array('name' => $tableDefinitionEvent['im_image']['language'], 'type' => 'select:im_language', 'table' => 'im_image'),
             'description' => array('name' => $tableDefinitionEvent['im_image']['description'], 'type' => 'textarea', 'table' => 'im_image')
         ),
         'im_file' => array(
             'name' => array('name' => $tableDefinitionEvent['im_file']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_file', 'size' => 64),
             'content' => array('name' => $tableDefinitionEvent['im_file']['content'], 'type' => 'textarea:editor', 'table' => 'im_file'),
             'url' => array('name' => $tableDefinitionEvent['im_file']['url-edit'], 'type' => 'file', 'option' => 'preview,add', 'table' => 'im_file'),
+            'language' => array('name' => $tableDefinitionEvent['im_file']['language'], 'type' => 'select:im_language', 'table' => 'im_image'),
             'description' => array('name' => $tableDefinitionEvent['im_file']['description'], 'type' => 'textarea', 'table' => 'im_file')
         ),
         'im_source' => array(
             'name' => array('name' => $tableDefinitionEvent['im_source']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_source', 'size' => 64),
             'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source'),
             'link' => array('name' => $tableDefinitionEvent['im_source']['link'], 'type' => 'text', 'table' => 'im_source', 'size' => 128),
+            'language' => array('name' => $tableDefinitionEvent['im_source']['language'], 'type' => 'select:im_language', 'table' => 'im_image'),
             'description' => array('name' => $tableDefinitionEvent['im_source']['description'], 'type' => 'textarea', 'table' => 'im_source')
         ),
         'im_movie' => array(
             'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie', 'size' => 64),
             'content' => array('name' => $tableDefinitionEvent['im_movie']['content'], 'type' => 'textarea:editor', 'table' => 'im_movie'),
             'url' => array('name' => $tableDefinitionEvent['im_movie']['url-edit'], 'type' => 'movie', 'option' => 'preview,add', 'table' => 'im_movie'),
+            'language' => array('name' => $tableDefinitionEvent['im_movie']['language'], 'type' => 'select:im_language', 'table' => 'im_image'),
             'description' => array('name' => $tableDefinitionEvent['im_movie']['description'], 'type' => 'textarea', 'table' => 'im_movie')
         ),
         'im_setting' => array(
@@ -228,19 +232,23 @@ $s_eventDefinition = array(
         'im_image' => array(
             'name' => array('name' => $tableDefinitionEvent['im_image']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_image', 'size' => 64),
             'url' => array('name' => $tableDefinitionEvent['im_image']['url'], 'type' => 'image', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_image'),
-            'section' => array('name' => $tableDefinitionEvent['im_image']['section'], 'type' => 'select:im_section', 'table' => 'im_image')
+            'section' => array('name' => $tableDefinitionEvent['im_image']['section'], 'type' => 'select:im_section', 'table' => 'im_image'),
+            'language' => array('name' => $tableDefinitionEvent['im_image']['language'], 'type' => 'select:im_language', 'table' => 'im_image')
         ),
         'im_file' => array(
             'name' => array('name' => $tableDefinitionEvent['im_file']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_file', 'size' => 64),
             'url' => array('name' => $tableDefinitionEvent['im_file']['url'], 'type' => 'file', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_file'),
+            'language' => array('name' => $tableDefinitionEvent['im_file']['language'], 'type' => 'select:im_language', 'table' => 'im_file')
         ),
         'im_source' => array(
             'name' => array('name' => $tableDefinitionEvent['im_source']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_source', 'size' => 64),
-            'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source')
+            'content' => array('name' => $tableDefinitionEvent['im_source']['content'], 'type' => 'textarea', 'require' => 'validation :source', 'table' => 'im_source'),
+            'language' => array('name' => $tableDefinitionEvent['im_source']['language'], 'type' => 'select:im_language', 'table' => 'im_file')
         ),
         'im_movie' => array(
             'name' => array('name' => $tableDefinitionEvent['im_movie']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_movie', 'size' => 64),
             'url' => array('name' => $tableDefinitionEvent['im_movie']['url'], 'type' => 'movie', 'option' => 'add',  'require' => 'validation :file', 'table' => 'im_movie'),
+            'language' => array('name' => $tableDefinitionEvent['im_movie']['language'], 'type' => 'select:im_language', 'table' => 'im_file')
         ),
         'im_setting' => array(
             'name' => array('name' => $tableDefinitionEvent['im_setting']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_setting', 'size' => 128),
