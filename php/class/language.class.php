@@ -191,6 +191,31 @@ class Language extends Icon
 
     }
 
+    protected function getLanguageName($languageId) {
+
+        $return = $this->currentLanguage;
+        if($languageId > 0) {
+
+            $sql = 'select system_name as name
+                    from im_language
+                    where language_id = :id';
+
+            $this->db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':id', 'value' => $languageId, 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+            $return = $this->db->run('one')->name;
+
+        }
+
+        return $return;
+
+    }
+
     protected function makeTranslationSystem($name) {
 
         if(isset($this->translationSystem[$name])) {

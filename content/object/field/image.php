@@ -24,43 +24,47 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
         $active = ' active';
         foreach ($dataDisplay as $img) {
 
-            if ($img['link'] == '') {
+            if($this->currentLanguage === $this->getLanguageName($img['language'])) {
 
-                if ($img['section'] > 0) {
+                if ($img['link'] == '') {
 
-                    $dataRel = '';
+                    if ($img['section'] > 0) {
 
-                    $imageUrl = $this->getSectionUrl($img['section']);
+                        $dataRel = '';
 
-                    $href = $this->translationUrl($this->currentLanguage, $imageUrl);
+                        $imageUrl = $this->getSectionUrl($img['section']);
+
+                        $href = $this->translationUrl($this->currentLanguage, $imageUrl);
+
+                    } else {
+
+                        $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
+
+                        $href = $this->path . $this->systemName . '/content/public/' . $img['url'];
+
+                    }
 
                 } else {
 
-                    $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
+                    $dataRel = ' target="_blank"';
 
-                    $href = $this->path.$this->systemName . '/content/public/' . $img['url'];
+                    $href = $img['link'];
 
                 }
 
-            }else{
-
-                $dataRel = ' target="_blank"';
-
-                $href = $img['link'];
-
-            }
-
-            echo '<div class="carousel-item' . $active . '">
-                    <a href="'.$href.'" title="'.$img['name'].'"'.$dataRel.'>
-                      <img'.$classField.' src="'.$this->path.$this->systemName.'/content/public/' . $img['url'] . '" alt="' . $img['name'] . '">
+                echo '<div class="carousel-item' . $active . '">
+                    <a href="' . $href . '" title="' . $img['name'] . '"' . $dataRel . '>
+                      <img' . $classField . ' src="' . $this->path . $this->systemName . '/content/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
                       <div class="carousel-caption d-none d-md-block">
-                        <h5>'.$this->translationMark('im_image-name-'.$img['id'], $img['name']).'</h5>
-                        '.($img['content'] != '' ? '<p>'.$this->translationMark('im_image-name-'.$img['id'], $img['content']).'</p>' : '').'
+                        <h5>' . $this->translationMark('im_image-name-' . $img['id'], $img['name']) . '</h5>
+                        ' . ($img['content'] != '' ? '<p>' . $this->translationMark('im_image-name-' . $img['id'], $img['content']) . '</p>' : '') . '
                       </div>
                   </div>';
 
-            $active = '';
+                $active = '';
+
+            }
 
         }
 

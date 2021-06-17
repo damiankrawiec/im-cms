@@ -404,7 +404,7 @@ class ObjectContent extends Language {
 
     private function getObjectImage($objectId) {
 
-        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link
+        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link, i.language as language
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object
@@ -425,7 +425,7 @@ class ObjectContent extends Language {
 
     private function getObjectFile($objectId) {
 
-        $sql = 'select f.file_id as id, f.name as name, f.content as content, f.url as url
+        $sql = 'select f.file_id as id, f.name as name, f.content as content, f.url as url, f.language as language
                 from im_file f
                 join im_object_file obf on (obf.file_id = f.file_id)
                 where obf.object_id = :object
@@ -446,7 +446,7 @@ class ObjectContent extends Language {
 
     private function getObjectSource($objectId) {
 
-        $sql = 'select s.source_id as id, s.name as name, s.content as content, s.link as url
+        $sql = 'select s.source_id as id, s.name as name, s.content as content, s.link as url, s.language as language
                 from im_source s
                 join im_object_source obs on (obs.source_id = s.source_id)
                 where obs.object_id = :object
@@ -467,7 +467,7 @@ class ObjectContent extends Language {
 
     private function getObjectMovie($objectId) {
 
-        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.url as url, m.status_loop as status_loop, m.status_controls as status_controls, m.status_autoplay as status_autoplay
+        $sql = 'select m.movie_id as id, m.name as name, m.content as content, m.url as url, m.status_loop as status_loop, m.status_controls as status_controls, m.status_autoplay as status_autoplay, m.language as language
                 from im_movie m
                 join im_object_movie obm on (obm.movie_id = m.movie_id)
                 where obm.object_id = :object
