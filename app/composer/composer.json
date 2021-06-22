@@ -13,7 +13,7 @@
     "datatables/datatables": "1.10.19",
     "components/jquery": "3.3.1",
     "tinymce/tinymce": "5.1.0",
-    "phpmailer/phpmailer": "v6.1.1",
+    "phpmailer/phpmailer": "v6.5.0",
     "box/spout": "3.1.0",
     "twbs/bootstrap": "4.3.1",
     "mpdf/mpdf": "8.0.10"
