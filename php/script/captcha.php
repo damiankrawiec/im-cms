@@ -35,7 +35,7 @@ for ($i = 0;$i < 7; $i++) {
 
 }
 
-$imageStamp = md5(microtime());
+$imageStamp = $this->addition->transaction();
 
 imagepng($image, $captchaData['system'].'/content/public/captcha/'.$imageStamp.'.png');
 

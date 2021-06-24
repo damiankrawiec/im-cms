@@ -1052,6 +1052,7 @@ insert into im_property values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', 
 insert into im_property values (null, 'Film', 'movie', '', null, null);
 insert into im_property values (null, 'Mapa', 'map', '', null, null);
 insert into im_property values (null, 'Formularz logowania', 'form-auth', '', null, null);
+insert into im_property values (null, 'Formularz rejestracji', 'form-register', '', null, null);
 insert into im_property values (null, 'Pakiet', 'package', '', null, null);
 
 -- language definition

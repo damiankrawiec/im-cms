@@ -296,6 +296,8 @@ class ObjectContent extends Language {
                     //id of current object (can be used in field file, e.g. in translation)
                     $dataId = $data['id'];
 
+                    $this->addition->debug($dataDisplay);
+
                     if ($this->checkDataDisplay($dataDisplay) and isset($dataId)) {
 
                         $class = $classField = '';

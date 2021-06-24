@@ -435,5 +435,16 @@ class Addition
         }else return '';
 
     }
+    public function debug($string) {
+
+        echo '<br><strong>-START-</strong><br>';
+        echo '<pre style="font-size: 11px; color:#951800">';
+
+            var_dump($string);
+
+        echo '<pre>';
+        echo '<br><strong>-STOP-</strong><br>';
+
+    }
 
 }
