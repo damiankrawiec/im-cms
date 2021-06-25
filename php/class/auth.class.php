@@ -141,4 +141,31 @@ class Auth
 
     }
 
+    public function register($data, $db) {
+
+        $return = false;
+        if($data['captcha_text'] !== '' and $data['captcha_text'] === $data['captcha']) {
+
+            $sql = 'insert im_user (first_name, last_name, email) values (:firstname, :lastname, :email)';
+
+            $db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':firstname', 'value' => $data['firstname'], 'type' => 'string'),
+                array('name' => ':lastname', 'value' => $data['lastname'], 'type' => 'string'),
+                array('name' => ':email', 'value' => $data['email'], 'type' => 'string')
+            );
+
+            $db->bind($parameter);
+
+            $db->run();
+
+            $return = true;
+
+        }
+
+        return $return;
+
+    }
+
 }

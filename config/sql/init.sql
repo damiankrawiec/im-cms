@@ -1126,6 +1126,10 @@ insert into im_translation_system values (null, 1,  'Imię', 'first-name', 'Imi�
 insert into im_translation_system values (null, 2,  'Imię', 'first-name', 'Name', '', null, null);
 insert into im_translation_system values (null, 1,  'Nazwisko', 'last-name', 'Nazwisko', '', null, null);
 insert into im_translation_system values (null, 2,  'Nazwisko', 'last-name', 'Last name', '', null, null);
+insert into im_translation_system values (null, 1,  'Błąd rejestracji', 'register-fail', 'Procedura rejestracji nie powiodła się', '', null, null);
+insert into im_translation_system values (null, 2,  'Błąd rejestracji', 'register-fail', 'Registration process success fail', '', null, null);
+insert into im_translation_system values (null, 1,  'Zarejestrowano poprawnie', 'register-success', 'Procedura rejestracji zakończyła się pomyślnie', '', null, null);
+insert into im_translation_system values (null, 2,  'Zarejestrowano poprawnie', 'register-success', 'Registration process success', '', null, null);
 
 -- setting
 
