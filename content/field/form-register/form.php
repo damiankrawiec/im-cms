@@ -1,0 +1,21 @@
+<?php
+echo '<h4>' . $dataDisplay . '</h4>';
+echo '<form method="post" class="register">';
+echo '<div class="form-group">';
+echo '<label for="first-name">'.$this->makeTranslationSystem('first-name').'</label>';
+echo '<input type="text" name="form_firstname" id="first-name" class="form-control validation :text" placeholder="' . $this->makeTranslationSystem('first-name') . '">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="last-name">'.$this->makeTranslationSystem('last-name').'</label>';
+echo '<input type="text" name="form_lastname" id="last-name" class="form-control validation :text" placeholder="' . $this->makeTranslationSystem('last-name') . '">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="email">'.$this->makeTranslationSystem('email').'</label>';
+echo '<input type="text" name="form_email" id="email" class="form-control validation :email" placeholder="' . $this->makeTranslationSystem('email') . '">';
+echo '</div>';
+echo '<input type="text" class="form-control im-captcha-text" placeholder="'.$this->makeTranslationSystem('captcha-text').'">';
+echo '<img src="'.$this->path.$this->systemName.'/content/public/captcha/'.$imageStamp.'.png'.'" style="width:auto">';
+echo '<input type="hidden" name="event" value="register"> ';
+echo '<input type="hidden" name="transaction" value="' . $this->addition->transaction() . '">';
+echo '</form>';
+echo '<button class="btn btn-secondary submit validation-run" id="register">' . $this->makeTranslationSystem('register') . '</button>';

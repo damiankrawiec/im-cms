@@ -1120,7 +1120,12 @@ insert into im_translation_system values (null, 1,  'Błąd operacji', 'operatio
 insert into im_translation_system values (null, 2,  'Błąd operacji', 'operation-error', 'Operation error', '', null, null);
 insert into im_translation_system values (null, 1,  'Zdarzenie tego pakietu już się odbyło', 'transaction_package_done', 'Zdarzenie tego pakietu już się odbyło', '', null, null);
 insert into im_translation_system values (null, 2,  'Zdarzenie tego pakietu już się odbyło', 'transaction_package_done', 'Event of this package already done', '', null, null);
-
+insert into im_translation_system values (null, 1,  'Zarejestruj', 'register', 'Zarejestruj', '', null, null);
+insert into im_translation_system values (null, 2,  'Zarejestruj', 'register', 'Register', '', null, null);
+insert into im_translation_system values (null, 1,  'Imię', 'first-name', 'Imię', '', null, null);
+insert into im_translation_system values (null, 2,  'Imię', 'first-name', 'Name', '', null, null);
+insert into im_translation_system values (null, 1,  'Nazwisko', 'last-name', 'Nazwisko', '', null, null);
+insert into im_translation_system values (null, 2,  'Nazwisko', 'last-name', 'Last name', '', null, null);
 
 -- setting
 

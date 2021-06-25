@@ -296,8 +296,6 @@ class ObjectContent extends Language {
                     //id of current object (can be used in field file, e.g. in translation)
                     $dataId = $data['id'];
 
-                    $this->addition->debug($dataDisplay);
-
                     if ($this->checkDataDisplay($dataDisplay) and isset($dataId)) {
 
                         $class = $classField = '';
@@ -1031,6 +1029,11 @@ class ObjectContent extends Language {
                                     if ($p['name'] == 'form-auth') {
 
                                         $displayPropertyData['form-auth'] = $or['name'];
+
+                                    }
+                                    if ($p['name'] == 'form-register') {
+
+                                        $displayPropertyData['form-register'] = $or['name'];
 
                                     }
                                     if ($p['name'] == 'menu') {

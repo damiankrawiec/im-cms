@@ -28,7 +28,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
         } else {
 
-            require_once 'content/field/form-auth/auth.php';
+            require_once 'content/field/form-auth/form.php';
 
         }
         echo '</div>';
