@@ -12,6 +12,8 @@ class ObjectContent extends Language {
 
     private $objectCounter;
 
+    private $objectCounterLabel;
+
     private $path = '';
 
     private $row;//check if starting object has class and class is "col"
@@ -959,6 +961,7 @@ class ObjectContent extends Language {
 
                         }
 
+                        $this->objectCounterLabel = 0;
                         foreach ($objectRecord as $i => $or) {
 
                             if ($or['status_protected'] == 'off' or ($or['status_protected'] == 'on' and in_array($or['id'], $this->allowObject))) {
@@ -1068,6 +1071,8 @@ class ObjectContent extends Language {
                                 $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string, 'spec' => $or['spec']), $formData);
 
                                 echo '</div>';
+
+                                $this->objectCounterLabel++;
 
                                 $this->objectCounter++;
 
