@@ -358,6 +358,7 @@ create table im_object (
     map varchar(64) collate utf8_polish_ci default '',-- coordinates
     package text collate utf8_polish_ci default '',-- code of package (e.g. json, it should contain name of package, few events, get api response, draw map, draw chart, insert data to table)
     class varchar(256) collate utf8_polish_ci default '',-- class of object
+    spec varchar(256) collate utf8_polish_ci default '',-- spec field (tech, func)
     position int default 0,
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',

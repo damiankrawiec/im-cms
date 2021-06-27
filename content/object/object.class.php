@@ -221,6 +221,7 @@ class ObjectContent extends Language {
             o.icon as icon,
             o.map as map,
             o.package as package,
+            o.spec as spec,
             o.status_protected as status_protected
             from im_object o';
 
@@ -349,7 +350,7 @@ class ObjectContent extends Language {
 
                     if (is_string($dataDisplay)) {
 
-                        $dataDisplayJson = $this->addition->jsonArray($dataDisplay);
+                        $this->addition->jsonArray($dataDisplay);
 
                         if (json_last_error() === JSON_ERROR_NONE)
                             $check = true;
@@ -994,6 +995,7 @@ class ObjectContent extends Language {
                                 }
                                 $property = $this->getPropertyFromType($or['type']);
                                 $displayPropertyData = $or;
+
                                 foreach ($property as $p) {
 
                                     if ($p['name'] == 'image') {
@@ -1036,6 +1038,7 @@ class ObjectContent extends Language {
                                         $displayPropertyData['form-register'] = $or['name'];
 
                                     }
+
                                     if ($p['name'] == 'menu') {
 
                                         $sectionParent = $submenu = false;
@@ -1062,7 +1065,7 @@ class ObjectContent extends Language {
 
                                 }
 
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string), $formData);
+                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string, 'spec' => $or['spec']), $formData);
 
                                 echo '</div>';
 

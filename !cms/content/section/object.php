@@ -34,6 +34,7 @@ if($g_var1 != '') {
         map,
         package,
         class,
+        spec,
         date,
         content,
         if(description = \'\', \'-\', description) as description,
