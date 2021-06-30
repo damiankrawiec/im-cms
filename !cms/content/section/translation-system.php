@@ -90,7 +90,7 @@ if ($record) {
         $tableData = array(
             'table' => $tableDefinition[$table],
             'record' => $record,
-            'event' => 'edit,delete',
+            'event' => 'edit,delete,copy',
             'table_delete' => array('main' => $table),
             'url' => $baseUrl,
             'filter' => array('table' => 'im_language', 'id' => $g_var1)

@@ -230,6 +230,25 @@ class Language extends Icon
 
     }
 
+    //Translate system with: "[", "]"
+    protected function makeTranslationSystemSpecial($value) {
+
+        $valueReturn = $value;
+        if(stristr($value, '[') and stristr($value, ']')) {
+
+            $valueLabelTranslation = str_replace(array('[', ']'), '', $value);
+
+            $valueReturn = $this->makeTranslationSystem($valueLabelTranslation);
+
+            if($valueReturn === '')
+                $valueReturn = $value;
+
+        }
+
+        return $valueReturn;
+
+    }
+
     public function getCurrentTranslation() {
 
         return array('system' => $this->translationSystem, 'data' => $this->translation);
