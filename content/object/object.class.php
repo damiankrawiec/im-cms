@@ -576,6 +576,29 @@ class ObjectContent extends Language {
         }else return false;
 
     }
+    private function getSectionId($url) {
+
+        $sql = 'select section_id as id
+                from im_section
+                where name_url like :url';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':url', 'value' => $url, 'type' => 'string')
+        );
+
+        $this->db->bind($parameter);
+
+        $sectionId = $this->db->run('one');
+
+        if($sectionId) {
+
+            return $sectionId->id;
+
+        }else return false;
+
+    }
 
     private function getCategoryLabel($label) {
 
