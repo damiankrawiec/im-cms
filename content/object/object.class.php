@@ -489,26 +489,32 @@ class ObjectContent extends Language {
 
     }
 
-    private function getSection($parent, $submenu) {
+    private function getSection($parent, $submenu, $type = 'parent') {
 
-        $sql = 'select section_id as id, name, name_second, name_url, icon, status_link
+        $sql = 'select section_id as id, parent, name, name_second, name_url, icon, status_link
                 from im_section
-                where status like "on"
-                and parent = :parent';
+                where status like "on"';
+
+        if($type == 'parent')
+           $sql .= ' and parent = :parent';
 
         $sql .= ' order by position';
 
         $this->db->prepare($sql);
 
-        $parentData = 0;
-        if($parent)
-            $parentData = $parent;
+        if($type == 'parent') {
 
-        $parameter = array(
-            array('name' => ':parent', 'value' => $parentData, 'type' => 'int')
-        );
+            $parentData = 0;
+            if ($parent)
+                $parentData = $parent;
 
-        $this->db->bind($parameter);
+            $parameter = array(
+                array('name' => ':parent', 'value' => $parentData, 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+        }
 
         $sectionData = $this->db->run('all');
 
@@ -517,7 +523,7 @@ class ObjectContent extends Language {
 
             foreach ($sectionData as $i => $sd) {
 
-                $sectionDataArray[$i] = array('id' => $sd['id'], 'name' => $sd['name'], 'name_second' => $sd['name_second'], 'icon' => $sd['icon'], 'url' => $sd['name_url'], 'status_link' => $sd['status_link']);
+                $sectionDataArray[$i] = array('id' => $sd['id'], 'parent' => $sd['parent'], 'name' => $sd['name'], 'name_second' => $sd['name_second'], 'icon' => $sd['icon'], 'url' => $sd['name_url'], 'status_link' => $sd['status_link']);
 
                 if($submenu) {
 
