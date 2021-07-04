@@ -559,6 +559,52 @@ class ObjectContent extends Language {
 
     }
 
+    //Build tree from all sections (children, parent)
+    private function getSectionTree($sectionAll, $parent = 0) {
+
+        $branch = array();
+        foreach ($sectionAll as $sectionOne) {
+
+            if ($sectionOne['parent'] == $parent) {
+
+                $children = $this->getSectionTree($sectionAll, $sectionOne['id']);
+
+                if ($children)
+                    $sectionOne['children'] = $children;
+
+                $branch[$sectionOne['id']] = $sectionOne;
+            }
+
+        }
+
+        return $branch;
+
+    }
+
+    //Display tree from sections build in getSectionTree
+    private function displaySectionTree($sectionTree) {
+
+        $display = '<ul>';
+        foreach ($sectionTree as $sectionBranch) {
+
+            $active = '';
+            if($sectionBranch['url'] === $this->currentSection)
+                $active = ' class="font-weight-bold"';
+
+            $display .= '<li><a href="'.$this->translationMark('im_section-name_url-'.$sectionBranch['id'], $sectionBranch['url']).'" title="'.$this->translationMark('im_section-name-'.$sectionBranch['id'], $sectionBranch['name']).'"'.$active.'>'.$this->translationMark('im_section-name-'.$sectionBranch['id'], $sectionBranch['name']).'</a>';
+
+            if (isset($sectionBranch['children']))
+                $display .= $this->displaySectionTree($sectionBranch['children']);
+
+            $display .= '</li>';
+
+        }
+        $display .= '</ul>';
+
+        return $display;
+
+    }
+
     private function getSectionUrl($id) {
 
         $sql = 'select name_url
