@@ -19,6 +19,7 @@ $sql = 'select
         status_loop,
         status_controls,
         status_autoplay,
+        status_protected,
         language,
         if(description = \'\', \'-\', description) as description,
         date_create,

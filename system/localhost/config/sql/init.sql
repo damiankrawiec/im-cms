@@ -90,14 +90,14 @@ insert into im_object values (null, 11, 11, 0, '', 'Pakiet', 'Pakiet', '', '', '
 
 -- record, object image
 
-insert into im_image values (null, 0, 'Equalizer?', 'Frequency music', '1.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Vinyl classic', 'Classic form of listening music', '2.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Type of headphones', '', '3.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Sheet music', '', '4.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Equalizer?', 'Frequency music', '1.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Vinyl classic', 'Classic form of listening music', '2.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Type of headphones', '', '3.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Sheet music', '', '4.jpg', '', 'on', 'off', 0, '', null, null);
 
 -- record, object source
 
-insert into im_source values (null, 'Dancing', '<iframe width="100%" height="315" src="https://www.youtube.com/embed/y2voZ3BH3L0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'https://www.youtube.com/watch?v=y2voZ3BH3L0', 'on', 0, '', null, null);
+insert into im_source values (null, 'Dancing', '<iframe width="100%" height="315" src="https://www.youtube.com/embed/y2voZ3BH3L0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>', 'https://www.youtube.com/watch?v=y2voZ3BH3L0', 'on', 'off', 0, '', null, null);
 
 -- record, connect object with section
 

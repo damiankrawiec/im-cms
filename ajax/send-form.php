@@ -19,7 +19,7 @@ if($p_sendForm and $p_sendForm['captcha'] == $p_sendForm['captchaText']) {
         //Server settings
         $mailer->SMTPDebug = SMTP::DEBUG_SERVER;
         $mailer->isSMTP();
-        $mailer->Host = 's94.linuxpl.com';
+        $mailer->Host = 's111.linuxpl.com';
         $mailer->SMTPAuth = true;
         $mailer->Username = $from['address'];
         $mailer->Password = 'B2#h3[cO43~O@2~';

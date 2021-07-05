@@ -69,18 +69,18 @@ insert into im_object values (null, 8, 8, 0, '', 'Nawigacja okruszkowa', '', '',
 
 -- record, object image
 
-insert into im_image values (null, 0, 'Moon', 'What are you doing?', '1.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Winter tree', '', '2.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Cactuars', '', '3.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', 0, '', null, null);
-insert into im_image values (null, 0, 'Third slider', '', 'slider-3.jpg', '', 'on', 0, '', null, null);
+insert into im_image values (null, 0, 'Moon', 'What are you doing?', '1.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Winter tree', '', '2.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Cactuars', '', '3.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'First slider', 'Content of first slider', 'slider-1.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Second slider', 'Content of second slider', 'slider-2.jpg', '', 'on', 'off', 0, '', null, null);
+insert into im_image values (null, 0, 'Third slider', '', 'slider-3.jpg', '', 'on', 'off', 0, '', null, null);
 
 -- record, object file
 
-insert into im_file values (null, 'Moon', '(description moon file)', '1.jpg', 'on', 0, '', null, null);
-insert into im_file values (null, 'Winter tree', '', '2.jpg', 'on', 0, '', null, null);
-insert into im_file values (null, 'Cactuars', '', '3.jpg', 'on', 0, '', null, null);
+insert into im_file values (null, 'Moon', '(description moon file)', '1.jpg', 'on', 'off', 0, '', null, null);
+insert into im_file values (null, 'Winter tree', '', '2.jpg', 'on', 'off', 0, '', null, null);
+insert into im_file values (null, 'Cactuars', '', '3.jpg', 'on', 'off', 0, '', null, null);
 
 -- record, connect object with section
 
@@ -135,8 +135,8 @@ insert into im_object_category values (null, 3, 2);
 insert into im_object_category values (null, 5, 2);
 insert into im_object_category values (null, 6, 3);
 
-insert into im_translation values (null, 2,  'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
-insert into im_translation values (null, 2,  'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
-insert into im_translation values (null, 2,  'In english image', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);
-insert into im_translation values (null, 2,  'In english file', 'im_file', 'name', 1, 'Moon in english', '', null, null);
-insert into im_translation values (null, 2,  'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);
+insert into im_translation values (null, 2, 'First news', 'im_object', 'name', 1, 'First news on the main page', '', null, null);
+insert into im_translation values (null, 2, 'Second news', 'im_object', 'name', 2, 'Second news on the main page', '', null, null);
+insert into im_translation values (null, 2, 'In english image', 'im_image', 'content', 1, 'What are you doing in english really', '', null, null);
+insert into im_translation values (null, 2, 'In english file', 'im_file', 'name', 1, 'Moon in english', '', null, null);
+insert into im_translation values (null, 2, 'Back to home', 'im_section', 'name', 1, 'Home', '', null, null);

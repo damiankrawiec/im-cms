@@ -272,7 +272,8 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status' => 'Status'
+        'status' => 'Status',
+        'status_protected' => 'Obraz chroniony'
     ),
     'im_file' => array(
         'name' => 'Nazwa',
@@ -281,7 +282,8 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status' => 'Status'
+        'status' => 'Status',
+        'status_protected' => 'Plik chroniony'
     ),
     'im_source' => array(
         'name' => 'Nazwa',
@@ -289,7 +291,8 @@ $tableDefinition = array(
         'description' => 'Opis techniczny',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status' => 'Status'
+        'status' => 'Status',
+        'status_protected' => 'Źródło chronione'
     ),
     'im_movie' => array(
         'name' => 'Nazwa',
@@ -301,7 +304,8 @@ $tableDefinition = array(
         'status' => 'Status',
         'status_loop' => 'Odtwarzanie w pętli',
         'status_controls' => 'Tryb odtwarzacza',
-        'status_autoplay' => 'Automatyczne uruchomienie'
+        'status_autoplay' => 'Automatyczne uruchomienie',
+        'status_protected' => 'Film chroniony'
     ),
     'im_setting' => array(
         'name' => 'Nazwa',

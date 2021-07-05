@@ -500,6 +500,7 @@ create table im_image (
     url varchar(128) collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url, if empty section field is used, but if != '' - section field is disable
     status varchar(3) default 'on',
+    status_protected varchar(3) default 'off',-- image for login user
     language int default 0,-- use only in language, 0 - each translation (this in not foreign key)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
@@ -536,6 +537,7 @@ create table im_file (
     content text collate utf8_polish_ci default '',
     url varchar(128) collate utf8_polish_ci default '',
     status varchar(3) default 'on',
+    status_protected varchar(3) default 'off',-- image for login user
     language int default 0,-- use only in language, 0 - each translation (this in not foreign key)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
@@ -572,6 +574,7 @@ create table im_source (
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',
     status varchar(3) default 'on',
+    status_protected varchar(3) default 'off',-- image for login user
     language int default 0,-- use only in language, 0 - each translation (this in not foreign key)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
@@ -611,6 +614,7 @@ create table im_movie (
     status_loop varchar(3) default 'off',-- loop movie
     status_controls varchar(3) default 'off',-- controls on the bottom
     status_autoplay varchar(3) default 'off',-- movie play auto
+    status_protected varchar(3) default 'off',-- image for login user
     language int default 0,-- use only in language, 0 - each translation (this in not foreign key)
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time

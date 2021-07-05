@@ -7,6 +7,7 @@ echo '<div id="process-button" class="im-hide">'.$icon['process']['standard'].'<
 echo '<div id="arrow-type" class="im-hide">'.implode(",", $icon['arrow']).'</div>';
 echo '<input type="hidden" id="search-fix" value="'.$translation['fix']['search'].'">';
 echo '<input type="hidden" id="select-value" value="'.$translation['select']['no-set'].'">';
+echo '<input type="hidden" id="path" value="">';
 
 if($s_sectionData['name'] === 'back') {
 

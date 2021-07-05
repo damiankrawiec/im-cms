@@ -24,7 +24,7 @@
   cursor: pointer;
 }
 .object {
-  padding: 10px;
+  padding: 0px;
   background-color: #ddd;
   border: 1px solid #fff;
 }

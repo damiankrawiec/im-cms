@@ -411,8 +411,12 @@ class ObjectContent extends Language {
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object
-                and i.status like "on"
-                order by oi.position';
+                and i.status like "on"';
+
+        if(!isset($this->session['id']))
+            $sql .= ' and i.status_protected like "off"';
+
+        $sql .= ' order by oi.position';
 
         $this->db->prepare($sql);
 
@@ -432,8 +436,12 @@ class ObjectContent extends Language {
                 from im_file f
                 join im_object_file obf on (obf.file_id = f.file_id)
                 where obf.object_id = :object
-                and f.status like "on"
-                order by obf.position';
+                and f.status like "on"';
+
+        if(!isset($this->session['id']))
+            $sql .= ' and f.status_protected like "off"';
+
+        $sql .= ' order by obf.position';
 
         $this->db->prepare($sql);
 
@@ -453,8 +461,12 @@ class ObjectContent extends Language {
                 from im_source s
                 join im_object_source obs on (obs.source_id = s.source_id)
                 where obs.object_id = :object
-                and s.status like "on"
-                order by obs.position';
+                and s.status like "on"';
+
+        if(!isset($this->session['id']))
+            $sql .= ' and s.status_protected like "off"';
+
+        $sql .= ' order by obs.position';
 
         $this->db->prepare($sql);
 
@@ -474,8 +486,12 @@ class ObjectContent extends Language {
                 from im_movie m
                 join im_object_movie obm on (obm.movie_id = m.movie_id)
                 where obm.object_id = :object
-                and m.status like "on"
-                order by obm.position';
+                and m.status like "on"';
+
+        if(!isset($this->session['id']))
+            $sql .= ' and m.status_protected like "off"';
+
+        $sql .= ' order by obm.position';
 
         $this->db->prepare($sql);
 
