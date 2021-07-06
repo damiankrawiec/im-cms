@@ -84,3 +84,6 @@ if (!in_array('source', $fields))
 
 if (!in_array('movie', $fields))
     unset($eventData['fix-5']);
+
+if (!in_array('gallery', $fields))
+    unset($eventData['fix-6']);

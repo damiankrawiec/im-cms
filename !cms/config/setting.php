@@ -100,6 +100,7 @@ $s_eventDefinition = array(
             'class' => array('name' => $tableDefinitionEvent['im_object']['class'], 'type' => 'text', 'table' => 'im_object', 'size' => 256),
             'spec' => array('name' => $tableDefinitionEvent['im_object']['spec'], 'type' => 'textarea', 'table' => 'im_object'),
             'date' => array('name' => $tableDefinitionEvent['im_object']['date'], 'type' => 'date', 'require' => 'validation :text', 'table' => 'im_object'),
+            'short' => array('name' => $tableDefinitionEvent['im_object']['short'], 'type' => 'textarea', 'table' => 'im_object'),
             'content' => array('name' => $tableDefinitionEvent['im_object']['content'], 'type' => 'textarea:editor', 'require' => 'validation :textarea', 'table' => 'im_object'),
             'description' => array('name' => $tableDefinitionEvent['im_object']['description'], 'type' => 'textarea', 'table' => 'im_object')
         ),

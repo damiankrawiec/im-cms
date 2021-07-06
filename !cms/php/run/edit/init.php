@@ -17,7 +17,7 @@ if($compareStatus) {
                 continue;
 
             $bindType = 'string';
-            if (is_numeric($eventData['data'][$f]) or $f == 'parent')
+            if (is_numeric($eventData['data'][$f]) or $f == 'parent' or $f == 'position')
                 $bindType = 'int';
 
             $sql .= $f . ' = :' . $f . ', ';

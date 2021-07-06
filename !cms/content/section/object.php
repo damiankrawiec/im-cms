@@ -36,6 +36,7 @@ if($g_var1 != '') {
         class,
         spec,
         date,
+        short,
         content,
         if(description = \'\', \'-\', description) as description,
         date_create,
@@ -179,6 +180,11 @@ if($g_var1 != '') {
                     'collection' => array('name' => $translation['fix']['movie'], 'table' => 'im_movie'),
                     'id' => array('name' => 'object_id', 'value' => $g_var3),
                     'table' => array('name' => 'im_object_movie', 'id' => 'movie_id', 'sort' => 'position')
+                ),
+                'fix-6' => array(
+                    'collection' => array('name' => $translation['fix']['gallery'], 'table' => 'im_image'),
+                    'id' => array('name' => 'object_id', 'value' => $g_var3),
+                    'table' => array('name' => 'im_object_gallery', 'id' => 'gallery_id', 'sort' => 'position')
                 )
             );
 

@@ -26,37 +26,13 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
             if($this->currentLanguage === $this->getLanguageName($img['language'])) {
 
-                if ($img['link'] == '') {
-
-                    if ($img['section'] > 0) {
-
-                        $dataRel = '';
-
-                        $imageUrl = $this->getSectionUrl($img['section']);
-
-                        $href = $this->translationUrl($this->currentLanguage, $imageUrl);
-
-                    } else {
-
-                        $dataRel = ' data-rel="lightcase:collection-' . $this->objectCounter . '"';
-
-                        $href = $this->path . $this->systemName . '/content/public/' . $img['url'];
-
-                    }
-
-                } else {
-
-                    $dataRel = ' target="_blank"';
-
-                    $href = $img['link'];
-
-                }
+                require 'content/field/image/setting.php';
 
                 echo '<div class="carousel-item' . $active . '">
                     <a href="' . $href . '" title="' . $img['name'] . '"' . $dataRel . '>
                       <img' . $classField . ' src="' . $this->path . $this->systemName . '/content/public/' . $img['url'] . '" alt="' . $img['name'] . '">
                     </a>
-                      <div class="carousel-caption d-none d-md-block">
+                      <div class="carousel-caption d-none'.$classDescription.'">
                         <h5>' . $this->translationMark('im_image-name-' . $img['id'], $img['name']) . '</h5>
                         ' . ($img['content'] != '' ? '<p>' . $this->translationMark('im_image-name-' . $img['id'], $img['content']) . '</p>' : '') . '
                       </div>

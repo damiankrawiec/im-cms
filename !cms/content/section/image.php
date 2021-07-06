@@ -18,6 +18,7 @@ $sql = 'select
         link,
         section,
         status,
+        status_description,
         status_protected,
         language,
         if(description = \'\', \'-\', description) as description,

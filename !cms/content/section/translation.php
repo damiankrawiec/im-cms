@@ -95,6 +95,13 @@ if($g_var2 == 'name' or $g_var2 == 'name_second' or $g_var2 == 'section_name' or
 
 }
 
+if($g_var2 == 'short') {
+
+    $s_eventDefinition['add'][$table]['content']['type'] = $s_eventDefinition['edit'][$table]['content']['type'] = 'textarea';
+    $s_eventDefinition['add'][$table]['content']['require'] = $s_eventDefinition['edit'][$table]['content']['require'] = 'validation :text';
+
+}
+
 if($g_var2 == 'content') {
 
     $s_eventDefinition['add'][$table]['content']['type'] = $s_eventDefinition['edit'][$table]['content']['type'] = 'textarea:editor';

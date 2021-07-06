@@ -213,6 +213,7 @@ class ObjectContent extends Language {
             o.date as date, 
             o.type_id as type, 
             o.content as content, 
+            o.short as short, 
             o.section as section,
             o.section_name as section_name, 
             o.link as link,
@@ -405,9 +406,34 @@ class ObjectContent extends Language {
 
     }
 
+    private function getObjectGallery($objectId) {
+
+        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link, i.language as language, i.status_description as description
+                from im_image i
+                join im_object_gallery og on (og.gallery_id = i.image_id)
+                where og.object_id = :object
+                and i.status like "on"';
+
+        if(!isset($this->session['id']))
+            $sql .= ' and i.status_protected like "off"';
+
+        $sql .= ' order by og.position';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':object', 'value' => $objectId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('all');
+
+    }
+
     private function getObjectImage($objectId) {
 
-        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link, i.language as language
+        $sql = 'select i.image_id as id, i.name as name, i.content as content, i.url as url, i.section as section, i.link as link, i.language as language, i.status_description as description
                 from im_image i
                 join im_object_image oi on (oi.image_id = i.image_id)
                 where oi.object_id = :object
@@ -1095,6 +1121,11 @@ class ObjectContent extends Language {
                                     if ($p['name'] == 'image') {
 
                                         $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                                    }
+                                    if ($p['name'] == 'gallery') {
+
+                                        $displayPropertyData['gallery'] = $this->getObjectGallery($or['id']);
 
                                     }
                                     if ($p['name'] == 'file') {

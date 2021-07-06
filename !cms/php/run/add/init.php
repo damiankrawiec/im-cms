@@ -65,7 +65,7 @@ if($compareStatus) {
                 foreach ($eventData['supplement']->$table as $s => $su) {
 
                     $bindType = 'string';
-                    if (stristr($s, 'id') or $s == 'parent')
+                    if (stristr($s, 'id') or $s == 'parent' or $s == 'position')
                         $bindType = 'int';
 
                     $sqlValue .= ':' . $s . $ec . ', ';

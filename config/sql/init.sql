@@ -34,6 +34,8 @@ drop table if exists im_movie;
 
 drop table if exists im_object_image;
 
+drop table if exists im_object_gallery;
+
 drop table if exists im_object_file;
 
 drop table if exists im_object_source;
@@ -348,6 +350,7 @@ create table im_object (
     section_name varchar(256) collate utf8_polish_ci default '',-- name of direct to section (it may be different like section name), in field may be e.g. fontawesome icon (html)
     system_name varchar(128) collate utf8_polish_ci default '',-- first, important, require, because object type could be without normal name
     name varchar(256) collate utf8_polish_ci default '',
+    short text collate utf8_polish_ci default '',
     content text collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url
     link_name varchar(256) collate utf8_polish_ci default '',-- name of outer url, in field may be e.g. fontawesome icon (html)
@@ -500,6 +503,7 @@ create table im_image (
     url varchar(128) collate utf8_polish_ci default '',
     link varchar(128) collate utf8_polish_ci default '',-- direction to outer url, if empty section field is used, but if != '' - section field is disable
     status varchar(3) default 'on',
+    status_description varchar(3) default 'on',-- display image's name and description
     status_protected varchar(3) default 'off',-- image for login user
     language int default 0,-- use only in language, 0 - each translation (this in not foreign key)
     description text collate utf8_polish_ci default '',-- description, management
@@ -656,6 +660,22 @@ create table im_object_image (
 ) engine = InnoDB;
 
 -- OBJECT-IMAGE END --
+
+-- OBJECT-GALLERY START --
+
+-- connecting images with object (m:n relationship), table and create gallery
+
+create table im_object_gallery (
+    object_gallery_id int not null auto_increment,
+    object_id int not null,
+    gallery_id int not null,
+    position int default 0,
+    primary key (object_gallery_id),
+    foreign key (object_id) references im_object(object_id),
+    foreign key (gallery_id) references im_image(image_id)
+) engine = InnoDB;
+
+-- OBJECT-GALLERY END --
 
 -- OBJECT-FILE START --
 
@@ -1059,6 +1079,8 @@ insert into im_property values (null, 'Mapa', 'map', '', null, null);
 insert into im_property values (null, 'Formularz logowania', 'form-auth', '', null, null);
 insert into im_property values (null, 'Formularz rejestracji', 'form-register', '', null, null);
 insert into im_property values (null, 'Pakiet', 'package', '', null, null);
+insert into im_property values (null, 'Wstęp', 'short', '', null, null);
+insert into im_property values (null, 'Galeria', 'gallery', '', null, null);
 
 -- language definition
 
