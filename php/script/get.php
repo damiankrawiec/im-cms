@@ -17,6 +17,10 @@ $g_var1 = '';
 if(isset($_GET['var1']))
     $g_var1 = $_GET['var1'];
 
+$g_var2 = '';
+if(isset($_GET['var2']))
+    $g_var2 = $_GET['var2'];
+
 $g_language = '';
 if(isset($_GET['language']))
     $g_language = $_GET['language'];

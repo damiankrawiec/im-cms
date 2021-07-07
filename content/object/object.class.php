@@ -34,11 +34,13 @@ class ObjectContent extends Language {
 
     private $currentSection;
 
+    private $pagination;
+
     protected $systemName;
 
     public $mapArray;
 
-    public function __construct($systemName, $db, $currentLanguage, $defaultLanguage, $admin, $setting = false, $domain, $addition, $auth, $session, $path, $currentSection) {
+    public function __construct($systemName, $db, $currentLanguage, $defaultLanguage, $admin, $setting = false, $domain, $addition, $auth, $session, $path, $currentSection, $pagination) {
 
         parent::__construct($db, $currentLanguage, $defaultLanguage);
 
@@ -67,6 +69,8 @@ class ObjectContent extends Language {
         $this->domain = $domain;
 
         $this->currentSection = $currentSection;
+
+        $this->pagination = $pagination;
 
         $this->translationSource = $this->getTranslationSource($systemName, $addition);
 
@@ -944,6 +948,52 @@ class ObjectContent extends Language {
 
     }
 
+    private function getIndex() {
+
+        $indexStart = $this->pagination['start'] * $this->pagination['length'];
+
+        $indexStop = $indexStart + $this->pagination['length'];
+
+        return array($indexStart, $indexStop);
+
+    }
+
+    private function getObjectPagination($objectRecord) {
+
+        list($indexStart, $indexStop) = $this->getIndex();
+
+        $objectRecordPagination = array();
+        for($index = $indexStart; $index < $indexStop; $index++) {
+
+            if(isset($objectRecord[$index]))
+                $objectRecordPagination[$index] = $objectRecord[$index];
+
+        }
+
+        return $objectRecordPagination;
+
+    }
+
+    private function drawSplitPagination($count) {
+
+        list($indexStart, $indexStop) = $this->getIndex();
+
+        $sectionUrl = $this->translationMark('im_section-name_url-'.$this->getSectionId($this->currentSection), $this->currentSection);
+
+        $display = '<div class="clearfix">';
+
+            if($indexStart > 0)
+                $display .= '<a href="'.$sectionUrl.','.($this->pagination['start'] - 1).','.$this->pagination['length'].'" class="float-left btn btn-success">'.$this->icon['arrow']['light-left'].'</a>';
+
+            if($indexStop < $count)
+                $display .= '<a href="'.$sectionUrl.','.($this->pagination['start'] + 1).','.$this->pagination['length'].'" class="float-right btn btn-success">'.$this->icon['arrow']['light-right'].'</a>';
+
+        $display .= '</div>';
+
+        return $display;
+
+    }
+
     public function getAllLabel() {
 
         $sql = 'select system_name
@@ -1020,6 +1070,11 @@ class ObjectContent extends Language {
                 }
 
             }
+
+            $objectRecordAll = count($objectRecord);
+            if($this->checkDisplayOption($option, 'pages'))
+                $objectRecord = $this->getObjectPagination($objectRecord);
+
             if(count($objectRecord) > 0) {
 
                 $classLabelDisplay = $classLabelRowDisplay = $classLabelRowSecondDisplay = '';
@@ -1212,6 +1267,9 @@ class ObjectContent extends Language {
                 echo '</div>';
 
                 $this->displayStyleLabel();
+
+                if($this->checkDisplayOption($option, 'pages'))
+                    echo $this->drawSplitPagination($objectRecordAll);
 
                 if($this->checkDisplayOption($option, 'end') and $this->row) {
 

@@ -28,6 +28,8 @@ class System extends Setting
 
     private $parallaxPointer = 0;//Pointer in parallax array
 
+    private $pagination = array();
+
     public function __construct() {
 
         $this->section = false;
@@ -295,6 +297,18 @@ class System extends Setting
 
         if($language !== '')
             $this->currentLanguage = $language;
+
+    }
+
+    public function setPagination($start, $length) {
+
+        if(is_numeric($start) and is_numeric($length)) {
+
+            $this->pagination['start'] = $start;
+
+            $this->pagination['length'] = $length;
+
+        }
 
     }
 

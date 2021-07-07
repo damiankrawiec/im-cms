@@ -3,7 +3,7 @@
 //init require element on the content in section (object), rest part of section are include
 require_once 'content/object/object.class.php';
 
-$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->defaultLanguage, $this->admin, $this->setting, $this->domain, $addition, $auth, $session, $this->path, $this->currentSection);
+$object = new ObjectContent($this->systemName(), $db, $this->currentLanguage, $this->defaultLanguage, $this->admin, $this->setting, $this->domain, $addition, $auth, $session, $this->path, $this->currentSection, $this->pagination);
 
 $sectionData = $this->getSection($this->currentSection);
 
@@ -42,6 +42,7 @@ $label = $object->getAllLabel();
     //- pagination always with :X on the right (number of objects show on one page of paging)
     //- submenu show section name and his children via dropdown
     //- scroll insert a scroll tag (animate scrolling)
+    //- pages (data from url or default, reload)
 
     ?>
 

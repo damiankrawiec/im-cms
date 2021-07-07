@@ -3,7 +3,9 @@ RewriteEngine on
 #Default language
 RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?url=$1 [NC]
 RewriteRule ^([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$ index.php?url=$1&var1=$2 [NC]
+RewriteRule ^([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$ index.php?url=$1&var1=$2&var2=$3 [NC]
 
 #Rest language
 RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?language=$1&url=$2 [NC]
 RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$ index.php?language=$1&url=$2&var1=$3 [NC]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$ index.php?language=$1&url=$2&var1=$3&var2=$4 [NC]

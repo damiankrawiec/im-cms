@@ -25,6 +25,8 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
                 }
 
+                $changeLanguageUrl .= $this->addition->varUrl();
+
                 echo '<a href="'.$changeLanguageUrl.'" title="'.$l['name'].'">';
 
                 $imagePath = $this->systemName . '/content/public/' . $l['url'];

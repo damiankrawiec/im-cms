@@ -18,6 +18,9 @@ $addition = new Addition();
 
 $system = new System();
 
+//Global setting
+require 'config/setting.php';
+
 //Go on (no stop) - database of system domain setting
 require_once $system->systemName().'/setting.php';
 
@@ -38,6 +41,8 @@ require 'php/script/post.php';
 $system->setDefaultLanguage($db);
 
 $system->setCurrentLanguage($g_language);
+
+$system->setPagination(($g_var1 === '' ? $s_startPagination : $g_var1), ($g_var2 === '' ? $s_lengthPagination : $g_var2));
 
 $s_path = $system->setPath();
 
