@@ -18,14 +18,14 @@ insert into im_label values (null, 'Nawigacja okruszkowa', 'breadcrumb', '', '',
 
 -- record, object type
 
-insert into im_type values (null, 'Aktualność', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Zaleta', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Slider', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Menu', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Submenu', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Języki', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Aktualność', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Zaleta', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Slider', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Menu', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Submenu', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Języki', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', 'off', '', null, null);
 
 -- record, set property in type
 

@@ -62,6 +62,10 @@ $p_id = false;
 if(isset($_POST['id']))
     $p_id = $_POST['id'];
 
+$p_search = false;
+if(isset($_POST['search']))
+    $p_search = $_POST['search'];
+
 $formData = array();
 if(isset($_POST)) {
 

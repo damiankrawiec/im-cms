@@ -17,7 +17,8 @@ $sql = 'select
         if(description = \'\', \'-\', description) as description,
         date_create,
         date_modify,
-        status
+        status,
+        status_search
         from ' . $table;
 
 if($g_var1 == 'edit' and $g_var2 != '') {

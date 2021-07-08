@@ -26,17 +26,17 @@ insert into im_label values (null, 'Pakiet', 'package', '', '', null, null);
 
 -- record, object type
 
-insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Slider', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Menu', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Języki', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Film', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Mapa', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Autoryzacja', 'col-12', 'on', '', null, null);
-insert into im_type values (null, 'Pakiet', 'col-12', 'on', '', null, null);
+insert into im_type values (null, 'Ostatnie wydarzenia', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Slider', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Menu', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Najbliższe wydarzenie', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Języki', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Ciasteczka', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Nawigacja okruszkowa', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Film', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Mapa', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Autoryzacja', 'col-12', 'on', 'off', '', null, null);
+insert into im_type values (null, 'Pakiet', 'col-12', 'on', 'off', '', null, null);
 
 -- record, set property in type
 

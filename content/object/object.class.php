@@ -144,6 +144,14 @@ class ObjectContent extends Language {
         $isParameter = false;
         if($parameter and is_array($parameter) and count($parameter) > 0) {
 
+            if(isset($this->session['search']) and $this->session['search'] !== '') {
+
+                //Get if type of object has status_search = on
+
+                array_push($parameter, array('name' => ':search', 'value' => '%'.$this->session['search'].'%', 'type' => 'string'));
+
+            }
+
             //Set parameters to flat array
             $parameterArray = $this->getParameterFromArray($parameter);
 
@@ -196,6 +204,14 @@ class ObjectContent extends Language {
         $sql .= $this->whereOrAnd($sql);
 
         $sql .= ' o.status like "on"';
+
+        if(isset($this->session['search']) and $this->session['search'] !== '') {
+
+            $sql .= $this->whereOrAnd($sql);
+
+            $sql .= ' o.name like :search';
+
+        }
 
         $sql .= ' order by o.position';
 
@@ -1216,6 +1232,11 @@ class ObjectContent extends Language {
                                     if ($p['name'] == 'form-register') {
 
                                         $displayPropertyData['form-register'] = $or['name'];
+
+                                    }
+                                    if ($p['name'] == 'search') {
+
+                                        $displayPropertyData['search'] = $or['name'];
 
                                     }
 

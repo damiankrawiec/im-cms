@@ -280,6 +280,7 @@ create table im_type (
     name varchar(128) collate utf8_polish_ci default '',
     class varchar(128) collate utf8_polish_ci default '',-- class of kind of object
     status varchar(3) default 'on',-- show type in menu "object", cms
+    status_search varchar(3) default 'off',-- objects in this type can be display in search
     description text collate utf8_polish_ci default '',-- description, management
     date_create datetime,-- create time
     date_modify datetime,-- last modification time
@@ -1081,6 +1082,7 @@ insert into im_property values (null, 'Formularz rejestracji', 'form-register', 
 insert into im_property values (null, 'Pakiet', 'package', '', null, null);
 insert into im_property values (null, 'Wstęp', 'short', '', null, null);
 insert into im_property values (null, 'Galeria', 'gallery', '', null, null);
+insert into im_property values (null, 'Wyszukiwarka', 'search', '', null, null);
 
 -- language definition
 
@@ -1157,6 +1159,8 @@ insert into im_translation_system values (null, 1,  'Błąd rejestracji', 'regis
 insert into im_translation_system values (null, 2,  'Błąd rejestracji', 'register-fail', 'Registration process success fail', '', null, null);
 insert into im_translation_system values (null, 1,  'Zarejestrowano poprawnie', 'register-success', 'Procedura rejestracji zakończyła się pomyślnie', '', null, null);
 insert into im_translation_system values (null, 2,  'Zarejestrowano poprawnie', 'register-success', 'Registration process success', '', null, null);
+insert into im_translation_system values (null, 1,  'Szukaj', 'search', 'Szukaj', '', null, null);
+insert into im_translation_system values (null, 2,  'Szukaj', 'search', 'Search', '', null, null);
 
 -- setting
 

@@ -220,7 +220,7 @@ $tableDefinition = array(
         'class_field' => 'Klasa - pole',
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
-        'status' => 'Status',
+        'status' => 'Status'
     ),
     'im_type' => array(
         'name' => 'Nazwa',
@@ -229,6 +229,7 @@ $tableDefinition = array(
         'date_create' => 'Utworzony',
         'date_modify' => 'Zmodyfikowany',
         'status' => 'Status w menu "obiekty"',
+        'status_search' => 'Udział obiektów w wyszukiwaniu'
     ),
     'im_property' => array(
         'name' => 'Nazwa',
