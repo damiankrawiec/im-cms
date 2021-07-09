@@ -1,5 +1,11 @@
 <?php
 
-$mpdf = new \Mpdf\Mpdf();
-$mpdf->WriteHTML('<h1>Hello world!</h1>');
-$mpdf->Output();
+if($p_string) {
+
+    $mpdf = new \Mpdf\Mpdf();
+
+    $mpdf->WriteHTML($p_string);
+
+    $mpdf->Output();
+
+}
