@@ -58,7 +58,7 @@ $label = $object->getAllLabel();
 
     <?php $object->display($sectionData['id'], $label['slider'], 'end'); ?>
 
-    <?php $object->display($sectionData['id'], $label['last-events'], 'pagination:1,scroll'); ?>
+    <?php $object->display($sectionData['id'], $label['last-events'], 'pagination:2'); ?>
 
     <?php $object->display($sectionData['id'], $label['map']); ?>
 

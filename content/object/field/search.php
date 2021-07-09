@@ -12,9 +12,12 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
         echo '<form method="post">';
 
-            echo '<input type="text" class="form-control" name="search" value="'.$searchValue.'" placeholder="">';
+            echo '<input type="text" class="form-control" name="search" value="'.$searchValue.'" placeholder="'.$this->makeTranslationSystem('search-text').'">';
 
-            echo '<input type="submit" class="btn btn-default" value="'.$this->makeTranslationSystem('search').'">';
+            echo '<input type="button" class="btn btn-success search-run" value="'.$this->makeTranslationSystem('search').'">';
+
+            if($searchValue !== '')
+                echo '<input type="button" class="btn btn-danger search-clear" value="'.$this->makeTranslationSystem('clear').'">';
 
             echo '<input type="hidden" name="event" value="search">';
 

@@ -144,14 +144,6 @@ class ObjectContent extends Language {
         $isParameter = false;
         if($parameter and is_array($parameter) and count($parameter) > 0) {
 
-            if(isset($this->session['search']) and $this->session['search'] !== '') {
-
-                //Get if type of object has status_search = on
-
-                array_push($parameter, array('name' => ':search', 'value' => '%'.$this->session['search'].'%', 'type' => 'string'));
-
-            }
-
             //Set parameters to flat array
             $parameterArray = $this->getParameterFromArray($parameter);
 
@@ -204,14 +196,6 @@ class ObjectContent extends Language {
         $sql .= $this->whereOrAnd($sql);
 
         $sql .= ' o.status like "on"';
-
-        if(isset($this->session['search']) and $this->session['search'] !== '') {
-
-            $sql .= $this->whereOrAnd($sql);
-
-            $sql .= ' o.name like :search';
-
-        }
 
         $sql .= ' order by o.position';
 
@@ -964,6 +948,50 @@ class ObjectContent extends Language {
 
     }
 
+    //Check if type of object has search status "on"
+    private function getSearchType($typeId) {
+
+        $sql = 'select status_search as status from im_type where type_id = :type';
+
+        $this->db->prepare($sql);
+
+        $parameter = array(
+            array('name' => ':type', 'value' => $typeId, 'type' => 'int')
+        );
+
+        $this->db->bind($parameter);
+
+        return $this->db->run('one')->status;
+
+    }
+
+    private function searchObject($data) {
+
+        $find = false;
+
+        $searchArray = array($this->session['search']);
+        if(stristr($this->session['search'], ' '))
+            $searchArray = explode(' ', $this->session['search']);
+
+        $findCount = 0;
+        foreach ($data as $d) {
+
+            foreach ($searchArray as $oneSearch) {
+
+                if(stristr($d, $oneSearch))
+                    $findCount++;
+
+            }
+
+        }
+
+        if($findCount === count($searchArray))
+            $find = true;
+
+        return $find;
+
+    }
+
     private function getIndex() {
 
         $indexStart = $this->pagination['start'] * $this->pagination['length'];
@@ -1088,6 +1116,33 @@ class ObjectContent extends Language {
             }
 
             $objectRecordAll = count($objectRecord);
+
+            $statusSearch = false;
+            if(isset($this->session['search']) and $objectRecordAll > 0) {
+
+                //Get if type of object has status_search = on
+                foreach ($objectRecord as $o => $oneObject) {
+
+                    if($this->getSearchType($oneObject['type']) === 'on') {
+
+                        $dataSearch = array(
+                            'name' => $oneObject['name'],
+                            'short' => $oneObject['short'],
+                            'content' => $oneObject['content']
+                        );
+
+                        if(!$this->searchObject($dataSearch))
+                            unset($objectRecord[$o]);
+
+                        $statusSearch = true;
+
+                    }
+
+                }
+
+            }
+
+            //Pagination server side (type = pages) - it must be at last
             if($this->checkDisplayOption($option, 'pages'))
                 $objectRecord = $this->getObjectPagination($objectRecord);
 
@@ -1299,6 +1354,11 @@ class ObjectContent extends Language {
                     $this->row = false;
 
                 }
+
+            }else{
+
+                if($statusSearch)
+                    echo '<div class="col-12 badge badge-warning p-2">' . $this->icon['warning']['triangle'] . ' '.$this->makeTranslationSystem('no-data').'</div>';
 
             }
 

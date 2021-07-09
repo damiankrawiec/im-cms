@@ -66,6 +66,28 @@ $(function(){
 
     });
 
+    $('.search-run').click(function(){
+
+        let $parent = $(this).parent();
+
+        $parent.next($('#warning-icon')).remove();
+        if($parent.find('input[type="text"]').val() !== '') {
+
+            $parent.submit();
+
+        }else $parent.after($('#warning-icon').html());
+
+    });
+
+    $('.search-clear').click(function(){
+
+        let $parent = $(this).parent();
+
+        $parent.find('input[type="text"]').val('');
+
+        $parent.submit();
+
+    });
 
     $('body').on('click', '.im-send', function () {
 

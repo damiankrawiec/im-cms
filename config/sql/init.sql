@@ -1161,6 +1161,10 @@ insert into im_translation_system values (null, 1,  'Zarejestrowano poprawnie', 
 insert into im_translation_system values (null, 2,  'Zarejestrowano poprawnie', 'register-success', 'Registration process success', '', null, null);
 insert into im_translation_system values (null, 1,  'Szukaj', 'search', 'Szukaj', '', null, null);
 insert into im_translation_system values (null, 2,  'Szukaj', 'search', 'Search', '', null, null);
+insert into im_translation_system values (null, 1,  'Wyczyść', 'clear', 'Wyczyść', '', null, null);
+insert into im_translation_system values (null, 2,  'Wyczyść', 'clear', 'Clear', '', null, null);
+insert into im_translation_system values (null, 1,  'Pole wyszukiwarka', 'search-text', 'Wpisz słowa kluczowe oddzielona spacją', '', null, null);
+insert into im_translation_system values (null, 2,  'Pole wyszukiwarka', 'search-text', 'Insert keywords separate with space key', '', null, null);
 
 -- setting
 
