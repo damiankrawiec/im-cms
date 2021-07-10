@@ -348,6 +348,7 @@ create table im_object (
     type_id int not null,
     label_id int not null,
     section int default 0,-- direction to section, 0 - not direction (this in not foreign key)
+    section_search int default 0,-- direction after click search (if default = '' than to current section)
     section_name varchar(256) collate utf8_polish_ci default '',-- name of direct to section (it may be different like section name), in field may be e.g. fontawesome icon (html)
     system_name varchar(128) collate utf8_polish_ci default '',-- first, important, require, because object type could be without normal name
     name varchar(256) collate utf8_polish_ci default '',

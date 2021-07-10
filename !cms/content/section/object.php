@@ -24,6 +24,7 @@ if($g_var1 != '') {
         system_name,
         name,
         section,
+        section_search,
         section_name,
         link,
         link_name,

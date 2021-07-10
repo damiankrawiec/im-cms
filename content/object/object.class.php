@@ -219,6 +219,7 @@ class ObjectContent extends Language {
             o.content as content, 
             o.short as short, 
             o.section as section,
+            o.section_search as section_search,
             o.section_name as section_name, 
             o.link as link,
             o.link_name as link_name,
@@ -1291,7 +1292,8 @@ class ObjectContent extends Language {
                                     }
                                     if ($p['name'] == 'search') {
 
-                                        $displayPropertyData['search'] = $or['name'];
+                                        $displayPropertyData['search']['name'] = $or['name'];
+                                        $displayPropertyData['search']['section_search'] = $or['section_search'];
 
                                     }
 

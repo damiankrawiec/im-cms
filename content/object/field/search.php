@@ -1,6 +1,6 @@
 <?php
 
-if($this->checkDataDisplay($dataDisplay, 'string')) {
+if($this->checkDataDisplay($dataDisplay, 'array')) {
 
     $searchValue = '';
     if(isset($this->session['search']))
@@ -8,9 +8,13 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
     echo '<div'.$classField.'>';
 
-        echo $this->translationMark('im_object-name-'.$dataId, $dataDisplay);
+        echo $this->translationMark('im_object-name-'.$dataId, $dataDisplay['name']);
 
-        echo '<form action="'.$this->currentSection.'" method="post">';
+        $action = $this->currentSection;
+        if($dataDisplay['section_search'] > 0)
+            $action = $this->getSectionUrl($dataDisplay['section_search']);
+
+        echo '<form action="'.$action.'" method="post">';
 
             echo '<input type="text" class="form-control" name="search" value="'.$searchValue.'" placeholder="'.$this->makeTranslationSystem('search-text').'">';
 
