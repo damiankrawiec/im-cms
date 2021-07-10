@@ -73,6 +73,9 @@ if (!in_array('icon', $fields))
 if (!in_array('map', $fields))
     unset($eventData['field']['map']);
 
+if (!in_array('short', $fields))
+    unset($eventData['field']['short']);
+
 if (!in_array('image', $fields))
     unset($eventData['fix-2']);
 
