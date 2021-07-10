@@ -10,7 +10,7 @@ if($this->checkDataDisplay($dataDisplay, 'string')) {
 
         echo $this->translationMark('im_object-name-'.$dataId, $dataDisplay);
 
-        echo '<form method="post">';
+        echo '<form action="'.$this->currentSection.'" method="post">';
 
             echo '<input type="text" class="form-control" name="search" value="'.$searchValue.'" placeholder="'.$this->makeTranslationSystem('search-text').'">';
 

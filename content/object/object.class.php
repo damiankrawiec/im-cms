@@ -970,7 +970,7 @@ class ObjectContent extends Language {
         $find = false;
 
         $searchArray = array($this->session['search']);
-        if(stristr($this->session['search'], ' '))
+        if (stristr($this->session['search'], ' '))
             $searchArray = explode(' ', $this->session['search']);
 
         $findCount = 0;
@@ -978,14 +978,14 @@ class ObjectContent extends Language {
 
             foreach ($searchArray as $oneSearch) {
 
-                if(stristr($d, $oneSearch))
+                if (stristr($d, $oneSearch))
                     $findCount++;
 
             }
 
         }
 
-        if($findCount === count($searchArray))
+        if ($findCount === count($searchArray))
             $find = true;
 
         return $find;
@@ -1115,10 +1115,8 @@ class ObjectContent extends Language {
 
             }
 
-            $objectRecordAll = count($objectRecord);
-
             $statusSearch = false;
-            if(isset($this->session['search']) and $objectRecordAll > 0) {
+            if(isset($this->session['search']) and count($objectRecord) > 0) {
 
                 //Get if type of object has status_search = on
                 foreach ($objectRecord as $o => $oneObject) {
@@ -1141,6 +1139,8 @@ class ObjectContent extends Language {
                 }
 
             }
+
+            $objectRecordAll = count($objectRecord);
 
             //Pagination server side (type = pages) - it must be at last
             if($this->checkDisplayOption($option, 'pages'))
