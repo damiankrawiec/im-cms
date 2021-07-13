@@ -88,7 +88,7 @@ $s_eventDefinition = array(
             'name' => array('name' => $tableDefinitionEvent['im_object']['name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 256),
             'label_id' => array('name' => $tableDefinitionEvent['im_object']['label'], 'type' => 'select:im_label', 'require' => 'validation :select', 'table' => 'im_object'),
             'section' => array('name' => $tableDefinitionEvent['im_object']['section'], 'type' => 'select:im_section', 'require' => 'validation :select', 'table' => 'im_object'),
-            'section_search' => array('name' => $tableDefinitionEvent['im_object']['section_search'], 'type' => 'select:im_section', 'require' => 'validation :select', 'table' => 'im_object'),
+            'section_search' => array('name' => $tableDefinitionEvent['im_object']['section_search'], 'type' => 'select:im_section', 'table' => 'im_object'),
             'section_name' => array('name' => $tableDefinitionEvent['im_object']['section_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 256),
             'link' => array('name' => $tableDefinitionEvent['im_object']['link'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 128),
             'link_name' => array('name' => $tableDefinitionEvent['im_object']['link_name'], 'type' => 'text', 'require' => 'validation :text', 'table' => 'im_object', 'size' => 256),

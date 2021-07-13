@@ -76,6 +76,9 @@ if (!in_array('map', $fields))
 if (!in_array('short', $fields))
     unset($eventData['field']['short']);
 
+if (!in_array('search', $fields))
+    unset($eventData['field']['section_search']);
+
 if (!in_array('image', $fields))
     unset($eventData['fix-2']);
 
