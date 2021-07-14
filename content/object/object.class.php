@@ -230,8 +230,88 @@ class ObjectContent extends Language {
             o.map as map,
             o.package as package,
             o.spec as spec,
+            o.status_parent as status_parent,
             o.status_protected as status_protected
             from im_object o';
+
+    }
+
+    private function getObjectParent($objectRecordAll) {
+
+        $return = array();
+        if($objectRecordAll) {
+
+            foreach ($objectRecordAll as $object) {
+
+                if($object['status_parent'] === 'on') {
+
+                    $sectionObject = $this->getSectionObject($object['id']);
+
+                    $parent = false;
+                    if($sectionObject)
+                        $parent = $this->setBreadcrumb($sectionObject->id);
+
+                    if($parent) {
+
+                        $parentFlat = $this->addition->implode3d($parent, 'url');
+
+                        if(in_array($this->currentSection, $parentFlat))
+                            array_push($return, $object);
+
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        if(empty($return))
+            $return = false;
+
+        return $return;
+
+    }
+
+    private function getSectionObject($id, $check = false) {
+
+        $status = false;
+        if($check) {
+
+            $sql = 'select status_parent as status from im_object where object_id = :id';
+
+            $this->db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':id', 'value' => $id, 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+            if($this->db->run('one')->status === 'on')
+                $status = true;
+
+        }
+
+        $return = false;
+        if(!$check or ($check and $status)) {
+
+            $sql = 'select section_id as id from im_section_object where object_id = :id';
+
+            $this->db->prepare($sql);
+
+            $parameter = array(
+                array('name' => ':id', 'value' => $id, 'type' => 'int')
+            );
+
+            $this->db->bind($parameter);
+
+            $return = $this->db->run('one');
+
+        }
+
+        return $return;
 
     }
 
@@ -1073,29 +1153,46 @@ class ObjectContent extends Language {
             $this->label = $label;
 
             $parameter = array(
-                array('name' => ':free', 'value' => 'on', 'type' => 'string'),
                 array('name' => ':label', 'value' => $label, 'type' => 'string')
             );
 
+            $objectRecordParent = $this->getObjectParent($this->getObject($parameter));
+
+            array_push($parameter, array('name' => ':free', 'value' => 'on', 'type' => 'string'));
+
             $objectRecordFree = $this->getObject($parameter);
 
-            $parameter[0]['value'] = 'off';
+            $parameter[1]['value'] = 'off';
             array_push($parameter, array('name' => ':section', 'value' => $section, 'type' => 'int'));
 
             $objectRecordSection = $this->getObject($parameter);
 
             //Join array of objects free and hook to section (first free)
             $objectRecord = array();
+            if($objectRecordParent) {
+
+                foreach ($objectRecordParent as $orp)
+                    array_push($objectRecord, $orp);
+
+            }
             if($objectRecordFree) {
 
-                foreach ($objectRecordFree as $orf)
-                    array_push($objectRecord, $orf);
+                foreach ($objectRecordFree as $orf) {
+
+                    if(!in_array($orf['id'], $this->addition->implode3d($objectRecord, 'id')))
+                        array_push($objectRecord, $orf);
+
+                }
 
             }
             if($objectRecordSection) {
 
-                foreach ($objectRecordSection as $ors)
-                    array_push($objectRecord, $ors);
+                foreach ($objectRecordSection as $ors) {
+
+                    if(!in_array($ors['id'], $this->addition->implode3d($objectRecord, 'id')))
+                        array_push($objectRecord, $ors);
+
+                }
 
             }
 

@@ -45,6 +45,7 @@ if($g_var1 != '') {
         status,
         status_copy,
         status_free,
+        status_parent,
         status_protected
         from ' . $table;
 
@@ -190,8 +191,16 @@ if($g_var1 != '') {
             );
 
             //When object show in all section (status_free), then hide fix to section on edit
-            if($record->status_free == 'on')
+            if($record->status_free == 'on') {
+
+                echo $addition->message($translation['message']['status-free'], $icon['message']['alert']);
                 unset($eventData['fix-0']);
+
+            }
+
+            //When object show in parent section (status_parent), then display alert
+            if($record->status_parent == 'on')
+                echo $addition->message($translation['message']['status-parent'], $icon['message']['alert']);
 
             //Filter fields in type (hide)
             require_once 'php/script/field.php';

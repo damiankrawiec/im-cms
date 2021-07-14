@@ -68,7 +68,9 @@ $translation = array(
         'restore-data' => 'Przywrócone zasoby',
         'update-progress' => 'Trwa aktualizacja (proszę nie wykonywać żadnych czynności w systemie)',
         'backup-progress' => 'Trwa wykonywanie kopii (proszę nie wykonywać żadnych czynności w systemie)',
-        'restore-progress' => 'Trwa przywracanie kopii (proszę nie wykonywać żadnych czynności w systemie)'
+        'restore-progress' => 'Trwa przywracanie kopii (proszę nie wykonywać żadnych czynności w systemie)',
+        'status-parent' => 'Obiekt ma włączoną opcję nadrzędnych sekcji',
+        'status-free' => 'Obiekt ma włączoną opcję wszystkich sekcji'
     ),
     'top' => array(
         'event' => '<span class="text-warning">Trwa wykonanie procedury systemowej, po jej zakończeniu można <a href="" class="text-light">przeładować system</a></span>',
@@ -123,7 +125,7 @@ $translation = array(
         'attachment' => 'Pole na treść nad załącznikiem',
         'date' => 'Pole data w dowolnym formacie',
         'content' => 'Pole na treść',
-        'short' => 'Pole na treść wstępną',
+        'short' => 'Pole na treść skróconą',
         'spec' => 'Pole na parametr (zaawansowane, nie jest wymagane)',
         'package' => 'Pole na definicję pakietu (obowązkowy format to JSON, zaawansowane)',
         'name_url' => 'Pole url to nazwa w pasku adresu',
@@ -210,6 +212,7 @@ $tableDefinition = array(
         'status' => 'Status',
         'status_copy' => 'Powielany',
         'status_free' => 'Wszystkie sekcje',
+        'status_parent' => 'Nadrzędne sekcje',
         'status_protected' => 'Obiekt chroniony'
     ),
     'im_type_property' => array(
@@ -407,7 +410,7 @@ $tableDefinitionEvent = array(
         'spec' => 'Parametr techniczny',
         'date' => 'Data',
         'content' => 'Treść',
-        'short' => 'Wstęp (treść)',
+        'short' => 'Treść skrócona',
         'description' => 'Opis techniczny',
         'status_copy' => 'Przypisz obiekt do sekcji ze statusem "Powielany"',
     ),
@@ -524,7 +527,7 @@ $tooltip = array(
         'name' => 'To pole jest publikowane, z reguły jako tytuł lub nazwa. Dlatego powinno być ono w miarę możliwości krótkie, np. [Impreza karnawałowa 2020] ',
         'label_id' => 'To pole wskazuje gdzie przyczepiony, w strukturze strony, jest obiekt (np. nagłówek, treść, stopka). Sugerujemy, aby NIE zmieniać tej wartości!',
         'date' => 'To pole jest publikowane, z reguły jako data jakiegoś wydarzenia, itp. Kliknij w pole, a pojawi się interaktywny kalendarz',
-        'short' => 'To pole jest publikowane jako treść wstępna obiektu',
+        'short' => 'To pole jest publikowane jako treść skrócona obiektu',
         'content' => 'To pole jest publikowane jako treść obiektu, z regóły opis tego co przedstawia nazwa, np. [W roku 2020 karnawał okazał się wyjątkowo...]',
         'form' => 'W tym polu należy wskazać adres e-mail, na który będą przychodziły wiadomości po wysłaniu formularza znajdującego się w obiekcie',
         'attachment' => 'W tym polu neleży wpisać tekst jaki zobaczą użytkownicy nad obszarem odpowiedzialnym za dodanie załącznika',

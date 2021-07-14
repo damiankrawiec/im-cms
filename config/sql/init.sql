@@ -368,6 +368,7 @@ create table im_object (
     status varchar(3) default 'on',
     status_copy varchar(3) default 'off',
     status_free varchar(3) default 'off',
+    status_parent varchar(3) default 'off',-- display on parent section (define the most lower branch in section tree)
     status_protected varchar(3) default 'off',-- object for login user (user_object table)
     date varchar(32) collate utf8_polish_ci default '',-- date to display
     description text collate utf8_polish_ci default '',-- description, management
