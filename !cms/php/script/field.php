@@ -56,8 +56,13 @@ if (!in_array('link', $fields))
 if (!in_array('email', $fields))
     unset($eventData['field']['email']);
 
-if (!in_array('package', $fields))
+if (!in_array('package', $fields)) {
+
     unset($eventData['field']['package']);
+
+    unset($eventData['field']['spec']);
+
+}
 
 if (!in_array('form', $fields)) {
 
