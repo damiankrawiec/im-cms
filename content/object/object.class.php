@@ -249,7 +249,7 @@ class ObjectContent extends Language {
 
                     $parent = false;
                     if($sectionObject)
-                        $parent = $this->setBreadcrumb($sectionObject->id);
+                        $parent = $this->setBreadcrumb($sectionObject->id, false);
 
                     if($parent) {
 
@@ -961,7 +961,7 @@ class ObjectContent extends Language {
 
     }
 
-    private function setBreadcrumb($currentSectionId) {
+    private function setBreadcrumb($currentSectionId, $startSectionCheck = true) {
 
         $breadcrumbArray = array();
 
@@ -987,22 +987,26 @@ class ObjectContent extends Language {
 
         }while($currentSectionBreadcrumb->parent > 0);
 
-        $sql = 'select section_id as id, name, name_url
+        if($startSectionCheck) {
+
+            $sql = 'select section_id as id, name, name_url
             from im_section
             where position = :position and parent = :parent';
 
-        $this->db->prepare($sql);
+            $this->db->prepare($sql);
 
-        $parameter = array(
-            array('name' => ':position', 'value' => 1, 'type' => 'int'),
-            array('name' => ':parent', 'value' => 0, 'type' => 'int')
-        );
+            $parameter = array(
+                array('name' => ':position', 'value' => 1, 'type' => 'int'),
+                array('name' => ':parent', 'value' => 0, 'type' => 'int')
+            );
 
-        $this->db->bind($parameter);
+            $this->db->bind($parameter);
 
-        $startSection = $this->db->run('one');
+            $startSection = $this->db->run('one');
 
-        array_push($breadcrumbArray, array('id' => $startSection->id, 'url' => $startSection->name_url, 'name' => $startSection->name));
+            array_push($breadcrumbArray, array('id' => $startSection->id, 'url' => $startSection->name_url, 'name' => $startSection->name));
+
+        }
 
         $returnBreadcrumb = '';
         if(count($breadcrumbArray) > 1)
