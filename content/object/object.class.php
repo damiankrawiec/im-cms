@@ -1167,14 +1167,17 @@ class ObjectContent extends Language {
 
             $objectRecordSection = $this->getObject($parameter);
 
-            //Join array of objects free and hook to section (first free)
             $objectRecord = array();
+
+            //Join array of objects parent and hook to section (parent - all sections parent with current section)
             if($objectRecordParent) {
 
                 foreach ($objectRecordParent as $orp)
                     array_push($objectRecord, $orp);
 
             }
+
+            //Join array of objects free and hook to section (free - all sections)
             if($objectRecordFree) {
 
                 foreach ($objectRecordFree as $orf) {
@@ -1185,6 +1188,8 @@ class ObjectContent extends Language {
                 }
 
             }
+
+            //Join array of objects hook to current section (only)
             if($objectRecordSection) {
 
                 foreach ($objectRecordSection as $ors) {
@@ -1196,23 +1201,19 @@ class ObjectContent extends Language {
 
             }
 
-            $runPackage = false;
-            if($p_id) {
+            //Check object protect
+            if(count($objectRecord) > 0) {
 
-                foreach ($objectRecord as $or) {
+                foreach ($objectRecord as $o => $oneObject) {
 
-                    if($or['id'] == $p_id) {
-
-                        $objectRecord = array($or);
-                        $runPackage = true;
-                        break;
-
-                    }
+                    if ($oneObject['status_protected'] === 'on' and !in_array($oneObject['id'], $this->allowObject))
+                        unset($objectRecord[$o]);
 
                 }
 
             }
 
+            //At the last must be search
             $statusSearch = false;
             if(isset($this->session['search']) and count($objectRecord) > 0) {
 
@@ -1237,6 +1238,27 @@ class ObjectContent extends Language {
                 }
 
             }
+
+            //Check if current object is in run (package) - after all display modyfication
+            $runPackage = false;
+            if($p_id) {
+
+                foreach ($objectRecord as $or) {
+
+                    if($or['id'] == $p_id) {
+
+                        $objectRecord = array($or);
+                        $runPackage = true;
+                        break;
+
+                    }
+
+                }
+
+            }
+
+            //After all unsets, reset array object (pagination running on array index)
+            $objectRecord = array_values($objectRecord);
 
             $objectRecordAll = count($objectRecord);
 
@@ -1305,133 +1327,126 @@ class ObjectContent extends Language {
                         $this->objectCounterLabel = 0;
                         foreach ($objectRecord as $i => $or) {
 
-                            if ($or['status_protected'] == 'off' or ($or['status_protected'] == 'on' and in_array($or['id'], $this->allowObject))) {
+                            $classType = $this->getTypeClass($or['type'])->class;
+                            $classObject = $this->getObjectClass($or['id'])->class;
+                            $class = 'object';
+                            if ($classType != '')
+                                $class .= ' ' . $classType;
+                            if ($classObject != '')
+                                $class .= ' ' . $classObject;
+                            if ($this->admin)
+                                $class .= ' im-preview';
+                            if ($runPackage) {
 
-                                $classType = $this->getTypeClass($or['type'])->class;
-                                $classObject = $this->getObjectClass($or['id'])->class;
-                                $class = 'object';
-                                if ($classType != '')
-                                    $class .= ' ' . $classType;
-                                if ($classObject != '')
-                                    $class .= ' ' . $classObject;
-                                if ($this->admin)
-                                    $class .= ' im-preview';
-                                if ($runPackage) {
+                                $class = $this->addition->cleanText($class, 'col-');
 
-                                    $class = $this->addition->cleanText($class, 'col-');
-
-                                    $class .= ' col-12';
-
-                                }
-
-                                echo '<div class="' . $this->getCategoryObject($or['id']) . $class . '">';
-                                if ($this->admin) {
-
-                                    //Many different methods to get from object to cms section
-
-                                    echo '<div class="edit-tool">';
-
-                                    //edit object when login like admin. In edit status you can change rest property
-                                    echo '<a href="' . $this->getToolUrl('object,' . $or['type'] . ',edit,' . $or['id']) . '">' . $this->icon['tool']['edit'] . '</a>';
-
-                                    echo '</div>';
-
-                                }
-                                $property = $this->getPropertyFromType($or['type']);
-                                $displayPropertyData = $or;
-
-                                foreach ($property as $p) {
-
-                                    if ($p['name'] == 'image') {
-
-                                        $displayPropertyData['image'] = $this->getObjectImage($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'gallery') {
-
-                                        $displayPropertyData['gallery'] = $this->getObjectGallery($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'file') {
-
-                                        $displayPropertyData['file'] = $this->getObjectFile($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'source') {
-
-                                        $displayPropertyData['source'] = $this->getObjectSource($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'movie') {
-
-                                        $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'language') {
-
-                                        $displayPropertyData['language'] = $this->getLanguage($or['id']);
-
-                                    }
-                                    if ($p['name'] == 'breadcrumb') {
-
-                                        $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
-
-                                    }
-                                    if ($p['name'] == 'form-auth') {
-
-                                        $displayPropertyData['form-auth'] = $or['name'];
-
-                                    }
-                                    if ($p['name'] == 'form-register') {
-
-                                        $displayPropertyData['form-register'] = $or['name'];
-
-                                    }
-                                    if ($p['name'] == 'search') {
-
-                                        $displayPropertyData['search']['name'] = $or['name'];
-                                        $displayPropertyData['search']['section_search'] = $or['section_search'];
-
-                                    }
-
-                                    if ($p['name'] == 'menu') {
-
-                                        $sectionParent = $submenu = false;
-                                        if ($this->checkDisplayOption($option, 'parent'))
-                                            $sectionParent = $section;
-
-                                        if ($this->checkDisplayOption($option, 'submenu'))
-                                            $submenu = true;
-
-                                        $displayPropertyData['menu']['name'] = $or['name'];
-
-                                        $displayPropertyData['menu']['data'] = $this->getSection($sectionParent, $submenu);
-
-                                    }
-                                    if ($p['name'] == 'section') {
-
-                                        if (is_numeric($or['section']) and $or['section'] > 0) {
-
-                                            $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
-
-                                        } else $displayPropertyData['section'] = false;
-
-                                    }
-
-                                }
-
-                                $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string, 'spec' => $or['spec']), $formData);
-
-                                echo '</div>';
-
-                                $this->objectCounterLabel++;
-
-                                $this->objectCounter++;
+                                $class .= ' col-12';
 
                             }
 
-                            if($or['status_protected'] == 'on' and !in_array($or['id'], $this->allowObject))
-                                echo '<div class="col-12 text-danger">'.$this->icon['warning']['triangle'].' '.$this->makeTranslationSystem('data-protected').'</div>';
+                            echo '<div class="' . $this->getCategoryObject($or['id']) . $class . '">';
+                            if ($this->admin) {
+
+                                //Many different methods to get from object to cms section
+
+                                echo '<div class="edit-tool">';
+
+                                //edit object when login like admin. In edit status you can change rest property
+                                echo '<a href="' . $this->getToolUrl('object,' . $or['type'] . ',edit,' . $or['id']) . '">' . $this->icon['tool']['edit'] . '</a>';
+
+                                echo '</div>';
+
+                            }
+                            $property = $this->getPropertyFromType($or['type']);
+                            $displayPropertyData = $or;
+
+                            foreach ($property as $p) {
+
+                                if ($p['name'] == 'image') {
+
+                                    $displayPropertyData['image'] = $this->getObjectImage($or['id']);
+
+                                }
+                                if ($p['name'] == 'gallery') {
+
+                                    $displayPropertyData['gallery'] = $this->getObjectGallery($or['id']);
+
+                                }
+                                if ($p['name'] == 'file') {
+
+                                    $displayPropertyData['file'] = $this->getObjectFile($or['id']);
+
+                                }
+                                if ($p['name'] == 'source') {
+
+                                    $displayPropertyData['source'] = $this->getObjectSource($or['id']);
+
+                                }
+                                if ($p['name'] == 'movie') {
+
+                                    $displayPropertyData['movie'] = $this->getObjectMovie($or['id']);
+
+                                }
+                                if ($p['name'] == 'language') {
+
+                                    $displayPropertyData['language'] = $this->getLanguage($or['id']);
+
+                                }
+                                if ($p['name'] == 'breadcrumb') {
+
+                                    $displayPropertyData['breadcrumb'] = $this->setBreadcrumb($section);
+
+                                }
+                                if ($p['name'] == 'form-auth') {
+
+                                    $displayPropertyData['form-auth'] = $or['name'];
+
+                                }
+                                if ($p['name'] == 'form-register') {
+
+                                    $displayPropertyData['form-register'] = $or['name'];
+
+                                }
+                                if ($p['name'] == 'search') {
+
+                                    $displayPropertyData['search']['name'] = $or['name'];
+                                    $displayPropertyData['search']['section_search'] = $or['section_search'];
+
+                                }
+
+                                if ($p['name'] == 'menu') {
+
+                                    $sectionParent = $submenu = false;
+                                    if ($this->checkDisplayOption($option, 'parent'))
+                                        $sectionParent = $section;
+
+                                    if ($this->checkDisplayOption($option, 'submenu'))
+                                        $submenu = true;
+
+                                    $displayPropertyData['menu']['name'] = $or['name'];
+
+                                    $displayPropertyData['menu']['data'] = $this->getSection($sectionParent, $submenu);
+
+                                }
+                                if ($p['name'] == 'section') {
+
+                                    if (is_numeric($or['section']) and $or['section'] > 0) {
+
+                                        $displayPropertyData['section'] = $this->getSectionUrl($or['section']);
+
+                                    } else $displayPropertyData['section'] = false;
+
+                                }
+
+                            }
+
+                            $this->displayProperty($property, $displayPropertyData, $section, $classLabelRowSecondDisplay, array('name' => $p_package, 'transaction' => $p_transaction_package, 'parameter' => $p_string, 'spec' => $or['spec']), $formData);
+
+                            echo '</div>';
+
+                            $this->objectCounterLabel++;
+
+                            $this->objectCounter++;
 
                         }
 
