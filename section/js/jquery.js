@@ -66,12 +66,18 @@ $(function(){
 
     });
 
+    $('.search-text').keyup(function(){
+
+        getSearch($(this));
+
+    });
+
     $('.search-run').click(function(){
 
         let $parent = $(this).parent();
 
         $parent.next($('#warning-icon')).remove();
-        if($parent.find('input[type="text"]').val() !== '') {
+        if($parent.find('.search-text').val() !== '') {
 
             $parent.submit();
 
@@ -83,7 +89,7 @@ $(function(){
 
         let $parent = $(this).parent();
 
-        $parent.find('input[type="text"]').val('');
+        $parent.find('.search-text').val('');
 
         $parent.submit();
 

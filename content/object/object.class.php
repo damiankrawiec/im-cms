@@ -1048,8 +1048,6 @@ class ObjectContent extends Language {
 
     private function searchObject($data) {
 
-        $find = false;
-
         $searchArray = array($this->session['search']);
         if (stristr($this->session['search'], ' '))
             $searchArray = explode(' ', $this->session['search']);
@@ -1066,6 +1064,7 @@ class ObjectContent extends Language {
 
         }
 
+        $find = false;
         if ($findCount === count($searchArray))
             $find = true;
 

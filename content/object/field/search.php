@@ -16,7 +16,9 @@ if($this->checkDataDisplay($dataDisplay, 'array')) {
 
         echo '<form action="'.$action.'" method="post">';
 
-            echo '<input type="text" class="form-control" name="search" value="'.$searchValue.'" placeholder="'.$this->makeTranslationSystem('search-text').'">';
+            echo '<input type="text" class="form-control search-text" name="search" value="'.$searchValue.'" placeholder="'.$this->makeTranslationSystem('search-text').'">';
+
+            echo '<div class="search-suggest im-hide"></div>';
 
             echo '<input type="button" class="btn btn-success search-run" value="'.$this->makeTranslationSystem('search').'">';
 

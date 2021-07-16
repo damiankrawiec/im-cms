@@ -131,3 +131,30 @@ function passwordSet($email, $url, $form, $path) {
     });
 
 }
+function getSearch($input) {
+
+    let $next = $input.next();
+
+    $next.hide();
+
+    if($input.val() !== '') {
+
+        $.ajax({
+            method: "POST",
+            url: $('#path').val() + "ajax/get-search.php",
+            data: {
+                system: $('#system').val(),
+                string: $input.val()
+            }
+        }).done(function ($data) {
+
+            if ($data !== '')
+                $next.show();
+
+            $next.html($data);
+
+        });
+
+    }
+
+}
